@@ -46,42 +46,7 @@ body {
   color: #ffd700;
 }
 
-/* Hero */
-.hero {
-  height: calc(100vh - 90px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.hero-content {
-  color: white;
-}
 
-.hero-content h1 {
-  font-size: 60px;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-size: 24px;
-  margin-bottom: 35px;
-}
-
-.hero-content button {
-  padding: 15px 40px;
-  border: none;
-  border-radius: 6px;
-  background: #ffd700;
-  color: #003b73;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.hero-content button:hover {
-  background: #ffca00;
-}
 
 /* ===========================
    FOOTER

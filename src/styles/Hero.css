@@ -1,0 +1,45 @@
+.hero {
+    position: relative;
+    width: 100%;
+
+    overflow: visible;
+
+    line-height: 0;
+
+    padding-top: 5px;   /* tambahkan */
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero-btn {
+    position: absolute;
+
+    left: 50%;
+    bottom: 40px;      /* setengah tombol keluar dari hero */
+
+    transform: translateX(-50%);
+
+    background: #ffc107;
+    color: #0b2d57;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 14px 36px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    z-index: 10;
+
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    background: #ffb300;
+}

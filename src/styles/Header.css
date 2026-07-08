@@ -1,47 +1,234 @@
+/* ===========================
+   HEADER WRAPPER
+=========================== */
+
+.header-wrapper{
+
+    position:fixed;
+
+    top:-80px;
+
+    left:0;
+
+    width:100%;
+
+    z-index:9999;
+
+    transition:
+        top .55s cubic-bezier(.22,.61,.36,1);
+
+}
+
 /* ==========================
-   HEADER
+   ANIMASI LOGO
 ========================== */
 
-.navbar {
-  width: 100%;
-  height: 90px;
-  background: #003b73;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 60px;
+.header-wrapper:hover .logo img{
+
+    transform:rotate(15deg) scale(1.08);
+
+    filter:drop-shadow(0 0 8px rgba(255,193,7,.5));
+
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+/* ==========================
+   ANIMASI JUDUL
+========================== */
+
+.header-wrapper:hover .logo h2{
+
+    opacity:1;
+
+    transform:translateX(0);
+
 }
 
-.logo img {
-  width: 55px;
-  height: 55px;
+/* ==========================
+   ANIMASI MENU
+========================== */
+
+.header-wrapper:hover .menu a{
+
+    opacity:1;
+
+    transform:translateY(0);
+
 }
 
-.logo h2 {
-  color: white;
-  font-size: 26px;
-  font-weight: 700;
+.menu a:nth-child(1){
+
+    transition-delay:.08s;
+
 }
 
-.menu {
-  display: flex;
-  gap: 35px;
+.menu a:nth-child(2){
+
+    transition-delay:.16s;
+
 }
 
-.menu a {
-  color: white;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 600;
-  transition: 0.3s;
+.menu a:nth-child(3){
+
+    transition-delay:.24s;
+
 }
 
-.menu a:hover {
-  color: #ffd700;
+.menu a:nth-child(4){
+
+    transition-delay:.32s;
+
+}
+
+.menu a:nth-child(5){
+
+    transition-delay:.40s;
+
+}
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    width:100%;
+    height:80px;
+
+    background:#0b3d6d;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+
+.header-container{
+
+    width:95%;
+    max-width:1400px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+}
+
+.logo img{
+
+    height:56px;
+    width:auto;
+
+    object-fit:contain;
+
+    transition:
+        transform .8s ease,
+        filter .35s ease;
+
+}
+
+.logo h2{
+
+    color:#fff;
+
+    font-size:22px;
+    font-weight:700;
+
+    opacity:0;
+
+    transform:translateX(-30px);
+
+    transition:
+
+        opacity .45s ease,
+
+        transform .45s ease;
+
+}
+
+.menu{
+
+    display:flex;
+
+    gap:40px;
+}
+
+.menu a{
+
+    color:#fff;
+
+    font-size:17px;
+    font-weight:600;
+
+    opacity:0;
+
+    transform:translateY(-18px);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        color .3s;
+
+}
+
+.menu a:hover{
+
+    color:#ffc107;
+}
+
+/* ===========================
+   TOMBOL PANAH
+=========================== */
+
+.header-trigger{
+
+    position:absolute;
+
+    bottom:-28px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:120px;
+    height:28px;
+
+    background:#0b3d6d;
+
+    color:#fff;
+
+    border-radius:0 0 12px 12px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:14px;
+    font-weight:bold;
+
+    user-select:none;
+
+    transition:.3s;
+}
+
+.header-trigger:hover{
+
+    background:#ffc107;
+    color:#0b3d6d;
+}
+
+/* ===========================
+   SAAT MOUSE DIARAHKAN
+=========================== */
+
+.header-wrapper:hover{
+
+    top:0;
 }
