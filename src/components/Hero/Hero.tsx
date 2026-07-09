@@ -1,5 +1,5 @@
-import "../styles/Hero.css";
-import heroImage from "../assets/hero/hero-polda-papua-tengah.png";
+import "./Hero.css";
+import heroImage from "../../assets/hero/hero-polda-papua-tengah.png";
 
 function Hero() {
   return (
