@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-import "../styles/Header.css";
-import logo from "../assets/logo.png";
+import "./Header.css";
+import logo from "../../assets/logo.png";
 
 function Header() {
 
