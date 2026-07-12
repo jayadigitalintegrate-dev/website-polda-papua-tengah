@@ -2,22 +2,32 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 import "./Header.css";
-import logo from "../../assets/logo.png";
+
+import DesktopMenu from "./DesktopMenu";
+import MobileMenu from "./MobileMenu";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
 
+  // ==========================
+  // GSAP Animation (Desktop Only)
+  // ==========================
   useEffect(() => {
+    if (isMobile) return;
+
     const wrapper = wrapperRef.current;
-    const logo = logoRef.current;
+    const logoElement = logoRef.current;
     const title = titleRef.current;
     const menu = menuRef.current;
 
-    if (!wrapper || !logo || !title || !menu) return;
+    if (!wrapper || !logoElement || !title || !menu) return;
 
     const menuItems = menu.querySelectorAll("a");
 
@@ -36,7 +46,7 @@ function Header() {
     });
 
     tl.to(
-      logo,
+      logoElement,
       {
         rotate: 360,
         duration: 0.8,
@@ -73,54 +83,70 @@ function Header() {
     return () => {
       wrapper.removeEventListener("mouseenter", enter);
     };
+  }, [isMobile]);
+
+  // ==========================
+  // Detect Screen Size
+  // ==========================
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+
+      setIsMobile(mobile);
+
+      if (!mobile) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    if (isMobile) {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <div
-  className={`header-wrapper ${isOpen ? "open" : ""}`}
-  ref={wrapperRef}
-  onMouseEnter={() => setIsOpen(true)}
-  onMouseLeave={() => setIsOpen(false)}
->
-      {/* Area transparan agar header lebih mudah muncul */}
-      <div
-  className="header-hover-area"
-  onMouseEnter={() => setIsOpen(true)}
-></div>
+      className={`header-wrapper ${isOpen || isMobile ? "open" : ""}`}
+      ref={wrapperRef}
+      onMouseEnter={() => {
+        if (!isMobile) setIsOpen(true);
+      }}
+      onMouseLeave={() => {
+        if (!isMobile) setIsOpen(false);
+      }}
+    >
+      {!isMobile && (
+        <div
+          className="header-hover-area"
+          onMouseEnter={() => setIsOpen(true)}
+        />
+      )}
 
-      {/* Tombol trigger */}
-      <div className="header-trigger">
-        ▼ MENU
-      </div>
-
-      <header className="header">
-        <div className="header-container">
-
-          <div className="logo">
-            <img
-              ref={logoRef}
-              src={logo}
-              alt="Logo Polda Papua Tengah"
-            />
-
-            <h2 ref={titleRef}>
-              POLDA PAPUA TENGAH
-            </h2>
-          </div>
-
-          <nav
-            className="menu"
-            ref={menuRef}
-          >
-            <a href="#">Beranda</a>
-            <a href="#">Profil</a>
-            <a href="#">Berita</a>
-            <a href="#">Layanan</a>
-            <a href="#">Kontak</a>
-          </nav>
-
-        </div>
-      </header>
+      {isMobile ? (
+        <MobileMenu
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          closeMenu={closeMenu}
+        />
+      ) : (
+        <DesktopMenu
+          logoRef={logoRef}
+          titleRef={titleRef}
+          menuRef={menuRef}
+        />
+      )}
     </div>
   );
 }
