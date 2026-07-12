@@ -1,0 +1,117 @@
+/* ==========================================
+   QUICK ACCESS
+========================================== */
+
+.quick-access{
+    width:100%;
+    padding:80px 20px;
+    background:#f5f7fa;
+}
+
+.quick-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.quick-title h2{
+    font-size:36px;
+    color:#0b3d6d;
+    margin-bottom:10px;
+}
+
+.quick-title p{
+    color:#666;
+    font-size:17px;
+}
+
+.quick-grid{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.quick-card{
+    background:white;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.quick-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+}
+
+.quick-icon{
+
+    font-size:56px;
+
+    margin-bottom:18px;
+
+}
+
+.quick-card h3{
+
+    color:#0b3d6d;
+
+    font-size:20px;
+
+}
+
+/* Tablet */
+
+@media(max-width:992px){
+
+.quick-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.quick-access{
+
+padding:60px 15px;
+
+}
+
+.quick-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.quick-card{
+
+padding:28px;
+
+}
+
+.quick-title h2{
+
+font-size:28px;
+
+}
+
+}

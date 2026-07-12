@@ -1,0 +1,10 @@
+﻿# Environment Variables
+
+VITE_API_URL=
+
+VITE_APP_NAME=
+
+VITE_APP_VERSION=
+
+VITE_UPLOAD_URL=
+

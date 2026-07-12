@@ -1,12 +1,13 @@
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
 .hero {
     position: relative;
     width: 100%;
-
     overflow: visible;
-
     line-height: 0;
-
-    padding-top: 5px;   /* tambahkan */
+    padding-top: 5px;
 }
 
 .hero-image {
@@ -15,11 +16,16 @@
     height: auto;
 }
 
+/* =====================================================
+   BUTTON
+===================================================== */
+
 .hero-btn {
+
     position: absolute;
 
     left: 50%;
-    bottom: 40px;      /* setengah tombol keluar dari hero */
+    bottom: 40px;
 
     transform: translateX(-50%);
 
@@ -32,14 +38,87 @@
     padding: 14px 36px;
 
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
 
     cursor: pointer;
-    z-index: 10;
 
-    transition: .3s;
+    z-index: 20;
+
+    transition: all .3s ease;
 }
 
 .hero-btn:hover {
+
     background: #ffb300;
+
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:1024px){
+
+    .hero-btn{
+
+        bottom:30px;
+
+        padding:12px 30px;
+
+        font-size:15px;
+
+    }
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+    .hero{
+
+        margin-bottom:38px;
+    }
+
+    .hero-btn{
+
+        bottom:-22px;
+
+        padding:12px 28px;
+
+        font-size:15px;
+
+        border-radius:12px;
+
+        box-shadow:0 8px 20px rgba(0,0,0,.25);
+    }
+
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width:480px){
+
+    .hero{
+
+        margin-bottom:35px;
+    }
+
+    .hero-btn{
+
+        bottom:-20px;
+
+        width:170px;
+
+        padding:11px 0;
+
+        font-size:14px;
+
+    }
+
 }
