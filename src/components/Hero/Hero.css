@@ -1,124 +1,164 @@
-/* =====================================================
-   HERO SECTION
-===================================================== */
+/* ===================================================
+   HERO
+=================================================== */
 
-.hero {
-    position: relative;
-    width: 100%;
-    overflow: visible;
-    line-height: 0;
-    padding-top: 5px;
+.hero{
+    position:relative;
+    width:100%;
+    aspect-ratio:1920/900;
+    overflow:hidden;
+    background:#ffffff;
 }
 
-.hero-image {
-    display: block;
-    width: 100%;
-    height: auto;
+/* semua gambar ditumpuk */
+
+.hero-image{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:0;
+
+    transition:
+        opacity 1.4s ease,
+        transform 8s ease;
+
+    transform:scale(1.04);
+
+    will-change:opacity,transform;
 }
 
-/* =====================================================
-   BUTTON
-===================================================== */
+/* gambar aktif */
 
-.hero-btn {
+.hero-image.active{
 
-    position: absolute;
-
-    left: 50%;
-    bottom: 40px;
-
-    transform: translateX(-50%);
-
-    background: #ffc107;
-    color: #0b2d57;
-
-    border: none;
-    border-radius: 10px;
-
-    padding: 14px 36px;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    z-index: 20;
-
-    transition: all .3s ease;
+    opacity:1;
+    transform:scale(1);
+    z-index:2;
 }
 
-.hero-btn:hover {
+/* overlay tipis */
 
-    background: #ffb300;
+.hero-overlay{
 
-    transform: translateX(-50%) scale(1.05);
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.10),
+        rgba(0,0,0,.08)
+    );
+
+    z-index:3;
 }
 
-/* =====================================================
-   TABLET
-===================================================== */
+/* button */
 
-@media (max-width:1024px){
+.hero-btn{
+
+    position:absolute;
+
+    left:50%;
+    bottom:42px;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+    background:#ffc107;
+    color:#0b2d57;
+
+    border:none;
+    border-radius:10px;
+
+    padding:14px 36px;
+
+    font-weight:700;
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.hero-btn:hover{
+
+    background:#ffb300;
+    transform:translateX(-50%) scale(1.05);
+}
+
+/* dots */
+
+.hero-dots{
+
+    position:absolute;
+
+    left:50%;
+    bottom:105px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+    gap:10px;
+
+    z-index:5;
+}
+
+.hero-dots span{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.5);
+
+    transition:.3s;
+}
+
+.hero-dots span.active{
+
+    background:#ffc107;
+    transform:scale(1.3);
+}
+
+/* tablet */
+
+@media(max-width:1024px){
 
     .hero-btn{
 
-        bottom:30px;
-
+        bottom:28px;
         padding:12px 30px;
-
-        font-size:15px;
-
     }
 
+    .hero-dots{
+
+        bottom:90px;
+    }
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* mobile */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
     .hero{
 
-        margin-bottom:38px;
+        aspect-ratio:4/5;
     }
 
     .hero-btn{
 
-        bottom:-22px;
-
-        padding:12px 28px;
-
-        font-size:15px;
-
-        border-radius:12px;
-
-        box-shadow:0 8px 20px rgba(0,0,0,.25);
+        bottom:-18px;
     }
 
-}
+    .hero-dots{
 
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media (max-width:480px){
-
-    .hero{
-
-        margin-bottom:35px;
+        bottom:60px;
     }
-
-    .hero-btn{
-
-        bottom:-20px;
-
-        width:170px;
-
-        padding:11px 0;
-
-        font-size:14px;
-
-    }
-
 }

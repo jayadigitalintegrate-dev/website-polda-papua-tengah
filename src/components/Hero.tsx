@@ -1,17 +1,15 @@
 function Hero() {
   return (
-    <section
+    <div
       style={{
-        width: "100%",
-        height: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#f5f7fa",
+        background: "red",
+        color: "white",
+        height: "300px",
+        fontSize: "40px",
       }}
     >
-      <h1>Hero Section</h1>
-    </section>
+      HERO TEST
+    </div>
   );
 }
 
