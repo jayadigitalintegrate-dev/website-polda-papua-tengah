@@ -1,3 +1,5 @@
+import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 import type { QuickAccessItem } from "./quickAccessData";
 
 interface Props {
@@ -6,13 +8,18 @@ interface Props {
 
 function QuickAccessCard({ item }: Props) {
   return (
-    <div className="quick-card">
+    <Link
+      to={item.url}
+      className={`quick-card ${item.featured ? "featured" : ""}`}
+    >
       <div className="quick-icon">
-        {item.icon}
+        <Icon icon={item.icon} />
       </div>
 
       <h3>{item.title}</h3>
-    </div>
+
+      <p>{item.description}</p>
+    </Link>
   );
 }
 
