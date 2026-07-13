@@ -1,20 +1,17 @@
-import "./Hero.css";
-import heroImage from "../../assets/hero/hero-polda-papua-tengah.png";
-
 function Hero() {
-  return (
-    <section className="hero">
-      <img
-        src={heroImage}
-        alt="Hero Polda Papua Tengah"
-        className="hero-image"
-      />
-
-      <button className="hero-btn">
-        Selengkapnya
-      </button>
-    </section>
-  );
+    return (
+        <section
+            style={{
+                height: "80vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "#f5f7fa"
+            }}
+        >
+            <h1>Hero Section</h1>
+        </section>
+    );
 }
 
 export default Hero;

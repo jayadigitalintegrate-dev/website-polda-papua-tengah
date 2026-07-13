@@ -1,6 +1,7 @@
-import "../../Header/QuickAccess/QuickAccess.css";
-import QuickAccessCard from "../../Header/QuickAccess/QuickAccessCard";
-import { quickAccessData } from "../../Header/QuickAccess/quickAccessData";
+import "./QuickAccess.css";
+
+import QuickAccessCard from "./QuickAccessCard";
+import { quickAccessData } from "./quickAccessData";
 
 function QuickAccess() {
   return (
@@ -12,10 +13,7 @@ function QuickAccess() {
 
       <div className="quick-grid">
         {quickAccessData.map((item) => (
-          <QuickAccessCard
-            key={item.id}
-            item={item}
-          />
+          <QuickAccessCard key={item.id} item={item} />
         ))}
       </div>
     </section>
