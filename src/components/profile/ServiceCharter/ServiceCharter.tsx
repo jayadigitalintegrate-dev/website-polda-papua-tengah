@@ -1,3 +1,4 @@
+import "./ServiceCharter.css";
 import presisiLogo from "../../../assets/logo/presisi-polri.png";
 
 export default function ServiceCharter() {

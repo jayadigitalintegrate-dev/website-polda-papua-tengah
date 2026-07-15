@@ -1,0 +1,267 @@
+.officials{
+  padding:110px 20px;
+  background:linear-gradient(180deg,#f7f9fc 0%,#eef4fb 100%);
+}
+
+.officials-container{
+  max-width:1400px;
+  margin:auto;
+}
+
+.officials-label{
+  display:block;
+  text-align:center;
+  color:#0b4f8a;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:14px;
+}
+
+.officials-title{
+  text-align:center;
+  color:#082f57;
+  font-size:48px;
+  font-weight:700;
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+.officials-description{
+  max-width:820px;
+  margin:0 auto 70px;
+  text-align:center;
+  color:#5c6673;
+  font-size:19px;
+  line-height:1.9;
+}
+
+.officials-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:35px;
+}
+
+.official-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:#fff;
+
+  border-radius:24px;
+
+  box-shadow:0 18px 45px rgba(0,0,0,.08);
+
+  transition:.35s ease;
+
+  cursor:pointer;
+
+}
+
+.official-card:hover{
+
+  transform:translateY(-10px);
+
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+}
+
+.official-photo{
+
+  position:relative;
+
+  height:340px;
+
+  overflow:hidden;
+
+  background:#e7edf4;
+
+}
+
+.official-photo img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.5s;
+
+}
+
+.official-card:hover .official-photo img{
+
+  transform:scale(1.06);
+
+}
+
+.official-photo::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  right:0;
+
+  bottom:0;
+
+  height:120px;
+
+  background:linear-gradient(to top,
+  rgba(0,0,0,.55),
+  transparent);
+
+}
+
+.official-content{
+
+  padding:28px;
+
+}
+
+.official-content h3{
+
+  font-size:26px;
+
+  color:#082f57;
+
+  margin-bottom:8px;
+
+  line-height:1.35;
+
+}
+
+.official-position{
+
+  display:inline-block;
+
+  background:#0b4f8a;
+
+  color:#fff;
+
+  padding:7px 18px;
+
+  border-radius:999px;
+
+  font-size:14px;
+
+  font-weight:600;
+
+  margin-bottom:16px;
+
+}
+
+.official-rank{
+
+  color:#666;
+
+  font-size:16px;
+
+  margin-bottom:25px;
+
+}
+
+.official-button{
+
+  width:100%;
+
+  border:none;
+
+  border-radius:12px;
+
+  padding:15px;
+
+  background:#d4a325;
+
+  color:#fff;
+
+  font-size:16px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+.official-button:hover{
+
+  background:#b88b16;
+
+}
+
+.official-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  border:2px solid transparent;
+
+  border-radius:24px;
+
+  transition:.3s;
+
+  pointer-events:none;
+
+}
+
+.official-card:hover::before{
+
+  border-color:#d4a325;
+
+}
+
+@media(max-width:992px){
+
+  .officials-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+  }
+
+}
+
+@media(max-width:768px){
+
+  .officials{
+
+    padding:80px 20px;
+
+  }
+
+  .officials-title{
+
+    font-size:34px;
+
+  }
+
+  .officials-description{
+
+    font-size:17px;
+
+    margin-bottom:50px;
+
+  }
+
+  .officials-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .official-photo{
+
+    height:300px;
+
+  }
+
+}
