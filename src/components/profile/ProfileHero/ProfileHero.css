@@ -1,0 +1,72 @@
+.profile-hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 28, 68, 0.6);
+}
+
+.profile-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 0 20px;
+}
+
+.profile-hero__breadcrumb {
+  display: inline-block;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  color: #ffd54f;
+}
+
+.profile-hero__title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .profile-hero {
+    height: 340px;
+  }
+
+  .profile-hero__title {
+    font-size: 38px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .profile-hero {
+    height: 280px;
+  }
+
+  .profile-hero__breadcrumb {
+    font-size: 13px;
+  }
+
+  .profile-hero__title {
+    font-size: 28px;
+  }
+}
