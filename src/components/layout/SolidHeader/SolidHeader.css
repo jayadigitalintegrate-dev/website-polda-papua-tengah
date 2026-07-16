@@ -1,0 +1,163 @@
+/* ===========================
+   SOLID HEADER
+=========================== */
+
+.solid-header{
+    position:sticky;
+    top:0;
+    width:100%;
+    z-index:999;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,.06);
+    transition:all .35s ease;
+}
+
+.solid-header.scrolled{
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.solid-header-container{
+    width:min(1280px,94%);
+    margin:auto;
+    height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.solid-logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    color:#002B5B;
+}
+
+.solid-logo img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    transition:.35s;
+}
+
+.solid-logo:hover img{
+    transform:rotate(8deg) scale(1.05);
+}
+
+.solid-logo h2{
+    margin:0;
+    font-size:20px;
+    font-weight:800;
+    color:#002B5B;
+}
+
+.solid-logo span{
+    display:block;
+    margin-top:2px;
+    font-size:13px;
+    color:#6b7280;
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.solid-nav{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
+
+.solid-nav a{
+    position:relative;
+    text-decoration:none;
+    color:#1f2937;
+    font-size:15px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.solid-nav a:hover{
+    color:#0056b3;
+}
+
+.solid-nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:3px;
+    border-radius:30px;
+    background:#F5B400;
+    transition:.3s;
+}
+
+.solid-nav a:hover::after{
+    width:100%;
+}
+
+.solid-nav a.active{
+    color:#0056b3;
+}
+
+.solid-nav a.active::after{
+    width:100%;
+}
+
+/* ===========================
+   RIGHT
+=========================== */
+
+.solid-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:992px){
+
+.solid-header-container{
+    height:74px;
+}
+
+.solid-nav{
+    display:none;
+}
+
+.solid-logo h2{
+    font-size:18px;
+}
+
+.solid-logo span{
+    display:none;
+}
+
+}
+
+@media (max-width:768px){
+
+.solid-header-container{
+    width:94%;
+}
+
+.solid-logo img{
+    width:48px;
+    height:48px;
+}
+
+.solid-logo h2{
+    font-size:17px;
+}
+
+}

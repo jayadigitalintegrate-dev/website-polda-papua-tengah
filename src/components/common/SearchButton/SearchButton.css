@@ -1,0 +1,23 @@
+.search-button{
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#f2f4f8;
+
+    font-size:18px;
+
+    transition:.25s;
+}
+
+.search-button:hover{
+
+    background:#005baa;
+
+    color:#fff;
+
+}

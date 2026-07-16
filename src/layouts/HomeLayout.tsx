@@ -4,7 +4,7 @@ import Announcement from "../components/announcement";
 import Header from "../components/Header/Header";
 import Footer from "../components/layout/Footer";
 
-export default function MainLayout() {
+export default function HomeLayout() {
   return (
     <>
       <Announcement />

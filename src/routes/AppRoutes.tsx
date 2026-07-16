@@ -4,7 +4,8 @@ import {
   Route,
 } from "react-router-dom";
 
-import MainLayout from "../layouts/MainLayout";
+import HomeLayout from "../layouts/HomeLayout";
+import ContentLayout from "../layouts/ContentLayout";
 
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
@@ -13,24 +14,59 @@ import Gallery from "../pages/Gallery/Gallery";
 import Services from "../pages/Services/Services";
 import Contact from "../pages/Contact/Contact";
 import DetailPolres from "../pages/Polres/DetailPolres";
+import OfficialsPage from "../pages/Officials/OfficialsPage";
 
 function AppRoutes() {
   return (
     <BrowserRouter basename="/website-polda-papua-tengah">
       <Routes>
-        <Route element={<MainLayout />}>
 
-          <Route path="/" element={<Home />} />
+        {/* ===========================
+            HOME
+        ============================ */}
 
-          <Route path="/profil" element={<Profile />} />
+        <Route element={<HomeLayout />}>
+          <Route
+            path="/"
+            element={<Home />}
+          />
+        </Route>
 
-          <Route path="/berita" element={<News />} />
+        {/* ===========================
+            CONTENT
+        ============================ */}
 
-          <Route path="/galeri" element={<Gallery />} />
+        <Route element={<ContentLayout />}>
 
-          <Route path="/layanan" element={<Services />} />
+          <Route
+            path="/profil"
+            element={<Profile />}
+          />
 
-          <Route path="/kontak" element={<Contact />} />
+          <Route
+            path="/officials"
+            element={<OfficialsPage />}
+          />
+
+          <Route
+            path="/berita"
+            element={<News />}
+          />
+
+          <Route
+            path="/galeri"
+            element={<Gallery />}
+          />
+
+          <Route
+            path="/layanan"
+            element={<Services />}
+          />
+
+          <Route
+            path="/kontak"
+            element={<Contact />}
+          />
 
           <Route
             path="/polres/:slug"
@@ -38,6 +74,7 @@ function AppRoutes() {
           />
 
         </Route>
+
       </Routes>
     </BrowserRouter>
   );
