@@ -1,110 +1,99 @@
+// src/data/officials.ts
+
+import kapoldaPhoto from "../assets/officials/kapolda.png";
+import wakapoldaPhoto from "../assets/officials/wakapolda.png";
+import irwasdaPhoto from "../assets/officials/irwasda.png";
+
 export interface Official {
   id: number;
+  photo: string;
 
-  nama: string;
-  pangkat: string;
-  jabatan: string;
-
-  foto: string;
+  name: string;
+  rank: string;
+  position: string;
 
   nrp: string;
 
-  tempatLahir: string;
-  tanggalLahir: string;
+  birthPlace: string;
+  birthDate: string;
 
-  agama: string;
+  religion: string;
 
-  statusPerkawinan: string;
+  maritalStatus: string;
 
-  namaPasangan: string;
+  spouse: string;
 
-  jumlahAnak: number;
+  children: number;
 
   motto: string;
 
-  pendidikan: string[];
+  education: string[];
 
-  riwayatPendidikan: string[];
+  assignments: string[];
 
-  riwayatPenugasan: string[];
+  career: string[];
 
-  riwayatJabatan: string[];
-
-  penghargaan: string[];
-
-  email?: string;
-
-  telepon?: string;
-
-  urutan: number;
-
-  aktif: boolean;
+  awards: string[];
 }
 
 export const officials: Official[] = [
   {
     id: 1,
-
-    nama: "Irjen Pol. Nama Kapolda",
-
-    pangkat: "Inspektur Jenderal Polisi",
-
-    jabatan: "Kapolda Papua Tengah",
-
-    foto: "/images/officials/kapolda.jpg",
-
+    photo: kapoldaPhoto,
+    name: "Brigjen Pol. Jermias Rontini, S.I.K., M.Si.",
+    rank: "Brigadir Jenderal Polisi",
+    position: "Kapolda Papua Tengah",
     nrp: "-",
+    birthPlace: "-",
+    birthDate: "-",
+    religion: "-",
+    maritalStatus: "-",
+    spouse: "-",
+    children: 0,
+    motto: "Integritas dan Tanggung Jawab untuk Melayani Masyarakat",
+    education: [],
+    assignments: [],
+    career: [],
+    awards: [],
+  },
 
-    tempatLahir: "-",
+  {
+    id: 2,
+    photo: wakapoldaPhoto,
+    name: "Nama Wakapolda",
+    rank: "Kombes Pol.",
+    position: "Wakapolda Papua Tengah",
+    nrp: "-",
+    birthPlace: "-",
+    birthDate: "-",
+    religion: "-",
+    maritalStatus: "-",
+    spouse: "-",
+    children: 0,
+    motto: "",
+    education: [],
+    assignments: [],
+    career: [],
+    awards: [],
+  },
 
-    tanggalLahir: "-",
-
-    agama: "-",
-
-    statusPerkawinan: "-",
-
-    namaPasangan: "-",
-
-    jumlahAnak: 0,
-
-    motto: "Integritas dan Tanggung Jawab untuk Melayani Masyarakat.",
-
-    pendidikan: [
-      "Akpol"
-    ],
-
-    riwayatPendidikan: [
-      "Akpol",
-      "PTIK",
-      "Sespim",
-      "Sespimti",
-      "Lemhannas"
-    ],
-
-    riwayatPenugasan: [
-      "Polda Papua",
-      "Polres Jayapura",
-      "Mabes Polri"
-    ],
-
-    riwayatJabatan: [
-      "Kapolres",
-      "Dir Reskrimum",
-      "Wakapolda",
-      "Kapolda Papua Tengah"
-    ],
-
-    penghargaan: [
-      "Satyalancana",
-      "Bintang Bhayangkara"
-    ],
-
-    email: "",
-
-    telepon: "",
-
-    urutan: 1,
-
-    aktif: true
-  }
+  {
+    id: 3,
+    photo: irwasdaPhoto,
+    name: "Nama Irwasda",
+    rank: "Kombes Pol.",
+    position: "Irwasda",
+    nrp: "-",
+    birthPlace: "-",
+    birthDate: "-",
+    religion: "-",
+    maritalStatus: "-",
+    spouse: "-",
+    children: 0,
+    motto: "",
+    education: [],
+    assignments: [],
+    career: [],
+    awards: [],
+  },
 ];

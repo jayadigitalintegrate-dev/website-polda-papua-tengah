@@ -1,0 +1,249 @@
+.announcement-overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:rgba(0,0,0,.68);
+    backdrop-filter:blur(10px);
+    z-index:99999;
+    animation:fadeIn .35s ease;
+}
+
+.announcement-modal{
+    width:100%;
+    max-width:760px;
+    background:#ffffff;
+    border-radius:24px;
+    padding:45px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    border-top:6px solid #d8a21d;
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.28),
+        0 8px 20px rgba(0,0,0,.08);
+    animation:popup .35s ease;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.announcement-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.announcement-logo img{
+    width:250px;
+    height:250px;
+    object-fit:contain;
+}
+
+/* ===========================
+   BADGE
+=========================== */
+
+.announcement-badge{
+    display:inline-block;
+    padding:6px 16px;
+    margin-bottom:18px;
+    background:#d8a21d;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:2px;
+    border-radius:30px;
+    text-transform:uppercase;
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.announcement-title{
+    font-size:40px;
+    font-weight:800;
+    color:#0b2d50;
+    margin-bottom:25px;
+    line-height:1.2;
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.announcement-content{
+    margin-bottom:28px;
+}
+
+.announcement-text{
+    max-width:650px;
+    margin:auto;
+    font-size:19px;
+    line-height:1.9;
+    color:#4a4a4a;
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.announcement-image{
+    width:100%;
+    border-radius:18px;
+    margin-top:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+/* ===========================
+   VIDEO
+=========================== */
+
+.announcement-video{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.announcement-video iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* ===========================
+   DOWNLOAD
+=========================== */
+
+.announcement-download{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    padding:15px 34px;
+    margin-bottom:28px;
+    border-radius:50px;
+    background:#d8a21d;
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.announcement-download:hover{
+    background:#b98500;
+    transform:translateY(-3px);
+}
+
+/* ===========================
+   CHECKBOX
+=========================== */
+
+.announcement-checkbox{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-bottom:30px;
+    color:#444;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.announcement-checkbox input{
+    width:18px;
+    height:18px;
+    cursor:pointer;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.announcement-button{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:50px;
+    background:#0b4f8a;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.announcement-button:hover{
+    background:#083861;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes popup{
+
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.92);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .announcement-modal{
+        padding:28px 22px;
+    }
+
+    .announcement-logo img{
+        width:90px;
+        height:90px;
+    }
+
+    .announcement-title{
+        font-size:30px;
+    }
+
+    .announcement-text{
+        font-size:16px;
+        line-height:1.8;
+    }
+
+    .announcement-download{
+        width:100%;
+    }
+
+}

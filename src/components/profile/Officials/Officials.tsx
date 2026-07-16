@@ -35,20 +35,20 @@ export default function Officials() {
               >
                 <div className="official-photo">
                   <img
-                    src={official.foto}
-                    alt={official.nama}
+                    src={official.photo}
+                    alt={official.name}
                   />
                 </div>
 
                 <div className="official-content">
-                  <h3>{official.nama}</h3>
+                  <h3>{official.name}</h3>
 
                   <span className="official-position">
-                    {official.jabatan}
+                    {official.position}
                   </span>
 
                   <p className="official-rank">
-                    {official.pangkat}
+                    {official.rank}
                   </p>
 
                   <button
@@ -74,20 +74,20 @@ export default function Officials() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={selectedOfficial.foto}
-              alt={selectedOfficial.nama}
+              src={selectedOfficial.photo}
+              alt={selectedOfficial.name}
               className="official-modal-photo"
             />
 
-            <h2>{selectedOfficial.nama}</h2>
+            <h2>{selectedOfficial.name}</h2>
 
-            <h4>{selectedOfficial.jabatan}</h4>
+            <h4>{selectedOfficial.position}</h4>
 
             <div className="official-detail">
 
               <p>
                 <strong>Pangkat :</strong>{" "}
-                {selectedOfficial.pangkat}
+                {selectedOfficial.rank}
               </p>
 
               <p>
@@ -97,28 +97,28 @@ export default function Officials() {
 
               <p>
                 <strong>Tempat / Tanggal Lahir :</strong>{" "}
-                {selectedOfficial.tempatLahir},{" "}
-                {selectedOfficial.tanggalLahir}
+                {selectedOfficial.birthPlace},{" "}
+                {selectedOfficial.birthDate}
               </p>
 
               <p>
                 <strong>Agama :</strong>{" "}
-                {selectedOfficial.agama}
+                {selectedOfficial.religion}
               </p>
 
               <p>
                 <strong>Status Perkawinan :</strong>{" "}
-                {selectedOfficial.statusPerkawinan}
+                {selectedOfficial.maritalStatus}
               </p>
 
               <p>
                 <strong>Nama Pasangan :</strong>{" "}
-                {selectedOfficial.namaPasangan}
+                {selectedOfficial.spouse}
               </p>
 
               <p>
                 <strong>Jumlah Anak :</strong>{" "}
-                {selectedOfficial.jumlahAnak}
+                {selectedOfficial.children}
               </p>
 
               <p>
@@ -131,7 +131,7 @@ export default function Officials() {
               <h3>Pendidikan</h3>
 
               <ul>
-                {selectedOfficial.riwayatPendidikan.map((item, index) => (
+                {selectedOfficial.education.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
@@ -139,7 +139,7 @@ export default function Officials() {
               <h3>Riwayat Penugasan</h3>
 
               <ul>
-                {selectedOfficial.riwayatPenugasan.map((item, index) => (
+                {selectedOfficial.assignments.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
@@ -147,7 +147,7 @@ export default function Officials() {
               <h3>Riwayat Jabatan</h3>
 
               <ul>
-                {selectedOfficial.riwayatJabatan.map((item, index) => (
+                {selectedOfficial.career.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
@@ -155,7 +155,7 @@ export default function Officials() {
               <h3>Penghargaan</h3>
 
               <ul>
-                {selectedOfficial.penghargaan.map((item, index) => (
+                {selectedOfficial.awards.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
               </ul>
