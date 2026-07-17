@@ -1,0 +1,57 @@
+.news-pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-top:60px;
+}
+
+.page-number,
+.page-arrow{
+
+    width:46px;
+    height:46px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#fff;
+
+    color:#0b3f77;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    font-size:16px;
+
+    transition:.3s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.page-number:hover,
+.page-arrow:hover{
+
+    background:#ffc107;
+
+    color:#0b3f77;
+
+}
+
+.page-number.active{
+
+    background:#0b3f77;
+
+    color:#fff;
+
+}
+
+.page-arrow:disabled{
+
+    opacity:.35;
+
+    cursor:not-allowed;
+
+}

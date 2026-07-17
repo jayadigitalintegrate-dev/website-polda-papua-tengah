@@ -1,6 +1,14 @@
 import "./SearchWidget.css";
 
-export default function SearchWidget() {
+type SearchWidgetProps = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+function SearchWidget({
+  value,
+  onChange,
+}: SearchWidgetProps) {
   return (
     <section className="search-widget">
 
@@ -12,10 +20,15 @@ export default function SearchWidget() {
 
         <input
           type="text"
-          placeholder="Cari berita..."
+          placeholder="Cari judul berita..."
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
         />
 
-        <button>
+        <button
+          type="button"
+          aria-label="Cari"
+        >
           🔍
         </button>
 
@@ -24,3 +37,5 @@ export default function SearchWidget() {
     </section>
   );
 }
+
+export default SearchWidget;
