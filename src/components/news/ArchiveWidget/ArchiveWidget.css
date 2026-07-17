@@ -1,0 +1,38 @@
+.archive-widget{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.archive-widget h3{
+    margin:0 0 20px;
+    color:#0B2C56;
+}
+
+.archive-widget ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.archive-widget li+li{
+    margin-top:12px;
+}
+
+.archive-widget button{
+    width:100%;
+    border:none;
+    background:#f5f8fb;
+    padding:13px;
+    text-align:left;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.archive-widget button:hover{
+    background:#005BAC;
+    color:#fff;
+}

@@ -1,4 +1,4 @@
-import type { NewsItem } from "../../../data/news";
+import type { NewsItem } from "../../../types/news";
 
 type NewsCardProps = {
   news: NewsItem;
@@ -9,17 +9,17 @@ function NewsCard({ news }: NewsCardProps) {
     <div className="news-card">
       <div className="news-thumb">
         <img
-          src={news.image}
+          src={news.thumbnail}
           alt={news.title}
         />
       </div>
 
       <div className="news-info">
-        <span>{news.category}</span>
+        <span>{news.category.name}</span>
 
         <h4>{news.title}</h4>
 
-        <small>{news.date}</small>
+        <small>{news.publishedAt}</small>
       </div>
     </div>
   );

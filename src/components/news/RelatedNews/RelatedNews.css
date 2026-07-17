@@ -1,0 +1,44 @@
+.related-news{
+    margin-top:70px;
+}
+
+.related-news__header{
+    margin-bottom:32px;
+}
+
+.related-news__header h2{
+    color:#0B2C56;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.related-news__header p{
+    color:#6b7280;
+    font-size:1rem;
+}
+
+.related-news__grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+@media(max-width:1024px){
+
+.related-news__grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.related-news__grid{
+
+grid-template-columns:1fr;
+
+}
+
+}

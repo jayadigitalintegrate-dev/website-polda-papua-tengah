@@ -1,0 +1,25 @@
+.news-layout {
+  display: grid;
+  grid-template-columns: 2fr 360px;
+  gap: 40px;
+}
+
+.news-layout__content {
+  min-width: 0;
+}
+
+.news-layout__sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+@media (max-width: 1024px) {
+  .news-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .news-layout__sidebar {
+    position: static;
+  }
+}

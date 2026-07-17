@@ -1,0 +1,33 @@
+.tag-widget{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.tag-widget h3{
+    margin:0 0 20px;
+    color:#0B2C56;
+}
+
+.tag-widget__list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tag-widget button{
+    border:none;
+    background:#eef5fb;
+    color:#005BAC;
+    padding:10px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:.9rem;
+}
+
+.tag-widget button:hover{
+    background:#005BAC;
+    color:#fff;
+}

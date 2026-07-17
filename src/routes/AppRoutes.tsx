@@ -10,20 +10,25 @@ import ContentLayout from "../layouts/ContentLayout";
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
 import News from "../pages/News/News";
+import NewsDetail from "../pages/NewsDetail/NewsDetail";
 import Gallery from "../pages/Gallery/Gallery";
 import Services from "../pages/Services/Services";
 import Contact from "../pages/Contact/Contact";
 import DetailPolres from "../pages/Polres/DetailPolres";
 import OfficialsPage from "../pages/Officials/OfficialsPage";
 
+const basename = import.meta.env.DEV
+  ? "/"
+  : "/website-polda-papua-tengah";
+
 function AppRoutes() {
   return (
-    <BrowserRouter basename="/website-polda-papua-tengah">
+    <BrowserRouter basename={basename}>
       <Routes>
 
         {/* ===========================
             HOME
-        ============================ */}
+        =========================== */}
 
         <Route element={<HomeLayout />}>
           <Route
@@ -34,7 +39,7 @@ function AppRoutes() {
 
         {/* ===========================
             CONTENT
-        ============================ */}
+        =========================== */}
 
         <Route element={<ContentLayout />}>
 
@@ -51,6 +56,11 @@ function AppRoutes() {
           <Route
             path="/berita"
             element={<News />}
+          />
+
+          <Route
+            path="/berita/:slug"
+            element={<NewsDetail />}
           />
 
           <Route

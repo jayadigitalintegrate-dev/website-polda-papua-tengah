@@ -1,0 +1,39 @@
+.category-widget{
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.category-widget h3{
+    margin:0 0 20px;
+    color:#0B2C56;
+}
+
+.category-widget ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.category-widget li+li{
+    margin-top:12px;
+}
+
+.category-widget button{
+    width:100%;
+    text-align:left;
+    border:none;
+    background:#f5f8fb;
+    padding:13px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+    font-size:.95rem;
+}
+
+.category-widget button:hover{
+    background:#005BAC;
+    color:#fff;
+}

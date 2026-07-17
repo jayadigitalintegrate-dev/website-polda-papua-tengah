@@ -1,0 +1,161 @@
+.news-card{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    overflow:hidden;
+    border-radius:22px;
+    background:#fff;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+    transition:all .35s ease;
+}
+
+.news-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 24px 55px rgba(0,0,0,.14);
+}
+
+.news-card__image{
+    position:relative;
+    overflow:hidden;
+    aspect-ratio:16/9;
+}
+
+.news-card__image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .6s;
+}
+
+.news-card:hover .news-card__image img{
+    transform:scale(1.08);
+}
+
+.news-card__badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:#005BAC;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:40px;
+    font-size:.78rem;
+    font-weight:600;
+}
+
+.news-card__body{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    padding:24px;
+}
+
+.news-card__date{
+    color:#7b8794;
+    font-size:.9rem;
+    margin-bottom:14px;
+}
+
+.news-card__title{
+    color:#0B2C56;
+    font-size:1.55rem;
+    line-height:1.45;
+    margin-bottom:16px;
+
+    display:-webkit-box;
+    display:box;
+
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+
+    -webkit-line-clamp:2;
+    line-clamp:2;
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.news-card:hover .news-card__title{
+    color:#005BAC;
+}
+
+.news-card__excerpt{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:28px;
+
+    display:-webkit-box;
+    display:box;
+
+    -webkit-box-orient:vertical;
+    box-orient:vertical;
+
+    -webkit-line-clamp:3;
+    line-clamp:3;
+
+    overflow:hidden;
+}
+
+.news-card__footer{
+    margin-top:auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.news-card__views{
+    color:#666;
+    font-size:.9rem;
+}
+
+/* =====================================================
+   BUTTON (Link)
+===================================================== */
+
+.news-card__button{
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    background:#005BAC;
+    color:#fff;
+
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.news-card__button:hover{
+    background:#0A74D1;
+    color:#fff;
+    text-decoration:none;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+    .news-card__title{
+        font-size:1.3rem;
+    }
+
+    .news-card__body{
+        padding:20px;
+    }
+
+}
