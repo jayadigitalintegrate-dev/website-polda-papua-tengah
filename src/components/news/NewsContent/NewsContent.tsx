@@ -1,9 +1,9 @@
 import "./NewsContent.css";
 
-import type { NewsItem } from "../../../types/news";
+import type { News } from "../../../types/news";
 
 interface NewsContentProps {
-  news: NewsItem;
+  news: News;
 }
 
 export default function NewsContent({
@@ -11,7 +11,6 @@ export default function NewsContent({
 }: NewsContentProps) {
   return (
     <article className="news-content">
-
       <img
         src={news.thumbnail}
         alt={news.title}
@@ -19,7 +18,6 @@ export default function NewsContent({
       />
 
       <div className="news-content__meta">
-
         <span>{news.publishedAt}</span>
 
         <span>•</span>
@@ -28,8 +26,7 @@ export default function NewsContent({
 
         <span>•</span>
 
-        <span>{news.views.toLocaleString()} Views</span>
-
+        <span>👁 {news.views.toLocaleString()} Views</span>
       </div>
 
       <h1 className="news-content__title">
@@ -41,7 +38,6 @@ export default function NewsContent({
       </div>
 
       <div className="news-content__body">
-
         <p>{news.content}</p>
 
         <p>
@@ -57,9 +53,7 @@ export default function NewsContent({
           tetap aman, nyaman, dan kondusif di seluruh wilayah
           hukum Polda Papua Tengah.
         </p>
-
       </div>
-
     </article>
   );
 }

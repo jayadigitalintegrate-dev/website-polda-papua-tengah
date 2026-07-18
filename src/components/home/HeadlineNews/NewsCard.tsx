@@ -1,9 +1,9 @@
-import type { NewsItem } from "../../../types/news";
+import type { News } from "../../../types/news";
 import { Link } from "react-router-dom";
 
-type NewsCardProps = {
-  news: NewsItem;
-};
+interface NewsCardProps {
+    news: News;
+}
 
 function NewsCard({ news }: NewsCardProps) {
   return (

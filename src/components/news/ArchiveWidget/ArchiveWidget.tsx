@@ -1,34 +1,33 @@
 import "./ArchiveWidget.css";
 
-const archives = [
-  "Juli 2026",
-  "Juni 2026",
-  "Mei 2026",
-  "April 2026",
+import { Link } from "react-router-dom";
+
+const tags = [
+  "Presisi",
+  "Kapolda",
+  "Pelayanan",
+  "Kamtibmas",
+  "Lalu Lintas",
+  "Humas",
+  "Polri",
 ];
 
-export default function ArchiveWidget() {
+export default function TagWidget() {
   return (
-    <section className="archive-widget">
+    <section className="tag-widget">
+      <h3>Tag Populer</h3>
 
-      <h3>Arsip</h3>
-
-      <ul>
-
-        {archives.map((item) => (
-
-          <li key={item}>
-
-            <button>
-              {item}
-            </button>
-
-          </li>
-
+      <div className="tag-widget__list">
+        {tags.map((tag) => (
+          <Link
+            key={tag}
+            to={`/berita/tag/${tag.toLowerCase()}`}
+            className="tag-widget__item"
+          >
+            #{tag}
+          </Link>
         ))}
-
-      </ul>
-
+      </div>
     </section>
   );
 }

@@ -2,10 +2,10 @@ import "./NewsCard.css";
 
 import { Link } from "react-router-dom";
 
-import type { NewsItem } from "../../../types/news";
+import type { News } from "../../../types/news";
 
 interface NewsCardProps {
-  news: NewsItem;
+  news: News;
 }
 
 export default function NewsCard({

@@ -2,10 +2,10 @@ import "./RelatedNews.css";
 
 import { NewsCard } from "..";
 
-import type { NewsItem } from "../../../types/news";
+import type { News } from "../../../types/news";
 
 interface RelatedNewsProps {
-  news: NewsItem[];
+  news: News[];
 }
 
 export default function RelatedNews({

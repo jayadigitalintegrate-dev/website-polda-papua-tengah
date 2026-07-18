@@ -16,13 +16,9 @@ import {
   RelatedNews,
 } from "../../components/news";
 
-import {
-  getNewsBySlug,
-  getRelatedNews,
-} from "../../services/news.service";
+import { getNewsBySlug } from "../../services/news.service";
 
 export default function NewsDetail() {
-
   const { slug } = useParams();
 
   if (!slug) {
@@ -34,8 +30,6 @@ export default function NewsDetail() {
   if (!news) {
     return <Navigate to="/berita" replace />;
   }
-
-  const relatedNews = getRelatedNews(news.slug);
 
   return (
     <>
@@ -56,29 +50,17 @@ export default function NewsDetail() {
       />
 
       <Container>
-
         <NewsHero news={news} />
 
         <ArticleToolbar news={news} />
 
         <section className="news-detail">
+          <NewsLayout sidebar={<NewsSidebar />}>
+            <NewsContent news={news} />
 
-          <NewsLayout
-            sidebar={<NewsSidebar />}
-          >
-
-            <NewsContent
-              news={news}
-            />
-
-            <RelatedNews
-              news={relatedNews}
-            />
-
+            <RelatedNews slug={news.slug} />
           </NewsLayout>
-
         </section>
-
       </Container>
     </>
   );

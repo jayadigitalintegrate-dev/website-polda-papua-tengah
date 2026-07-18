@@ -1,9 +1,9 @@
 import "./NewsHero.css";
 
-import type { NewsItem } from "../../../types/news";
+import type { News } from "../../../types/news";
 
 interface NewsHeroProps {
-  news: NewsItem;
+  news: News;
 }
 
 export default function NewsHero({
@@ -11,7 +11,6 @@ export default function NewsHero({
 }: NewsHeroProps) {
   return (
     <section className="news-hero">
-
       <img
         src={news.thumbnail}
         alt={news.title}
@@ -19,7 +18,6 @@ export default function NewsHero({
       />
 
       <div className="news-hero__overlay">
-
         <span className="news-hero__category">
           {news.category.name}
         </span>
@@ -29,7 +27,6 @@ export default function NewsHero({
         </h1>
 
         <div className="news-hero__meta">
-
           <span>📅 {news.publishedAt}</span>
 
           <span>•</span>
@@ -39,11 +36,8 @@ export default function NewsHero({
           <span>•</span>
 
           <span>👁 {news.views.toLocaleString()} Views</span>
-
         </div>
-
       </div>
-
     </section>
   );
 }

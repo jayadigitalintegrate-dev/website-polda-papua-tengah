@@ -11,7 +11,7 @@ import {
 
 import {
   FeaturedNews,
-  NewsCard,
+  NewsGrid,
   SearchWidget,
   PopularWidget,
   CategoryWidget,
@@ -32,17 +32,25 @@ export default function News() {
 
   const [search, setSearch] = useState("");
 
-  const filteredNews = useMemo(() => {
-    if (!search.trim()) {
-      return latest;
-    }
+  const [selectedCategory, setSelectedCategory] =
+    useState("all");
 
-    return latest.filter((item) =>
-      item.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    );
-  }, [latest, search]);
+  const filteredNews = useMemo(() => {
+    return latest.filter((item) => {
+      const keyword = search.toLowerCase();
+
+      const matchSearch =
+        !search.trim() ||
+        item.title.toLowerCase().includes(keyword) ||
+        item.excerpt.toLowerCase().includes(keyword);
+
+      const matchCategory =
+        selectedCategory === "all" ||
+        item.category.slug === selectedCategory;
+
+      return matchSearch && matchCategory;
+    });
+  }, [latest, search, selectedCategory]);
 
   return (
     <>
@@ -65,7 +73,6 @@ export default function News() {
       />
 
       <Container>
-
         {/* ======================================================
             FEATURED NEWS
         ====================================================== */}
@@ -79,22 +86,18 @@ export default function News() {
         ====================================================== */}
 
         <section className="news-page">
-
           {/* ======================================================
               HEADER
           ====================================================== */}
 
           <div className="news-header">
-
             <div>
-
               <h2>Berita Terbaru</h2>
 
               <p>
                 Menampilkan {filteredNews.length} berita
                 Polda Papua Tengah.
               </p>
-
             </div>
 
             <Link
@@ -103,7 +106,6 @@ export default function News() {
             >
               Lihat Arsip Berita
             </Link>
-
           </div>
 
           {/* ======================================================
@@ -111,56 +113,17 @@ export default function News() {
           ====================================================== */}
 
           <div className="news-layout">
-
             {/* ======================================================
                 LEFT CONTENT
             ====================================================== */}
 
             <div className="news-content">
-
-              <div className="news-grid">
-
-                {filteredNews.length > 0 ? (
-
-                  filteredNews.map((item) => (
-
-                    <NewsCard
-                      key={item.id}
-                      news={item}
-                    />
-
-                  ))
-
-                ) : (
-
-                  <div
-                    style={{
-                      gridColumn: "1 / -1",
-                      textAlign: "center",
-                      padding: "60px 20px",
-                    }}
-                  >
-                    <h3>
-                      Berita tidak ditemukan
-                    </h3>
-
-                    <p>
-                      Tidak ada berita yang sesuai
-                      dengan pencarian "
-                      {search}
-                      ".
-                    </p>
-                  </div>
-
-                )}
-
-              </div>
+              <NewsGrid news={filteredNews} />
 
               <NewsPagination
                 currentPage={1}
                 totalPages={5}
               />
-
             </div>
 
             {/* ======================================================
@@ -168,7 +131,6 @@ export default function News() {
             ====================================================== */}
 
             <aside className="news-sidebar">
-
               <SearchWidget
                 value={search}
                 onChange={setSearch}
@@ -176,18 +138,17 @@ export default function News() {
 
               <PopularWidget />
 
-              <CategoryWidget />
+              <CategoryWidget
+                selectedCategory={selectedCategory}
+                onSelectCategory={setSelectedCategory}
+              />
 
               <ArchiveWidget />
 
               <TagWidget />
-
             </aside>
-
           </div>
-
         </section>
-
       </Container>
     </>
   );

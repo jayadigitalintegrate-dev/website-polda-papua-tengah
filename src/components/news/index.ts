@@ -7,7 +7,7 @@ export { default as NewsContent } from "./NewsContent";
 export { default as RelatedNews } from "./RelatedNews";
 export { default as NewsHero } from "./NewsHero";
 export { default as ArticleToolbar } from "./ArticleToolbar";
-
+export { default as NewsGrid } from "./NewsGrid";
 /* ==========================================================
    SIDEBAR WIDGETS
 ========================================================== */

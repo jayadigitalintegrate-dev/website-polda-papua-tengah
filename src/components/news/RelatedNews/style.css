@@ -1,0 +1,13 @@
+.related-news {
+  margin-top: 60px;
+}
+
+.related-news h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.related-news .news-grid {
+  margin-top: 24px;
+}

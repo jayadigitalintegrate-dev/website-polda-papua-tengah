@@ -1,1 +1,1 @@
-export { default } from "./RelatedNews";
+export { default } from "./index.tsx";

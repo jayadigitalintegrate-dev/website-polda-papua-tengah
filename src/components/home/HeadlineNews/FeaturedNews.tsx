@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import type { NewsItem } from "../../../types/news";
+import type { News } from "../../../types/news";
 
-type FeaturedNewsProps = {
-  news: NewsItem;
-};
+
+interface FeaturedNewsProps {
+    news: News;
+}
 
 function FeaturedNews({ news }: FeaturedNewsProps) {
   return (
