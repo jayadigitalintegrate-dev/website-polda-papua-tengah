@@ -1,46 +1,106 @@
-import logo from "../../assets/logo.png";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
-interface MobileMenuProps {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-  closeMenu: () => void;
-}
+import logo from "../../assets/logo/logo.png";
 
-function MobileMenu({
-  isMenuOpen,
-  toggleMenu,
-  closeMenu,
-}: MobileMenuProps) {
+import "./Header.css";
+
+function MobileMenu() {
+  const [open, setOpen] = useState(false);
+
+  const closeMenu = () => setOpen(false);
+
   return (
-    <header className="header mobile-header">
-      <div className="header-container">
-        <div className="logo">
+    <>
+      <header className="mobile-header">
+
+        <Link
+          to="/"
+          className="mobile-logo"
+        >
           <img
             src={logo}
             alt="Logo Polda Papua Tengah"
           />
 
-          <h2>POLDA PAPUA TENGAH</h2>
-        </div>
+          <span>
+            POLDA PAPUA TENGAH
+          </span>
+
+        </Link>
 
         <button
-          type="button"
-          className="hamburger"
-          onClick={toggleMenu}
+          className="mobile-toggle"
+          onClick={() => setOpen(!open)}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? "✕" : "☰"}
+          <Icon
+            icon={
+              open
+                ? "solar:close-circle-linear"
+                : "solar:hamburger-menu-linear"
+            }
+          />
         </button>
 
-        <nav className={`menu mobile-menu ${isMenuOpen ? "open" : ""}`}>
-          <a href="#" onClick={closeMenu}>Beranda</a>
-          <a href="#" onClick={closeMenu}>Profil</a>
-          <a href="#" onClick={closeMenu}>Berita</a>
-          <a href="#" onClick={closeMenu}>Layanan</a>
-          <a href="#" onClick={closeMenu}>Kontak</a>
-        </nav>
-      </div>
-    </header>
+      </header>
+
+      <nav
+        className={`mobile-navigation ${
+          open ? "open" : ""
+        }`}
+      >
+        <NavLink
+          to="/"
+          onClick={closeMenu}
+        >
+          Beranda
+        </NavLink>
+
+        <NavLink
+          to="/profil"
+          onClick={closeMenu}
+        >
+          Profil
+        </NavLink>
+
+        <NavLink
+          to="/pejabat"
+          onClick={closeMenu}
+        >
+          Pejabat
+        </NavLink>
+
+        <NavLink
+          to="/berita"
+          onClick={closeMenu}
+        >
+          Berita
+        </NavLink>
+
+        <NavLink
+          to="/layanan"
+          onClick={closeMenu}
+        >
+          Layanan
+        </NavLink>
+
+        <NavLink
+          to="/program"
+          onClick={closeMenu}
+        >
+          Program
+        </NavLink>
+
+        <NavLink
+          to="/kontak"
+          onClick={closeMenu}
+        >
+          Kontak
+        </NavLink>
+      </nav>
+    </>
   );
 }
 

@@ -1,0 +1,66 @@
+.header-action{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.header-search{
+
+    width:44px;
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff10;
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.header-search:hover{
+
+    background:#ffc107;
+    color:#082448;
+
+}
+
+.header-call{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    background:#ffc107;
+
+    color:#082448;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.header-call:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}

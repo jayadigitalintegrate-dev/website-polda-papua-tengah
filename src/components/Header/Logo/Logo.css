@@ -1,0 +1,40 @@
+.header-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    text-decoration:none;
+
+}
+
+.header-logo img{
+    width:150px;
+    height:150px;
+    object-fit:contain;
+    transition:.35s;
+}
+
+.header-logo{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    text-decoration:none;
+}
+
+.header-logo__text h2{
+    margin:0;
+    color:#fff;
+    font-size:1.7rem;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.header-logo__text span{
+    margin-top:4px;
+    color:#d5dbe5;
+    font-size:.78rem;
+    letter-spacing:.08em;
+}

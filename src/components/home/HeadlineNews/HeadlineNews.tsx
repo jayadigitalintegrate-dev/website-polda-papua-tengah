@@ -20,66 +20,86 @@ function HeadlineNews() {
             SECTION TITLE
         ======================================================= */}
         <div className="headline-title">
+
           <span>BERITA TERKINI</span>
 
           <h2>Informasi Polda Papua Tengah</h2>
 
           <p>
-            Berita, kegiatan, pelayanan publik, pengumuman,
-            serta informasi terbaru dari Kepolisian Daerah
-            Papua Tengah.
+            Berita, kegiatan, pelayanan publik,
+            pengumuman, serta informasi terbaru
+            dari Kepolisian Daerah Papua Tengah.
           </p>
+
         </div>
 
         {/* =======================================================
-            FEATURED NEWS
+            NEWS LAYOUT
         ======================================================= */}
-        <div className="headline-featured">
-          <FeaturedNews news={featured} />
-        </div>
 
-        {/* =======================================================
-            LATEST HEADER
-        ======================================================= */}
-        <div className="latest-title">
-          <div>
-            <h3>Berita Terbaru</h3>
+        <div className="headline-layout">
 
-            <p className="latest-subtitle">
-              Menampilkan {latestNews.length} berita terbaru
-            </p>
+          {/* ================= FEATURED ================= */}
+
+          <div className="headline-left">
+            <FeaturedNews news={featured} />
           </div>
 
-          <Link
-            to="/news"
-            className="latest-more"
-          >
-            Lihat Semua →
-          </Link>
-        </div>
+          {/* ================= LATEST ================= */}
 
-        {/* =======================================================
-            LATEST NEWS GRID
-        ======================================================= */}
-        <div className="latest-grid">
-          {latestNews.map((item) => (
-            <NewsCard
-              key={item.id}
-              news={item}
-            />
-          ))}
+          <aside className="headline-right">
+
+            <div className="latest-title">
+
+              <div>
+
+                <h3>Berita Terbaru</h3>
+
+                <p className="latest-subtitle">
+                  Menampilkan {latestNews.length} berita terbaru
+                </p>
+
+              </div>
+
+              <Link
+                to="/news"
+                className="latest-more"
+              >
+                Lihat Semua →
+              </Link>
+
+            </div>
+
+            <div className="latest-list">
+
+              {latestNews.map((item) => (
+
+                <NewsCard
+                  key={item.id}
+                  news={item}
+                />
+
+              ))}
+
+            </div>
+
+          </aside>
+
         </div>
 
         {/* =======================================================
             BUTTON
         ======================================================= */}
+
         <div className="headline-action">
+
           <Link
             to="/news"
             className="headline-button"
           >
             Jelajahi Semua Berita
           </Link>
+
         </div>
 
       </div>

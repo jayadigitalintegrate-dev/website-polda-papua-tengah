@@ -1,5 +1,5 @@
-import type { NewsItem } from "../../../types/news";
 import { Link } from "react-router-dom";
+import type { NewsItem } from "../../../types/news";
 
 type FeaturedNewsProps = {
   news: NewsItem;
@@ -8,33 +8,43 @@ type FeaturedNewsProps = {
 function FeaturedNews({ news }: FeaturedNewsProps) {
   return (
     <article className="featured-news">
-      <div className="featured-image">
+      <Link
+        to={`/news/${news.slug}`}
+        className="featured-image"
+      >
         <img
           src={news.thumbnail}
           alt={news.title}
         />
 
         <div className="featured-overlay">
-          <span className="featured-category">
-            {news.category.name}
-          </span>
+          <div className="featured-content">
 
-          <h3>{news.title}</h3>
+            <span className="featured-category">
+              {news.category.name}
+            </span>
 
-          <p>{news.excerpt}</p>
+            <h3>{news.title}</h3>
 
-          <div className="featured-footer">
-            <small>{news.publishedAt}</small>
+            <p>{news.excerpt}</p>
 
-            <Link
-              to={`/news/${news.slug}`}
-              className="featured-button"
-            >
-              Baca Selengkapnya
-            </Link>
+            <div className="featured-footer">
+
+              <div className="featured-meta">
+                <small>{news.author.name}</small>
+                <small>•</small>
+                <small>{news.publishedAt}</small>
+              </div>
+
+              <span className="featured-button">
+                Baca Selengkapnya →
+              </span>
+
+            </div>
+
           </div>
         </div>
-      </div>
+      </Link>
     </article>
   );
 }

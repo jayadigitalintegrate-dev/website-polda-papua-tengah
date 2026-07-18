@@ -1,49 +1,21 @@
-import type { RefObject } from "react";
-import logo from "../../assets/logo.png";
+import "./Header.css";
 
-interface DesktopMenuProps {
-  logoRef: RefObject<HTMLImageElement | null>;
-  titleRef: RefObject<HTMLHeadingElement | null>;
-  menuRef: RefObject<HTMLElement | null>;
-}
+import Logo from "./Logo/Logo";
+import Navigation from "./Navigation/Navigation";
+import HeaderAction from "./HeaderAction/HeaderAction";
 
-export default function DesktopMenu({
-  logoRef,
-  titleRef,
-  menuRef,
-}: DesktopMenuProps) {
+function DesktopMenu() {
   return (
-    <>
-      <div className="header-trigger">
-        ▼ MENU
-      </div>
+    <div className="header-container">
 
-      <header className="header">
-        <div className="header-container">
-          <div className="logo">
-            <img
-              ref={logoRef}
-              src={logo}
-              alt="Logo Polda Papua Tengah"
-            />
+      <Logo />
 
-            <h2 ref={titleRef}>
-              POLDA PAPUA TENGAH
-            </h2>
-          </div>
+      <Navigation />
 
-          <nav
-            ref={menuRef}
-            className="menu desktop-menu"
-          >
-            <a href="#">Beranda</a>
-            <a href="#">Profil</a>
-            <a href="#">Berita</a>
-            <a href="#">Layanan</a>
-            <a href="#">Kontak</a>
-          </nav>
-        </div>
-      </header>
-    </>
+      <HeaderAction />
+
+    </div>
   );
 }
+
+export default DesktopMenu;

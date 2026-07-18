@@ -4,7 +4,12 @@ interface SectionTitleProps {
   title: string;
   subtitle?: string;
 
-  // Tulisan kecil di atas judul
+  /**
+   * Tulisan kecil di atas judul
+   * contoh:
+   * BERITA TERKINI
+   * QUICK ACCESS
+   */
   eyebrow?: string;
 
   center?: boolean;

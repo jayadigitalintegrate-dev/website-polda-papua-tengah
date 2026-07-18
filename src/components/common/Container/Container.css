@@ -1,6 +1,48 @@
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
+.container{
+    width:100%;
+    margin:0 auto;
+    padding-left:20px;
+    padding-right:20px;
+    box-sizing:border-box;
+}
+
+/* =====================================
+   SIZE
+===================================== */
+
+.container--sm{
+    max-width:720px;
+}
+
+.container--md{
+    max-width:960px;
+}
+
+.container--lg{
+    max-width:1140px;
+}
+
+.container--xl{
+    max-width:1320px;
+}
+
+/* =====================================
+   FLUID
+===================================== */
+
+.container--fluid{
+    max-width:100%;
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width:768px){
+
+    .container{
+        padding-left:16px;
+        padding-right:16px;
+    }
+
 }
