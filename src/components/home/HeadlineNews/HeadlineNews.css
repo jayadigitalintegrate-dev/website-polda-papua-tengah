@@ -90,7 +90,13 @@
 
     flex-direction:column;
 
-    gap:40px;
+    gap:28px;
+
+}
+
+.headline-left > *{
+
+    width:100%;
 
 }
 
