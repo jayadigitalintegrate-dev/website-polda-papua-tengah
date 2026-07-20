@@ -1,66 +1,224 @@
+/* ==========================================================
+   NEWS CARD
+========================================================== */
+
 .news-card{
+
     display:flex;
     flex-direction:column;
+
     height:100%;
-    overflow:hidden;
-    border-radius:22px;
+
     background:#fff;
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-    transition:all .35s ease;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+    transition:
+        transform .35s,
+        box-shadow .35s;
+
 }
 
 .news-card:hover{
+
     transform:translateY(-8px);
-    box-shadow:0 24px 55px rgba(0,0,0,.14);
+
+    box-shadow:0 22px 55px rgba(0,0,0,.15);
+
 }
 
+/* ==========================================================
+   IMAGE
+========================================================== */
+
 .news-card__image{
+
     position:relative;
+
+    height:240px;
+
     overflow:hidden;
-    aspect-ratio:16/9;
+
+}
+
+.news-card__image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.28),
+        transparent
+    );
+
+    pointer-events:none;
+
 }
 
 .news-card__image img{
+
     width:100%;
     height:100%;
+
     object-fit:cover;
-    transition:transform .6s;
+
+    transition:transform .8s;
+
 }
 
 .news-card:hover .news-card__image img{
-    transform:scale(1.08);
+
+    transform:scale(1.06);
+
 }
 
-.news-card__badge{
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.news-card__badges{
+
     position:absolute;
+
     top:18px;
     left:18px;
-    background:#005BAC;
-    color:#fff;
-    padding:8px 16px;
-    border-radius:40px;
-    font-size:.78rem;
-    font-weight:600;
+    right:18px;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    z-index:2;
+
 }
+
+.badge{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    color:#fff;
+
+    letter-spacing:.3px;
+
+}
+
+.badge-breaking{
+
+    background:#d62828;
+
+}
+
+.badge-video{
+
+    background:#d90429;
+
+}
+
+.badge-pinned{
+
+    background:#f4a100;
+
+    color:#082a52;
+
+}
+
+.badge-category{
+
+    background:#005BAC;
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
 
 .news-card__body{
+
     display:flex;
+
     flex-direction:column;
+
     flex:1;
-    padding:24px;
+
+    padding:26px;
+
 }
 
-.news-card__date{
+/* ==========================================================
+   META
+========================================================== */
+
+.news-card__meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-bottom:18px;
+
     color:#7b8794;
-    font-size:.9rem;
-    margin-bottom:14px;
+
+    font-size:.88rem;
+
 }
+
+.news-card__meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+.news-card__meta svg{
+
+    color:#005BAC;
+
+    font-size:18px;
+
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
 
 .news-card__title{
+
     color:#0B2C56;
-    font-size:1.55rem;
-    line-height:1.45;
-    margin-bottom:16px;
+
+    font-size:1.45rem;
+
+    font-weight:800;
+
+    line-height:1.5;
+
+    margin-bottom:18px;
 
     display:-webkit-box;
     display:box;
@@ -74,16 +232,28 @@
     overflow:hidden;
 
     transition:.3s;
+
 }
 
 .news-card:hover .news-card__title{
+
     color:#005BAC;
+
 }
 
+/* ==========================================================
+   EXCERPT
+========================================================== */
+
 .news-card__excerpt{
-    color:#555;
-    line-height:1.8;
-    margin-bottom:28px;
+
+    color:#596474;
+
+    font-size:.98rem;
+
+    line-height:1.85;
+
+    margin-bottom:30px;
 
     display:-webkit-box;
     display:box;
@@ -95,67 +265,125 @@
     line-clamp:3;
 
     overflow:hidden;
+
 }
+
+/* ==========================================================
+   FOOTER
+========================================================== */
 
 .news-card__footer{
+
     margin-top:auto;
 
+    padding-top:18px;
+
+    border-top:1px solid #edf1f5;
+
     display:flex;
-    flex-direction:column;
-    gap:16px;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
 }
 
-.news-card__views{
-    color:#666;
+.news-card__author{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#64748b;
+
     font-size:.9rem;
+
 }
 
-/* =====================================================
-   BUTTON (Link)
-===================================================== */
+.news-card__author svg{
+
+    color:#005BAC;
+
+    font-size:18px;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
 
 .news-card__button{
-    width:100%;
 
-    display:flex;
-    justify-content:center;
+    display:inline-flex;
+
     align-items:center;
+
+    justify-content:center;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    background:#005BAC;
+
+    color:#fff;
 
     text-decoration:none;
 
-    background:#005BAC;
-    color:#fff;
-
-    padding:14px;
-
-    border:none;
-    border-radius:12px;
-
-    font-weight:600;
-
-    cursor:pointer;
+    font-weight:700;
 
     transition:.3s;
+
 }
 
 .news-card__button:hover{
-    background:#0A74D1;
-    color:#fff;
-    text-decoration:none;
+
+    background:#ffc107;
+
+    color:#0B2C56;
+
 }
 
-/* =====================================================
+/* ==========================================================
    MOBILE
-===================================================== */
+========================================================== */
 
 @media (max-width:768px){
 
-    .news-card__title{
-        font-size:1.3rem;
+    .news-card__image{
+
+        height:220px;
+
     }
 
     .news-card__body{
+
         padding:20px;
+
+    }
+
+    .news-card__title{
+
+        font-size:1.25rem;
+
+    }
+
+    .news-card__footer{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .news-card__button{
+
+        width:100%;
+
     }
 
 }

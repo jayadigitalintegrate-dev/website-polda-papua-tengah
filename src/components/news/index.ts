@@ -2,6 +2,9 @@ export { default as FeaturedNews } from "./FeaturedNews/FeaturedNews";
 export { default as NewsCard } from "./NewsCard/NewsCard";
 export { default as NewsLayout } from "./NewsLayout/NewsLayout";
 export { default as NewsSidebar } from "./NewsSidebar/NewsSidebar";
+export { default as NewsVideo } from "./NewsVideo";
+export { default as NewsGallery } from "./NewsGallery";
+
 
 export { default as NewsContent } from "./NewsContent";
 export { default as RelatedNews } from "./RelatedNews";

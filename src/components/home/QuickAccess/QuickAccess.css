@@ -3,124 +3,374 @@
 =================================================== */
 
 .quick-access{
-    width:100%;
-    padding:90px 20px;
-    background:#f5f7fa;
+    position:relative;
+    padding:120px 20px 90px;
+    background:
+        radial-gradient(circle at top right,
+        rgba(255,193,7,.08),
+        transparent 30%),
+        linear-gradient(#ffffff,#f7f9fc);
+    overflow:hidden;
 }
+
+/* ===================================================
+   SECTION TITLE
+=================================================== */
 
 .quick-access .section-title{
     margin-bottom:60px;
 }
-/* =============================
+
+/* ===================================================
+   GRID
+=================================================== */
+
+.quick-grid{
+
+    max-width:1280px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,minmax(0,1fr));
+
+    gap:28px;
+
+    align-items:stretch;
+
+}
+
+/* ===================================================
    CARD
-============================= */
+=================================================== */
 
 .quick-card{
+
     position:relative;
 
+    width:100%;
+
+    height:100%;
+
     display:flex;
+
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
 
-    min-height:220px;
+    justify-content:space-between;
 
-    padding:32px 24px;
+    min-height:270px;
+
+    padding:26px;
 
     background:#ffffff;
-
-    border:1px solid #e5e7eb;
 
     border-radius:20px;
 
     text-decoration:none;
-    color:inherit;
 
     overflow:hidden;
 
-    box-shadow:0 8px 24px rgba(15,23,42,.06);
+    color:#0b2d57;
+
+    border:2px solid #e5e7eb;
 
     transition:
         transform .35s ease,
         box-shadow .35s ease,
         border-color .35s ease;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.06);
+
+}
+
+/* ===================================================
+   FRAME COLOR
+=================================================== */
+
+.quick-card:nth-child(1){
+    border-color:#f4b400;
+    color:#f4b400;
+}
+
+.quick-card:nth-child(2){
+    border-color:#2563eb;
+    color:#2563eb;
+}
+
+.quick-card:nth-child(3){
+    border-color:#16a34a;
+    color:#16a34a;
+}
+
+.quick-card:nth-child(4){
+    border-color:#dc2626;
+    color:#dc2626;
+}
+
+.quick-card:nth-child(5){
+    border-color:#9333ea;
+    color:#9333ea;
+}
+
+.quick-card:nth-child(6){
+    border-color:#0891b2;
+    color:#0891b2;
+}
+
+.quick-card:nth-child(7){
+    border-color:#f97316;
+    color:#f97316;
+}
+
+.quick-card:nth-child(8){
+    border-color:#0b3d6d;
+    color:#0b3d6d;
+}
+
+/* ===================================================
+   TOP LINE
+=================================================== */
+
+.quick-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:5px;
+
+    background:currentColor;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s;
+
 }
 
 .quick-card:hover{
-    transform:translateY(-8px);
 
-    border-color:#0b3d6d;
+    transform:translateY(-10px);
 
-    box-shadow:0 16px 36px rgba(11,61,109,.15);
+    box-shadow:
+        0 20px 45px rgba(15,23,42,.15);
+
 }
 
+.quick-card:hover::before{
 
+    transform:scaleX(1);
 
-/* =============================
-   TITLE CARD
-============================= */
+}
 
-.quick-card h3{
+/* ===================================================
+   BADGE
+=================================================== */
 
-    color:#003b75;
+.quick-badge{
 
-    font-size:21px;
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:11px;
 
     font-weight:700;
 
-    line-height:1.35;
+    letter-spacing:.4px;
 
-    text-align:center;
+    color:#ffffff;
+
+    background:#0b3d6d;
+
+}
+
+/* ===================================================
+   ICON
+=================================================== */
+
+.quick-icon{
+
+    width:72px;
+    height:72px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:18px;
+
+    background:#f4f8ff;
+
+    color:inherit;
+
+    margin-bottom:22px;
+
+    transition:.35s;
+
+}
+
+.quick-icon svg{
+
+    width:38px;
+    height:38px;
+
+}
+
+.quick-card:hover .quick-icon{
+
+    background:currentColor;
+
+    color:#ffffff;
+
+    transform:scale(1.08);
+
+}
+
+/* ===================================================
+   CONTENT
+=================================================== */
+
+.quick-content{
+
+    flex:1;
+
+}
+
+.quick-content h3{
+
+    color:#0b2d57;
+
+    font-size:22px;
+
+    font-weight:700;
 
     margin-bottom:12px;
 
+    line-height:1.35;
+
 }
 
-/* =============================
-   DESCRIPTION
-============================= */
+.quick-content p{
 
-.quick-card p{
-
-    color:#6b7280;
+    color:#64748b;
 
     font-size:15px;
 
-    line-height:1.6;
-
-    text-align:center;
+    line-height:1.7;
 
 }
 
-/* =============================
-   FEATURED CARD
-============================= */
+/* ===================================================
+   FOOTER
+=================================================== */
 
-.quick-card.featured{
+.quick-footer{
 
-    background:#ffffff;
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:26px;
+
+    padding-top:18px;
+
+    border-top:1px solid #edf2f7;
+
+    font-weight:700;
+
+    color:#0b2d57;
+
+    transition:.3s;
 
 }
 
-/* =============================
-   DESKTOP
-============================= */
+.quick-arrow{
 
-@media (max-width:1200px){
+    font-size:22px;
 
-    .quick-grid{
-
-        grid-template-columns:repeat(3,1fr);
-
-    }
+    transition:.3s;
 
 }
 
-/* =============================
-   TABLET
-============================= */
+.quick-card:hover .quick-footer{
 
-@media (max-width:900px){
+    color:inherit;
+
+}
+
+.quick-card:hover .quick-arrow{
+
+    transform:translateX(8px);
+
+}
+
+/* ===================================================
+   BUTTON
+=================================================== */
+
+.quick-action{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:60px;
+
+}
+
+.quick-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px 38px;
+
+    border-radius:12px;
+
+    background:#0b3d6d;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.quick-button:hover{
+
+    background:#14518c;
+
+    transform:translateY(-4px);
+
+}
+
+/* ===================================================
+   LAPTOP
+=================================================== */
+
+@media(max-width:1200px){
 
     .quick-grid{
 
@@ -130,33 +380,15 @@
 
 }
 
-/* =============================
+/* ===================================================
    MOBILE
-============================= */
+=================================================== */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
     .quick-access{
 
-        padding:70px 18px;
-
-    }
-
-    .quick-title{
-
-        margin-bottom:40px;
-
-    }
-
-    .quick-title h2{
-
-        font-size:30px;
-
-    }
-
-    .quick-title p{
-
-        font-size:16px;
+        padding:100px 18px 70px;
 
     }
 
@@ -170,73 +402,33 @@
 
     .quick-card{
 
-        min-height:210px;
+        min-height:230px;
 
-        padding:30px;
+        padding:22px;
+
+    }
+
+    .quick-icon{
+
+        width:64px;
+        height:64px;
 
     }
 
     .quick-icon svg{
 
-        width:54px;
-        height:54px;
+        width:34px;
+        height:34px;
 
     }
 
-    .quick-card h3{
+    .quick-content h3{
 
         font-size:20px;
 
     }
 
-    .quick-card p{
-
-        font-size:15px;
-
-    }
-
-}
-
-/* =============================
-   SMALL MOBILE
-============================= */
-
-@media (max-width:480px){
-
-    .quick-access{
-
-        padding:60px 15px;
-
-    }
-
-    .quick-title h2{
-
-        font-size:28px;
-
-    }
-
-    .quick-card{
-
-        min-height:195px;
-
-        padding:25px;
-
-    }
-
-    .quick-icon svg{
-
-        width:48px;
-        height:48px;
-
-    }
-
-    .quick-card h3{
-
-        font-size:18px;
-
-    }
-
-    .quick-card p{
+    .quick-content p{
 
         font-size:14px;
 

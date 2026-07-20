@@ -1,20 +1,38 @@
+/* ==========================================================
+   CATEGORY
+========================================================== */
+
 export interface NewsCategory {
   id: number;
   name: string;
   slug: string;
+  color?: string;
 }
+
+/* ==========================================================
+   AUTHOR
+========================================================== */
 
 export interface NewsAuthor {
   id: number;
   name: string;
-
-  /**
-   * Optional
-   * Nanti akan diisi dari CMS
-   */
   photo?: string;
   position?: string;
 }
+
+/* ==========================================================
+   GALLERY
+========================================================== */
+
+export interface NewsGallery {
+  id: number;
+  image: string;
+  caption: string;
+}
+
+/* ==========================================================
+   ATTACHMENT
+========================================================== */
 
 export interface NewsAttachment {
   id: number;
@@ -23,19 +41,46 @@ export interface NewsAttachment {
   size: string;
 }
 
-export interface NewsGallery {
-  id: number;
-  image: string;
-  caption: string;
-}
+/* ==========================================================
+   VIDEO
+========================================================== */
 
 export interface NewsVideo {
   id: number;
+
   title: string;
-  youtubeId: string;
+
+  provider:
+    | "youtube"
+    | "mp4";
+
+  youtubeId?: string;
+
+  url?: string;
+
+  thumbnail?: string;
+
+  duration?: string;
 }
 
+/* ==========================================================
+   SEO
+========================================================== */
+
+export interface NewsSEO {
+  metaTitle?: string;
+
+  metaDescription?: string;
+
+  keywords?: string[];
+}
+
+/* ==========================================================
+   NEWS
+========================================================== */
+
 export interface News {
+
   id: number;
 
   title: string;
@@ -56,31 +101,28 @@ export interface News {
 
   featured: boolean;
 
+  breaking?: boolean;
+
+  published?: boolean;
+
+  pinned?: boolean;
+
+  type:
+    | "article"
+    | "video"
+    | "hybrid";
+
   category: NewsCategory;
 
   author: NewsAuthor;
 
-  /**
-   * Optional
-   * Tidak semua berita memiliki galeri
-   */
   gallery?: NewsGallery[];
 
-  /**
-   * Optional
-   * Tidak semua berita memiliki video
-   */
   videos?: NewsVideo[];
 
-  /**
-   * Optional
-   * Tidak semua berita memiliki lampiran
-   */
   attachments?: NewsAttachment[];
 
-  /**
-   * Optional
-   * Tidak semua berita memiliki tag
-   */
   tags?: string[];
+
+  seo?: NewsSEO;
 }

@@ -31,17 +31,17 @@ function SectionTitle({
         .filter(Boolean)
         .join(" ")}
     >
-      {eyebrow && (
-        <span className="section-title__eyebrow">
-          {eyebrow}
-        </span>
-      )}
+     {eyebrow && (
+    <span className="section-title__eyebrow">
+        {eyebrow}
+    </span>
+)}
 
-      <span className="section-title__line"></span>
+<h2>{title}</h2>
 
-      <h2>{title}</h2>
+<span className="section-title__line"></span>
 
-      {subtitle && <p>{subtitle}</p>}
+{subtitle && <p>{subtitle}</p>}
     </div>
   );
 }

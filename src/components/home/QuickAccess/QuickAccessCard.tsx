@@ -10,15 +10,60 @@ function QuickAccessCard({ item }: Props) {
   return (
     <Link
       to={item.url}
-      className={`quick-card ${item.featured ? "featured" : ""}`}
+      className={`quick-card ${
+        item.featured ? "featured" : ""
+      }`}
     >
+      {/* ===========================
+          BADGE
+      =========================== */}
+
+      {item.badge && (
+        <span className="quick-badge">
+          {item.badge}
+        </span>
+      )}
+
+      {/* ===========================
+          ICON
+      =========================== */}
+
       <div className="quick-icon">
         <Icon icon={item.icon} />
       </div>
 
-      <h3>{item.title}</h3>
+      {/* ===========================
+          CONTENT
+      =========================== */}
 
-      <p>{item.description}</p>
+      <div className="quick-content">
+
+        <h3>
+          {item.title}
+        </h3>
+
+        <p>
+          {item.description}
+        </p>
+
+      </div>
+
+      {/* ===========================
+          FOOTER
+      =========================== */}
+
+      <div className="quick-footer">
+
+        <span>
+          Akses Layanan
+        </span>
+
+        <span className="quick-arrow">
+          →
+        </span>
+
+      </div>
+
     </Link>
   );
 }

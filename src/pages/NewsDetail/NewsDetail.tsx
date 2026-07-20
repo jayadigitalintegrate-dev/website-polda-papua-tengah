@@ -13,6 +13,8 @@ import {
   NewsLayout,
   NewsSidebar,
   NewsContent,
+  NewsGallery,
+  NewsVideo,
   RelatedNews,
 } from "../../components/news";
 
@@ -56,9 +58,24 @@ export default function NewsDetail() {
 
         <section className="news-detail">
           <NewsLayout sidebar={<NewsSidebar />}>
-            <NewsContent news={news} />
+         <NewsContent news={news} />
 
-            <RelatedNews slug={news.slug} />
+{/* ==========================================
+    GALLERY FOTO
+========================================== */}
+{news.gallery && news.gallery.length > 0 && (
+  <NewsGallery gallery={news.gallery} />
+)}
+
+{/* ==========================================
+    VIDEO BERITA
+========================================== */}
+<NewsVideo />
+
+{/* ==========================================
+    BERITA TERKAIT
+========================================== */}
+<RelatedNews slug={news.slug} />
           </NewsLayout>
         </section>
       </Container>

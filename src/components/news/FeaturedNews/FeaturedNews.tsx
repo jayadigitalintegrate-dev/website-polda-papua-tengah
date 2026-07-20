@@ -1,4 +1,7 @@
-import "./FeaturedNews.css";
+import "./style.css";
+
+import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 import type { News } from "../../../types/news";
 
@@ -6,11 +9,13 @@ interface FeaturedNewsProps {
   news: News;
 }
 
-export default function FeaturedNews({
+function FeaturedNews({
   news,
 }: FeaturedNewsProps) {
   return (
     <section className="featured-news">
+
+      {/* IMAGE */}
 
       <div className="featured-news__image">
 
@@ -19,35 +24,72 @@ export default function FeaturedNews({
           alt={news.title}
         />
 
-        <span className="featured-news__badge">
-          {news.category.name}
-        </span>
+        <div className="featured-news__overlay">
+
+          <div className="featured-news__badges">
+
+            {news.breaking && (
+              <span className="badge badge-breaking">
+                BREAKING NEWS
+              </span>
+            )}
+
+            {news.type === "video" && (
+              <span className="badge badge-video">
+                <Icon icon="mdi:play-circle" />
+                VIDEO
+              </span>
+            )}
+
+            <span className="badge badge-category">
+              {news.category.name}
+            </span>
+
+          </div>
+
+        </div>
 
       </div>
 
+      {/* CONTENT */}
+
       <div className="featured-news__content">
 
-        <span className="featured-news__date">
-          {news.publishedAt}
-        </span>
+        <div className="featured-news__meta">
 
-        <h2>
+          <span>
+            <Icon icon="mdi:calendar-month-outline" />
+            {news.publishedAt}
+          </span>
+
+          <span>
+            <Icon icon="mdi:eye-outline" />
+            {news.views.toLocaleString()} Views
+          </span>
+
+          <span>
+            <Icon icon="mdi:account-circle-outline" />
+            {news.author.name}
+          </span>
+
+        </div>
+
+        <h2 className="featured-news__title">
           {news.title}
         </h2>
 
-        <p>
+        <p className="featured-news__excerpt">
           {news.excerpt}
         </p>
 
         <div className="featured-news__footer">
 
-          <span className="featured-news__views">
-            👁 {news.views.toLocaleString()} Views
-          </span>
-
-          <button className="featured-news__button">
+          <Link
+            to={`/berita/${news.slug}`}
+            className="featured-news__button"
+          >
             Baca Selengkapnya
-          </button>
+          </Link>
 
         </div>
 
@@ -56,3 +98,5 @@ export default function FeaturedNews({
     </section>
   );
 }
+
+export default FeaturedNews;

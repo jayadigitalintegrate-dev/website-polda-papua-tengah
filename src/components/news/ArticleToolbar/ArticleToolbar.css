@@ -1,47 +1,176 @@
+/* ==========================================================
+   ARTICLE TOOLBAR
+========================================================== */
+
+.article-toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    padding:22px 28px;
+
+    margin:40px 0;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.article-toolbar__left{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.article-toolbar__left span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#5b6472;
+
+    font-size:.95rem;
+
+}
+
+.article-toolbar__left svg{
+
+    color:#005BAC;
+
+    font-size:19px;
+
+}
+
+/* ==========================================================
+   SHARE
+========================================================== */
+
+.article-toolbar__share{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.article-toolbar__share a,
 .article-toolbar__share button{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
 
     border:none;
 
-    color:#fff;
+    border-radius:10px;
 
     padding:10px 16px;
 
-    border-radius:10px;
+    font-size:.88rem;
+
+    font-weight:600;
 
     cursor:pointer;
 
-    font-weight:600;
+    color:#fff;
+
+    text-decoration:none;
 
     transition:.25s;
 
 }
 
+.article-toolbar__share a:hover,
 .article-toolbar__share button:hover{
 
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 
 }
 
-.article-toolbar__share .wa{
+/* ==========================================================
+   COLORS
+========================================================== */
 
+.wa{
     background:#25D366;
-
 }
 
-.article-toolbar__share .fb{
-
+.fb{
     background:#1877F2;
-
 }
 
-.article-toolbar__share .x{
+.telegram{
+    background:#229ED9;
+}
 
+.x{
     background:#111827;
+}
+
+.copy{
+    background:#005BAC;
+}
+
+.print{
+    background:#4B5563;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+.article-toolbar{
+
+    padding:20px;
 
 }
 
-.article-toolbar__share .copy{
+.article-toolbar__left{
 
-    background:#005BAC;
+    width:100%;
+
+}
+
+.article-toolbar__share{
+
+    width:100%;
+
+}
+
+.article-toolbar__share a,
+.article-toolbar__share button{
+
+    flex:1;
+
+    justify-content:center;
+
+}
 
 }

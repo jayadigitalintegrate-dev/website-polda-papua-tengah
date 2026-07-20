@@ -11,13 +11,17 @@
   text-align: left;
 }
 
-.section-title__line {
-  display: inline-block;
-  width: 70px;
-  height: 4px;
-  background: #0b6e3f;
-  border-radius: 999px;
-  margin-bottom: 14px;
+.section-title__line{
+    display:block;
+    width:70px;
+    height:4px;
+    background:#0b6e3f;
+    border-radius:999px;
+    margin:10px auto 18px;
+}
+
+.section-title--left .section-title__line{
+    margin:10px 0 18px;
 }
 
 .section-title h2 {

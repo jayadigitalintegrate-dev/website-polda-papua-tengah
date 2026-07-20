@@ -1,0 +1,105 @@
+/* ==========================================================
+   NEWS META
+========================================================== */
+
+.news-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin:35px 0;
+
+    padding:24px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+
+}
+
+/* ==========================================================
+   ITEM
+========================================================== */
+
+.news-meta__item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    min-width:220px;
+
+    flex:1;
+
+}
+
+.news-meta__item svg{
+
+    font-size:32px;
+
+    color:#005BAC;
+
+    flex-shrink:0;
+
+}
+
+.news-meta__item small{
+
+    display:block;
+
+    color:#7b8794;
+
+    font-size:.8rem;
+
+    margin-bottom:3px;
+
+}
+
+.news-meta__item strong{
+
+    display:block;
+
+    color:#0B2C56;
+
+    font-size:.95rem;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+.news-meta{
+
+    padding:20px;
+
+    gap:16px;
+
+}
+
+.news-meta__item{
+
+    min-width:100%;
+
+}
+
+.news-meta__item svg{
+
+    font-size:28px;
+
+}
+
+}

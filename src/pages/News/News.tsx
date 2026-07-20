@@ -9,9 +9,11 @@ import {
   Container,
 } from "../../components/common";
 
+/* 1. NewsVideo sukses ditambahkan ke daftar import */
 import {
   FeaturedNews,
   NewsGrid,
+  NewsVideo,
   SearchWidget,
   PopularWidget,
   CategoryWidget,
@@ -27,13 +29,9 @@ import {
 
 export default function News() {
   const featured = getFeaturedNews();
-
   const latest = getLatestNews();
-
   const [search, setSearch] = useState("");
-
-  const [selectedCategory, setSelectedCategory] =
-    useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const filteredNews = useMemo(() => {
     return latest.filter((item) => {
@@ -76,7 +74,6 @@ export default function News() {
         {/* ======================================================
             FEATURED NEWS
         ====================================================== */}
-
         {featured && (
           <FeaturedNews news={featured} />
         )}
@@ -84,71 +81,55 @@ export default function News() {
         {/* ======================================================
             NEWS SECTION
         ====================================================== */}
-
         <section className="news-page">
           {/* ======================================================
               HEADER
           ====================================================== */}
-
           <div className="news-header">
-            <div>
-              <h2>Berita Terbaru</h2>
-
-              <p>
-                Menampilkan {filteredNews.length} berita
-                Polda Papua Tengah.
-              </p>
+            <div className="news-header__title">
+              <span className="news-header__line"></span>
+              <div>
+                <h2>Berita Terbaru</h2>
+                <p>
+                  Menampilkan <strong>{filteredNews.length}</strong> berita terbaru Polda Papua Tengah.
+                </p>
+              </div>
             </div>
-
-            <Link
-              to="/berita"
-              className="news-archive-button"
-            >
-              Lihat Arsip Berita
+            <Link to="/berita" className="news-archive-button">
+              Lihat Semua →
             </Link>
           </div>
 
           {/* ======================================================
               CONTENT
           ====================================================== */}
-
           <div className="news-layout">
             {/* ======================================================
                 LEFT CONTENT
             ====================================================== */}
-
             <div className="news-content">
               <NewsGrid news={filteredNews} />
-
-              <NewsPagination
-                currentPage={1}
-                totalPages={5}
-              />
+              <NewsPagination currentPage={1} totalPages={5} />
             </div>
 
             {/* ======================================================
                 SIDEBAR
             ====================================================== */}
-
             <aside className="news-sidebar">
-              <SearchWidget
-                value={search}
-                onChange={setSearch}
-              />
-
+              <SearchWidget value={search} onChange={setSearch} />
               <PopularWidget />
-
               <CategoryWidget
                 selectedCategory={selectedCategory}
                 onSelectCategory={setSelectedCategory}
               />
-
               <ArchiveWidget />
-
               <TagWidget />
             </aside>
           </div>
         </section>
+
+        {/* 2. NewsVideo ditambahkan tepat sebelum penutup Container */}
+        <NewsVideo />
       </Container>
     </>
   );

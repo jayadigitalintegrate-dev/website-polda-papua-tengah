@@ -1,3 +1,4 @@
+import NewsVideo from "../../news/NewsVideo/NewsVideo";
 import "./HeadlineNews.css";
 import { Link } from "react-router-dom";
 
@@ -41,9 +42,13 @@ function HeadlineNews() {
 
           {/* ================= FEATURED ================= */}
 
-          <div className="headline-left">
-            <FeaturedNews news={featured} />
-          </div>
+         <div className="headline-left">
+
+    <FeaturedNews news={featured} />
+
+    <NewsVideo />
+
+</div>
 
           {/* ================= LATEST ================= */}
 
