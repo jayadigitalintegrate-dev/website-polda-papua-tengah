@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
 import logo from "../../assets/logo/logo.png";
 
 import "./Header.css";
-
+import "./MobileMenu.css";
 function MobileMenu() {
   const [open, setOpen] = useState(false);
 
