@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
+
 import "./SolidHeader.css";
 
 import logo from "../../../assets/logo/logo polda papua tengah.png";

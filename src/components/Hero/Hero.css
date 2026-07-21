@@ -149,7 +149,9 @@
 
     .hero{
 
-        aspect-ratio:4/5;
+        aspect-ratio:16/10;
+        min-height:220px;
+        max-height:380px;
     }
 
     .hero-btn{

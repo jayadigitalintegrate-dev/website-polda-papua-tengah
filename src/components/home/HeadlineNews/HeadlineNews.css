@@ -150,6 +150,8 @@
 
     transition:.3s;
 
+    box-shadow:0 10px 25px rgba(11,44,86,.25);
+
 }
 
 .headline-button:hover{
@@ -157,6 +159,8 @@
     background:#ffc107;
 
     color:#0B2C56;
+
+    transform:translateY(-3px);
 
 }
 
@@ -189,6 +193,28 @@
 
     .latest-grid{
         grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .headline-container{
+        width:90%;
+    }
+
+
+    .headline-title p{
+        font-size:.95rem;
+    }
+
+
+    .headline-button{
+
+        width:100%;
+
+        padding:15px;
+
     }
 
 }

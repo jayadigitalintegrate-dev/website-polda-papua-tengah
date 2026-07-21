@@ -1,0 +1,120 @@
+.mobile-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+
+    height:72px;
+    padding:0 18px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#0b3d6d;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.mobile-logo{
+    display:flex;
+    align-items:center;src/components/home/HeadlineNews/HeadlineNews.css
+    gap:12px;
+
+    color:#fff;
+    text-decoration:none;
+}
+
+.mobile-logo img{
+    width:44px;
+    height:44px;
+    object-fit:contain;
+}
+
+.mobile-logo span{
+    font-size:15px;
+    font-weight:700;
+    line-height:1.2;
+}
+
+.mobile-toggle{
+    width:46px;
+    height:46px;
+
+    border:none;
+    border-radius:10px;
+
+    background:transparent;
+
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:30px;
+}
+
+.mobile-toggle:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.mobile-navigation{
+
+    position:fixed;
+
+    top:72px;
+    left:-100%;
+
+    width:280px;
+    height:calc(100vh - 72px);
+
+    background:#0b3d6d;
+
+    display:flex;
+    flex-direction:column;
+
+    padding:28px;
+
+    gap:20px;
+
+    transition:left .35s ease;
+
+    z-index:9998;
+}
+
+.mobile-navigation.open{
+
+    left:0;
+
+}
+
+.mobile-navigation a{
+
+    color:#ffffff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.12);
+
+    transition:.3s;
+
+}
+
+.mobile-navigation a:hover{
+
+    color:#ffc107;
+
+    padding-left:10px;
+
+}
+
+.mobile-navigation .active{
+
+    color:#ffc107;
+
+}

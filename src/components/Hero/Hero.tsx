@@ -20,13 +20,7 @@ const prevSlide = () => {
     prev === 0 ? images.length - 1 : prev - 1
   );
 };
-  // preload semua gambar
-  useEffect(() => {
-    images.forEach((img) => {
-      const image = new Image();
-      image.src = img;
-    });
-  }, []);
+  // Preload gambar dinonaktifkan sementara untuk optimasi mobile.
 
   // autoplay
   useEffect(() => {
