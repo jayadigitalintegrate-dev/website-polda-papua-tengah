@@ -15,9 +15,25 @@ export default function CategoryWidget({
 
   return (
     <section className="category-widget">
-      <h3>Kategori</h3>
+      <h3 className="widget-title">
+        Kategori
+      </h3>
 
-      <ul>
+      <ul className="category-widget__list">
+        <li>
+          <button
+            type="button"
+            className={
+              selectedCategory === "all"
+                ? "active"
+                : ""
+            }
+            onClick={() => onSelectCategory("all")}
+          >
+            Semua
+          </button>
+        </li>
+
         {categories.map((category) => (
           <li key={category.slug}>
             <button

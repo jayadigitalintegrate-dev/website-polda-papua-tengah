@@ -1,46 +1,52 @@
 import type { News } from "../../../types/news";
 import { Link } from "react-router-dom";
-
+import "./NewsCard.css";
 interface NewsCardProps {
-    news: News;
+  news: News;
 }
 
 function NewsCard({ news }: NewsCardProps) {
   return (
-    <article className="news-card">
+    <article className="home-news-card">
+
       <Link
-        to={`/news/${news.slug}`}
-        className="news-card__link"
+        to={`/berita/${news.slug}`}
+        className="home-news-card__link"
       >
-        <div className="news-thumb">
+
+        <div className="home-news-card__thumb">
           <img
             src={news.thumbnail}
             alt={news.title}
           />
 
-          <span className="news-category">
+          <span className="home-news-card__category">
             {news.category.name}
           </span>
         </div>
 
-        <div className="news-info">
-          <div className="news-meta">
+        <div className="home-news-card__info">
+
+          <div className="home-news-card__meta">
             <small>{news.publishedAt}</small>
           </div>
 
           <h4>{news.title}</h4>
 
-          <p className="news-excerpt">
+          <p className="home-news-card__excerpt">
             {news.excerpt}
           </p>
 
-          <div className="news-footer">
-            <span className="news-readmore">
+          <div className="home-news-card__footer">
+            <span className="home-news-card__readmore">
               Baca Selengkapnya →
             </span>
           </div>
+
         </div>
+
       </Link>
+
     </article>
   );
 }

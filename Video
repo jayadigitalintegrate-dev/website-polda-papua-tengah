@@ -1,0 +1,17 @@
+[35msrc/components/news/NewsVideo/NewsVideo.tsx[m[36m:[mimport "./[1;31mNewsVideo[m.css";
+[35msrc/components/news/NewsVideo/NewsVideo.tsx[m[36m:[mexport default function [1;31mNewsVideo[m() {
+[35msrc/components/news/NewsVideo/index.ts[m[36m:[mexport { default } from "./[1;31mNewsVideo[m";
+[35msrc/components/news/index.ts[m[36m:[mexport { default as [1;31mNewsVideo[m } from "./[1;31mNewsVideo[m";
+[35msrc/data/news/videos.ts[m[36m:[mexport interface [1;31mNewsVideo[m {
+[35msrc/data/news/videos.ts[m[36m:[mexport const newsVideos: [1;31mNewsVideo[m[] = [
+[35msrc/pages/Home/Home.tsx[m[36m:[mimport [1;31mNewsVideo[m from "../../components/news/[1;31mNewsVideo[m";
+[35msrc/pages/Home/Home.tsx[m[36m:[m      <[1;31mNewsVideo[m />
+[35msrc/pages/Home/Home.tsx[m[36m:[m      <[1;31mNewsVideo[m />
+[35msrc/pages/News/News.tsx[m[36m:[m/* 1. [1;31mNewsVideo[m sukses ditambahkan ke daftar import */
+[35msrc/pages/News/News.tsx[m[36m:[mimport [1;31mNewsVideo[m from "../../components/news/[1;31mNewsVideo[m";
+[35msrc/pages/News/News.tsx[m[36m:[m        {/* 2. [1;31mNewsVideo[m ditambahkan tepat sebelum penutup Container */}
+[35msrc/pages/News/News.tsx[m[36m:[m        <[1;31mNewsVideo[m />
+[35msrc/pages/NewsDetail/NewsDetail.tsx[m[36m:[m  [1;31mNewsVideo[m,
+[35msrc/pages/NewsDetail/NewsDetail.tsx[m[36m:[m<[1;31mNewsVideo[m />
+[35msrc/types/news.ts[m[36m:[mexport interface [1;31mNewsVideo[m {
+[35msrc/types/news.ts[m[36m:[m  videos?: [1;31mNewsVideo[m[];

@@ -10,17 +10,15 @@ import {
 } from "../../components/common";
 
 /* 1. NewsVideo sukses ditambahkan ke daftar import */
-import {
-  FeaturedNews,
-  NewsGrid,
-  NewsVideo,
-  SearchWidget,
-  PopularWidget,
-  CategoryWidget,
-  ArchiveWidget,
-  TagWidget,
-  NewsPagination,
-} from "../../components/news";
+import FeaturedNews from "../../components/news/FeaturedNews/FeaturedNews";
+import NewsGrid from "../../components/news/NewsGrid";
+import NewsVideo from "../../components/news/NewsVideo";
+import SearchWidget from "../../components/news/SearchWidget";
+import PopularWidget from "../../components/news/PopularWidget/PopularWidget";
+import CategoryWidget from "../../components/news/CategoryWidget";
+import ArchiveWidget from "../../components/news/ArchiveWidget/ArchiveWidget";
+import TagWidget from "../../components/news/TagWidget/TagWidget";
+import NewsPagination from "../../components/news/NewsPagination";
 
 import {
   getFeaturedNews,

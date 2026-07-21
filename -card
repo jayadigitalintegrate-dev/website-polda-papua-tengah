@@ -1,0 +1,25 @@
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m    <article className="home-[1;31mnews-card[m">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m        className="home-[1;31mnews-card[m__link"
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m        <div className="home-[1;31mnews-card[m__thumb">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m          <span className="home-[1;31mnews-card[m__category">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m        <div className="home-[1;31mnews-card[m__info">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m          <div className="home-[1;31mnews-card[m__meta">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m          <p className="home-[1;31mnews-card[m__excerpt">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m          <div className="home-[1;31mnews-card[m__footer">
+[35msrc/components/home/HeadlineNews/NewsCard.tsx[m[36m:[m            <span className="home-[1;31mnews-card[m__readmore">
+[35msrc/components/news/NewsCard/NewsCard.css[m[36m:[m.[1;31mnews-card[m{
+[35msrc/components/news/NewsCard/NewsCard.css[m[36m:[m.[1;31mnews-card[m:hover{
+[35msrc/components/news/NewsCard/NewsCard.css[m[36m:[m.[1;31mnews-card[m__image{
+[35msrc/components/news/NewsCard/NewsCard.css[m[36m:[m.[1;31mnews-card[m__image img{
+[35msrc/components/news/NewsCard/NewsCard.css[m[36m:[m.[1;31mnews-card[m:hover .[1;31mnews-card[m__image img{
+[35msrc/components/news/NewsCard/NewsCard.css[m[36m:[m.[1;31mnews-card[m__badges{
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m    <article className="[1;31mnews-card[m">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m      <div className="[1;31mnews-card[m__image">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m        <div className="[1;31mnews-card[m__badges">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m      <div className="[1;31mnews-card[m__body">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m        <div className="[1;31mnews-card[m__meta">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m        <h3 className="[1;31mnews-card[m__title">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m        <p className="[1;31mnews-card[m__excerpt">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m        <div className="[1;31mnews-card[m__footer">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m          <span className="[1;31mnews-card[m__author">
+[35msrc/components/news/NewsCard/NewsCard.tsx[m[36m:[m            className="[1;31mnews-card[m__button"

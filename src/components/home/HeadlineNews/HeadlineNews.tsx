@@ -1,5 +1,5 @@
-import NewsVideo from "../../news/NewsVideo/NewsVideo";
 import "./HeadlineNews.css";
+
 import { Link } from "react-router-dom";
 
 import FeaturedNews from "./FeaturedNews";
@@ -9,8 +9,12 @@ import { getNews } from "../../../services/news.service";
 
 const news = getNews();
 
-const featured = news.find((item) => item.featured) ?? news[0];
-const latestNews = news.filter((item) => item.id !== featured.id);
+const featured =
+  news.find((item) => item.featured) ?? news[0];
+
+const latestNews = news.filter(
+  (item) => item.id !== featured.id
+);
 
 function HeadlineNews() {
   return (
@@ -18,8 +22,9 @@ function HeadlineNews() {
       <div className="headline-container">
 
         {/* =======================================================
-            SECTION TITLE
+            TITLE
         ======================================================= */}
+
         <div className="headline-title">
 
           <span>BERITA TERKINI</span>
@@ -35,62 +40,52 @@ function HeadlineNews() {
         </div>
 
         {/* =======================================================
-            NEWS LAYOUT
+            FEATURED NEWS
         ======================================================= */}
 
-        <div className="headline-layout">
+        <FeaturedNews news={featured} />
 
-          {/* ================= FEATURED ================= */}
+        {/* =======================================================
+            LATEST NEWS
+        ======================================================= */}
 
-         <div className="headline-left">
+        <section className="latest-section">
 
-    <FeaturedNews news={featured} />
+          <div className="latest-title">
 
-    <NewsVideo />
+            <div>
 
-</div>
+              <h3>Berita Terbaru</h3>
 
-          {/* ================= LATEST ================= */}
-
-          <aside className="headline-right">
-
-            <div className="latest-title">
-
-              <div>
-
-                <h3>Berita Terbaru</h3>
-
-                <p className="latest-subtitle">
-                  Menampilkan {latestNews.length} berita terbaru
-                </p>
-
-              </div>
-
-              <Link
-                to="/news"
-                className="latest-more"
-              >
-                Lihat Semua →
-              </Link>
+              <p className="latest-subtitle">
+                Menampilkan {latestNews.length} berita terbaru
+              </p>
 
             </div>
 
-            <div className="latest-list">
+            <Link
+              to="/berita"
+              className="latest-more"
+            >
+              Lihat Semua →
+            </Link>
 
-              {latestNews.map((item) => (
+          </div>
 
-                <NewsCard
-                  key={item.id}
-                  news={item}
-                />
+          <div className="latest-grid">
 
-              ))}
+            {latestNews.map((item) => (
 
-            </div>
+              <NewsCard
+                key={item.id}
+                news={item}
+              />
 
-          </aside>
+            ))}
 
-        </div>
+          </div>
+
+        </section>
 
         {/* =======================================================
             BUTTON
@@ -99,7 +94,7 @@ function HeadlineNews() {
         <div className="headline-action">
 
           <Link
-            to="/news"
+            to="/berita"
             className="headline-button"
           >
             Jelajahi Semua Berita

@@ -1,48 +1,63 @@
+/* ==========================================================
+   SEARCH WIDGET
+========================================================== */
+
 .search-widget{
     background:#fff;
     border-radius:18px;
     padding:24px;
-    box-shadow:0 10px 30px rgba(0,0,0,.06);
     margin-bottom:28px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.search-widget__title{
-    margin:0 0 18px;
-    color:#0B2C56;
-    font-size:1.15rem;
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.widget-title{
+    font-size:1.1rem;
     font-weight:700;
+    color:#0B2C56;
+    margin-bottom:18px;
 }
 
-.search-widget__box{
+/* ==========================================================
+   FORM
+========================================================== */
+
+.search-widget__form{
     display:flex;
-    gap:10px;
+    overflow:hidden;
+    border:1px solid #d8e2ef;
+    border-radius:12px;
 }
 
-.search-widget input{
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.search-widget__form input{
     flex:1;
-    border:1px solid #d9e2ec;
-    border-radius:10px;
-    padding:12px 14px;
-    font-size:.95rem;
-    outline:none;
-    transition:.3s;
-}
-
-.search-widget input:focus{
-    border-color:#005BAC;
-    box-shadow:0 0 0 3px rgba(0,91,172,.12);
-}
-
-.search-widget button{
-    width:48px;
     border:none;
-    border-radius:10px;
-    background:#005BAC;
+    outline:none;
+    padding:14px 16px;
+    font-size:.95rem;
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.search-widget__form button{
+    width:54px;
+    border:none;
+    background:#0B2C56;
     color:#fff;
     cursor:pointer;
     transition:.3s;
 }
 
-.search-widget button:hover{
-    background:#0A74D1;
+.search-widget__form button:hover{
+    background:#FFC107;
+    color:#0B2C56;
 }

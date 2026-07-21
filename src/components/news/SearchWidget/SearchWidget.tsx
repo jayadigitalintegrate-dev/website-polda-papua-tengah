@@ -1,41 +1,38 @@
 import "./SearchWidget.css";
 
-type SearchWidgetProps = {
-  value: string;
-  onChange: (value: string) => void;
-};
+import { Icon } from "@iconify/react";
 
-function SearchWidget({
-  value,
+interface SearchWidgetProps {
+  value?: string;
+  onChange?: (value: string) => void;
+}
+
+export default function SearchWidget({
+  value = "",
   onChange,
 }: SearchWidgetProps) {
   return (
     <section className="search-widget">
-
-      <h3 className="search-widget__title">
+      <h3 className="widget-title">
         Cari Berita
       </h3>
 
-      <div className="search-widget__box">
-
+      <form
+        className="search-widget__form"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <input
-          type="text"
-          placeholder="Cari judul berita..."
+          type="search"
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          placeholder="Cari berita..."
+          aria-label="Cari berita"
+          onChange={(e) => onChange?.(e.target.value)}
         />
 
-        <button
-          type="button"
-          aria-label="Cari"
-        >
-          🔍
+        <button type="submit">
+          <Icon icon="mdi:magnify" />
         </button>
-
-      </div>
-
+      </form>
     </section>
   );
 }
-
-export default SearchWidget;

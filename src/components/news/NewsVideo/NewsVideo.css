@@ -2,54 +2,32 @@
    NEWS VIDEO
 ========================================================== */
 .news-video{
-
-    background:#fff;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.08);
-
+    margin:60px 0;
 }
 
 .news-video iframe{
-
     width:100%;
-
     aspect-ratio:16/9;
-
     display:block;
-
     border:none;
-
 }
 
 .news-video__content{
-
     padding:24px;
-
 }
 
 .news-video h3{
-
     color:#0B2C56;
-
     font-size:1.5rem;
-
     margin-bottom:10px;
-
     line-height:1.4;
-
 }
 
 .news-video p{
-
     color:#64748b;
-
     line-height:1.8;
-
 }
+
 .news-video__header{
     display:flex;
     justify-content:space-between;
@@ -74,23 +52,20 @@
 ========================================================== */
 .news-video__layout{
     display:grid;
-    /* Masalah 3: Mengubah grid-template-columns agar card kanan mendapat ruang lebih lebar (460px) */
-    grid-template-columns:1.8fr 460px;
-    gap:30px;
+    grid-template-columns:minmax(0,1fr) 360px;
+    align-items:start;
+    gap:24px;
 }
 
 /* ==========================================================
-   PLAYER (Diselaraskan dari instruksi .news-video__featured)
+   PLAYER
 ========================================================== */
 .news-video__player{
     background:#fff;
     border-radius:22px;
     overflow:hidden;
     box-shadow:0 18px 45px rgba(0,0,0,.08);
-    /* Masalah 1: Memastikan height auto dan flex agar tidak ada space putih kosong di bawah */
-    height:auto;
-    display:flex;
-    flex-direction:column;
+    display:block;
 }
 
 .news-video__player iframe{
@@ -101,7 +76,7 @@
 }
 
 .news-video__info{
-    padding:26px; /* Mengikuti ukuran padding 26px baru */
+    padding:26px; 
 }
 
 .news-video__info h3{
@@ -120,14 +95,15 @@
 }
 
 /* ==========================================================
-   PLAYLIST
+   PLAYLIST (5. Merapikan Playlist)
 ========================================================== */
 .news-video__list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
+    display:grid;
+    gap:16px;
+    align-content:start;
 }
 
+/* 6. Menambahkan min-height pada item playlist */
 .news-video__item{
     display:flex;
     align-items:center;
@@ -141,6 +117,7 @@
     text-align:left;
     transition:.30s;
     box-shadow:0 10px 25px rgba(0,0,0,.05);
+    min-height:88px;
 }
 
 .news-video__item:hover{
@@ -238,4 +215,17 @@
     .news-video__info h3{
         font-size:1.15rem;
     }
+}
+
+/* ==========================================================
+   ADDITIONAL STYLES (4. Ditambahkan di paling bawah)
+========================================================== */
+.news-video__player iframe{
+    display:block;
+    width:100%;
+    border:none;
+}
+
+.news-video__player>*{
+    flex:none;
 }

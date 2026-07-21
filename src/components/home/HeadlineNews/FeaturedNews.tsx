@@ -1,53 +1,56 @@
+import "./FeaturedNews.css";
+
 import { Link } from "react-router-dom";
 import type { News } from "../../../types/news";
 
-
 interface FeaturedNewsProps {
-    news: News;
+  news: News;
 }
 
-function FeaturedNews({ news }: FeaturedNewsProps) {
+export default function FeaturedNews({
+  news,
+}: FeaturedNewsProps) {
   return (
-    <article className="featured-news">
-      <Link
-        to={`/news/${news.slug}`}
-        className="featured-image"
-      >
+    <article className="home-featured-news">
+
+      <div className="home-featured-news__image">
         <img
           src={news.thumbnail}
           alt={news.title}
         />
 
-        <div className="featured-overlay">
-          <div className="featured-content">
+        <span className="home-featured-news__category">
+          {news.category.name}
+        </span>
+      </div>
 
-            <span className="featured-category">
-              {news.category.name}
-            </span>
+      <div className="home-featured-news__content">
 
-            <h3>{news.title}</h3>
-
-            <p>{news.excerpt}</p>
-
-            <div className="featured-footer">
-
-              <div className="featured-meta">
-                <small>{news.author.name}</small>
-                <small>•</small>
-                <small>{news.publishedAt}</small>
-              </div>
-
-              <span className="featured-button">
-                Baca Selengkapnya →
-              </span>
-
-            </div>
-
-          </div>
+        <div className="home-featured-news__meta">
+          <span>{news.author.name}</span>
+          <span>•</span>
+          <span>{news.publishedAt}</span>
+          <span>•</span>
+          <span>{news.views.toLocaleString()} Views</span>
         </div>
-      </Link>
+
+        <h2>
+          {news.title}
+        </h2>
+
+        <p>
+          {news.excerpt}
+        </p>
+
+        <Link
+          to={`/berita/${news.slug}`}
+          className="home-featured-news__button"
+        >
+          Baca Selengkapnya →
+        </Link>
+
+      </div>
+
     </article>
   );
 }
-
-export default FeaturedNews;
