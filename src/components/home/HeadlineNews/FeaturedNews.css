@@ -1,67 +1,134 @@
 /* ==========================================================
    FEATURED NEWS
+   MODERN DIGITAL HERO CARD
 ========================================================== */
 
+
 .home-featured-news{
+
     display:grid;
+
     grid-template-columns:58% 42%;
+
     background:#ffffff;
-    border-radius:22px;
+
+    border-radius:28px;
+
     overflow:hidden;
-    box-shadow:0 12px 40px rgba(0,0,0,.08);
-    transition:.35s;
+
+    box-shadow:
+    0 20px 55px rgba(15,23,42,.12);
+
+    transition:.35s ease;
+
 }
 
+
 .home-featured-news:hover{
-    transform:translateY(-4px);
-    box-shadow:0 22px 60px rgba(0,0,0,.12);
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 30px 70px rgba(15,23,42,.18);
+
 }
+
+
 
 /* ==========================================================
    IMAGE
 ========================================================== */
 
+
 .home-featured-news__image{
+
     position:relative;
-    height:520px;
+
+    height:540px;
+
     overflow:hidden;
+
 }
+
+
+.home-featured-news__image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        180deg,
+        transparent 55%,
+        rgba(0,0,0,.35)
+    );
+
+}
+
 
 .home-featured-news__image img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
-    transition:.6s;
+
+    transition:.6s ease;
+
 }
 
-.home-featured-news:hover img{
-    transform:scale(1.04);
+
+.home-featured-news:hover
+.home-featured-news__image img{
+
+    transform:scale(1.06);
+
 }
+
+
 
 /* ==========================================================
    CATEGORY
 ========================================================== */
 
-.home-featured-news__category{
-    position:absolute;
-    top:22px;
-    left:22px;
 
-    background:#FFC107;
-    color:#082A52;
+.home-featured-news__category{
+
+    position:absolute;
+
+    z-index:2;
+
+    top:24px;
+
+    left:24px;
+
 
     padding:8px 18px;
 
     border-radius:999px;
 
+
+    background:#ffc107;
+
+    color:#08284d;
+
+
     font-size:.82rem;
 
-    font-weight:700;
+    font-weight:800;
+
 }
+
+
 
 /* ==========================================================
    CONTENT
 ========================================================== */
+
 
 .home-featured-news__content{
 
@@ -71,9 +138,11 @@
 
     justify-content:center;
 
-    padding:42px;
+    padding:50px;
 
 }
+
+
 
 .home-featured-news__meta{
 
@@ -81,33 +150,40 @@
 
     flex-wrap:wrap;
 
-    gap:14px;
+    gap:12px;
 
-    color:#6B7280;
 
-    font-size:.90rem;
+    color:#64748b;
 
-    margin-bottom:18px;
+    font-size:.9rem;
+
+    margin-bottom:20px;
 
 }
 
+
+
 .home-featured-news__content h2{
 
-    font-size:2rem;
+    margin:0 0 20px;
+
+
+    color:#0B2C56;
+
+
+    font-size:2.2rem;
 
     line-height:1.35;
-
-    color:#082A52;
-
-    margin-bottom:22px;
 
     font-weight:800;
 
 }
 
+
+
 .home-featured-news__content p{
 
-    color:#5F6B7A;
+    color:#64748b;
 
     line-height:1.9;
 
@@ -115,7 +191,17 @@
 
 }
 
+
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+
 .home-featured-news__button{
+
+    width:max-content;
+
 
     display:inline-flex;
 
@@ -123,35 +209,43 @@
 
     justify-content:center;
 
-    width:max-content;
 
-    padding:14px 24px;
+    padding:15px 30px;
 
-    background:#082A52;
+
+    border-radius:999px;
+
+
+    background:#0B2C56;
 
     color:#ffffff;
 
-    border-radius:10px;
-
-    text-decoration:none;
 
     font-weight:700;
 
-    transition:.3s;
+    text-decoration:none;
+
+
+    transition:.3s ease;
 
 }
+
+
 
 .home-featured-news__button:hover{
 
-    background:#FFC107;
+    background:#ffc107;
 
-    color:#082A52;
+    color:#0B2C56;
 
 }
+
+
 
 /* ==========================================================
    RESPONSIVE
 ========================================================== */
+
 
 @media(max-width:1100px){
 
@@ -161,169 +255,38 @@
 
     }
 
+
     .home-featured-news__image{
 
-        height:340px;
+        height:380px;
 
     }
 
 }
 
+
+
 @media(max-width:768px){
+
+
+    .home-featured-news__image{
+
+        height:280px;
+
+    }
+
 
     .home-featured-news__content{
 
-        padding:26px;
+        padding:28px;
 
     }
+
 
     .home-featured-news__content h2{
 
         font-size:1.6rem;
 
     }
-
-}
-.home-featured-news{
-
-    display:grid;
-
-    grid-template-columns:55% 45%;
-
-    background:#fff;
-
-    border-radius:22px;
-
-    overflow:hidden;
-
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-}
-
-.home-featured-news__image{
-
-    position:relative;
-
-    height:520px;
-
-}
-
-.home-featured-news__image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.home-featured-news__category{
-
-    position:absolute;
-
-    left:20px;
-
-    top:20px;
-
-    background:#ffc107;
-
-    color:#052F5F;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    font-size:.8rem;
-
-    font-weight:700;
-
-}
-
-.home-featured-news__content{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    padding:38px;
-
-}
-
-.home-featured-news__meta{
-
-    display:flex;
-
-    gap:14px;
-
-    flex-wrap:wrap;
-
-    color:#667085;
-
-    font-size:.9rem;
-
-    margin-bottom:18px;
-
-}
-
-.home-featured-news__content h2{
-
-    color:#07254a;
-
-    font-size:2rem;
-
-    line-height:1.4;
-
-    margin-bottom:18px;
-
-}
-
-.home-featured-news__content p{
-
-    color:#5f6c7b;
-
-    line-height:1.9;
-
-    margin-bottom:28px;
-
-}
-
-.home-featured-news__button{
-
-    display:inline-flex;
-
-    width:max-content;
-
-    padding:14px 26px;
-
-    background:#07254a;
-
-    color:#fff;
-
-    border-radius:10px;
-
-    font-weight:700;
-
-}
-
-.home-featured-news__button:hover{
-
-    background:#ffc107;
-
-    color:#07254a;
-
-}
-
-@media(max-width:992px){
-
-
-
-.home-featured-news__image{
-
-height:340px;
-
-}
 
 }
