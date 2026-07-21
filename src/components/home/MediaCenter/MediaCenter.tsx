@@ -2,41 +2,48 @@ import "./MediaCenter.css";
 
 import { Link } from "react-router-dom";
 
+import berita1 from "../../../assets/berita/berita-1.jpg";
+import berita2 from "../../../assets/berita/berita-2.jpg";
+import berita3 from "../../../assets/berita/berita-3.jpg";
+import berita4 from "../../../assets/berita/berita-4.jpg";
+import berita5 from "../../../assets/berita/berita-5.jpg";
+import berita6 from "../../../assets/berita/berita-6.jpg";
+
 const media = [
   {
     id: 1,
-    image: "https://picsum.photos/600/400?random=1",
+    image: berita1,
     title: "Kapolda Papua Tengah Memimpin Apel Pagi",
     date: "20 Juli 2026",
   },
   {
     id: 2,
-    image: "https://picsum.photos/600/400?random=2",
+    image: berita2,
     title: "Patroli Kamtibmas Bersama Masyarakat",
     date: "19 Juli 2026",
   },
   {
     id: 3,
-    image: "https://picsum.photos/600/400?random=3",
-    title: "Pelayanan SIM Keliling",
+    image: berita3,
+    title: "Pelayanan Publik Kepolisian",
     date: "18 Juli 2026",
   },
   {
     id: 4,
-    image: "https://picsum.photos/600/400?random=4",
-    title: "Pengamanan Ibadah Minggu",
+    image: berita4,
+    title: "Pengamanan Kegiatan Masyarakat",
     date: "17 Juli 2026",
   },
   {
     id: 5,
-    image: "https://picsum.photos/600/400?random=5",
-    title: "Kegiatan Bhakti Sosial",
+    image: berita5,
+    title: "Kegiatan Bhakti Sosial Polda Papua Tengah",
     date: "16 Juli 2026",
   },
   {
     id: 6,
-    image: "https://picsum.photos/600/400?random=6",
-    title: "Rapat Koordinasi Internal",
+    image: berita6,
+    title: "Rapat Koordinasi Internal Kepolisian",
     date: "15 Juli 2026",
   },
 ];
@@ -51,7 +58,9 @@ export default function MediaCenter() {
 
           <span>MEDIA CENTER</span>
 
-          <h2>Galeri Dokumentasi Polda Papua Tengah</h2>
+          <h2>
+            Galeri Dokumentasi Polda Papua Tengah
+          </h2>
 
           <p>
             Dokumentasi kegiatan, pelayanan masyarakat,
@@ -64,10 +73,11 @@ export default function MediaCenter() {
           to="/galeri"
           className="media-center__button"
         >
-          Lihat Semua →
+          Lihat Semua &rarr;
         </Link>
 
       </div>
+
 
       <div className="media-center__grid">
 
@@ -85,9 +95,13 @@ export default function MediaCenter() {
 
             <div className="media-card__overlay">
 
-              <h3>{item.title}</h3>
+              <h3>
+                {item.title}
+              </h3>
 
-              <small>{item.date}</small>
+              <small>
+                {item.date}
+              </small>
 
             </div>
 
