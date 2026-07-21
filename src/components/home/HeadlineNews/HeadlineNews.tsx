@@ -1,4 +1,4 @@
-import "./HeadlineNews.css";
+﻿import "./HeadlineNews.css";
 
 import { Link } from "react-router-dom";
 
@@ -67,7 +67,7 @@ function HeadlineNews() {
               to="/berita"
               className="latest-more"
             >
-              Lihat Semua →
+              Lihat Semua &gt;
             </Link>
 
           </div>

@@ -1,4 +1,4 @@
-import type { News } from "../../../types/news";
+﻿import type { News } from "../../../types/news";
 import { Link } from "react-router-dom";
 import "./NewsCard.css";
 interface NewsCardProps {
@@ -39,7 +39,7 @@ function NewsCard({ news }: NewsCardProps) {
 
           <div className="home-news-card__footer">
             <span className="home-news-card__readmore">
-              Baca Selengkapnya →
+              Baca Selengkapnya &gt;
             </span>
           </div>
 
