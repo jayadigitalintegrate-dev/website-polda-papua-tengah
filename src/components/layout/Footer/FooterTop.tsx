@@ -96,7 +96,7 @@ function FooterTop() {
   <Icon icon="mdi:map-marker" />
 
   <span>
-    Jl. Merdeka
+    Jl. Pepera No. 5
     <br />
     Nabire
     <br />
@@ -109,7 +109,7 @@ function FooterTop() {
 
   <Icon icon="mdi:phone" />
 
-  <span>(0984) 000000</span>
+  <span>082221509700</span>
 
 </p>
 
