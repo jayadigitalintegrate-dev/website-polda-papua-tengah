@@ -1,0 +1,127 @@
+.gallery-pagination {
+
+    width:min(1200px,92%);
+
+    margin:
+        50px auto 70px;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    gap:12px;
+
+}
+
+
+
+.gallery-pagination button {
+
+    width:46px;
+
+    height:46px;
+
+
+    border:none;
+
+    border-radius:12px;
+
+
+    background:#eef3f8;
+
+
+    color:#0b3d6d;
+
+
+    font-size:1rem;
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+
+}
+
+
+
+.gallery-pagination button:hover {
+
+
+    background:#0b3d6d;
+
+
+    color:#ffffff;
+
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+
+.gallery-pagination button.active {
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b3d6d,
+            #145da0
+        );
+
+
+    color:#ffffff;
+
+
+    box-shadow:
+        0 8px 20px rgba(11,61,109,.25);
+
+}
+
+
+
+
+
+@media(max-width:576px){
+
+
+    .gallery-pagination {
+
+        gap:8px;
+
+
+        margin:
+            40px auto 50px;
+
+    }
+
+
+
+    .gallery-pagination button {
+
+
+        width:40px;
+
+        height:40px;
+
+
+        border-radius:10px;
+
+
+        font-size:.9rem;
+
+    }
+
+}

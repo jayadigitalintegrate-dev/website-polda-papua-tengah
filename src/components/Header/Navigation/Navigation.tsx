@@ -12,9 +12,9 @@ const menus = [
     path: "/profil",
   },
   {
-    title: "Pejabat",
-    path: "/pejabat",
-  },
+  title: "Pejabat",
+  path: "/officials",
+},
   {
     title: "Berita",
     path: "/berita",
@@ -23,10 +23,10 @@ const menus = [
     title: "Layanan",
     path: "/layanan",
   },
-  {
-    title: "Program",
-    path: "/program",
-  },
+  // {
+//   title: "Program",
+//   path: "/program",
+// },
   {
     title: "Kontak",
     path: "/kontak",
