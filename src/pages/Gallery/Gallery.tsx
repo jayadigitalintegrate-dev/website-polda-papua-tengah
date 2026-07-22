@@ -6,8 +6,10 @@ import GalleryHero from "../../components/gallery/GalleryHero";
 import GalleryFilter from "../../components/gallery/GalleryFilter";
 import GalleryGrid from "../../components/gallery/GalleryGrid";
 import GalleryPagination from "../../components/gallery/GalleryPagination";
+import GalleryLightbox from "../../components/gallery/GalleryLightbox";
 
 import { galleryData } from "../../data/galleryData";
+import type { GalleryItem } from "../../data/galleryData";
 
 
 export default function Gallery() {
@@ -17,20 +19,22 @@ export default function Gallery() {
     useState("Semua");
 
 
+  const [selectedGallery, setSelectedGallery] =
+    useState<GalleryItem | null>(null);
+
+
+
   const filteredGallery =
 
     selectedCategory === "Semua"
 
-      ?
+      ? galleryData
 
-      galleryData
+      : galleryData.filter(
+          (item) =>
+            item.category === selectedCategory
+        );
 
-      :
-
-      galleryData.filter(
-        (item) =>
-          item.category === selectedCategory
-      );
 
 
   return (
@@ -39,6 +43,7 @@ export default function Gallery() {
 
 
       <GalleryHero />
+
 
 
       <GalleryFilter
@@ -52,14 +57,39 @@ export default function Gallery() {
       />
 
 
+
       <GalleryGrid
 
         data={filteredGallery}
 
+        onSelect={
+          setSelectedGallery
+        }
+
       />
 
 
+
       <GalleryPagination />
+
+
+
+      {
+        selectedGallery && (
+
+          <GalleryLightbox
+
+            item={selectedGallery}
+
+            onClose={() =>
+              setSelectedGallery(null)
+            }
+
+          />
+
+        )
+      }
+
 
 
     </main>
