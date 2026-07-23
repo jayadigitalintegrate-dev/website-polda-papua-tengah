@@ -49,60 +49,63 @@ export default function SolidHeader() {
 
   const [searchOpen, setSearchOpen] = useState(false);
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+
 
   useEffect(() => {
 
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 30);
-  };
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
 
 
-  const handleShortcut = (
-    event: KeyboardEvent
-  ) => {
+    const handleShortcut = (
+      event: KeyboardEvent
+    ) => {
 
-    if (
-      (event.ctrlKey || event.metaKey) &&
-      event.key.toLowerCase() === "k"
-    ) {
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        event.key.toLowerCase() === "k"
+      ) {
 
-      event.preventDefault();
+        event.preventDefault();
 
-      setSearchOpen(true);
+        setSearchOpen(true);
 
-    }
+      }
 
-  };
-
-
-  window.addEventListener(
-    "scroll",
-    handleScroll
-  );
+    };
 
 
-  window.addEventListener(
-    "keydown",
-    handleShortcut
-  );
-
-
-  return () => {
-
-    window.removeEventListener(
+    window.addEventListener(
       "scroll",
       handleScroll
     );
 
 
-    window.removeEventListener(
+    window.addEventListener(
       "keydown",
       handleShortcut
     );
 
-  };
 
-}, []);
+    return () => {
+
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+
+      window.removeEventListener(
+        "keydown",
+        handleShortcut
+      );
+
+    };
+
+  }, []);
 
 
 
@@ -114,11 +117,11 @@ export default function SolidHeader() {
       }`}
     >
 
+
       <div className="solid-header-container">
 
 
-        {/* ================= LOGO ================= */}
-
+        {/* LOGO */}
 
         <NavLink
           to="/"
@@ -145,16 +148,14 @@ export default function SolidHeader() {
               Integritas • Modern • Presisi
             </span>
 
-
           </div>
-
 
         </NavLink>
 
 
 
-        {/* ================= MENU ================= */}
 
+        {/* DESKTOP MENU */}
 
         <nav
           className="solid-nav"
@@ -173,20 +174,74 @@ export default function SolidHeader() {
 
           ))}
 
-
         </nav>
 
 
 
-        {/* ================= RIGHT MENU ================= */}
 
+
+        {/* MOBILE HAMBURGER */}
+
+        <button
+          className="mobile-menu-button"
+          onClick={() =>
+            setMobileMenuOpen(!mobileMenuOpen)
+          }
+          aria-label="Buka menu"
+          aria-expanded={mobileMenuOpen}
+        >
+
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </button>
+
+
+
+
+
+        {/* MOBILE MENU */}
+
+        {mobileMenuOpen && (
+
+          <nav className="mobile-nav">
+
+            {menuItems.map((menu)=>(
+
+              <NavLink
+                key={menu.path}
+                to={menu.path}
+                end={menu.end}
+                onClick={() =>
+                  setMobileMenuOpen(false)
+                }
+              >
+
+                {menu.label}
+
+              </NavLink>
+
+            ))}
+
+          </nav>
+
+        )}
+
+
+
+
+
+        {/* RIGHT MENU */}
 
         <div className="solid-right">
 
 
           <SearchButton
             ariaLabel="Cari"
-            onClick={() => setSearchOpen(true)}
+            onClick={() =>
+              setSearchOpen(true)
+            }
           />
 
 
@@ -196,12 +251,16 @@ export default function SolidHeader() {
         </div>
 
 
-        {/* ================= SEARCH MODAL ================= */}
 
+
+
+        {/* SEARCH MODAL */}
 
         <SearchModal
           open={searchOpen}
-          onClose={() => setSearchOpen(false)}
+          onClose={() =>
+            setSearchOpen(false)
+          }
         />
 
 
@@ -211,4 +270,5 @@ export default function SolidHeader() {
     </header>
 
   );
+
 }
