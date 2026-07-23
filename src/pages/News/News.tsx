@@ -1,6 +1,6 @@
 import "./News.css";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -9,7 +9,6 @@ import {
   Container,
 } from "../../components/common";
 
-/* 1. NewsVideo sukses ditambahkan ke daftar import */
 import FeaturedNews from "../../components/news/FeaturedNews/FeaturedNews";
 import NewsGrid from "../../components/news/NewsGrid";
 import NewsVideo from "../../components/news/NewsVideo";
@@ -28,15 +27,19 @@ import {
 export default function News() {
   const featured = getFeaturedNews();
   const latest = getLatestNews();
+
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const NEWS_PER_PAGE = 6;
 
   const filteredNews = useMemo(() => {
-    return latest.filter((item) => {
-      const keyword = search.toLowerCase();
+    const keyword = search.trim().toLowerCase();
 
+    return latest.filter((item) => {
       const matchSearch =
-        !search.trim() ||
+        keyword === "" ||
         item.title.toLowerCase().includes(keyword) ||
         item.excerpt.toLowerCase().includes(keyword);
 
@@ -47,6 +50,30 @@ export default function News() {
       return matchSearch && matchCategory;
     });
   }, [latest, search, selectedCategory]);
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredNews.length / NEWS_PER_PAGE)
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, selectedCategory]);
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [currentPage, totalPages]);
+
+  const paginatedNews = useMemo(() => {
+    const start = (currentPage - 1) * NEWS_PER_PAGE;
+
+    return filteredNews.slice(
+      start,
+      start + NEWS_PER_PAGE
+    );
+  }, [filteredNews, currentPage]);
 
   return (
     <>
@@ -69,65 +96,81 @@ export default function News() {
       />
 
       <Container>
-        {/* ======================================================
-            FEATURED NEWS
-        ====================================================== */}
+
         {featured && (
           <FeaturedNews news={featured} />
         )}
 
-        {/* ======================================================
-            NEWS SECTION
-        ====================================================== */}
         <section className="news-page">
-          {/* ======================================================
-              HEADER
-          ====================================================== */}
+
           <div className="news-header">
+
             <div className="news-header__title">
-              <span className="news-header__line"></span>
+
+              <span className="news-header__line" />
+
               <div>
                 <h2>Berita Terbaru</h2>
+
                 <p>
-                  Menampilkan <strong>{filteredNews.length}</strong> berita terbaru Polda Papua Tengah.
+                  Menampilkan{" "}
+                  <strong>{filteredNews.length}</strong>{" "}
+                  berita terbaru Polda Papua Tengah.
                 </p>
+
               </div>
+
             </div>
-            <Link to="/berita" className="news-archive-button">
+
+            <Link
+              to="/berita"
+              className="news-archive-button"
+            >
               Lihat Semua →
             </Link>
+
           </div>
 
-          {/* ======================================================
-              CONTENT
-          ====================================================== */}
           <div className="news-layout">
-            {/* ======================================================
-                LEFT CONTENT
-            ====================================================== */}
+
             <div className="news-content">
-              <NewsGrid news={filteredNews} />
-              <NewsPagination currentPage={1} totalPages={5} />
+
+              <NewsGrid news={paginatedNews} />
+
+              <NewsPagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
+
             </div>
 
-            {/* ======================================================
-                SIDEBAR
-            ====================================================== */}
             <aside className="news-sidebar">
-              <SearchWidget value={search} onChange={setSearch} />
+
+              <SearchWidget
+                value={search}
+                onChange={setSearch}
+              />
+
               <PopularWidget />
+
               <CategoryWidget
                 selectedCategory={selectedCategory}
                 onSelectCategory={setSelectedCategory}
               />
+
               <ArchiveWidget />
+
               <TagWidget />
+
             </aside>
+
           </div>
+
         </section>
 
-        {/* 2. NewsVideo ditambahkan tepat sebelum penutup Container */}
         <NewsVideo />
+
       </Container>
     </>
   );

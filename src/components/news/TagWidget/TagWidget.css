@@ -31,3 +31,18 @@
     background:#005BAC;
     color:#fff;
 }
+
+.tag-widget__list button{
+    cursor:pointer;
+    transition:.25s;
+}
+
+.tag-widget__list button:hover{
+    background:#0b3d6d;
+    color:#fff;
+}
+
+.tag-widget__list button.active{
+    background:#0b3d6d;
+    color:#fff;
+}

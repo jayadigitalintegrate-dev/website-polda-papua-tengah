@@ -1,4 +1,4 @@
-import "./NewsPagination.css";
+﻿import "./NewsPagination.css";
 
 type NewsPaginationProps = {
   currentPage: number;
@@ -6,7 +6,7 @@ type NewsPaginationProps = {
   onPageChange?: (page: number) => void;
 };
 
-function NewsPagination({
+export default function NewsPagination({
   currentPage,
   totalPages,
   onPageChange,
@@ -20,16 +20,18 @@ function NewsPagination({
     <nav className="news-pagination">
 
       <button
+        type="button"
         className="page-arrow"
         disabled={currentPage === 1}
         onClick={() => onPageChange?.(currentPage - 1)}
       >
-        ←
+        ‹
       </button>
 
       {pages.map((page) => (
         <button
           key={page}
+          type="button"
           className={
             page === currentPage
               ? "page-number active"
@@ -42,15 +44,15 @@ function NewsPagination({
       ))}
 
       <button
+        type="button"
         className="page-arrow"
         disabled={currentPage === totalPages}
         onClick={() => onPageChange?.(currentPage + 1)}
       >
-        →
+        ›
       </button>
 
     </nav>
   );
 }
 
-export default NewsPagination;

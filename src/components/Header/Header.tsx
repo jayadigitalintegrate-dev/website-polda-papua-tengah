@@ -33,18 +33,20 @@ function Header() {
   }, []);
 
   return (
-  <header
-    className={`header ${
-      scrolled ? "header-scrolled" : ""
-    }`}
-  >
-    {isMobile ? (
-      <MobileMenu />
-    ) : (
-      <DesktopMenu />
-    )}
-  </header>
-);
+    <>
+      {isMobile ? (
+        <MobileMenu />
+      ) : (
+        <header
+          className={`header ${
+            scrolled ? "header-scrolled" : ""
+          }`}
+        >
+          <DesktopMenu />
+        </header>
+      )}
+    </>
+  );
 }
 
 export default Header;

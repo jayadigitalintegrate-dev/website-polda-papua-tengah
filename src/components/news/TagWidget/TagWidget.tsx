@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./TagWidget.css";
 
 const tags = [
@@ -11,6 +12,8 @@ const tags = [
 ];
 
 export default function TagWidget() {
+  const [activeTag, setActiveTag] = useState("");
+
   return (
     <section className="tag-widget">
 
@@ -22,6 +25,17 @@ export default function TagWidget() {
 
           <button
             key={tag}
+            type="button"
+            className={
+              activeTag === tag
+                ? "active"
+                : ""
+            }
+            onClick={() =>
+              setActiveTag(
+                activeTag === tag ? "" : tag
+              )
+            }
           >
             #{tag}
           </button>

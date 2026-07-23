@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 import hero1 from "../../assets/hero/hero-polda-papua-tengah.png";
@@ -9,69 +10,89 @@ import hero5 from "../../assets/hero/hero-poldapapua-tengah5.png";
 
 const images = [hero1, hero2, hero3, hero4, hero5];
 
-function Hero() {
+export default function Hero() {
+
   const [current, setCurrent] = useState(0);
-const nextSlide = () => {
-  setCurrent((prev) => (prev + 1) % images.length);
-};
 
-const prevSlide = () => {
-  setCurrent((prev) =>
-    prev === 0 ? images.length - 1 : prev - 1
-  );
-};
-  // Preload gambar dinonaktifkan sementara untuk optimasi mobile.
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
 
-  // autoplay
+  const prevSlide = () => {
+    setCurrent((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
   useEffect(() => {
-    const interval = window.setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-
+    const interval = window.setInterval(nextSlide, 5000);
     return () => window.clearInterval(interval);
   }, []);
 
   return (
     <section className="hero">
+
       {images.map((image, index) => (
         <img
           key={index}
           src={image}
           alt={`Hero ${index + 1}`}
-          className={`hero-image ${
-            current === index ? "active" : ""
-          }`}
+          className={`hero-image ${current === index ? "active" : ""}`}
         />
       ))}
 
-      <div className="hero-overlay"></div>
-<button
-  className="hero-arrow hero-prev"
-  onClick={prevSlide}
->
-  ❮
-</button>
+      <div className="hero-overlay" />
 
-<button
-  className="hero-arrow hero-next"
-  onClick={nextSlide}
->
-  ❯
-</button>
-      <div className="hero-dots">
-        {images.map((_, index) => (
-          <span
-            key={index}
-            className={current === index ? "active" : ""}
-          ></span>
-        ))}
+      <button
+        type="button"
+        className="hero-arrow hero-prev"
+        onClick={prevSlide}
+        aria-label="Slide sebelumnya"
+      >
+        ‹
+      </button>
+
+      <button
+        type="button"
+        className="hero-arrow hero-next"
+        onClick={nextSlide}
+        aria-label="Slide berikutnya"
+      >
+        ›
+      </button>
+
+      <div className="hero-content">
+
+        <h1>Website Resmi Polda Papua Tengah</h1>
+
+        <p>
+          Melayani masyarakat dengan Presisi, Integritas, Modern,
+          Transparan dan Humanis.
+        </p>
+
+        <Link
+          to="/berita"
+          className="hero-button"
+        >
+          Selengkapnya
+        </Link>
+
       </div>
 
-      <button className="hero-btn">
-        Selengkapnya
-      </button>
+      <div className="hero-dots">
+
+        {images.map((_, index) => (
+          <button
+            key={index}
+            type="button"
+            className={`hero-dot ${current === index ? "active" : ""}`}
+            onClick={() => setCurrent(index)}
+            aria-label={`Slide ${index + 1}`}
+          />
+        ))}
+
+      </div>
+
     </section>
   );
 }
-
-export default Hero;

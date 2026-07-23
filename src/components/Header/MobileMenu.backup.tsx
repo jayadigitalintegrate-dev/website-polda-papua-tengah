@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 import logo from "../../assets/logo/logo.png";
@@ -8,11 +8,6 @@ import "./Header.css";
 import "./MobileMenu.css";
 function MobileMenu() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
 
   const closeMenu = () => setOpen(false);
 
@@ -105,14 +100,6 @@ function MobileMenu() {
           Kontak
         </NavLink>
       </nav>
-
-      {open && (
-        <div
-          className="mobile-overlay"
-          onClick={closeMenu}
-        />
-      )}
-
     </>
   );
 }

@@ -7,7 +7,7 @@ function FooterTop() {
   return (
     <section className="footer-top">
 
-      {/* ================= LEFT (BRAND) ================= */}
+      {/* ================= BRAND ================= */}
 
       <div className="footer-brand">
 
@@ -20,13 +20,11 @@ function FooterTop() {
           />
 
           <div className="footer-brand-title">
-
             <h3>
               POLDA
               <br />
               PAPUA TENGAH
             </h3>
-
           </div>
 
         </div>
@@ -41,17 +39,17 @@ function FooterTop() {
 
       </div>
 
-      {/* ================= PROFIL ================= */}
+      {/* ================= TENTANG ================= */}
 
       <div className="footer-column">
 
         <h4>Tentang</h4>
 
         <Link to="/profil">Profil</Link>
-        <Link to="/sejarah">Sejarah</Link>
-        <Link to="/visi-misi">Visi &amp; Misi</Link>
-        <Link to="/pejabat">Pejabat Utama</Link>
-        <Link to="/struktur-organisasi">
+        <Link to="/profil">Sejarah</Link>
+        <Link to="/profil">Visi &amp; Misi</Link>
+        <Link to="/officials">Pejabat Utama</Link>
+        <Link to="/profil">
           Struktur Organisasi
         </Link>
 
@@ -63,11 +61,11 @@ function FooterTop() {
 
         <h4>Layanan</h4>
 
-        <Link to="/layanan/spkt">SPKT Online</Link>
-        <Link to="/layanan/skck">SKCK Online</Link>
-        <Link to="/layanan/sim">SIM Online</Link>
-        <Link to="/pengaduan">Pengaduan</Link>
-        <Link to="/ppid">PPID</Link>
+        <Link to="/layanan">SPKT Online</Link>
+        <Link to="/layanan">SKCK Online</Link>
+        <Link to="/layanan">SIM Online</Link>
+        <Link to="/kontak">Pengaduan</Link>
+        <Link to="/profil">PPID</Link>
 
       </div>
 
@@ -77,11 +75,11 @@ function FooterTop() {
 
         <h4>Informasi</h4>
 
-        <Link to="/news">Berita</Link>
-        <Link to="/pengumuman">Pengumuman</Link>
-        <Link to="/agenda">Agenda</Link>
+        <Link to="/berita">Berita</Link>
+        <Link to="/berita">Pengumuman</Link>
+        <Link to="/berita">Agenda</Link>
         <Link to="/galeri">Galeri</Link>
-        <Link to="/download">Download</Link>
+        <Link to="/galeri">Download</Link>
 
       </div>
 
@@ -92,46 +90,52 @@ function FooterTop() {
         <h4>Hubungi Kami</h4>
 
         <p className="footer-contact">
+          <Icon icon="mdi:map-marker" />
+          <span>
+            Jl. Pepera No. 5
+            <br />
+            Nabire
+            <br />
+            Papua Tengah
+          </span>
+        </p>
 
-  <Icon icon="mdi:map-marker" />
+        <p className="footer-contact">
+          <Icon icon="mdi:phone" />
+          <span>082221509700</span>
+        </p>
 
-  <span>
-    Jl. Pepera No. 5
-    <br />
-    Nabire
-    <br />
-    Papua Tengah
-  </span>
-
-</p>
-
-<p className="footer-contact">
-
-  <Icon icon="mdi:phone" />
-
-  <span>082221509700</span>
-
-</p>
-
-<p className="footer-contact">
-
-  <Icon icon="mdi:email" />
-
-  <span>info@poldapapuatengah.go.id</span>
-
-</p>
+        <p className="footer-contact">
+          <Icon icon="mdi:email" />
+          <span>info@poldapapuatengah.go.id</span>
+        </p>
 
         <div className="footer-social">
 
-          <a href="#">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
             <Icon icon="mdi:facebook" />
           </a>
 
-          <a href="#">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
             <Icon icon="mdi:instagram" />
           </a>
 
-          <a href="#">
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
             <Icon icon="mdi:youtube" />
           </a>
 

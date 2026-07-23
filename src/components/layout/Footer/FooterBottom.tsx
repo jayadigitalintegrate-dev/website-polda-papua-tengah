@@ -29,11 +29,11 @@ function FooterBottom() {
 
       <div className="footer-bottom-links">
 
-        <Link to="/privacy">
+        <Link to="/profil">
           Kebijakan Privasi
         </Link>
 
-        <Link to="/sitemap">
+        <Link to="/profil">
           Sitemap
         </Link>
 

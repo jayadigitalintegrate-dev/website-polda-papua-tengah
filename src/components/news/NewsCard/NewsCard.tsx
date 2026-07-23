@@ -81,11 +81,11 @@ export default function NewsCard({ news }: NewsCardProps) {
           </span>
 
           <Link
-            to={`/berita/${news.slug}`}
-            className="news-card__button"
-          >
-            Baca →
-          </Link>
+  to={`/berita/${news.slug}`}
+  className="news-card__button"
+>
+  Baca Selengkapnya →
+</Link>
 
         </div>
 
@@ -94,3 +94,4 @@ export default function NewsCard({ news }: NewsCardProps) {
     </article>
   );
 }
+
