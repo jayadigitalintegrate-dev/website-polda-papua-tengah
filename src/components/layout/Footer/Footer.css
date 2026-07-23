@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    MODERN DIGITAL FOOTER
    POLDA PAPUA TENGAH
 ========================================================== */
@@ -91,6 +91,13 @@
 
     object-fit:contain;
 
+    padding-left: 20px;
+
+}
+
+.footer-logo img {
+    width: 180px;
+    margin-left: 20px;
 }
 
 
@@ -317,7 +324,9 @@
 
 .footer-presisi img{
 
-    width:160px;
+    width:180px;
+
+    margin-left: 20px;
 
 }
 
@@ -418,5 +427,110 @@
 
 }
 
+
+}
+/* ================================
+   MOBILE IMPROVEMENT
+================================ */
+
+@media(max-width:768px){
+
+.footer-logo{
+    width:85px;
+    height:85px;
+}
+
+.footer-brand p{
+    max-width:100%;
+    font-size:14px;
+}
+
+.footer-contact{
+    justify-content:center;
+    text-align:left;
+}
+
+.footer-presisi img{
+    width:180px;
+    margin-left: 20px;
+}
+
+.footer-column{
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+.footer-column a:hover{
+    transform:translateX(4px);
+}
+
+}
+
+
+/* ================================
+   MOBILE FINAL
+================================ */
+
+@media(max-width:768px){
+
+.footer-top{
+    padding:35px 20px;
+}
+
+.footer-brand-header{
+    gap:15px;
+}
+
+.footer-logo{
+    width:80px;
+    height:80px;
+}
+
+.footer-column{
+
+    padding-top:20px;
+
+    border-left:none;
+
+    border-top:none;
+
+}
+
+.footer-column h4{
+
+    margin-bottom:18px;
+
+}
+
+.footer-column a{
+
+    margin-bottom:12px;
+
+}
+
+.footer-contact{
+
+    justify-content:flex-start;
+
+}
+
+.footer-social{
+
+    margin-top:15px;
+
+}
+
+.footer-presisi img{
+
+    width:180px;
+
+    margin-left: 80px;
+
+}
+
+.footer-logo img {
+    width: 180px;
+    margin-left: 80px;
+}
 
 }
