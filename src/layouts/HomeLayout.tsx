@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 import Announcement from "../components/announcement";
-import Header from "../components/Header/Header";
+import SolidHeader from "../components/layout/SolidHeader/SolidHeader";
 import Footer from "../components/layout/Footer";
 
 export default function HomeLayout() {
@@ -9,7 +9,7 @@ export default function HomeLayout() {
     <>
       <Announcement />
 
-      <Header />
+      <SolidHeader />
 
       <main>
         <Outlet />

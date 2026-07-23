@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-
 import "./SolidHeader.css";
 
-import logo from "../../../assets/logo/logo polda papua tengah.png";
+import logo from "../../../assets/logo/logo.png";
 
 import LanguageSwitcher from "../../common/LanguageSwitcher/LanguageSwitcher";
 import SearchButton from "../../common/SearchButton/SearchButton";
+import SearchModal from "../../common/SearchModal/SearchModal";
+
 
 const menuItems = [
   {
@@ -41,26 +42,83 @@ const menuItems = [
   },
 ];
 
+
 export default function SolidHeader() {
+
   const [scrolled, setScrolled] = useState(false);
 
+  const [searchOpen, setSearchOpen] = useState(false);
+
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
 
-    window.addEventListener("scroll", handleScroll);
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 30);
+  };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+
+  const handleShortcut = (
+    event: KeyboardEvent
+  ) => {
+
+    if (
+      (event.ctrlKey || event.metaKey) &&
+      event.key.toLowerCase() === "k"
+    ) {
+
+      event.preventDefault();
+
+      setSearchOpen(true);
+
+    }
+
+  };
+
+
+  window.addEventListener(
+    "scroll",
+    handleScroll
+  );
+
+
+  window.addEventListener(
+    "keydown",
+    handleShortcut
+  );
+
+
+  return () => {
+
+    window.removeEventListener(
+      "scroll",
+      handleScroll
+    );
+
+
+    window.removeEventListener(
+      "keydown",
+      handleShortcut
+    );
+
+  };
+
+}, []);
+
+
 
   return (
+
     <header
-      className={`solid-header ${scrolled ? "scrolled" : ""}`}
+      className={`solid-header ${
+        scrolled ? "scrolled" : ""
+      }`}
     >
+
       <div className="solid-header-container">
 
+
         {/* ================= LOGO ================= */}
+
 
         <NavLink
           to="/"
@@ -68,28 +126,43 @@ export default function SolidHeader() {
           className="solid-logo"
           aria-label="Beranda Polda Papua Tengah"
         >
+
           <img
             src={logo}
             alt="Logo Polda Papua Tengah"
             loading="lazy"
           />
 
+
           <div>
-            <h2>Polda Papua Tengah</h2>
+
+            <h2>
+              Polda Papua Tengah
+            </h2>
+
 
             <span>
               Integritas • Modern • Presisi
             </span>
+
+
           </div>
+
+
         </NavLink>
 
+
+
         {/* ================= MENU ================= */}
+
 
         <nav
           className="solid-nav"
           aria-label="Navigasi Utama"
         >
+
           {menuItems.map((menu) => (
+
             <NavLink
               key={menu.path}
               to={menu.path}
@@ -97,22 +170,45 @@ export default function SolidHeader() {
             >
               {menu.label}
             </NavLink>
+
           ))}
+
+
         </nav>
+
+
 
         {/* ================= RIGHT MENU ================= */}
 
+
         <div className="solid-right">
 
+
           <SearchButton
-            aria-label="Cari"
+            ariaLabel="Cari"
+            onClick={() => setSearchOpen(true)}
           />
+
 
           <LanguageSwitcher />
 
+
         </div>
 
+
+        {/* ================= SEARCH MODAL ================= */}
+
+
+        <SearchModal
+          open={searchOpen}
+          onClose={() => setSearchOpen(false)}
+        />
+
+
       </div>
+
+
     </header>
+
   );
 }

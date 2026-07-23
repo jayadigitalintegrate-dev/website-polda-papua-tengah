@@ -1,0 +1,95 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import "./SearchModal.css";
+import useDebounce from "../../../hooks/useDebounce";
+interface SearchModalProps {
+  open: boolean;
+  onClose: () => void;
+}
+export default function SearchModal({
+  open,
+  onClose,
+}: SearchModalProps) {
+ const [keyword, setKeyword] = useState("");
+const debouncedKeyword = useDebounce(
+  keyword,
+  300
+);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener(
+      "keydown",
+      handleKey
+    );
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKey
+      );
+  }, [onClose]);
+  if (!open) {
+    return null;
+  }
+  const results = searchData.filter((item) =>
+  item.title
+    .toLowerCase()
+    .includes(
+      debouncedKeyword.toLowerCase()
+    )
+  const handleNavigate = (url:string) => {
+    navigate(url);
+    setKeyword("");
+    onClose();
+  };
+  return (
+    <div
+      className="search-overlay"
+      onClick={onClose}
+    >
+      <div
+        className="search-modal"
+        onClick={(e)=>e.stopPropagation()}
+      >
+        <input
+          autoFocus
+          type="text"
+          placeholder="Cari informasi..."
+          value={keyword}
+          onChange={(e)=>
+            setKeyword(e.target.value)
+          }
+          className="search-input"
+        />
+        <div className="search-results">
+          {
+            keyword && results.length === 0 && (
+              <p className="search-empty">
+                Data tidak ditemukan
+              </p>
+            )
+            results.map((item)=>(
+              <button
+                key={item.id}
+                className="search-result-item"
+                onClick={() =>
+                  handleNavigate(item.url)
+                }
+              >
+                <strong>
+                  {item.title}
+                </strong>
+                <span>
+                  {item.category}
+                </span>
+              </button>
+            ))
+        </div>
+      </div>
+    </div>
+  );

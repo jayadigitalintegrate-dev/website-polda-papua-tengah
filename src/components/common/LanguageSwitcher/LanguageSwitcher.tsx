@@ -1,22 +1,70 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 import "./LanguageSwitcher.css";
 
 export default function LanguageSwitcher() {
+  const { i18n } = useTranslation();
 
-    const [lang, setLang] = useState("ID");
+  const [open, setOpen] = useState(false);
 
-    return (
+  const ref = useRef<HTMLDivElement>(null);
 
-        <button
-            className="language-switcher"
-            onClick={() =>
-                setLang(lang === "ID" ? "EN" : "ID")
-            }
-        >
-            {lang}
-        </button>
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        ref.current &&
+        !ref.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
 
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
     );
 
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+  }, []);
+
+  const changeLanguage = (lang: "id" | "en") => {
+    i18n.changeLanguage(lang);
+    setOpen(false);
+  };
+
+  return (
+    <div
+      className="language-switcher"
+      ref={ref}
+    >
+      <button
+        className="language-button"
+        onClick={() => setOpen(!open)}
+      >
+        🌐 {i18n.language === "id" ? "ID" : "EN"}
+      </button>
+
+      {open && (
+        <div className="language-dropdown">
+          <button
+            onClick={() => changeLanguage("id")}
+          >
+            🇮🇩 Indonesia
+          </button>
+
+          <button
+            onClick={() => changeLanguage("en")}
+          >
+            🇬🇧 English
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }

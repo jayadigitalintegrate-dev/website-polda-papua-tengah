@@ -1,44 +1,41 @@
 import "./Navigation.css";
 
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const menus = [
   {
-    title: "Beranda",
+    key: "home",
     path: "/",
   },
   {
-    title: "Profil",
+    key: "profile",
     path: "/profil",
   },
   {
-  title: "Pejabat",
-  path: "/officials",
-},
+    key: "officials",
+    path: "/officials",
+  },
   {
-    title: "Berita",
+    key: "news",
     path: "/berita",
   },
   {
-    title: "Layanan",
+    key: "services",
     path: "/layanan",
   },
-  // {
-//   title: "Program",
-//   path: "/program",
-// },
   {
-    title: "Kontak",
+    key: "contact",
     path: "/kontak",
   },
 ];
 
 function Navigation() {
+  const { t } = useTranslation("header");
+
   return (
     <nav className="navigation">
-
       {menus.map((menu) => (
-
         <NavLink
           key={menu.path}
           to={menu.path}
@@ -48,11 +45,9 @@ function Navigation() {
               : "navigation__link"
           }
         >
-          {menu.title}
+          {t(menu.key)}
         </NavLink>
-
       ))}
-
     </nav>
   );
 }
