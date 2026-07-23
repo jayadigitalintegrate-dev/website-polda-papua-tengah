@@ -158,3 +158,57 @@
     }
 
 }
+
+.gallery-lightbox__toolbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    padding:16px 20px;
+
+    background:#0b3d6d;
+
+    color:#fff;
+
+}
+
+.gallery-lightbox__counter{
+
+    font-weight:600;
+
+}
+
+.gallery-lightbox__fullscreen{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#ffffff22;
+
+    color:#fff;
+
+    font-size:20px;
+
+    transition:.25s;
+
+}
+
+.gallery-lightbox__fullscreen:hover{
+
+    background:#ffc107;
+
+    color:#222;
+
+}

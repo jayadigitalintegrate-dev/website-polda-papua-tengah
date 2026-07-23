@@ -76,16 +76,16 @@ export default function Gallery() {
 
       {
         selectedGallery && (
-
-          <GalleryLightbox
-
-            item={selectedGallery}
-
-            onClose={() =>
-              setSelectedGallery(null)
-            }
-
-          />
+<GalleryLightbox
+  item={selectedGallery}
+  currentIndex={filteredGallery.findIndex(
+    (item) => item.id === selectedGallery.id
+  )}
+  totalItems={filteredGallery.length}
+  onClose={() => setSelectedGallery(null)}
+  onPrev={() => {}}
+  onNext={() => {}}
+/>
 
         )
       }
