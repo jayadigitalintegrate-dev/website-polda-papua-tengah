@@ -473,64 +473,41 @@
 
 @media(max-width:768px){
 
-.footer-top{
-    padding:35px 20px;
-}
-
-.footer-brand-header{
-    gap:15px;
-}
-
-.footer-logo{
-    width:80px;
-    height:80px;
-}
-
 .footer-column{
-
-    padding-top:20px;
-
-    border-left:none;
-
-    border-top:none;
-
-}
-
-.footer-column h4{
-
-    margin-bottom:18px;
-
-}
-
-.footer-column a{
-
-    margin-bottom:12px;
-
+    text-align:center;
 }
 
 .footer-contact{
 
-    justify-content:flex-start;
+    justify-content:center;
+
+    align-items:flex-start;
+
+    text-align:left;
+
+    width:max-content;
+
+    margin:0 auto;
 
 }
 
 .footer-social{
 
-    margin-top:15px;
+    justify-content:center;
 
 }
 
-.footer-presisi img{
-
-    width:180px;
-
-    margin-left: 80px;
-
 }
 
-.footer-logo img {
-    width: 180px;
-    margin-left: 80px;
+@media(max-width:768px){
+
+.footer-column h4{
+    text-align:center;
+}
+
+.footer-column h4::after{
+    margin-left:auto;
+    margin-right:auto;
 }
 
 }
