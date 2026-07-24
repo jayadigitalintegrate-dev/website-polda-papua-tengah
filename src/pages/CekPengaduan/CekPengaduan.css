@@ -1,0 +1,48 @@
+.cek-pengaduan-page{
+
+    width:100%;
+
+}
+
+
+.cek-hero{
+
+    padding:90px 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b3d6d,
+        #082947
+    );
+
+    color:white;
+
+}
+
+
+.cek-container{
+
+    width:min(1100px,92%);
+
+    margin:auto;
+
+}
+
+
+.cek-hero h1{
+
+    font-size:42px;
+
+    margin:20px 0;
+
+}
+
+
+.cek-hero span{
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}

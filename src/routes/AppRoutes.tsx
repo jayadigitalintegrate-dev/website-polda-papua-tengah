@@ -6,7 +6,7 @@ import {
 
 import HomeLayout from "../layouts/HomeLayout";
 import ContentLayout from "../layouts/ContentLayout";
-
+import CekPengaduan from "../pages/CekPengaduan/CekPengaduan";
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
 import News from "../pages/News/News";
@@ -17,7 +17,17 @@ import Contact from "../pages/Contact/Contact";
 import DetailPolres from "../pages/Polres/DetailPolres";
 import PolresPage from "../pages/PolresPage";
 import OfficialsPage from "../pages/Officials/OfficialsPage";
+import PPID from "../pages/PPID/PPID";
 import SambutanKapolda from "../pages/SambutanKapolda/SambutanKapolda";
+import Pengaduan from "../pages/Pengaduan/Pengaduan";
+import Download from "../pages/Download/Download";
+import Pengumuman from "../pages/Pengumuman/Pengumuman";
+
+
+
+
+
+
 
 const basename = import.meta.env.DEV
   ? "/"
@@ -44,12 +54,26 @@ function AppRoutes() {
         =========================== */}
 
         <Route element={<ContentLayout />}>
+          <Route
 
+            path="/download"
+
+            element={<Download />}
+
+          />
           <Route
             path="/profil"
             element={<Profile />}
           />
 
+          <Route
+            path="/ppid"
+            element={<PPID />}
+          />
+          <Route
+            path="/pengaduan"
+            element={<Pengaduan />}
+          />
           <Route
             path="/sambutan-kapolda"
             element={<SambutanKapolda />}
@@ -68,6 +92,11 @@ function AppRoutes() {
           <Route
             path="/berita/:slug"
             element={<NewsDetail />}
+          />
+
+          <Route
+            path="/cek-pengaduan"
+            element={<CekPengaduan />}
           />
 
           <Route
@@ -101,6 +130,11 @@ function AppRoutes() {
           <Route
             path="/polres/:slug"
             element={<DetailPolres />}
+          />
+
+          <Route
+            path="/pengumuman"
+            element={<Pengumuman />}
           />
 
         </Route>

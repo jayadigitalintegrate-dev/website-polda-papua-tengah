@@ -1,0 +1,97 @@
+.tracking-form,
+.tracking-result{
+
+    padding:60px 0;
+
+}
+
+
+
+.tracking-form form{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+
+}
+
+
+
+.tracking-form input{
+
+    flex:1;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+}
+
+
+
+.tracking-form button{
+
+    background:#ffc107;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+
+
+.tracking-card{
+
+    width:min(700px,90%);
+
+    margin:auto;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    background:white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.1);
+
+}
+
+
+
+.tracking-item{
+
+    margin-top:20px;
+
+}
+
+
+
+.tracking-item span{
+
+    display:block;
+
+    font-size:14px;
+
+    color:#666;
+
+}
+
+
+
+.status{
+
+    color:#0b3d6d;
+
+}
