@@ -4,6 +4,7 @@ import paniai from "../../assets/polres/polres-paniai.webp";
 import intanjaya from "../../assets/polres/polres-intanjaya.webp";
 import puncak from "../../assets/polres/polres-puncak.webp";
 import puncakjaya from "../../assets/polres/polres-puncakjaya.webp";
+import tolikara from "../../assets/polres/polres-tolikara.webp";
 import dogiayi from "../../assets/polres/polres-dogiayi.webp";
 import deiyai from "../../assets/polres/polres-deiyai.webp";
 
@@ -72,6 +73,15 @@ export const polresData: Polres[] = [
         alamat: "Mulia, Papua Tengah",
         kapolres: "Kapolres Puncak Jaya",
         gambar: puncakjaya
+    },
+
+    {
+        id: "polres-tolikara",
+        nama: "Polres Tolikara",
+        wilayah: "Kabupaten Tolikara",
+        alamat: "Karubaga, Papua Tengah",
+        kapolres: "Kapolres Tolikara",
+        gambar: tolikara
     },
 
     {
