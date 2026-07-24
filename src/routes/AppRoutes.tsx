@@ -17,6 +17,7 @@ import Contact from "../pages/Contact/Contact";
 import DetailPolres from "../pages/Polres/DetailPolres";
 import PolresPage from "../pages/PolresPage";
 import OfficialsPage from "../pages/Officials/OfficialsPage";
+import SambutanKapolda from "../pages/SambutanKapolda/SambutanKapolda";
 
 const basename = import.meta.env.DEV
   ? "/"
@@ -38,7 +39,6 @@ function AppRoutes() {
           />
         </Route>
 
-
         {/* ===========================
             CONTENT
         =========================== */}
@@ -48,6 +48,11 @@ function AppRoutes() {
           <Route
             path="/profil"
             element={<Profile />}
+          />
+
+          <Route
+            path="/sambutan-kapolda"
+            element={<SambutanKapolda />}
           />
 
           <Route
@@ -80,9 +85,7 @@ function AppRoutes() {
             element={<Contact />}
           />
 
-
           {/* DAFTAR POLRES */}
-          {/* Dipakai oleh Quick Access */}
           <Route
             path="/polres"
             element={<PolresPage />}
@@ -93,7 +96,6 @@ function AppRoutes() {
             path="/profil/polres"
             element={<PolresPage />}
           />
-
 
           {/* DETAIL POLRES */}
           <Route
