@@ -15,6 +15,7 @@ import Gallery from "../pages/Gallery/Gallery";
 import Services from "../pages/Services/Services";
 import Contact from "../pages/Contact/Contact";
 import DetailPolres from "../pages/Polres/DetailPolres";
+import PolresPage from "../pages/PolresPage";
 import OfficialsPage from "../pages/Officials/OfficialsPage";
 
 const basename = import.meta.env.DEV
@@ -36,6 +37,7 @@ function AppRoutes() {
             element={<Home />}
           />
         </Route>
+
 
         {/* ===========================
             CONTENT
@@ -78,6 +80,22 @@ function AppRoutes() {
             element={<Contact />}
           />
 
+
+          {/* DAFTAR POLRES */}
+          {/* Dipakai oleh Quick Access */}
+          <Route
+            path="/polres"
+            element={<PolresPage />}
+          />
+
+          {/* Alternatif akses profil */}
+          <Route
+            path="/profil/polres"
+            element={<PolresPage />}
+          />
+
+
+          {/* DETAIL POLRES */}
           <Route
             path="/polres/:slug"
             element={<DetailPolres />}

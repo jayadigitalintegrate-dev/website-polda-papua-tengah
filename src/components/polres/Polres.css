@@ -1,0 +1,130 @@
+.polres-section{
+    padding:80px 20px;
+    background:#f8fafc;
+}
+
+.polres-container{
+    width:min(1200px,94%);
+    margin:auto;
+}
+
+.polres-header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.polres-header h2{
+    font-size:32px;
+    color:#0b3d6d;
+    margin-bottom:10px;
+}
+
+.polres-header p{
+    color:#666;
+}
+
+.polres-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.polres-card{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.polres-card:hover{
+    transform:translateY(-6px);
+}
+
+.polres-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.polres-content{
+    padding:20px;
+}
+
+.polres-content h3{
+    color:#0b3d6d;
+    margin-bottom:10px;
+}
+
+.polres-content p{
+    font-weight:600;
+}
+
+.polres-content span{
+    display:block;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.polres-button{
+    display:inline-block;
+    background:#ffc107;
+    color:#000;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.polres-button:hover{
+    background:#ffb300;
+}
+
+@media(max-width:768px){
+
+    .polres-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.polres-detail{
+    display:flex;
+    gap:40px;
+    background:white;
+    padding:30px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.polres-detail img{
+    width:420px;
+    height:300px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+.polres-detail-content h1{
+    color:#0b3d6d;
+    margin-bottom:20px;
+}
+
+.polres-detail-content p{
+    margin-bottom:12px;
+    color:#555;
+}
+
+
+@media(max-width:768px){
+
+    .polres-detail{
+        flex-direction:column;
+    }
+
+    .polres-detail img{
+        width:100%;
+        height:auto;
+    }
+
+}
