@@ -1,0 +1,81 @@
+.sambutan-page{
+    padding:80px 20px;
+    background:#f8fafc;
+}
+
+.sambutan-container{
+    width:min(1200px,94%);
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:50px;
+    align-items:flex-start;
+}
+
+.sambutan-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.sambutan-label{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+
+    background:#ffc107;
+    color:#0b3d6d;
+
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:.08em;
+}
+
+.sambutan-content h1{
+    margin:20px 0;
+    color:#0b3d6d;
+    font-size:38px;
+    line-height:1.3;
+}
+
+.sambutan-content p{
+    margin-bottom:18px;
+    color:#4b5563;
+    line-height:1.9;
+    text-align:justify;
+}
+
+.kapolda-sign{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:2px solid #e5e7eb;
+}
+
+.kapolda-sign strong{
+    display:block;
+    color:#0b3d6d;
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.kapolda-sign span{
+    color:#666;
+}
+
+@media(max-width:900px){
+
+    .sambutan-container{
+        grid-template-columns:1fr;
+    }
+
+    .sambutan-image{
+        max-width:360px;
+        margin:auto;
+    }
+
+    .sambutan-content h1{
+        font-size:30px;
+    }
+
+}

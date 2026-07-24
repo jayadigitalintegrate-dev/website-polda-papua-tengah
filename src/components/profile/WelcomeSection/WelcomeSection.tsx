@@ -1,5 +1,5 @@
 import "./WelcomeSection.css";
-
+import { Link } from "react-router-dom";
 import kapoldaImage from "../../../assets/kapolda/kapolda.png";
 
 export default function WelcomeSection() {
@@ -34,9 +34,12 @@ export default function WelcomeSection() {
             transparan dan terpercaya.
           </p>
 
-          <button className="welcome-button">
+          <Link
+            to="/sambutan-kapolda"
+            className="welcome-button"
+          >
             Selengkapnya
-          </button>
+          </Link>
 
         </div>
 
