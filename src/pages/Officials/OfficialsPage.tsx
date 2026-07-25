@@ -1,5 +1,12 @@
-import Officials from "../../components/profile/Officials";
+import OfficialGrid from "../../components/officials/OfficialGrid/OfficialGrid";
+
 
 export default function OfficialsPage() {
-  return <Officials />;
+
+  return (
+
+    <OfficialGrid />
+
+  );
+
 }

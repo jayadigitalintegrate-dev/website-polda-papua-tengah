@@ -1,0 +1,280 @@
+/* ==========================================================
+   OFFICIAL PROFILE
+   POLDA PAPUA TENGAH
+========================================================== */
+
+
+.official-profile{
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    margin:30px auto;
+
+    max-width:1200px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.12);
+
+}
+
+
+/* BACK BUTTON */
+
+.official-profile-back{
+
+    border:none;
+
+    background:#ffc107;
+
+    color:#111;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    margin-bottom:30px;
+
+}
+
+
+.official-profile-back:hover{
+
+    background:#ffb300;
+
+}
+
+
+
+/* HEADER */
+
+.official-profile-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    padding-bottom:35px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+
+.official-profile-header img{
+
+    width:230px;
+
+    height:230px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:6px solid #ffc107;
+
+}
+
+
+
+.official-profile-title h1{
+
+    margin:0 0 15px;
+
+    font-size:32px;
+
+    color:#063b63;
+
+}
+
+
+
+.official-profile-title span{
+
+    display:inline-block;
+
+    background:#063b63;
+
+    color:#ffffff;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+
+.official-profile-title p{
+
+    margin-top:15px;
+
+    font-size:20px;
+
+    font-weight:700;
+
+}
+
+
+
+/* BIODATA */
+
+.official-profile-biodata{
+
+    margin-top:35px;
+
+}
+
+
+.official-profile-biodata h2,
+.official-profile-section h2{
+
+    color:#063b63;
+
+    border-left:
+
+    5px solid #ffc107;
+
+    padding-left:15px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.biodata-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.biodata-grid div{
+
+    background:#f5f7fa;
+
+    padding:18px;
+
+    border-radius:12px;
+
+}
+
+
+
+.biodata-grid label{
+
+    font-size:13px;
+
+    color:#666;
+
+}
+
+
+
+.biodata-grid p{
+
+    margin:8px 0 0;
+
+    font-weight:700;
+
+}
+
+
+
+/* SECTION */
+
+.official-profile-section{
+
+    margin-top:35px;
+
+}
+
+
+
+.official-profile-section ul{
+
+    padding-left:25px;
+
+}
+
+
+
+.official-profile-section li{
+
+    margin-bottom:10px;
+
+    line-height:1.6;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+
+    .official-profile{
+
+        padding:20px;
+
+        margin:15px;
+
+    }
+
+
+
+    .official-profile-header{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+
+
+    .official-profile-header img{
+
+        width:160px;
+
+        height:160px;
+
+    }
+
+
+
+    .official-profile-title h1{
+
+        font-size:24px;
+
+    }
+
+
+
+    .biodata-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}
