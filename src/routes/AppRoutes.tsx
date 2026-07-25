@@ -13,7 +13,7 @@ import News from "../pages/News/News";
 import NewsDetail from "../pages/NewsDetail/NewsDetail";
 import Gallery from "../pages/Gallery/Gallery";
 import Services from "../pages/Services/Services";
-import Contact from "../pages/Contact/Contact";
+import ContactPage from "../pages/Contact/ContactPage";
 import DetailPolres from "../pages/Polres/DetailPolres";
 import PolresPage from "../pages/PolresPage";
 import OfficialsPage from "../pages/Officials/OfficialsPage";
@@ -125,7 +125,7 @@ function AppRoutes() {
 
           <Route
             path="/kontak"
-            element={<Contact />}
+            element={<ContactPage />}
           />
 
           {/* DAFTAR POLRES */}

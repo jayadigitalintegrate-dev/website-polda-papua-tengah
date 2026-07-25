@@ -1,0 +1,119 @@
+.contact-map{
+
+  padding:80px 20px;
+
+  background:white;
+
+}
+
+
+
+.contact-map__container{
+
+  max-width:1200px;
+
+  margin:auto;
+
+}
+
+
+
+.contact-map__header{
+
+  text-align:center;
+
+  margin-bottom:40px;
+
+}
+
+
+
+.contact-map__header h2{
+
+  margin-bottom:10px;
+
+  color:#0f172a;
+
+  font-size:32px;
+
+  font-weight:800;
+
+}
+
+
+
+.contact-map__header p{
+
+  color:#64748b;
+
+}
+
+
+
+.contact-map__wrapper{
+
+  width:100%;
+
+  height:450px;
+
+  overflow:hidden;
+
+  border-radius:20px;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,.12);
+
+}
+
+
+
+.contact-map iframe{
+
+  width:100%;
+
+  height:100%;
+
+  border:0;
+
+}
+
+
+
+.contact-map__empty{
+
+  width:100%;
+
+  height:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:#f1f5f9;
+
+  color:#64748b;
+
+  font-size:18px;
+
+}
+
+
+
+@media(max-width:768px){
+
+  .contact-map__wrapper{
+
+    height:300px;
+
+  }
+
+
+  .contact-map__header h2{
+
+    font-size:26px;
+
+  }
+
+}
