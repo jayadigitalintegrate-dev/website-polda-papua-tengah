@@ -22,8 +22,8 @@ import SambutanKapolda from "../pages/SambutanKapolda/SambutanKapolda";
 import Pengaduan from "../pages/Pengaduan/Pengaduan";
 import Download from "../pages/Download/Download";
 import Pengumuman from "../pages/Pengumuman/Pengumuman";
-
-
+import ServiceDetail from "../pages/ServiceDetail";
+import PPIDRequest from "../pages/PPIDRequest";
 
 
 
@@ -70,6 +70,13 @@ function AppRoutes() {
             path="/ppid"
             element={<PPID />}
           />
+
+          <Route
+            path="/ppid/request"
+            element={<PPIDRequest />}
+          />
+
+
           <Route
             path="/pengaduan"
             element={<Pengaduan />}
@@ -108,6 +115,13 @@ function AppRoutes() {
             path="/layanan"
             element={<Services />}
           />
+
+          <Route
+            path="/layanan/:slug"
+            element={<ServiceDetail />}
+          />
+
+
 
           <Route
             path="/kontak"

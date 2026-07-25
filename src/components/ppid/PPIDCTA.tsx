@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./PPID.css";
 
 export default function PPIDCTA() {
@@ -15,9 +17,12 @@ export default function PPIDCTA() {
           PPID Polda Papua Tengah.
         </p>
 
-        <button className="ppid-button">
+        <Link
+          to="/ppid/request"
+          className="ppid-button"
+        >
           Ajukan Permohonan Informasi
-        </button>
+        </Link>
 
       </div>
 

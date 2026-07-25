@@ -1,0 +1,508 @@
+/* ==========================================================
+   PPID - POLDA PAPUA TENGAH
+========================================================== */
+
+.ppid-page{
+    background:#f5f7fa;
+    color:#1f2937;
+}
+
+.ppid-container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+.ppid-section{
+    padding:80px 0;
+}
+
+.ppid-alt{
+    background:#ffffff;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.ppid-hero{
+    padding:110px 0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,70,140,.92),
+            rgba(0,36,90,.92)
+        ),
+        radial-gradient(
+            circle at top right,
+            rgba(255,193,7,.18),
+            transparent 45%
+        );
+    color:#fff;
+}
+
+.ppid-hero-content{
+    max-width:760px;
+}
+
+.ppid-label{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:#ffc107;
+    color:#222;
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.ppid-label.dark{
+    background:#004a99;
+    color:#fff;
+}
+
+.ppid-hero h1{
+    font-size:clamp(2.3rem,5vw,3.5rem);
+    line-height:1.15;
+    margin-bottom:22px;
+    font-weight:800;
+}
+
+.ppid-hero p{
+    max-width:650px;
+    font-size:1.05rem;
+    line-height:1.9;
+    opacity:.95;
+}
+
+.ppid-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:35px;
+    padding:14px 28px;
+    border:none;
+    border-radius:10px;
+    background:#ffc107;
+    color:#1f2937;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ppid-button:hover{
+    transform:translateY(-3px);
+    background:#ffb300;
+    box-shadow:0 14px 28px rgba(0,0,0,.18);
+}
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.ppid-title{
+    max-width:720px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.ppid-title h2{
+    font-size:2.2rem;
+    margin:18px 0;
+    color:#0f172a;
+}
+
+.ppid-title p{
+    color:#64748b;
+    line-height:1.8;
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.ppid-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:40px;
+    align-items:start;
+}
+
+.ppid-grid.two{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.ppid-about h2{
+    margin:18px 0 24px;
+    font-size:2rem;
+}
+
+.ppid-about p{
+    margin-bottom:18px;
+    color:#4b5563;
+    line-height:1.9;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.ppid-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 10px 35px rgba(15,23,42,.05);
+}
+
+.ppid-card h2,
+.ppid-card h3{
+    margin:16px 0 18px;
+}
+
+.ppid-card ul{
+    padding-left:20px;
+}
+
+.ppid-card li{
+    margin-bottom:12px;
+    line-height:1.8;
+    color:#4b5563;
+}
+
+.ppid-list{
+    padding-left:20px;
+}
+
+.ppid-list li{
+    margin-bottom:14px;
+}
+
+/* ==========================================================
+   INFO GRID
+========================================================== */
+
+.ppid-info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.ppid-info-card{
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    border:1px solid #e5e7eb;
+    transition:.3s;
+}
+
+.ppid-info-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 16px 34px rgba(0,0,0,.08);
+}
+
+.ppid-info-card h3{
+    margin-bottom:14px;
+    color:#004a99;
+}
+
+.ppid-info-card p{
+    line-height:1.8;
+    color:#4b5563;
+}
+
+/* ==========================================================
+   TIMELINE
+========================================================== */
+
+.ppid-timeline{
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    max-width:900px;
+    margin:0 auto;
+}
+
+.ppid-step{
+    display:flex;
+    gap:24px;
+    align-items:flex-start;
+    background:#fff;
+    padding:28px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 24px rgba(15,23,42,.05);
+}
+
+.ppid-step-number{
+    width:70px;
+    height:70px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:#004a99;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    font-weight:700;
+}
+
+.ppid-step-content h3{
+    margin-bottom:10px;
+    color:#0f172a;
+}
+
+.ppid-step-content p{
+    line-height:1.8;
+    color:#4b5563;
+}
+
+/* ==========================================================
+   DOCUMENT
+========================================================== */
+
+.ppid-document-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:24px;
+}
+
+.ppid-document-card{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:24px;
+    background:#fff;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 8px 22px rgba(15,23,42,.05);
+    transition:.3s;
+}
+
+.ppid-document-card:hover{
+    transform:translateY(-5px);
+}
+
+.ppid-document-icon{
+    width:64px;
+    height:64px;
+    border-radius:14px;
+    background:#dc2626;
+    color:#fff;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.ppid-document-content{
+    flex:1;
+}
+
+.ppid-document-content h3{
+    margin-bottom:6px;
+    font-size:1rem;
+}
+
+.ppid-document-content span{
+    color:#64748b;
+    font-size:.9rem;
+}
+
+.ppid-document-card button{
+    border:none;
+    background:#004a99;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ppid-document-card button:hover{
+    background:#00356e;
+}
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.ppid-faq{
+    max-width:900px;
+    margin:auto;
+}
+
+.ppid-faq-item{
+    margin-bottom:16px;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid #e5e7eb;
+    background:#fff;
+}
+
+.ppid-faq-question{
+    width:100%;
+    border:none;
+    background:#fff;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:600;
+    text-align:left;
+}
+
+.ppid-faq-question strong{
+    font-size:1.4rem;
+    color:#004a99;
+}
+
+.ppid-faq-answer{
+    padding:0 22px 22px;
+}
+
+.ppid-faq-answer p{
+    line-height:1.8;
+    color:#4b5563;
+}
+
+/* ==========================================================
+   CONTACT
+========================================================== */
+
+.ppid-contact{
+    text-align:center;
+}
+
+.ppid-contact h2{
+    margin-bottom:20px;
+}
+
+.ppid-contact p{
+    line-height:2;
+    color:#4b5563;
+}
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.ppid-cta{
+    padding:90px 0;
+    text-align:center;
+    background:linear-gradient(
+        135deg,
+        #004a99,
+        #00356e
+    );
+    color:#fff;
+}
+
+.ppid-cta h2{
+    font-size:2.3rem;
+    margin-bottom:18px;
+}
+
+.ppid-cta p{
+    max-width:650px;
+    margin:0 auto;
+    line-height:1.8;
+    opacity:.92;
+}
+
+.ppid-cta .ppid-button{
+    margin-top:32px;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+    .ppid-section{
+        padding:70px 0;
+    }
+
+    .ppid-grid,
+    .ppid-grid.two{
+        grid-template-columns:1fr;
+    }
+
+    .ppid-step{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .ppid-document-card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .ppid-hero{
+        padding:80px 0;
+    }
+
+    .ppid-hero h1{
+        font-size:2rem;
+    }
+
+    .ppid-title h2{
+        font-size:1.8rem;
+    }
+
+    .ppid-about h2{
+        font-size:1.7rem;
+    }
+
+    .ppid-card,
+    .ppid-info-card,
+    .ppid-step,
+    .ppid-document-card{
+        padding:22px;
+    }
+
+    .ppid-button{
+        width:100%;
+    }
+
+    .ppid-cta h2{
+        font-size:1.8rem;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .ppid-section{
+        padding:60px 0;
+    }
+
+    .ppid-container{
+        width:94%;
+    }
+
+    .ppid-hero h1{
+        font-size:1.7rem;
+    }
+
+    .ppid-label{
+        font-size:.72rem;
+    }
+
+    .ppid-step-number{
+        width:58px;
+        height:58px;
+        font-size:1.1rem;
+    }
+
+}

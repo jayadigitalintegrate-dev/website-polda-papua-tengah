@@ -49,9 +49,7 @@ function FooterTop() {
         <Link to="/profil">Sejarah</Link>
         <Link to="/profil">Visi &amp; Misi</Link>
         <Link to="/officials">Pejabat Utama</Link>
-        <Link to="/profil">
-          Struktur Organisasi
-        </Link>
+        <Link to="/profil">Struktur Organisasi</Link>
 
       </div>
 
@@ -64,8 +62,12 @@ function FooterTop() {
         <Link to="/layanan">SPKT Online</Link>
         <Link to="/layanan">SKCK Online</Link>
         <Link to="/layanan">SIM Online</Link>
-        <Link to="/kontak">Pengaduan</Link>
-        <Link to="/profil">PPID</Link>
+
+        {/* Jika memang menuju halaman Pengaduan */}
+        <Link to="/pengaduan">Pengaduan</Link>
+
+        {/* Perbaikan route PPID */}
+        <Link to="/ppid">PPID</Link>
 
       </div>
 
@@ -76,10 +78,10 @@ function FooterTop() {
         <h4>Informasi</h4>
 
         <Link to="/berita">Berita</Link>
-        <Link to="/berita">Pengumuman</Link>
+        <Link to="/pengumuman">Pengumuman</Link>
         <Link to="/berita">Agenda</Link>
         <Link to="/galeri">Galeri</Link>
-        <Link to="/galeri">Download</Link>
+        <Link to="/download">Download</Link>
 
       </div>
 
