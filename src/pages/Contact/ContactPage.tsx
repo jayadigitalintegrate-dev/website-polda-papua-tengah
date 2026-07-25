@@ -15,14 +15,7 @@ function ContactPage() {
     <main className="contact-page">
 
 
-      <ContactHero
-
-        title={contactData.heroTitle}
-
-        description={contactData.heroDescription}
-
-      />
-
+      <ContactHero />
 
 
       <section className="contact-page__content">

@@ -1,30 +1,37 @@
 import "./ContactHero.css";
 
-interface ContactHeroProps {
-  title: string;
-  description: string;
-}
+import { useTranslation } from "react-i18next";
 
-export default function ContactHero({
-  title,
-  description,
-}: ContactHeroProps) {
+
+export default function ContactHero() {
+
+
+  const { t } = useTranslation("contact");
+
 
   return (
+
     <section className="contact-hero">
+
 
       <div className="contact-hero__container">
 
+
         <h1>
-          {title}
+          {t("heroTitle")}
         </h1>
 
+
         <p>
-          {description}
+          {t("heroDescription")}
         </p>
+
 
       </div>
 
+
     </section>
+
   );
+
 }

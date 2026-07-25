@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
+
 import "./ContactMap.css";
 
 
 interface ContactMapProps {
 
-  embed:string;
+  embed: string;
 
 }
 
@@ -12,7 +14,10 @@ export default function ContactMap({
 
   embed
 
-}:ContactMapProps){
+}: ContactMapProps) {
+
+
+  const { t } = useTranslation("contact");
 
 
   return (
@@ -25,13 +30,16 @@ export default function ContactMap({
 
         <div className="contact-map__header">
 
+
           <h2>
-            Lokasi Kantor
+            {t("location")}
           </h2>
 
+
           <p>
-            Temukan lokasi Polda Papua Tengah melalui peta berikut.
+            {t("mapDescription")}
           </p>
+
 
         </div>
 
@@ -47,7 +55,7 @@ export default function ContactMap({
 
                 src={embed}
 
-                title="Lokasi Polda Papua Tengah"
+                title={t("location")}
 
                 loading="lazy"
 
@@ -59,7 +67,7 @@ export default function ContactMap({
 
               <div className="contact-map__empty">
 
-                Lokasi peta belum tersedia.
+                {t("mapEmpty")}
 
               </div>
 

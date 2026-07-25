@@ -1,17 +1,19 @@
+import { useTranslation } from "react-i18next";
+
 import "./ContactInfo.css";
 
 
 interface ContactInfoProps {
 
-  address:string;
+  address: string;
 
-  phone:string[];
+  phone: string[];
 
-  email:string[];
+  email: string[];
 
-  website:string;
+  website: string;
 
-  officeHours:string;
+  officeHours: string;
 
 }
 
@@ -28,7 +30,10 @@ export default function ContactInfo({
 
   officeHours
 
-}:ContactInfoProps){
+}: ContactInfoProps) {
+
+
+  const { t } = useTranslation("contact");
 
 
   return (
@@ -49,7 +54,7 @@ export default function ContactInfo({
             </span>
 
             <h3>
-              Alamat
+              {t("address")}
             </h3>
 
             <p>
@@ -63,18 +68,20 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ☎
+              ☎️
             </span>
 
             <h3>
-              Telepon
+              {t("phone")}
             </h3>
 
             {
               phone.map((item,index)=>(
+
                 <p key={index}>
                   {item}
                 </p>
+
               ))
             }
 
@@ -86,18 +93,20 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ✉
+              ✉️
             </span>
 
             <h3>
-              Email
+              {t("email")}
             </h3>
 
             {
               email.map((item,index)=>(
+
                 <p key={index}>
                   {item}
                 </p>
+
               ))
             }
 
@@ -113,7 +122,7 @@ export default function ContactInfo({
             </span>
 
             <h3>
-              Website
+              {t("website")}
             </h3>
 
             <p>
@@ -124,6 +133,7 @@ export default function ContactInfo({
 
 
 
+
           <div className="contact-info__card">
 
             <span>
@@ -131,7 +141,7 @@ export default function ContactInfo({
             </span>
 
             <h3>
-              Jam Pelayanan
+              {t("officeHours")}
             </h3>
 
             <p>

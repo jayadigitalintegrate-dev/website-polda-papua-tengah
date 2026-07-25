@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./ServiceCard.css";
 
 import type { ServiceItem } from "../../../data/servicesData";
@@ -9,6 +11,10 @@ interface ServiceCardProps {
 export default function ServiceCard({
   service,
 }: ServiceCardProps) {
+  const buttonClass = `service-card__button ${
+    !service.active ? "disabled" : ""
+  }`;
+
   return (
     <article className="service-card">
       <div className="service-card__icon">
@@ -29,16 +35,27 @@ export default function ServiceCard({
         </p>
       </div>
 
-      <a
-        href={service.url}
-        target={service.external ? "_blank" : "_self"}
-        rel={service.external ? "noopener noreferrer" : undefined}
-        className={`service-card__button ${
-          !service.active ? "disabled" : ""
-        }`}
-      >
-        {service.active ? "Buka Layanan" : "Segera Hadir"}
-      </a>
+      {!service.active ? (
+        <span className={buttonClass}>
+          Segera Hadir
+        </span>
+      ) : service.external ? (
+        <a
+          href={service.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonClass}
+        >
+          Buka Layanan
+        </a>
+      ) : (
+        <Link
+          to={`/layanan/${service.slug}`}
+          className={buttonClass}
+        >
+          Buka Layanan
+        </Link>
+      )}
     </article>
   );
 }
