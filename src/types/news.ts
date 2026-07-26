@@ -93,34 +93,84 @@ export interface News {
 
   thumbnail: string;
 
+
+  /* ==========================
+     PUBLISH CONTROL
+  ========================== */
+
   publishedAt: string;
 
   updatedAt?: string;
 
-  views: number;
+  status?:
+    | "draft"
+    | "published"
+    | "archived";
+
+  published?: boolean;
+
+  sortOrder?: number;
+
+
+  /* ==========================
+     DISPLAY CONTROL
+  ========================== */
 
   featured: boolean;
 
   breaking?: boolean;
 
-  published?: boolean;
-
   pinned?: boolean;
+
+  allowComment?: boolean;
+
+  showAuthor?: boolean;
+
+  showDate?: boolean;
+
+
+  /* ==========================
+     ANALYTIC
+  ========================== */
+
+  views: number;
+
+
+  /* ==========================
+     CONTENT TYPE
+  ========================== */
 
   type:
     | "article"
     | "video"
     | "hybrid";
 
+
+  /* ==========================
+     RELATION
+  ========================== */
+
   category: NewsCategory;
 
   author: NewsAuthor;
+
+  lastModifiedBy?: NewsAuthor;
+
+
+  /* ==========================
+     MEDIA
+  ========================== */
 
   gallery?: NewsGallery[];
 
   videos?: NewsVideo[];
 
   attachments?: NewsAttachment[];
+
+
+  /* ==========================
+     META
+  ========================== */
 
   tags?: string[];
 
