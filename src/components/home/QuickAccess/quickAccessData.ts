@@ -98,10 +98,11 @@ export const quickAccessData: QuickAccessItem[] = [
     title: "quickAccess.publicInfo",
     description: "quickAccess.publicInfoDesc",
     icon: "lucide:badge-info",
-    url: "/informasi-publik",
+    url: "/ppid",
     badge: "quickAccess.ppid",
   },
 
 
 ];
+
 
