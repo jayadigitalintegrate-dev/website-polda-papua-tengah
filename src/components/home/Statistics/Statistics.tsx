@@ -1,7 +1,12 @@
+import { useTranslation } from "react-i18next";
+
 function Statistics() {
+
+  const { t } = useTranslation("home");
+
   return (
     <section className="statistics">
-      <h2>Statistics</h2>
+      <h2>{t("statistics.title")}</h2>
     </section>
   );
 }

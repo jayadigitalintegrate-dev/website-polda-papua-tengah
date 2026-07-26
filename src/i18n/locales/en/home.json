@@ -1,0 +1,81 @@
+﻿{
+    "heroTitle":  "Official Website of Papua Tengah Regional Police",
+    "heroDescription":  "Serving the community with Precision, Integrity, Modern, Transparent and Humanist values.",
+    "more":  "Read More",
+    "previousSlide":  "Previous slide",
+    "nextSlide":  "Next slide",
+    "slide":  "Slide {{number}}",
+    "satker":  "Units",
+    "polres":  "Police Stations",
+    "personnel":  "Personnel",
+    "service":  "Services",
+    "quickAccess":  {
+                        "eyebrow":  "QUICK ACCESS",
+                        "title":  "Digital Police Services",
+                        "subtitle":  "Access police services quickly, easily, and securely through the Papua Tengah Regional Police digital platform.",
+                        "button":  "View All Services",
+                        "access":  "Access Service",
+                        "spkt":  "SPKT Online",
+                        "spktDesc":  "Integrated Police Service",
+                        "skck":  "SKCK Online",
+                        "skckDesc":  "Police Clearance Certificate Application",
+                        "sim":  "SIM Online",
+                        "simDesc":  "Driving License Extension and Information",
+                        "call110":  "Police Call Center 110",
+                        "call110Desc":  "Emergency Police Service",
+                        "complaint":  "Public Complaint",
+                        "complaintDesc":  "Submit Public Complaints",
+                        "polresList":  "Police Stations List",
+                        "polresDesc":  "View all Police Stations under Papua Tengah Regional Police",
+                        "news":  "News",
+                        "newsDesc":  "Latest News and Information from Papua Tengah Regional Police",
+                        "publicInfo":  "Public Information",
+                        "publicInfoDesc":  "Public Information Disclosure and PPID",
+                        "badge24":  "24 HOURS",
+                        "online":  "ONLINE",
+                        "emergency":  "EMERGENCY",
+                        "new":  "NEW",
+                        "info":  "INFO",
+                        "update":  "UPDATE",
+                        "ppid":  "PPID"
+                    },
+    "newsVideo":  {
+                      "title":  "News Video",
+                      "subtitle":  "Documentation of activities and latest video information from Papua Tengah Regional Police."
+                  },
+    "headlineNews":  {
+                         "eyebrow":  "LATEST NEWS",
+                         "title":  "Papua Tengah Regional Police Information",
+                         "subtitle":  "News, activities, public services, announcements, and the latest information from Papua Tengah Regional Police.",
+                         "latestTitle":  "Latest News",
+                         "latestCount":  "Showing {{count}} latest news",
+                         "viewAll":  "View All",
+                         "explore":  "Explore All News",
+                         "readMore":  "Read More",
+                         "views":  "Views"
+                     },
+    "mediaCenter":  {
+                        "eyebrow":  "MEDIA CENTER",
+                        "title":  "Papua Tengah Regional Police Documentation Gallery",
+                        "subtitle":  "Documentation of activities, public services, security operations and activities of Papua Tengah Regional Police.",
+                        "button":  "View All",
+                        "date1":  "20 July 2026",
+                        "date2":  "19 July 2026",
+                        "date3":  "18 July 2026",
+                        "date4":  "17 July 2026",
+                        "date5":  "16 July 2026",
+                        "date6":  "15 July 2026"
+                    },
+    "breakingNews":  {
+                         "title":  "Breaking News"
+                     },
+    "informationCenter":  {
+                              "title":  "Information Center"
+                          },
+    "partners":  {
+                     "title":  "Partners"
+                 },
+    "statistics":  {
+                       "title":  "Statistics"
+                   }
+}

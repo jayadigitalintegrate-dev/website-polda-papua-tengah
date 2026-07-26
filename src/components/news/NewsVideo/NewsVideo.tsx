@@ -1,34 +1,41 @@
-import "./NewsVideo.css";
+﻿import "./NewsVideo.css";
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { Icon } from "@iconify/react";
 
 import { newsVideos } from "../../../data/news/videos";
 
+
 export default function NewsVideo() {
+
+  const { t } = useTranslation("home");
 
   const [activeVideo, setActiveVideo] = useState(newsVideos[0]);
 
   return (
-
     <section className="news-video">
 
       <div className="news-video__header">
 
         <div>
 
-          <h2>Video Berita</h2>
+          <h2>
+            {t("newsVideo.title")}
+          </h2>
 
           <p>
-            Dokumentasi kegiatan dan informasi video terbaru Polda Papua Tengah.
+            {t("newsVideo.subtitle")}
           </p>
 
         </div>
 
       </div>
 
+
       <div className="news-video__layout">
+
 
         <div className="news-video__player">
 
@@ -39,9 +46,13 @@ export default function NewsVideo() {
             allowFullScreen
           />
 
+
           <div className="news-video__info">
 
-            <h3>{activeVideo.title}</h3>
+            <h3>
+              {activeVideo.title}
+            </h3>
+
 
             <span>
 
@@ -51,9 +62,13 @@ export default function NewsVideo() {
 
             </span>
 
+
           </div>
 
+
         </div>
+
+
 
         <div className="news-video__list">
 
@@ -61,7 +76,7 @@ export default function NewsVideo() {
 
             const active = activeVideo.id === video.id;
 
-            return(
+            return (
 
               <button
 
@@ -69,7 +84,7 @@ export default function NewsVideo() {
 
                 type="button"
 
-                onClick={()=>setActiveVideo(video)}
+                onClick={() => setActiveVideo(video)}
 
                 className={`news-video__item ${
                   active ? "active" : ""
@@ -83,21 +98,27 @@ export default function NewsVideo() {
 
                 </div>
 
+
                 <div>
 
-                  <h4>{video.title}</h4>
+                  <h4>
+                    {video.title}
+                  </h4>
+
 
                   <small>
 
                     {video.publishedAt}
 
-                    •
+                    {" • "}
 
                     {video.duration}
 
                   </small>
 
+
                 </div>
+
 
               </button>
 
@@ -105,12 +126,14 @@ export default function NewsVideo() {
 
           })}
 
+
         </div>
+
 
       </div>
 
-    </section>
 
+    </section>
   );
 
 }

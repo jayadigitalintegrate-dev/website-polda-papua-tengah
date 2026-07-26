@@ -1,11 +1,13 @@
-import "./HeadlineNews.css";
+﻿import "./HeadlineNews.css";
 
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import FeaturedNews from "./FeaturedNews";
 import NewsCard from "./NewsCard";
 
 import { getNews } from "../../../services/news.service";
+
 
 const news = getNews();
 
@@ -16,61 +18,81 @@ const latestNews = news.filter(
   (item) => item.id !== featured.id
 );
 
+
 function HeadlineNews() {
+
+  const { t } = useTranslation("home");
+
+
   return (
     <section className="headline-news">
+
       <div className="headline-container">
 
-        {/* =======================================================
-            TITLE
-        ======================================================= */}
 
         <div className="headline-title">
 
-          <span>BERITA TERKINI</span>
+          <span>
+            {t("headlineNews.eyebrow")}
+          </span>
 
-          <h2>Informasi Polda Papua Tengah</h2>
+
+          <h2>
+            {t("headlineNews.title")}
+          </h2>
+
 
           <p>
-            Berita, kegiatan, pelayanan publik,
-            pengumuman, serta informasi terbaru
-            dari Kepolisian Daerah Papua Tengah.
+            {t("headlineNews.subtitle")}
           </p>
 
         </div>
 
-        {/* =======================================================
-            FEATURED NEWS
-        ======================================================= */}
+
 
         <FeaturedNews news={featured} />
 
-        {/* =======================================================
-            LATEST NEWS
-        ======================================================= */}
+
 
         <section className="latest-section">
 
+
           <div className="latest-title">
+
 
             <div>
 
-              <h3>Berita Terbaru</h3>
+              <h3>
+                {t("headlineNews.latestTitle")}
+              </h3>
+
 
               <p className="latest-subtitle">
-                Menampilkan {latestNews.length} berita terbaru
+
+                {t("headlineNews.latestCount", {
+                  count: latestNews.length
+                })}
+
               </p>
 
+
             </div>
+
+
 
             <Link
               to="/berita"
               className="latest-more"
             >
-              Lihat Semua &gt;
+
+              {t("headlineNews.viewAll")} &gt;
+
             </Link>
 
+
           </div>
+
+
 
           <div className="latest-grid">
 
@@ -85,26 +107,33 @@ function HeadlineNews() {
 
           </div>
 
+
         </section>
 
-        {/* =======================================================
-            BUTTON
-        ======================================================= */}
+
 
         <div className="headline-action">
+
 
           <Link
             to="/berita"
             className="headline-button"
           >
-            Jelajahi Semua Berita
+
+            {t("headlineNews.explore")}
+
           </Link>
+
 
         </div>
 
+
       </div>
+
     </section>
   );
+
 }
+
 
 export default HeadlineNews;

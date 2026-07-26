@@ -1,71 +1,110 @@
-import { Icon } from "@iconify/react";
+﻿import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 import type { QuickAccessItem } from "./quickAccessData";
 
+
 interface Props {
+
   item: QuickAccessItem;
+
 }
 
+
+
 function QuickAccessCard({ item }: Props) {
+
+
+  const { t } = useTranslation("home");
+
+
+
   return (
+
     <Link
+
       to={item.url}
+
       className={`quick-card ${
         item.featured ? "featured" : ""
       }`}
+
     >
-      {/* ===========================
-          BADGE
-      =========================== */}
+
+
 
       {item.badge && (
+
         <span className="quick-badge">
-          {item.badge}
+
+          {t(item.badge)}
+
         </span>
+
       )}
 
-      {/* ===========================
-          ICON
-      =========================== */}
+
 
       <div className="quick-icon">
+
         <Icon icon={item.icon} />
+
       </div>
 
-      {/* ===========================
-          CONTENT
-      =========================== */}
+
+
 
       <div className="quick-content">
 
+
         <h3>
-          {item.title}
+
+          {t(item.title)}
+
         </h3>
 
+
+
         <p>
-          {item.description}
+
+          {t(item.description)}
+
         </p>
+
 
       </div>
 
-      {/* ===========================
-          FOOTER
-      =========================== */}
+
+
 
       <div className="quick-footer">
 
+
         <span>
-          Akses Layanan
+
+          {t("quickAccess.access")}
+
         </span>
 
+
+
         <span className="quick-arrow">
+
           →
+
         </span>
+
 
       </div>
 
+
     </Link>
+
   );
+
 }
 
+
 export default QuickAccessCard;
+

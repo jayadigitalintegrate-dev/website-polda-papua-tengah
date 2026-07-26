@@ -1,0 +1,87 @@
+﻿{
+    "heroTitle":  "Website Resmi Polda Papua Tengah",
+    "heroDescription":  "Melayani masyarakat dengan Presisi, Integritas, Modern, Transparan dan Humanis.",
+    "more":  "Selengkapnya",
+    "previousSlide":  "Slide sebelumnya",
+    "nextSlide":  "Slide berikutnya",
+    "slide":  "Slide {{number}}",
+    "satker":  "Satker",
+    "polres":  "Polres Jajaran",
+    "personnel":  "Personel",
+    "service":  "Pelayanan",
+    "quickAccess":  {
+                        "eyebrow":  "AKSES CEPAT",
+                        "title":  "Layanan Digital Kepolisian",
+                        "subtitle":  "Akses layanan kepolisian secara cepat, mudah, dan aman melalui platform digital Polda Papua Tengah.",
+                        "button":  "Lihat Semua Layanan",
+                        "access":  "Akses Layanan",
+                        "spkt":  "SPKT Online",
+                        "spktDesc":  "Pelayanan Terpadu Kepolisian",
+                        "skck":  "SKCK Online",
+                        "skckDesc":  "Permohonan Surat Keterangan Catatan Kepolisian",
+                        "sim":  "SIM Online",
+                        "simDesc":  "Perpanjangan dan Informasi SIM",
+                        "call110":  "Call Center 110",
+                        "call110Desc":  "Layanan Darurat Kepolisian",
+                        "complaint":  "Pengaduan",
+                        "complaintDesc":  "Sampaikan Pengaduan Masyarakat",
+                        "polresList":  "Daftar Polres",
+                        "polresDesc":  "Lihat seluruh Polres di wilayah hukum Polda Papua Tengah",
+                        "news":  "Berita",
+                        "newsDesc":  "Berita dan Informasi Terkini Polda Papua Tengah",
+                        "publicInfo":  "Informasi Publik",
+                        "publicInfoDesc":  "Keterbukaan Informasi Publik dan PPID",
+                        "badge24":  "24 JAM",
+                        "online":  "ONLINE",
+                        "emergency":  "DARURAT",
+                        "new":  "BARU",
+                        "info":  "INFO",
+                        "update":  "UPDATE",
+                        "ppid":  "PPID"
+                    },
+    "newsVideo":  {
+                      "title":  "Video Berita",
+                      "subtitle":  "Dokumentasi kegiatan dan informasi video terbaru Polda Papua Tengah."
+                  },
+    "headlineNews":  {
+                         "eyebrow":  "BERITA TERKINI",
+                         "title":  "Informasi Polda Papua Tengah",
+                         "subtitle":  "Berita, kegiatan, pelayanan publik, pengumuman, serta informasi terbaru dari Kepolisian Daerah Papua Tengah.",
+                         "latestTitle":  "Berita Terbaru",
+                         "latestCount":  "Menampilkan {{count}} berita terbaru",
+                         "viewAll":  "Lihat Semua",
+                         "explore":  "Jelajahi Semua Berita",
+                         "readMore":  "Baca Selengkapnya",
+                         "views":  "Dilihat"
+                     },
+    "mediaCenter":  {
+                        "eyebrow":  "MEDIA CENTER",
+                        "title":  "Galeri Dokumentasi Polda Papua Tengah",
+                        "subtitle":  "Dokumentasi kegiatan, pelayanan masyarakat, pengamanan serta aktivitas Kepolisian Daerah Papua Tengah.",
+                        "button":  "Lihat Semua",
+                        "date1":  "20 Juli 2026",
+                        "date2":  "19 Juli 2026",
+                        "date3":  "18 Juli 2026",
+                        "date4":  "17 Juli 2026",
+                        "date5":  "16 Juli 2026",
+                        "date6":  "15 Juli 2026",
+                        "item1":  "Kapolda Papua Tengah Memimpin Apel Pagi",
+                        "item2":  "Patroli Kamtibmas Bersama Masyarakat",
+                        "item3":  "Pelayanan Publik Kepolisian",
+                        "item4":  "Pengamanan Kegiatan Masyarakat",
+                        "item5":  "Kegiatan Bhakti Sosial Polda Papua Tengah",
+                        "item6":  "Rapat Koordinasi Internal Kepolisian"
+                    },
+    "breakingNews":  {
+                         "title":  "Breaking News"
+                     },
+    "informationCenter":  {
+                              "title":  "Pusat Informasi"
+                          },
+    "partners":  {
+                     "title":  "Mitra Kami"
+                 },
+    "statistics":  {
+                       "title":  "Statistik"
+                   }
+}
