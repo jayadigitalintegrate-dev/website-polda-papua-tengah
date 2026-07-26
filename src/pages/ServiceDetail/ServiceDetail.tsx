@@ -11,6 +11,10 @@ export default function ServiceDetail() {
     (item) => item.slug === slug
   );
 
+  document.title = service
+    ? `${service.title} | Polda Papua Tengah`
+    : "Layanan | Polda Papua Tengah";
+
   if (!service) {
     return (
       <main className="service-detail">
@@ -34,6 +38,14 @@ export default function ServiceDetail() {
   return (
     <main className="service-detail">
       <div className="container">
+
+        <nav className="service-detail__breadcrumb">
+          <Link to="/">Beranda</Link>
+          <span> / </span>
+          <Link to="/layanan">Layanan</Link>
+          <span> / </span>
+          <span>{service.title}</span>
+        </nav>
 
         <div className="service-detail__header">
 
@@ -75,6 +87,64 @@ export default function ServiceDetail() {
           </ol>
         </section>
 
+        <section className="service-detail__section">
+          <h2>Informasi Pelayanan</h2>
+
+          <table className="service-detail__info-table">
+            <tbody>
+              <tr>
+                <th>Status</th>
+                <td>{service.active ? "Aktif" : "Tidak Aktif"}</td>
+              </tr>
+
+              <tr>
+                <th>Kategori</th>
+                <td>{service.category}</td>
+              </tr>
+
+              <tr>
+                <th>ID Layanan</th>
+                <td>{service.slug}</td>
+              </tr>
+
+              <tr>
+                <th>Tipe Akses</th>
+                <td>{service.external ? "Eksternal" : "Internal Website"}</td>
+              </tr>
+              <tr>
+                <th>Sumber Data</th>
+                <td>Frontend (CMS Ready)</td>
+              </tr>
+
+
+
+
+            </tbody>
+          </table>
+        </section>
+
+        <section className="service-detail__section">
+          <h2>Layanan Lainnya</h2>
+
+          <ul className="service-detail__related">
+            {servicesData
+              .filter((item) => item.slug !== service.slug)
+              .slice(0, 4)
+              .map((item) => (
+                <li key={item.id}>
+                  <Link to={`/layanan/${item.slug}`}>
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </section>
+
+
+
+
+
+
         <div className="service-detail__actions">
 
           {service.active && service.url !== "#" && (
@@ -84,6 +154,7 @@ export default function ServiceDetail() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="service-detail__back"
+                aria-label={`Buka layanan ${service.title}`}
               >
                 Buka Layanan
               </a>
@@ -91,6 +162,7 @@ export default function ServiceDetail() {
               <Link
                 to={service.url}
                 className="service-detail__back"
+                aria-label={`Buka layanan ${service.title}`}
               >
                 Buka Layanan
               </Link>
@@ -100,6 +172,7 @@ export default function ServiceDetail() {
           <Link
             to="/layanan"
             className="service-detail__back"
+            aria-label="Kembali ke daftar layanan"
           >
             ← Kembali
           </Link>

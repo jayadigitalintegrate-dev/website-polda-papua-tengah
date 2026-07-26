@@ -58,3 +58,38 @@
 .service-detail__back:hover{
     background:#e0a800;
 }
+
+.service-detail__info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.service-detail__info-table th,
+.service-detail__info-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.service-detail__info-table th {
+  width: 180px;
+  font-weight: 600;
+}
+
+.service-detail__related {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.service-detail__related li {
+  margin-bottom: 0.5rem;
+}
+
+.service-detail__related a {
+  text-decoration: none;
+}
+
+.service-detail__related a:hover {
+  text-decoration: underline;
+}

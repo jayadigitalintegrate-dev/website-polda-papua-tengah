@@ -14,6 +14,8 @@ export interface ServiceItem {
 
   url: string;
 
+  sortOrder: number;
+
   active: boolean;
   external: boolean;
 }
@@ -41,6 +43,7 @@ export const servicesData: ServiceItem[] = [
       "Pemohon menerima bukti laporan.",
     ],
     url: "#",
+    sortOrder: 1,
     active: true,
     external: false,
   },
@@ -52,7 +55,11 @@ export const servicesData: ServiceItem[] = [
     content: "Pelayanan pembuatan dan perpanjangan SKCK.",
     category: "Administrasi",
     icon: "📄",
-    requirements: ["KTP", "KK", "Pas Foto"],
+    requirements: [
+      "KTP",
+      "KK",
+      "Pas Foto",
+    ],
     procedures: [
       "Registrasi.",
       "Unggah dokumen.",
@@ -60,6 +67,7 @@ export const servicesData: ServiceItem[] = [
       "SKCK diterbitkan.",
     ],
     url: "#",
+    sortOrder: 2,
     active: true,
     external: false,
   },
@@ -71,7 +79,11 @@ export const servicesData: ServiceItem[] = [
     content: "Pelayanan SIM Nasional Presisi.",
     category: "Lalu Lintas",
     icon: "🚓",
-    requirements: ["KTP", "Surat Kesehatan", "Tes Psikologi"],
+    requirements: [
+      "KTP",
+      "Surat Kesehatan",
+      "Tes Psikologi",
+    ],
     procedures: [
       "Registrasi.",
       "Verifikasi.",
@@ -79,6 +91,7 @@ export const servicesData: ServiceItem[] = [
       "Penerbitan SIM.",
     ],
     url: "#",
+    sortOrder: 3,
     active: true,
     external: false,
   },
@@ -90,7 +103,10 @@ export const servicesData: ServiceItem[] = [
     content: "Layanan pengaduan masyarakat berbasis digital.",
     category: "Pengaduan",
     icon: "📢",
-    requirements: ["Identitas", "Bukti pendukung"],
+    requirements: [
+      "Identitas",
+      "Bukti pendukung",
+    ],
     procedures: [
       "Isi formulir.",
       "Unggah bukti.",
@@ -98,6 +114,7 @@ export const servicesData: ServiceItem[] = [
       "Monitoring status.",
     ],
     url: "#",
+    sortOrder: 4,
     active: true,
     external: false,
   },
@@ -116,6 +133,7 @@ export const servicesData: ServiceItem[] = [
       "Ikuti arahan petugas.",
     ],
     url: "tel:110",
+    sortOrder: 5,
     active: true,
     external: false,
   },
@@ -137,6 +155,7 @@ export const servicesData: ServiceItem[] = [
       "Persetujuan.",
     ],
     url: "#",
+    sortOrder: 6,
     active: true,
     external: false,
   },
@@ -148,13 +167,17 @@ export const servicesData: ServiceItem[] = [
     content: "Pelayanan surat kehilangan.",
     category: "Pelayanan",
     icon: "📋",
-    requirements: ["KTP", "Data barang yang hilang"],
+    requirements: [
+      "KTP",
+      "Data barang yang hilang",
+    ],
     procedures: [
       "Registrasi.",
       "Verifikasi.",
       "Penerbitan surat.",
     ],
     url: "#",
+    sortOrder: 7,
     active: true,
     external: false,
   },
