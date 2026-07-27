@@ -1,4 +1,4 @@
-.container{
+﻿.common-container{
     width:100%;
     margin:0 auto;
     padding-left:20px;
@@ -10,19 +10,19 @@
    SIZE
 ===================================== */
 
-.container--sm{
+.common-container--sm{
     max-width:720px;
 }
 
-.container--md{
+.common-container--md{
     max-width:960px;
 }
 
-.container--lg{
+.common-container--lg{
     max-width:1140px;
 }
 
-.container--xl{
+.common-container--xl{
     max-width:1320px;
 }
 
@@ -30,7 +30,7 @@
    FLUID
 ===================================== */
 
-.container--fluid{
+.common-container--fluid{
     max-width:100%;
 }
 
@@ -40,7 +40,7 @@
 
 @media (max-width:768px){
 
-    .container{
+    .common-container{
         padding-left:16px;
         padding-right:16px;
     }

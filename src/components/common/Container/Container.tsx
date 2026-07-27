@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 import "./Container.css";
 
 type ContainerSize =
@@ -23,9 +23,9 @@ export default function Container({
   return (
     <div
       className={[
-        "container",
-        `container--${size}`,
-        fluid ? "container--fluid" : "",
+        "common-container",
+        `common-container--${size}`,
+        fluid ? "common-container--fluid" : "",
         className,
       ]
         .filter(Boolean)
