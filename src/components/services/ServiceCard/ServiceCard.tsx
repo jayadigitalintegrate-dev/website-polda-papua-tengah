@@ -1,3 +1,4 @@
+﻿import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 import "./ServiceCard.css";
@@ -11,17 +12,22 @@ interface ServiceCardProps {
 export default function ServiceCard({
   service,
 }: ServiceCardProps) {
+
   const buttonClass = `service-card__button ${
     !service.active ? "disabled" : ""
   }`;
 
+  const iconClass = `service-card__icon service-card__icon--${service.color}`;
+
   return (
     <article className="service-card">
-      <div className="service-card__icon">
-        <span>{service.icon}</span>
+
+      <div className={iconClass}>
+        <Icon icon={service.icon} width="42" height="42" />
       </div>
 
       <div className="service-card__content">
+
         <span className="service-card__category">
           {service.category}
         </span>
@@ -33,6 +39,7 @@ export default function ServiceCard({
         <p className="service-card__description">
           {service.description}
         </p>
+
       </div>
 
       {!service.active ? (
@@ -56,6 +63,7 @@ export default function ServiceCard({
           Buka Layanan
         </Link>
       )}
+
     </article>
   );
 }

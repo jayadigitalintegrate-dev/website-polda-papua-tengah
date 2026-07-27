@@ -15,7 +15,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 1,
-    icon: "lucide:building-2",
+    icon: "mdi:office-building",
     value: "8",
     label: "satker",
   },
@@ -23,7 +23,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 2,
-    icon: "lucide:landmark",
+    icon: "mdi:shield-star",
     value: "10",
     label: "polres",
   },
@@ -31,7 +31,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 3,
-    icon: "lucide:users",
+    icon: "mdi:account-group",
     value: "2.345+",
     label: "personnel",
   },
@@ -39,7 +39,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 4,
-    icon: "lucide:phone-call",
+    icon: "mdi:face-agent",
     value: "24/7",
     label: "service",
   },

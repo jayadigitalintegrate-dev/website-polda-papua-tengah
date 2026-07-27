@@ -89,11 +89,7 @@ function QuickAccessCard({ item }: Props) {
 
 
 
-        <span className="quick-arrow">
-
-          ?
-
-        </span>
+        <span className="quick-arrow"><Icon icon="mdi:arrow-right" /></span>
 
 
       </div>
@@ -107,4 +103,5 @@ function QuickAccessCard({ item }: Props) {
 
 
 export default QuickAccessCard;
+
 

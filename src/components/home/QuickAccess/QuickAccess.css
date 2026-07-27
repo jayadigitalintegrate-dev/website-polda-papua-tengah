@@ -156,12 +156,9 @@
 }
 
 .quick-card:hover{
-
-    transform:translateY(-10px);
-
+    transform:translateY(-8px);
     box-shadow:
-        0 20px 45px rgba(15,23,42,.15);
-
+        0 24px 50px rgba(15,23,42,.18);
 }
 
 .quick-card:hover::before{
@@ -202,44 +199,36 @@
 =================================================== */
 
 .quick-icon{
-
     width:72px;
     height:72px;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
-    border-radius:18px;
-
-    background:#f4f8ff;
-
-    color:inherit;
-
     margin-bottom:22px;
 
-    transition:.35s;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0d6efd,#0a58ca);
+    color:#fff;
 
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 12px 24px rgba(13,110,253,.35),
+        inset 0 1px 2px rgba(255,255,255,.25);
+
+    transition:all .35s ease;
 }
 
 .quick-icon svg{
-
-    width:38px;
-    height:38px;
-
+    width:36px;
+    height:36px;
 }
 
 .quick-card:hover .quick-icon{
-
-    background:currentColor;
-
-    color:#ffffff;
-
-    transform:scale(1.08);
-
+    transform:translateY(-6px) scale(1.08);
+    background:linear-gradient(135deg,#ffc107,#ffb300);
+    box-shadow:0 18px 35px rgba(255,193,7,.45);
 }
-
 /* ===================================================
    CONTENT
 =================================================== */
