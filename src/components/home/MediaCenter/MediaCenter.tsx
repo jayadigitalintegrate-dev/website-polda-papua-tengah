@@ -1,4 +1,4 @@
-import "./MediaCenter.css";
+﻿import "./MediaCenter.css";
 
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import berita1 from "../../../assets/berita/berita-1.webp";
 import berita2 from "../../../assets/berita/berita-2.webp";
 import berita3 from "../../../assets/berita/berita-4.webp";
-import berita4 from "../../../assets/berita/berita-4.webp";
-import berita5 from "../../../assets/berita/berita-5.webp";
+import berita4 from "../../../assets/berita/berita-5.webp";
+import berita5 from "../../../assets/berita/berita-6.webp";
 
 
 const media = [

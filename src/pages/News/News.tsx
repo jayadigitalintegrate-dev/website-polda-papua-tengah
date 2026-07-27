@@ -1,4 +1,4 @@
-import "./News.css";
+﻿import "./News.css";
 
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -126,7 +126,7 @@ export default function News() {
               to="/berita"
               className="news-archive-button"
             >
-              Lihat Semua â†’
+              Lihat Semua →
             </Link>
 
           </div>

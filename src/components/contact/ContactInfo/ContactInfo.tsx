@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+﻿import { useTranslation } from "react-i18next";
 
 import "./ContactInfo.css";
 
@@ -50,7 +50,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ðŸ“
+              📍
             </span>
 
             <h3>
@@ -68,7 +68,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              â˜Žï¸
+              ☎️
             </span>
 
             <h3>
@@ -76,7 +76,7 @@ export default function ContactInfo({
             </h3>
 
             {
-              phone.map((item,index)=>(
+              phone.map((item, index) => (
 
                 <p key={index}>
                   {item}
@@ -93,7 +93,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              âœ‰ï¸
+              ✉️
             </span>
 
             <h3>
@@ -101,7 +101,7 @@ export default function ContactInfo({
             </h3>
 
             {
-              email.map((item,index)=>(
+              email.map((item, index) => (
 
                 <p key={index}>
                   {item}
@@ -116,9 +116,8 @@ export default function ContactInfo({
 
 
           <div className="contact-info__card">
-
             <span>
-              ðŸŒ
+              🌐 Papua Tengah
             </span>
 
             <h3>
@@ -137,7 +136,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ðŸ•’
+              📞
             </span>
 
             <h3>

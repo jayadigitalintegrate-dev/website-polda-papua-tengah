@@ -1,4 +1,4 @@
-import "./SearchButton.css";
+﻿import "./SearchButton.css";
 
 type SearchButtonProps = {
   onClick?: () => void;
@@ -16,7 +16,7 @@ export default function SearchButton({
       aria-label={ariaLabel}
       onClick={onClick}
     >
-      ðŸ”
+      🔍
     </button>
   );
 }

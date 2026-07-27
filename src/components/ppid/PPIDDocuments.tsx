@@ -1,4 +1,4 @@
-import "./PPID.css";
+﻿import "./PPID.css";
 
 export default function PPIDDocuments() {
 
@@ -74,7 +74,7 @@ export default function PPIDDocuments() {
                   </h3>
 
                   <span>
-                    {doc.type} â€¢ {doc.year}
+                    {doc.type} {doc.type} • {doc.year}
                   </span>
 
                 </div>

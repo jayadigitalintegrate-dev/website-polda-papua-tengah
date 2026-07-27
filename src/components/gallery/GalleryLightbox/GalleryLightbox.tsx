@@ -100,7 +100,7 @@ export default function GalleryLightbox({
             onClick={toggleFullscreen}
             aria-label="Fullscreen"
           >
-            {isFullscreen ? "ðŸ¡¼" : "â›¶"}
+            {isFullscreen ? "⛶" : "⛶"}
           </button>
 
           <button
@@ -109,7 +109,7 @@ export default function GalleryLightbox({
             onClick={onClose}
             aria-label="Tutup"
           >
-            Ã—
+            ×
           </button>
         </div>
 
@@ -120,7 +120,7 @@ export default function GalleryLightbox({
           onClick={onPrev}
           aria-label="Foto sebelumnya"
         >
-          â€¹
+          ‹
         </button>
 
         {/* Gambar */}
@@ -136,7 +136,7 @@ export default function GalleryLightbox({
           onClick={onNext}
           aria-label="Foto berikutnya"
         >
-          â€º
+          ›
         </button>
 
         {/* Informasi */}

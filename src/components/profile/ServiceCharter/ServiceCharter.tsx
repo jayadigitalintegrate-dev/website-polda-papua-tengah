@@ -1,4 +1,4 @@
-import "./ServiceCharter.css";
+﻿import "./ServiceCharter.css";
 import presisiLogo from "../../../assets/logo/presisi-polri.png";
 
 export default function ServiceCharter() {
@@ -36,13 +36,13 @@ export default function ServiceCharter() {
 
           <div className="charter-values">
 
-            <div>âœ” Profesional</div>
+            <div>✔ Profesional</div>            <div>✔ Profesional</div>
 
-            <div>âœ” Modern</div>
+            <div>✔ Profesional</div>            <div>✔ Profesional</div>
 
-            <div>âœ” Transparan</div>
+            <div>✔ Profesional</div>            <div>✔ Profesional</div>
 
-            <div>âœ” Terpercaya</div>
+            <div>✔ Profesional</div>            <div>✔ Profesional</div>
 
           </div>
 

@@ -1,4 +1,4 @@
-import "./OfficialModal.css";
+﻿import "./OfficialModal.css";
 import type { Official } from "../../../types/official";
 
 interface OfficialModalProps {
@@ -22,7 +22,7 @@ const OfficialModal = ({
           className="official-modal-close"
           onClick={onClose}
         >
-          Ã—
+          ×
         </button>
 
 

@@ -29,7 +29,7 @@ export const servicesData: ServiceItem[] = [
     content:
       "SPKT Online merupakan layanan untuk membantu masyarakat dalam memperoleh pelayanan kepolisian secara cepat, transparan, dan profesional.",
     category: "Pelayanan",
-    icon: "ðŸ›¡ï¸",
+    icon: "🛡️",
     requirements: [
       "KTP atau identitas diri.",
       "Menjelaskan kronologi kejadian.",
@@ -54,7 +54,7 @@ export const servicesData: ServiceItem[] = [
     description: "Pengajuan Surat Keterangan Catatan Kepolisian.",
     content: "Pelayanan pembuatan dan perpanjangan SKCK.",
     category: "Administrasi",
-    icon: "ðŸ“„",
+    icon: "📄",
     requirements: [
       "KTP",
       "KK",
@@ -78,7 +78,7 @@ export const servicesData: ServiceItem[] = [
     description: "Pelayanan pembuatan dan perpanjangan SIM.",
     content: "Pelayanan SIM Nasional Presisi.",
     category: "Lalu Lintas",
-    icon: "ðŸš“",
+    icon: "🚓",
     requirements: [
       "KTP",
       "Surat Kesehatan",
@@ -102,7 +102,7 @@ export const servicesData: ServiceItem[] = [
     description: "Pengaduan masyarakat secara digital.",
     content: "Layanan pengaduan masyarakat berbasis digital.",
     category: "Pengaduan",
-    icon: "ðŸ“¢",
+    icon: "📢",
     requirements: [
       "Identitas",
       "Bukti pendukung",
@@ -125,7 +125,7 @@ export const servicesData: ServiceItem[] = [
     description: "Layanan darurat Kepolisian Republik Indonesia.",
     content: "Layanan panggilan darurat 24 jam.",
     category: "Darurat",
-    icon: "â˜Žï¸",
+    icon: "☎️",
     requirements: [],
     procedures: [
       "Hubungi 110.",
@@ -144,7 +144,7 @@ export const servicesData: ServiceItem[] = [
     description: "Pengajuan izin kegiatan masyarakat.",
     content: "Pelayanan izin keramaian.",
     category: "Perizinan",
-    icon: "ðŸ“‘",
+    icon: "📑",
     requirements: [
       "Proposal kegiatan",
       "KTP Penanggung Jawab",
@@ -166,7 +166,7 @@ export const servicesData: ServiceItem[] = [
     description: "Pembuatan surat kehilangan barang.",
     content: "Pelayanan surat kehilangan.",
     category: "Pelayanan",
-    icon: "ðŸ“‹",
+    icon: "📋",
     requirements: [
       "KTP",
       "Data barang yang hilang",

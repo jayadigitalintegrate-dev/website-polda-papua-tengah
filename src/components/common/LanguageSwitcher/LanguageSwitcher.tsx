@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+﻿import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import "./LanguageSwitcher.css";
@@ -47,7 +47,7 @@ export default function LanguageSwitcher() {
         className="language-button"
         onClick={() => setOpen(!open)}
       >
-        ðŸŒ {i18n.language === "id" ? "ID" : "EN"}
+        🌐
       </button>
 
       {open && (
@@ -55,13 +55,13 @@ export default function LanguageSwitcher() {
           <button
             onClick={() => changeLanguage("id")}
           >
-            ðŸ‡®ðŸ‡© Indonesia
+            🇮🇩 Indonesia
           </button>
 
           <button
             onClick={() => changeLanguage("en")}
           >
-            ðŸ‡¬ðŸ‡§ English
+            🇬🇧 English
           </button>
         </div>
       )}

@@ -1,4 +1,4 @@
-import "./TopBar.css";
+﻿import "./TopBar.css";
 import { useMemo } from "react";
 
 const TopBar = () => {
@@ -21,19 +21,19 @@ const TopBar = () => {
         <div className="topbar-left">
 
           <span className="topbar-item">
-            ðŸ“… {today}
+           📅 {today}
           </span>
 
           <span className="divider">|</span>
 
           <span className="topbar-item">
-            ðŸ“ Papua Tengah
+         📍 Papua Tengah
           </span>
 
           <span className="divider">|</span>
 
           <span className="topbar-item emergency">
-            â˜Ž Call Center 110
+            ☎️ Call Center 110
           </span>
 
         </div>

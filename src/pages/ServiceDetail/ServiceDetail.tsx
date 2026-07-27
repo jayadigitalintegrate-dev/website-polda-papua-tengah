@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+﻿import { Link, useParams } from "react-router-dom";
 
 import "./ServiceDetail.css";
 
@@ -28,7 +28,7 @@ export default function ServiceDetail() {
             to="/layanan"
             className="service-detail__back"
           >
-            â† Kembali ke Daftar Layanan
+            →
           </Link>
         </div>
       </main>
@@ -174,7 +174,7 @@ export default function ServiceDetail() {
             className="service-detail__back"
             aria-label="Kembali ke daftar layanan"
           >
-            â† Kembali
+            →
           </Link>
 
         </div>
