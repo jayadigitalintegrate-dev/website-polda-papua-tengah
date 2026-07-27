@@ -1,9 +1,9 @@
-import gallery1 from "../assets/berita/berita-1.jpg";
-import gallery2 from "../assets/berita/berita-2.jpg";
-import gallery3 from "../assets/berita/berita-3.jpg";
-import gallery4 from "../assets/berita/berita-4.jpg";
-import gallery5 from "../assets/berita/berita-5.jpg";
-import gallery6 from "../assets/berita/berita-6.jpg";
+import gallery1 from "../assets/berita/berita-1.webp";
+import gallery2 from "../assets/berita/berita-2.webp";
+import gallery3 from "../assets/berita/berita-4.webp";
+import gallery4 from "../assets/berita/berita-5.webp";
+import gallery5 from "../assets/berita/berita-6.webp";
+import gallery6 from "../assets/berita/berita-6.webp";
 
 
 export interface GalleryItem {

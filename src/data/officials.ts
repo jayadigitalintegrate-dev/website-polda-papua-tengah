@@ -1,9 +1,9 @@
 // src/data/officials.ts
 
-import kapoldaPhoto from "../assets/officials/kapolda.png";
-import wakapoldaPhoto from "../assets/officials/wakapolda.png";
-import irwasdaPhoto from "../assets/officials/irwasda.png";
-import karoOpsPhoto from "../assets/officials/karo-ops.png";
+import kapoldaPhoto from "../assets/officials/kapolda.webp";
+import wakapoldaPhoto from "../assets/officials/wakapolda.webp";
+import irwasdaPhoto from "../assets/officials/irwasda.webp";
+import karoOpsPhoto from "../assets/officials/karo-ops.webp";
 
 import type { Official } from "../types/official";
 

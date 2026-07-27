@@ -16,7 +16,7 @@ export default function SearchButton({
       aria-label={ariaLabel}
       onClick={onClick}
     >
-      🔍
+      ðŸ”
     </button>
   );
 }

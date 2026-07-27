@@ -74,7 +74,7 @@ export default function PPIDDocuments() {
                   </h3>
 
                   <span>
-                    {doc.type} • {doc.year}
+                    {doc.type} â€¢ {doc.year}
                   </span>
 
                 </div>

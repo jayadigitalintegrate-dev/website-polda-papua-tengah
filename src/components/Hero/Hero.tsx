@@ -1,14 +1,14 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import "./Hero.css";
 
-import hero1 from "../../assets/hero/hero-polda-papua-tengah.png";
-import hero2 from "../../assets/hero/hero-poldapapua-tengah2.png";
-import hero3 from "../../assets/hero/hero-poldapapua-tengah3.png";
-import hero4 from "../../assets/hero/hero-poldapapua-tengah4.png";
-import hero5 from "../../assets/hero/hero-poldapapua-tengah5.png";
+import hero1 from "../../assets/hero/hero-polda-papua-tengah.webp";
+import hero2 from "../../assets/hero/hero-poldapapua-tengah2.webp";
+import hero3 from "../../assets/hero/hero-poldapapua-tengah3.webp";
+import hero4 from "../../assets/hero/hero-poldapapua-tengah4.webp";
+import hero5 from "../../assets/hero/hero-poldapapua-tengah5.webp";
 
 
 const images = [

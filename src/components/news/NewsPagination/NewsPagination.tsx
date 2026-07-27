@@ -1,4 +1,4 @@
-﻿import "./NewsPagination.css";
+import "./NewsPagination.css";
 
 type NewsPaginationProps = {
   currentPage: number;

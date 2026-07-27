@@ -1,4 +1,4 @@
-﻿import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -91,7 +91,7 @@ function QuickAccessCard({ item }: Props) {
 
         <span className="quick-arrow">
 
-          →
+          ?
 
         </span>
 

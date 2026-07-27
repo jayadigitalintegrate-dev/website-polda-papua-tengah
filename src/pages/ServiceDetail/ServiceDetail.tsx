@@ -28,7 +28,7 @@ export default function ServiceDetail() {
             to="/layanan"
             className="service-detail__back"
           >
-            ← Kembali ke Daftar Layanan
+            â† Kembali ke Daftar Layanan
           </Link>
         </div>
       </main>
@@ -174,7 +174,7 @@ export default function ServiceDetail() {
             className="service-detail__back"
             aria-label="Kembali ke daftar layanan"
           >
-            ← Kembali
+            â† Kembali
           </Link>
 
         </div>

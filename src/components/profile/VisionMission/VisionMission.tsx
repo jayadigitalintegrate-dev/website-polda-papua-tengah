@@ -25,7 +25,7 @@ export default function VisionMission() {
           <article className="vision-card">
 
             <div className="vision-icon">
-              🎯
+              ðŸŽ¯
             </div>
 
             <h3>Visi</h3>
@@ -41,7 +41,7 @@ export default function VisionMission() {
           <article className="vision-card">
 
             <div className="vision-icon">
-              🚔
+              ðŸš”
             </div>
 
             <h3>Misi</h3>

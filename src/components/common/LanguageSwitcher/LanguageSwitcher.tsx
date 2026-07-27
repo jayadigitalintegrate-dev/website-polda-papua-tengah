@@ -47,7 +47,7 @@ export default function LanguageSwitcher() {
         className="language-button"
         onClick={() => setOpen(!open)}
       >
-        🌐 {i18n.language === "id" ? "ID" : "EN"}
+        ðŸŒ {i18n.language === "id" ? "ID" : "EN"}
       </button>
 
       {open && (
@@ -55,13 +55,13 @@ export default function LanguageSwitcher() {
           <button
             onClick={() => changeLanguage("id")}
           >
-            🇮🇩 Indonesia
+            ðŸ‡®ðŸ‡© Indonesia
           </button>
 
           <button
             onClick={() => changeLanguage("en")}
           >
-            🇬🇧 English
+            ðŸ‡¬ðŸ‡§ English
           </button>
         </div>
       )}

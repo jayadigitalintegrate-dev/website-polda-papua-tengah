@@ -21,19 +21,19 @@ const TopBar = () => {
         <div className="topbar-left">
 
           <span className="topbar-item">
-            📅 {today}
+            ðŸ“… {today}
           </span>
 
           <span className="divider">|</span>
 
           <span className="topbar-item">
-            📍 Papua Tengah
+            ðŸ“ Papua Tengah
           </span>
 
           <span className="divider">|</span>
 
           <span className="topbar-item emergency">
-            ☎ Call Center 110
+            â˜Ž Call Center 110
           </span>
 
         </div>

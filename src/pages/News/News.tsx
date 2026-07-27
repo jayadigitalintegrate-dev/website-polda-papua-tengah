@@ -126,7 +126,7 @@ export default function News() {
               to="/berita"
               className="news-archive-button"
             >
-              Lihat Semua →
+              Lihat Semua â†’
             </Link>
 
           </div>

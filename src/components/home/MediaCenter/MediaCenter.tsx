@@ -1,14 +1,13 @@
-﻿import "./MediaCenter.css";
+import "./MediaCenter.css";
 
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import berita1 from "../../../assets/berita/berita-1.jpg";
-import berita2 from "../../../assets/berita/berita-2.jpg";
-import berita3 from "../../../assets/berita/berita-3.jpg";
-import berita4 from "../../../assets/berita/berita-4.jpg";
-import berita5 from "../../../assets/berita/berita-5.jpg";
-import berita6 from "../../../assets/berita/berita-6.jpg";
+import berita1 from "../../../assets/berita/berita-1.webp";
+import berita2 from "../../../assets/berita/berita-2.webp";
+import berita3 from "../../../assets/berita/berita-4.webp";
+import berita4 from "../../../assets/berita/berita-4.webp";
+import berita5 from "../../../assets/berita/berita-5.webp";
 
 
 const media = [
@@ -42,12 +41,7 @@ const media = [
     title: "mediaCenter.item5",
     date: "mediaCenter.date5",
   },
-  {
-    id: 6,
-    image: berita6,
-    title: "mediaCenter.item6",
-    date: "mediaCenter.date6",
-  },
+
 ];
 
 
@@ -82,7 +76,7 @@ export default function MediaCenter() {
           to="/galeri"
           className="media-center__button"
         >
-          {t("mediaCenter.button")} →
+          {t("mediaCenter.button")} ?
         </Link>
 
       </div>

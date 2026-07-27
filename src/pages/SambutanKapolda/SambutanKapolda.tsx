@@ -1,6 +1,6 @@
 import "./SambutanKapolda.css";
 
-import kapoldaImage from "../../assets/kapolda/kapolda.png";
+import kapoldaImage from "../../assets/kapolda/kapolda.webp";
 
 function SambutanKapolda() {
   return (

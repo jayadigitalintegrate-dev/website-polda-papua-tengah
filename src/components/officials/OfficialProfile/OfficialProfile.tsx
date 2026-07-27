@@ -27,7 +27,7 @@ export default function OfficialProfile({
         className="official-profile-back"
         onClick={onBack}
       >
-        ← Kembali
+        â† Kembali
       </button>
 
 

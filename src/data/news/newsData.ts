@@ -1,11 +1,9 @@
-import berita1 from "../../assets/berita/berita-1.jpg";
-import berita2 from "../../assets/berita/berita-2.jpg";
-import berita3 from "../../assets/berita/berita-3.jpg";
-import berita4 from "../../assets/berita/berita-4.jpg";
-import berita5 from "../../assets/berita/berita-5.jpg";
-import berita6 from "../../assets/berita/berita-6.jpg";
-import berita7 from "../../assets/berita/berita-7.jpg";
-
+import berita1 from "../../assets/berita/berita-1.webp";
+import berita2 from "../../assets/berita/berita-2.webp";
+import berita3 from "../../assets/berita/berita-4.webp";
+import berita4 from "../../assets/berita/berita-4.webp";
+import berita5 from "../../assets/berita/berita-5.webp";
+import berita6 from "../../assets/berita/berita-6.webp";
 
 import type { News } from "../../types/news";
 import { newsCategories } from "./categories";
@@ -485,7 +483,7 @@ Patroli dialogis dilaksanakan di sejumlah titik keramaian.
 Personel berdialog langsung dengan masyarakat untuk menerima masukan, memberikan imbauan kamtibmas serta meningkatkan kepercayaan publik terhadap Polri.
 `,
 
-  thumbnail: berita7,
+  thumbnail: berita6,
 
   publishedAt: "2026-07-24",
 

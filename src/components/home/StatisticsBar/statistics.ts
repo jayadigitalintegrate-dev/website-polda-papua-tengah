@@ -1,4 +1,4 @@
-﻿export interface StatisticItem {
+export interface StatisticItem {
 
   id: number;
 
@@ -16,7 +16,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 1,
-    icon: "🏢",
+    icon: "??",
     value: "8",
     label: "satker",
   },
@@ -24,7 +24,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 2,
-    icon: "🚔",
+    icon: "??",
     value: "10",
     label: "polres",
   },
@@ -32,7 +32,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 3,
-    icon: "👮",
+    icon: "??",
     value: "2.345+",
     label: "personnel",
   },
@@ -40,7 +40,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 4,
-    icon: "🛡️",
+    icon: "???",
     value: "24/7",
     label: "service",
   },

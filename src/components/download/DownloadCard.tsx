@@ -35,7 +35,7 @@ export default function DownloadCard({
 
       <div className="download-icon">
 
-        📄
+        ðŸ“„
 
       </div>
 

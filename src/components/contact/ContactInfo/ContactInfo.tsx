@@ -50,7 +50,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              📍
+              ðŸ“
             </span>
 
             <h3>
@@ -68,7 +68,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ☎️
+              â˜Žï¸
             </span>
 
             <h3>
@@ -93,7 +93,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ✉️
+              âœ‰ï¸
             </span>
 
             <h3>
@@ -118,7 +118,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              🌐
+              ðŸŒ
             </span>
 
             <h3>
@@ -137,7 +137,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              🕒
+              ðŸ•’
             </span>
 
             <h3>

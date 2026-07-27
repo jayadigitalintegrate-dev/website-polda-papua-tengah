@@ -1,4 +1,4 @@
-﻿export interface QuickAccessItem {
+export interface QuickAccessItem {
 
   id: number;
 

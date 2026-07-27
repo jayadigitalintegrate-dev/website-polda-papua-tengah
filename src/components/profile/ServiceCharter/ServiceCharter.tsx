@@ -36,13 +36,13 @@ export default function ServiceCharter() {
 
           <div className="charter-values">
 
-            <div>✔ Profesional</div>
+            <div>âœ” Profesional</div>
 
-            <div>✔ Modern</div>
+            <div>âœ” Modern</div>
 
-            <div>✔ Transparan</div>
+            <div>âœ” Transparan</div>
 
-            <div>✔ Terpercaya</div>
+            <div>âœ” Terpercaya</div>
 
           </div>
 

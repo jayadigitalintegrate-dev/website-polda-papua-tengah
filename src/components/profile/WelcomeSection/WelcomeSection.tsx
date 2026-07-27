@@ -1,6 +1,6 @@
 import "./WelcomeSection.css";
 import { Link } from "react-router-dom";
-import kapoldaImage from "../../../assets/kapolda/kapolda.png";
+import kapoldaImage from "../../../assets/kapolda/kapolda.webp";
 
 export default function WelcomeSection() {
   return (

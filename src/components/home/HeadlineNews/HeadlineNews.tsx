@@ -1,4 +1,4 @@
-﻿import "./HeadlineNews.css";
+import "./HeadlineNews.css";
 
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";

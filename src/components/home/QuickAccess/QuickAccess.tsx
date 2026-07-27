@@ -1,4 +1,4 @@
-﻿import "./QuickAccess.css";
+import "./QuickAccess.css";
 
 import { useTranslation } from "react-i18next";
 

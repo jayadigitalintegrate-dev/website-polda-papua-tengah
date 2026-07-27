@@ -22,7 +22,7 @@ const OfficialModal = ({
           className="official-modal-close"
           onClick={onClose}
         >
-          ×
+          Ã—
         </button>
 
 

@@ -1,4 +1,4 @@
-﻿import "./NewsVideo.css";
+import "./NewsVideo.css";
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
