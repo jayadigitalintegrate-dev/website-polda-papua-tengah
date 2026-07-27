@@ -9,6 +9,8 @@ import {
   ServiceSearch,
 } from "../../components/services";
 
+import Container from "../../components/common/Container/Container";
+
 export default function Services() {
   const [keyword, setKeyword] = useState("");
 
@@ -24,13 +26,18 @@ export default function Services() {
 
   return (
     <main className="services-page">
+
       <section className="services-page__hero">
-        <div className="container">
+
+        <Container>
+
           <span className="services-page__badge">
             Pelayanan Kepolisian
           </span>
 
-          <h1>Layanan Publik</h1>
+          <h1>
+            Layanan Publik
+          </h1>
 
           <p>
             Polda Papua Tengah menyediakan berbagai layanan
@@ -38,31 +45,46 @@ export default function Services() {
             profesional untuk memudahkan masyarakat
             memperoleh informasi maupun pelayanan.
           </p>
-        </div>
+
+        </Container>
+
       </section>
 
+
       <section className="services-page__content">
-        <div className="container">
+
+        <Container>
 
           <ServiceSearch
             value={keyword}
             onChange={setKeyword}
           />
 
+
           {filteredServices.length > 0 ? (
+
             <ServiceGrid services={filteredServices} />
+
           ) : (
+
             <div className="services-page__empty">
-              <h3>Layanan tidak ditemukan</h3>
+
+              <h3>
+                Layanan tidak ditemukan
+              </h3>
 
               <p>
                 Coba gunakan kata kunci lain.
               </p>
+
             </div>
+
           )}
 
-        </div>
+        </Container>
+
       </section>
+
     </main>
   );
 }

@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import "./PPIDRequest.css";
+import Container from "../../components/common/Container/Container";
 
 export default function PPIDRequest() {
   return (
     <main className="ppid-request">
 
-      <div className="container">
+      <Container>
 
         <div className="ppid-request__hero">
 
@@ -47,7 +48,7 @@ export default function PPIDRequest() {
 
         </div>
 
-      </div>
+      </Container>
 
     </main>
   );

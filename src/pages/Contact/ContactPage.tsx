@@ -1,4 +1,4 @@
-import "./ContactPage.css";
+﻿import "./ContactPage.css";
 
 import ContactHero from "../../components/contact/ContactHero/ContactHero";
 import ContactInfo from "../../components/contact/ContactInfo/ContactInfo";
@@ -6,6 +6,7 @@ import ContactMap from "../../components/contact/ContactMap/ContactMap";
 import ContactForm from "../../components/contact/ContactForm/ContactForm";
 
 import { contactData } from "../../data/contactData";
+import Container from "../../components/common/Container/Container";
 
 
 function ContactPage() {
@@ -21,7 +22,7 @@ function ContactPage() {
       <section className="contact-page__content">
 
 
-        <div className="container">
+        <Container>
 
 
           <div className="contact-page__grid">
@@ -69,7 +70,7 @@ function ContactPage() {
           </div>
 
 
-        </div>
+        </Container>
 
 
       </section>

@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+﻿import { NavLink } from "react-router-dom";
 import "./Breadcrumb.css";
+import Container from "../Container/Container";
 
 interface BreadcrumbItem {
   label: string;
@@ -15,7 +16,7 @@ export default function Breadcrumb({
 }: BreadcrumbProps) {
   return (
     <section className="breadcrumb">
-      <div className="container">
+      <Container>
         <nav className="breadcrumb-nav">
           {items.map((item, index) => (
             <span key={index}>
@@ -35,7 +36,7 @@ export default function Breadcrumb({
             </span>
           ))}
         </nav>
-      </div>
+      </Container>
     </section>
   );
 }

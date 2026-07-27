@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import "./ServiceDetail.css";
 
 import { servicesData } from "../../data/servicesData";
+import Container from "../../components/common/Container/Container";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -19,11 +20,15 @@ export default function ServiceDetail() {
   if (!service) {
     return (
       <main className="service-detail">
-        <div className="container">
-          <h1>Layanan Tidak Ditemukan</h1>
+        <Container>
+
+          <h1>
+            Layanan Tidak Ditemukan
+          </h1>
 
           <p>
-            Data layanan yang Anda cari tidak tersedia.</p>
+            Data layanan yang Anda cari tidak tersedia.
+          </p>
 
           <Link
             to="/layanan"
@@ -31,14 +36,16 @@ export default function ServiceDetail() {
           >
             →
           </Link>
-        </div>
+
+        </Container>
       </main>
     );
   }
 
   return (
     <main className="service-detail">
-      <div className="container">
+
+      <Container>
 
         <nav className="service-detail__breadcrumb">
           <Link to="/">Beranda</Link>
@@ -48,108 +55,168 @@ export default function ServiceDetail() {
           <span>{service.title}</span>
         </nav>
 
+
         <div className="service-detail__header">
 
           <span className="service-detail__icon">
             <Icon icon={service.icon} />
           </span>
 
+
           <div>
+
             <span className="service-detail__category">
               {service.category}
             </span>
 
-            <h1>{service.title}</h1>
+
+            <h1>
+              {service.title}
+            </h1>
+
           </div>
 
         </div>
+
 
         <p className="service-detail__description">
           {service.content}
         </p>
 
+
         <section className="service-detail__section">
-          <h2>Persyaratan</h2>
+
+          <h2>
+            Persyaratan
+          </h2>
+
 
           <ul>
             {service.requirements.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                {item}
+              </li>
             ))}
           </ul>
+
         </section>
 
+
         <section className="service-detail__section">
-          <h2>Prosedur Pelayanan</h2>
+
+          <h2>
+            Prosedur Pelayanan
+          </h2>
+
 
           <ol>
             {service.procedures.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                {item}
+              </li>
             ))}
           </ol>
+
         </section>
 
+
         <section className="service-detail__section">
-          <h2>Informasi Pelayanan</h2>
+
+          <h2>
+            Informasi Pelayanan
+          </h2>
+
 
           <table className="service-detail__info-table">
+
             <tbody>
+
               <tr>
                 <th>Status</th>
-                <td>{service.active ? "Aktif" : "Tidak Aktif"}</td>
+                <td>
+                  {service.active ? "Aktif" : "Tidak Aktif"}
+                </td>
               </tr>
+
 
               <tr>
                 <th>Kategori</th>
-                <td>{service.category}</td>
+                <td>
+                  {service.category}
+                </td>
               </tr>
+
 
               <tr>
                 <th>ID Layanan</th>
-                <td>{service.slug}</td>
+                <td>
+                  {service.slug}
+                </td>
               </tr>
+
 
               <tr>
                 <th>Tipe Akses</th>
-                <td>{service.external ? "Eksternal" : "Internal Website"}</td>
+                <td>
+                  {service.external
+                    ? "Eksternal"
+                    : "Internal Website"}
+                </td>
               </tr>
+
+
               <tr>
                 <th>Sumber Data</th>
-                <td>Frontend (CMS Ready)</td>
+                <td>
+                  Frontend (CMS Ready)
+                </td>
               </tr>
-
-
 
 
             </tbody>
+
           </table>
+
         </section>
 
+
         <section className="service-detail__section">
-          <h2>Layanan Lainnya</h2>
+
+          <h2>
+            Layanan Lainnya
+          </h2>
+
 
           <ul className="service-detail__related">
+
             {servicesData
               .filter((item) => item.slug !== service.slug)
               .slice(0, 4)
               .map((item) => (
+
                 <li key={item.id}>
+
                   <Link to={`/layanan/${item.slug}`}>
                     {item.title}
                   </Link>
+
                 </li>
+
               ))}
+
           </ul>
+
         </section>
-
-
-
 
 
 
         <div className="service-detail__actions">
 
+
           {service.active && service.url !== "#" && (
+
             service.external ? (
+
               <a
                 href={service.url}
                 target="_blank"
@@ -159,7 +226,9 @@ export default function ServiceDetail() {
               >
                 Buka Layanan
               </a>
+
             ) : (
+
               <Link
                 to={service.url}
                 className="service-detail__back"
@@ -167,8 +236,12 @@ export default function ServiceDetail() {
               >
                 Buka Layanan
               </Link>
+
             )
+
           )}
+
+
 
           <Link
             to="/layanan"
@@ -178,12 +251,12 @@ export default function ServiceDetail() {
             →
           </Link>
 
+
         </div>
 
-      </div>
+
+      </Container>
+
     </main>
   );
 }
-
-
-

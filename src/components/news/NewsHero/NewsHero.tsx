@@ -1,4 +1,4 @@
-import "./NewsHero.css";
+﻿import "./NewsHero.css";
 
 import { Icon } from "@iconify/react";
 import type { News } from "../../../types/news";
@@ -24,19 +24,19 @@ export default function NewsHero({
         <div className="news-hero__badges">
 
           {news.breaking && (
-            <span className="badge badge-breaking">
+            <span className="news-badge news-badge-breaking">
               BREAKING NEWS
             </span>
           )}
 
           {news.type === "video" && (
-            <span className="badge badge-video">
+            <span className="news-badge news-badge-video">
               <Icon icon="mdi:play-circle" />
               VIDEO
             </span>
           )}
 
-          <span className="badge badge-category">
+          <span className="news-badge news-badge-category">
             {news.category.name}
           </span>
 

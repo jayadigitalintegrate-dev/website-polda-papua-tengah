@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    NEWS HERO
 ========================================================== */
 
@@ -68,7 +68,7 @@
 
 }
 
-.badge{
+.news-badge{
 
     display:flex;
     align-items:center;
@@ -87,19 +87,19 @@
 
 }
 
-.badge-breaking{
+.news-badge-breaking{
 
     background:#d62828;
 
 }
 
-.badge-video{
+.news-badge-video{
 
     background:#d90429;
 
 }
 
-.badge-category{
+.news-badge-category{
 
     background:#005BAC;
 
@@ -237,7 +237,7 @@
 
 }
 
-.badge{
+.news-badge{
 
     padding:7px 14px;
 
