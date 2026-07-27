@@ -11,12 +11,11 @@ export interface StatisticItem {
 }
 
 
-
 export const statistics: StatisticItem[] = [
 
   {
     id: 1,
-    icon: "??",
+    icon: "lucide:building-2",
     value: "8",
     label: "satker",
   },
@@ -24,7 +23,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 2,
-    icon: "??",
+    icon: "lucide:landmark",
     value: "10",
     label: "polres",
   },
@@ -32,7 +31,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 3,
-    icon: "??",
+    icon: "lucide:users",
     value: "2.345+",
     label: "personnel",
   },
@@ -40,7 +39,7 @@ export const statistics: StatisticItem[] = [
 
   {
     id: 4,
-    icon: "???",
+    icon: "lucide:phone-call",
     value: "24/7",
     label: "service",
   },
