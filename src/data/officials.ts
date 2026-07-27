@@ -1,4 +1,4 @@
-﻿// src/data/officials.ts
+// src/data/officials.ts
 
 import kapoldaPhoto from "../assets/officials/kapolda.webp";
 import wakapoldaPhoto from "../assets/officials/wakapolda.webp";
@@ -74,6 +74,19 @@ export const officials: Official[] = [
     order: 4,
   },
 
+
+  {
+    id: 7,
+    photo: placeholderPhoto,
+    name_id: "Nama Karo Log",
+    name_en: "Head of Logistics Bureau",
+    rank: "Komisaris Besar Polisi",
+    position_id: "Karo Log Polda Papua Tengah",
+    position_en: "Head of Logistics Bureau",
+    ...defaultData,
+    order: 7,
+  },
+
   {
     id: 5,
     photo: placeholderPhoto,
@@ -98,17 +111,6 @@ export const officials: Official[] = [
     order: 6,
   },
 
-  {
-    id: 7,
-    photo: placeholderPhoto,
-    name_id: "Nama Karo Log",
-    name_en: "Head of Logistics Bureau",
-    rank: "Komisaris Besar Polisi",
-    position_id: "Karo Log Polda Papua Tengah",
-    position_en: "Head of Logistics Bureau",
-    ...defaultData,
-    order: 7,
-  },
 
   {
     id: 8,
@@ -207,3 +209,6 @@ export const officials: Official[] = [
   },
 
 ];
+
+
+

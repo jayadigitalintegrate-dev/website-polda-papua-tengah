@@ -1,4 +1,4 @@
-﻿/* ==========================================================
+/* ==========================================================
    MODERN DIGITAL FOOTER
    POLDA PAPUA TENGAH
 ========================================================== */
@@ -107,7 +107,7 @@
 
     font-size:22px;
 
-    font-weight:900;
+    font-weight:var(--font-weight-black);
 
     line-height:1.2;
 
@@ -151,7 +151,7 @@
 
     font-size:18px;
 
-    font-weight:800;
+    font-weight:var(--font-weight-extrabold);
 
 }
 
@@ -183,7 +183,7 @@
 
     margin-bottom:14px;
 
-    transition:.3s;
+    transition:var(--transition);
 
 }
 
@@ -261,7 +261,7 @@
 
     font-size:20px;
 
-    transition:.35s;
+    transition:var(--transition);
 
 }
 
@@ -317,7 +317,7 @@
 
     color:#08284d;
 
-    font-weight:700;
+    font-weight:var(--font-weight-bold);
 
 }
 
@@ -346,7 +346,7 @@
 
     color:#08284d;
 
-    font-weight:700;
+    font-weight:var(--font-weight-bold);
 
     text-decoration:none;
 
