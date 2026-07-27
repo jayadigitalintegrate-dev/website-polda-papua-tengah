@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+﻿import type { ReactNode } from "react";
 import "./Card.css";
 
 interface CardProps {
@@ -6,5 +6,5 @@ interface CardProps {
 }
 
 export default function Card({ children }: CardProps) {
-  return <div className="card">{children}</div>;
+  return <div className="common-card">{children}</div>;
 }
