@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    FEATURED NEWS
 ========================================================== */
 /* Ganti: Mengubah grid menjadi block relative untuk posisi overlay absolut */
@@ -65,7 +65,7 @@
     z-index: 6;
 }
 
-.badge {
+.featured-badge {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -76,17 +76,17 @@
     letter-spacing: .4px;
 }
 
-.badge-breaking {
+.featured-badge-breaking {
     background: #d90429;
     color: #fff;
 }
 
-.badge-video {
+.featured-badge-video {
     background: #d00000;
     color: #fff;
 }
 
-.badge-category {
+.featured-badge-category {
     background: #ffc107;
     color: #082a52;
 }

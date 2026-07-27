@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    FEATURED NEWS
 ========================================================== */
 
@@ -45,24 +45,24 @@
     flex-wrap:wrap;
 }
 
-.badge{
+.featured-badge{
     padding:6px 14px;
     border-radius:999px;
     font-size:.75rem;
     font-weight:700;
 }
 
-.badge-category{
+.featured-badge-category{
     background:#FFC107;
     color:#052F5F;
 }
 
-.badge-breaking{
+.featured-badge-breaking{
     background:#E53935;
     color:#fff;
 }
 
-.badge-video{
+.featured-badge-video{
     background:#0D47A1;
     color:#fff;
 }

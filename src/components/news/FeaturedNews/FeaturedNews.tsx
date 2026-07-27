@@ -1,4 +1,4 @@
-import "./style.css";
+﻿import "./style.css";
 
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
@@ -29,19 +29,19 @@ function FeaturedNews({
           <div className="featured-news__badges">
 
             {news.breaking && (
-              <span className="badge badge-breaking">
+              <span className="featured-badge featured-badge-breaking">
                 BREAKING NEWS
               </span>
             )}
 
             {news.type === "video" && (
-              <span className="badge badge-video">
+              <span className="featured-badge featured-badge-video">
                 <Icon icon="mdi:play-circle" />
                 VIDEO
               </span>
             )}
 
-            <span className="badge badge-category">
+            <span className="featured-badge featured-badge-category">
               {news.category.name}
             </span>
 
