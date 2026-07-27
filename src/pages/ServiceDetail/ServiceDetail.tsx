@@ -1,4 +1,5 @@
-﻿import { Link, useParams } from "react-router-dom";
+﻿import { Icon } from "@iconify/react";
+import { Link, useParams } from "react-router-dom";
 
 import "./ServiceDetail.css";
 
@@ -50,7 +51,7 @@ export default function ServiceDetail() {
         <div className="service-detail__header">
 
           <span className="service-detail__icon">
-            {service.icon}
+            <Icon icon={service.icon} />
           </span>
 
           <div>
@@ -183,3 +184,6 @@ export default function ServiceDetail() {
     </main>
   );
 }
+
+
+
