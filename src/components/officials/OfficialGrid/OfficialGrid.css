@@ -1,4 +1,4 @@
-.official-grid {
+﻿.official-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -23,4 +23,72 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
+}
+
+
+/* ==========================================
+   OFFICIAL GROUP SECTION
+========================================== */
+
+.official-group {
+  margin-bottom: 70px;
+}
+
+
+.official-group-title {
+
+  margin: 0 0 35px;
+
+  text-align: center;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  color: #0b3d6d;
+
+}
+
+
+.official-group-title::after {
+
+  content: "";
+
+  display: block;
+
+  width: 70px;
+
+  height: 4px;
+
+  margin: 12px auto 0;
+
+  background: #ffc107;
+
+  border-radius: 10px;
+
+}
+
+
+.official-group .official-grid {
+
+  margin-top: 0;
+
+}
+
+
+@media (max-width: 576px) {
+
+  .official-group {
+
+    margin-bottom: 45px;
+
+  }
+
+
+  .official-group-title {
+
+    font-size: 22px;
+
+  }
+
 }
