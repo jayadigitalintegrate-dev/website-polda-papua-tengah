@@ -92,3 +92,18 @@
   }
 
 }
+
+/* ==========================================
+   LEADERSHIP CENTER ALIGNMENT
+========================================== */
+
+.official-group:first-child .official-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.official-group:first-child .official-card {
+  width: 320px;
+}
