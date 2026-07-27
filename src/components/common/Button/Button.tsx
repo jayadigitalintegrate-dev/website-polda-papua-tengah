@@ -1,4 +1,4 @@
-import "./Button.css";
+﻿import "./Button.css";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ function Button({
     <button
       type={type}
       onClick={onClick}
-      className={`btn btn--${variant} btn--${size}`}
+      className={`common-btn common-btn--${variant} common-btn--${size}`}
     >
       {children}
     </button>
