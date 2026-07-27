@@ -2,6 +2,8 @@ import "./NewsDetail.css";
 
 import { Navigate, useParams } from "react-router-dom";
 
+import SEO from "../../components/common/SEO";
+
 import {
   Breadcrumb,
   Container,
@@ -20,21 +22,43 @@ import {
 
 import { getNewsBySlug } from "../../services/news.service";
 
+
 export default function NewsDetail() {
+
   const { slug } = useParams();
+
 
   if (!slug) {
     return <Navigate to="/berita" replace />;
   }
 
+
   const news = getNewsBySlug(slug);
+
 
   if (!news) {
     return <Navigate to="/berita" replace />;
   }
 
+
   return (
     <>
+
+      <SEO
+  title={
+    news.seo?.metaTitle ||
+    news.title
+  }
+  description={
+    news.seo?.metaDescription ||
+    news.excerpt
+  }
+  keywords={
+    news.seo?.keywords || []
+  }
+/>
+
+
       <Breadcrumb
         items={[
           {
@@ -51,34 +75,47 @@ export default function NewsDetail() {
         ]}
       />
 
+
       <Container>
+
         <NewsHero news={news} />
+
 
         <ArticleToolbar news={news} />
 
+
         <section className="news-detail">
-          <NewsLayout sidebar={<NewsSidebar />}>
-         <NewsContent news={news} />
 
-{/* ==========================================
-    GALLERY FOTO
-========================================== */}
-{news.gallery && news.gallery.length > 0 && (
-  <NewsGallery gallery={news.gallery} />
-)}
+          <NewsLayout
+            sidebar={<NewsSidebar />}
+          >
 
-{/* ==========================================
-    VIDEO BERITA
-========================================== */}
-<NewsVideo />
+            <NewsContent news={news} />
 
-{/* ==========================================
-    BERITA TERKAIT
-========================================== */}
-<RelatedNews slug={news.slug} />
+
+            {news.gallery &&
+              news.gallery.length > 0 && (
+                <NewsGallery
+                  gallery={news.gallery}
+                />
+              )
+            }
+
+
+            <NewsVideo />
+
+
+            <RelatedNews
+              slug={news.slug}
+            />
+
+
           </NewsLayout>
+
         </section>
+
       </Container>
+
     </>
   );
 }
