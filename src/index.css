@@ -46,11 +46,3 @@ ul,
 ol {
   list-style: none;
 }
-
-/* Container umum */
-
-.container {
-  width: 90%;
-  max-width: 1400px;
-  margin: auto;
-}

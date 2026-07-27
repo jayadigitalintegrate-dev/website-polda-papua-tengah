@@ -1,4 +1,8 @@
-﻿.common-container{
+﻿/* =====================================
+   COMMON CONTAINER
+===================================== */
+
+.common-container{
     width:100%;
     margin:0 auto;
     padding-left:20px;
