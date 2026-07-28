@@ -1,0 +1,32 @@
+﻿.announcement-banner {
+  padding: 40px 20px;
+}
+
+.announcement-banner__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 16px;
+  background: #0b5d1e;
+  color: white;
+}
+
+.announcement-banner__label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.announcement-banner__container h2 {
+  margin-bottom: 12px;
+}
+
+.announcement-banner__container p {
+  margin-bottom: 16px;
+}
+
+.announcement-banner__date {
+  font-size: 14px;
+  opacity: 0.9;
+}
