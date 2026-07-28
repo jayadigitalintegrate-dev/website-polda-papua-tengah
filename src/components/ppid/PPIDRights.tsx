@@ -1,6 +1,10 @@
-import "./PPID.css";
+﻿import "./PPID.css";
+
+import { ppidService } from "../../services/ppidService";
 
 export default function PPIDRights() {
+  const rightsData = ppidService.getRights();
+
   return (
     <section className="ppid-section ppid-alt">
 
@@ -8,7 +12,6 @@ export default function PPIDRights() {
 
         <div className="ppid-grid two">
 
-          {/* HAK PEMOHON */}
           <div className="ppid-card">
 
             <span className="ppid-label dark">
@@ -21,37 +24,17 @@ export default function PPIDRights() {
 
             <ul className="ppid-list">
 
-              <li>
-                Memperoleh informasi publik sesuai
-                dengan ketentuan peraturan yang berlaku.
-              </li>
-
-              <li>
-                Melihat, mengetahui, dan memperoleh
-                salinan informasi publik.
-              </li>
-
-              <li>
-                Mengajukan permohonan informasi
-                beserta alasan permintaan.
-              </li>
-
-              <li>
-                Mendapatkan pelayanan informasi
-                yang cepat, mudah, dan transparan.
-              </li>
-
-              <li>
-                Mengajukan keberatan apabila pelayanan
-                informasi tidak sesuai ketentuan.
-              </li>
+              {rightsData.rights.map((item) => (
+                <li key={item}>
+                  {item}
+                </li>
+              ))}
 
             </ul>
 
           </div>
 
 
-          {/* KEWAJIBAN */}
           <div className="ppid-card">
 
             <span className="ppid-label dark">
@@ -64,25 +47,11 @@ export default function PPIDRights() {
 
             <ul className="ppid-list">
 
-              <li>
-                Menggunakan informasi publik secara
-                bertanggung jawab.
-              </li>
-
-              <li>
-                Tidak menyalahgunakan informasi
-                yang diperoleh.
-              </li>
-
-              <li>
-                Mencantumkan sumber informasi apabila
-                digunakan untuk publikasi.
-              </li>
-
-              <li>
-                Mematuhi peraturan perundang-undangan
-                yang berlaku.
-              </li>
+              {rightsData.obligations.map((item) => (
+                <li key={item}>
+                  {item}
+                </li>
+              ))}
 
             </ul>
 

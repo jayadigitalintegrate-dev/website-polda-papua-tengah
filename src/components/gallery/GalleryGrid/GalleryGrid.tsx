@@ -1,6 +1,6 @@
 import "./GalleryGrid.css";
 import GalleryCard from "../GalleryCard";
-import type { GalleryItem } from "../../../data/galleryData";
+import type { GalleryItem } from "../../../types/gallery";
 
 interface GalleryGridProps {
   data: GalleryItem[];
@@ -26,3 +26,4 @@ export default function GalleryGrid({
     </section>
   );
 }
+

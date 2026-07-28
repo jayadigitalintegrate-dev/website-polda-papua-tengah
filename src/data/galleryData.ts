@@ -1,3 +1,5 @@
+import type { GalleryItem } from "../types/gallery";
+
 import gallery1 from "../assets/berita/berita-1.webp";
 import gallery2 from "../assets/berita/berita-2.webp";
 import gallery3 from "../assets/berita/berita-4.webp";
@@ -5,28 +7,6 @@ import gallery4 from "../assets/berita/berita-5.webp";
 import gallery5 from "../assets/berita/berita-6.webp";
 import gallery6 from "../assets/berita/berita-6.webp";
 
-
-export interface GalleryItem {
-  id: number;
-
-  slug: string;
-
-  image: string;
-
-  title: string;
-
-  description: string;
-
-  category: string;
-
-  date: string;
-
-  featured: boolean;
-
-  sortOrder: number;
-
-  status: "published" | "draft";
-}
 
 
 export const galleryData: GalleryItem[] = [
@@ -114,3 +94,5 @@ export const galleryData: GalleryItem[] = [
     status: "published",
   },
 ];
+
+

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./GalleryLightbox.css";
-import type { GalleryItem } from "../../../data/galleryData";
+import type { GalleryItem } from "../../../types/gallery";
 
 interface GalleryLightboxProps {
   item: GalleryItem;
@@ -151,3 +151,4 @@ export default function GalleryLightbox({
     </div>
   );
 }
+

@@ -1,6 +1,11 @@
-import "./PPID.css";
+﻿import "./PPID.css";
+
+import { ppidService } from "../../services/ppidService";
 
 export default function PPIDContact() {
+
+  const contact = ppidService.getContact();
+
   return (
     <section className="ppid-section">
 
@@ -11,11 +16,11 @@ export default function PPIDContact() {
         </h2>
 
         <p>
-          Bidang Humas Polda Papua Tengah
+          {contact.organization}
           <br />
-          Email: ppid@poldapapuatengah.go.id
+          Email: {contact.email}
           <br />
-          Senin - Jumat 08.00 - 15.00
+          {contact.serviceHours}
         </p>
 
       </div>

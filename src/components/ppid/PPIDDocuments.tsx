@@ -1,39 +1,14 @@
-﻿import "./PPID.css";
+import "./PPID.css";
+
+import { ppidService } from "../../services/ppidService";
 
 export default function PPIDDocuments() {
-
-  const documents = [
-    {
-      title: "Daftar Informasi Publik",
-      type: "Dokumen PPID",
-      year: "2026"
-    },
-    {
-      title: "Standar Operasional Pelayanan Informasi",
-      type: "Dokumen PPID",
-      year: "2026"
-    },
-    {
-      title: "Formulir Permohonan Informasi Publik",
-      type: "Formulir",
-      year: "2026"
-    },
-    {
-      title: "Formulir Keberatan Informasi Publik",
-      type: "Formulir",
-      year: "2026"
-    }
-  ];
-
+  const documents = ppidService.getAllDocuments();
 
   return (
     <section className="ppid-section">
-
       <div className="ppid-container">
-
-
         <div className="ppid-title">
-
           <span className="ppid-label dark">
             DOKUMEN PPID
           </span>
@@ -47,55 +22,33 @@ export default function PPIDDocuments() {
             yang tersedia melalui layanan PPID Polda
             Papua Tengah.
           </p>
-
         </div>
-
 
         <div className="ppid-document-grid">
-
-
-          {
-            documents.map((doc) => (
-
-              <div
-                className="ppid-document-card"
-                key={doc.title}
-              >
-
-                <div className="ppid-document-icon">
-                  PDF
-                </div>
-
-
-                <div className="ppid-document-content">
-
-                  <h3>
-                    {doc.title}
-                  </h3>
-
-                  <span>
-                    {doc.type} {doc.type} • {doc.year}
-                  </span>
-
-                </div>
-
-
-                <button>
-                  Download
-                </button>
-
-
+          {documents.map((doc) => (
+            <div
+              className="ppid-document-card"
+              key={doc.id}
+            >
+              <div className="ppid-document-icon">
+                {doc.fileType.toUpperCase()}
               </div>
 
-            ))
-          }
+              <div className="ppid-document-content">
+                <h3>{doc.title}</h3>
 
+                <span>
+                  {doc.category} • {new Date(doc.publishedAt).getFullYear()}
+                </span>
+              </div>
 
+              <button>
+                Download
+              </button>
+            </div>
+          ))}
         </div>
-
-
       </div>
-
     </section>
   );
 }
