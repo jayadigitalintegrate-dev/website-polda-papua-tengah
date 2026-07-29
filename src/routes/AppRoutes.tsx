@@ -6,7 +6,7 @@ import {
 
 import HomeLayout from "../layouts/HomeLayout";
 import ContentLayout from "../layouts/ContentLayout";
-import CekPengaduan from "../pages/CekPengaduan/CekPengaduan";
+
 import Home from "../pages/Home/Home";
 import Profile from "../pages/Profile/Profile";
 import News from "../pages/News/News";
@@ -14,20 +14,25 @@ import NewsDetail from "../pages/NewsDetail/NewsDetail";
 import Gallery from "../pages/Gallery/Gallery";
 import Services from "../pages/Services/Services";
 import ContactPage from "../pages/Contact/ContactPage";
+
 import DetailPolres from "../pages/Polres/DetailPolres";
 import PolresPage from "../pages/PolresPage";
 import OfficialsPage from "../pages/Officials/OfficialsPage";
+
 import PPID from "../pages/PPID/PPID";
-import SambutanKapolda from "../pages/SambutanKapolda/SambutanKapolda";
-import Pengaduan from "../pages/Pengaduan/Pengaduan";
-import Download from "../pages/Download/Download";
-import Pengumuman from "../pages/Pengumuman/Pengumuman";
-import ServiceDetail from "../pages/ServiceDetail";
 import PPIDRequest from "../pages/PPIDRequest";
 
+import SambutanKapolda from "../pages/SambutanKapolda/SambutanKapolda";
 
+import Pengaduan from "../pages/Pengaduan/Pengaduan";
+import CekPengaduan from "../pages/CekPengaduan/CekPengaduan";
 
+import Download from "../pages/Download/Download";
 
+import Pengumuman from "../pages/Pengumuman/Pengumuman";
+import PengumumanDetail from "../pages/PengumumanDetail/PengumumanDetail";
+
+import ServiceDetail from "../pages/ServiceDetail";
 
 const basename = import.meta.env.DEV
   ? "/"
@@ -41,7 +46,6 @@ function AppRoutes() {
         {/* ===========================
             HOME
         =========================== */}
-
         <Route element={<HomeLayout />}>
           <Route
             path="/"
@@ -52,35 +56,13 @@ function AppRoutes() {
         {/* ===========================
             CONTENT
         =========================== */}
-
         <Route element={<ContentLayout />}>
-          <Route
 
-            path="/download"
-
-            element={<Download />}
-
-          />
           <Route
             path="/profil"
             element={<Profile />}
           />
 
-          <Route
-            path="/ppid"
-            element={<PPID />}
-          />
-
-          <Route
-            path="/ppid/request"
-            element={<PPIDRequest />}
-          />
-
-
-          <Route
-            path="/pengaduan"
-            element={<Pengaduan />}
-          />
           <Route
             path="/sambutan-kapolda"
             element={<SambutanKapolda />}
@@ -102,11 +84,6 @@ function AppRoutes() {
           />
 
           <Route
-            path="/cek-pengaduan"
-            element={<CekPengaduan />}
-          />
-
-          <Route
             path="/galeri"
             element={<Gallery />}
           />
@@ -121,7 +98,40 @@ function AppRoutes() {
             element={<ServiceDetail />}
           />
 
+          <Route
+            path="/pengumuman"
+            element={<Pengumuman />}
+          />
 
+          <Route
+            path="/pengumuman/:slug"
+            element={<PengumumanDetail />}
+          />
+
+          <Route
+            path="/download"
+            element={<Download />}
+          />
+
+          <Route
+            path="/ppid"
+            element={<PPID />}
+          />
+
+          <Route
+            path="/ppid/request"
+            element={<PPIDRequest />}
+          />
+
+          <Route
+            path="/pengaduan"
+            element={<Pengaduan />}
+          />
+
+          <Route
+            path="/cek-pengaduan"
+            element={<CekPengaduan />}
+          />
 
           <Route
             path="/kontak"
@@ -144,11 +154,6 @@ function AppRoutes() {
           <Route
             path="/polres/:slug"
             element={<DetailPolres />}
-          />
-
-          <Route
-            path="/pengumuman"
-            element={<Pengumuman />}
           />
 
         </Route>
