@@ -4,7 +4,7 @@ import "./Pengumuman.css";
 
 import AnnouncementHero from "../../components/pengumuman/AnnouncementHero";
 import AnnouncementSearch from "../../components/pengumuman/AnnouncementSearch";
-import AnnouncementList from "../../components/pengumuman/AnnouncementList";
+import AnnouncementList from "../../components/announcement/AnnouncementList/AnnouncementList";
 
 export default function Pengumuman(){
 
