@@ -1,5 +1,9 @@
 .pengumuman-page{
+    min-height:100vh;
+    background:#f6f8fb;
+    padding-bottom:80px;
+}
 
+.pengumuman-page section{
     width:100%;
-
 }
