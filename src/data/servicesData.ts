@@ -1,4 +1,4 @@
-﻿export interface ServiceItem {
+export interface ServiceItem {
   id: number;
   slug: string;
 
@@ -9,11 +9,18 @@
   category: string;
   icon: string;
   color: string;
+requirements: string[];
+procedures: string[];
 
-  requirements: string[];
-  procedures: string[];
+fee?: string;
+serviceTime?: string;
+officeHours?: string;
+location?: string;
+contact?: string;
+documents?: string[];
+lastUpdated?: string;
 
-  url: string;
+url: string;
 
   sortOrder: number;
 

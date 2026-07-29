@@ -1,24 +1,29 @@
-import { newsData } from "../data/news/newsData";
+import { newsRepository } from "../repositories/newsRepository";
 
 /* ===========================================================
    ALL NEWS
 =========================================================== */
 
-export const getNews = () => newsData;
+export const getNews = () =>
+  newsRepository.getAll();
 
 /* ===========================================================
    FEATURED
 =========================================================== */
 
 export const getFeaturedNews = () =>
-  newsData.find((item) => item.featured);
+  newsRepository
+    .getAll()
+    .find((item) => item.featured);
 
 /* ===========================================================
    LATEST
 =========================================================== */
 
 export const getLatestNews = () =>
-  newsData.filter((item) => !item.featured);
+  newsRepository
+    .getAll()
+    .filter((item) => !item.featured);
 
 /* ===========================================================
    DETAIL
@@ -27,9 +32,7 @@ export const getLatestNews = () =>
 export const getNewsBySlug = (
   slug: string
 ) =>
-  newsData.find(
-    (item) => item.slug === slug
-  );
+  newsRepository.getBySlug(slug);
 
 /* ===========================================================
    RELATED
@@ -39,7 +42,8 @@ export const getRelatedNews = (
   slug: string,
   limit = 3
 ) =>
-  newsData
+  newsRepository
+    .getAll()
     .filter((item) => item.slug !== slug)
     .slice(0, limit);
 
@@ -50,7 +54,7 @@ export const getRelatedNews = (
 export const getPopularNews = (
   limit = 5
 ) =>
-  [...newsData]
+  [...newsRepository.getAll()]
     .sort((a, b) => b.views - a.views)
     .slice(0, limit);
 
@@ -59,9 +63,9 @@ export const getPopularNews = (
 =========================================================== */
 
 export const getCategories = () => {
-  const categories = newsData.map(
-    (item) => item.category
-  );
+  const categories = newsRepository
+    .getAll()
+    .map((item) => item.category);
 
   return [
     {

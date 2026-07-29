@@ -3,15 +3,15 @@ import { Link, useParams } from "react-router-dom";
 
 import "./ServiceDetail.css";
 
-import { servicesData } from "../../data/servicesData";
+import { serviceRepository } from "../../repositories/serviceRepository";
 import Container from "../../components/common/Container/Container";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
 
-  const service = servicesData.find(
-    (item) => item.slug === slug
-  );
+ const service = slug
+  ? serviceRepository.getBySlug(slug)
+  : undefined;
 
   document.title = service
     ? `${service.title} | Polda Papua Tengah`
@@ -129,51 +129,64 @@ export default function ServiceDetail() {
 
           <table className="service-detail__info-table">
 
-            <tbody>
+<tbody>
 
-              <tr>
-                <th>Status</th>
-                <td>
-                  {service.active ? "Aktif" : "Tidak Aktif"}
-                </td>
-              </tr>
+  <tr>
+    <th>Status</th>
+    <td>{service.active ? "Aktif" : "Tidak Aktif"}</td>
+  </tr>
 
+  <tr>
+    <th>Kategori</th>
+    <td>{service.category}</td>
+  </tr>
 
-              <tr>
-                <th>Kategori</th>
-                <td>
-                  {service.category}
-                </td>
-              </tr>
+  <tr>
+    <th>Biaya</th>
+    <td>{service.fee}</td>
+  </tr>
 
+  <tr>
+    <th>Estimasi Waktu</th>
+    <td>{service.serviceTime}</td>
+  </tr>
 
-              <tr>
-                <th>ID Layanan</th>
-                <td>
-                  {service.slug}
-                </td>
-              </tr>
+  <tr>
+    <th>Jam Pelayanan</th>
+    <td>{service.officeHours}</td>
+  </tr>
 
+  <tr>
+    <th>Lokasi</th>
+    <td>{service.location}</td>
+  </tr>
 
-              <tr>
-                <th>Tipe Akses</th>
-                <td>
-                  {service.external
-                    ? "Eksternal"
-                    : "Internal Website"}
-                </td>
-              </tr>
+  <tr>
+    <th>Kontak</th>
+    <td>{service.contact}</td>
+  </tr>
 
+  <tr>
+    <th>Terakhir Diperbarui</th>
+    <td>{service.lastUpdated}</td>
+  </tr>
 
-              <tr>
-                <th>Sumber Data</th>
-                <td>
-                  Frontend (CMS Ready)
-                </td>
-              </tr>
+  <tr>
+    <th>ID Layanan</th>
+    <td>{service.slug}</td>
+  </tr>
 
+  <tr>
+    <th>Tipe Akses</th>
+    <td>{service.external ? "Eksternal" : "Internal Website"}</td>
+  </tr>
 
-            </tbody>
+  <tr>
+    <th>Sumber Data</th>
+    <td>Frontend (CMS Ready)</td>
+  </tr>
+
+</tbody>
 
           </table>
 
@@ -189,7 +202,7 @@ export default function ServiceDetail() {
 
           <ul className="service-detail__related">
 
-            {servicesData
+            {serviceRepository.getAll()
               .filter((item) => item.slug !== service.slug)
               .slice(0, 4)
               .map((item) => (

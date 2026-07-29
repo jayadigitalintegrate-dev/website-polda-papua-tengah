@@ -57,35 +57,35 @@ Seluruh personel diharapkan menjadi teladan dalam menjalankan tugas kepolisian d
     gallery: [
       {
         id: 1,
-        image: "/images/news/gallery/gallery-1.jpg",
+        image: berita1,
         caption:
           "Kapolda Papua Tengah memimpin apel pagi bersama seluruh personel.",
       },
       {
         id: 2,
-        image: "/images/news/gallery/gallery-2.jpg",
+        image: berita2,
         caption: "Suasana apel pagi di Lapangan Mapolda Papua Tengah.",
       },
       {
         id: 3,
-        image: "/images/news/gallery/gallery-3.jpg",
+        image: berita4,
         caption: "Kapolda memberikan arahan kepada seluruh personel.",
       },
       {
         id: 4,
-        image: "/images/news/gallery/gallery-4.jpg",
+        image: berita4,
         caption:
           "Personel mengikuti apel pagi dengan tertib dan disiplin.",
       },
       {
         id: 5,
-        image: "/images/news/gallery/gallery-5.jpg",
+        image: berita5,
         caption:
           "Dokumentasi kegiatan penguatan profesionalisme anggota Polri.",
       },
       {
         id: 6,
-        image: "/images/news/gallery/gallery-6.jpg",
+        image: berita6,
         caption: "Foto bersama setelah pelaksanaan apel pagi.",
       },
     ],

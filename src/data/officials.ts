@@ -1,4 +1,4 @@
-// src/data/officials.ts
+﻿// src/data/officials.ts
 
 import kapoldaPhoto from "../assets/officials/kapolda.webp";
 import wakapoldaPhoto from "../assets/officials/wakapolda.webp";
@@ -29,7 +29,7 @@ export const officials: Official[] = [
   {
     id: 1,
     photo: kapoldaPhoto,
-    name_id: "Irjen Pol. Petrus Patrige Rudolf Renwarin, S.H., M.Si.",
+    name_id: "Irjen Pol.Brigjen. Pol. Jeremias Rontini, S.I.K., M.Si.",
     name_en: "Inspector General Police Petrus Patrige Rudolf Renwarin",
     rank: "Inspektur Jenderal Polisi",
     position_id: "Kapolda Papua Tengah",
@@ -41,7 +41,7 @@ export const officials: Official[] = [
   {
     id: 2,
     photo: wakapoldaPhoto,
-    name_id: "Nama Wakapolda",
+    name_id: "Kombes. Pol. Dr. Gustav Robby Urbinas, S.H., S.I.K., M.Pd., M.H.",
     name_en: "Deputy Chief of Papua Tengah Regional Police",
     rank: "Brigadir Jenderal Polisi",
     position_id: "Wakapolda Papua Tengah",
@@ -53,7 +53,7 @@ export const officials: Official[] = [
   {
     id: 3,
     photo: irwasdaPhoto,
-    name_id: "Nama Irwasda",
+    name_id: "Kombes. Pol. Wahyu Kuncoro, S.I.K., M.H.",
     name_en: "Inspectorate Supervisor",
     rank: "Komisaris Besar Polisi",
     position_id: "Irwasda Polda Papua Tengah",

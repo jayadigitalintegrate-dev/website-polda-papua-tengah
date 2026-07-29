@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./Services.css";
 
-import { servicesData } from "../../data/servicesData";
+import { serviceRepository } from "../../repositories/serviceRepository";
 
 import {
   ServiceGrid,
@@ -14,7 +14,9 @@ import Container from "../../components/common/Container/Container";
 export default function Services() {
   const [keyword, setKeyword] = useState("");
 
-  const filteredServices = servicesData.filter((service) => {
+  const services = serviceRepository.getAll();
+
+  const filteredServices = services.filter((service) => {
     const search = keyword.toLowerCase();
 
     return (
@@ -26,11 +28,8 @@ export default function Services() {
 
   return (
     <main className="services-page">
-
       <section className="services-page__hero">
-
         <Container>
-
           <span className="services-page__badge">
             Pelayanan Kepolisian
           </span>
@@ -45,30 +44,20 @@ export default function Services() {
             profesional untuk memudahkan masyarakat
             memperoleh informasi maupun pelayanan.
           </p>
-
         </Container>
-
       </section>
 
-
       <section className="services-page__content">
-
         <Container>
-
           <ServiceSearch
             value={keyword}
             onChange={setKeyword}
           />
 
-
           {filteredServices.length > 0 ? (
-
             <ServiceGrid services={filteredServices} />
-
           ) : (
-
             <div className="services-page__empty">
-
               <h3>
                 Layanan tidak ditemukan
               </h3>
@@ -76,15 +65,10 @@ export default function Services() {
               <p>
                 Coba gunakan kata kunci lain.
               </p>
-
             </div>
-
           )}
-
         </Container>
-
       </section>
-
     </main>
   );
 }

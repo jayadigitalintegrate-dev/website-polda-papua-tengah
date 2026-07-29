@@ -2,12 +2,11 @@
 
 import "./OfficialGrid.css";
 
-import { officials } from "../../../data/officials";
+import { officialsRepository } from "../../../repositories/officialsRepository";
 import type { Official } from "../../../types/official";
 
 import OfficialCard from "../OfficialCard/OfficialCard";
 import OfficialProfile from "../OfficialProfile/OfficialProfile";
-
 
 const OfficialGrid = () => {
 
@@ -16,6 +15,7 @@ const OfficialGrid = () => {
     setSelectedOfficial
   ] = useState<Official | null>(null);
 
+  const officials = officialsRepository.getAll();
 
   if (selectedOfficial) {
 
@@ -28,21 +28,17 @@ const OfficialGrid = () => {
 
   }
 
-
   const leadership = officials.filter(
     (item) => item.order <= 2
   );
-
 
   const support = officials.filter(
     (item) => item.order >= 3 && item.order <= 7
   );
 
-
   const directors = officials.filter(
     (item) => item.order >= 8
   );
-
 
   const renderSection = (
     title: string,
@@ -55,21 +51,16 @@ const OfficialGrid = () => {
         {title}
       </h3>
 
-
       <section className="official-grid">
 
         {data.map((official) => (
 
           <OfficialCard
-
             key={official.id}
-
             official={official}
-
             onClick={() =>
               setSelectedOfficial(official)
             }
-
           />
 
         ))}
@@ -80,7 +71,6 @@ const OfficialGrid = () => {
 
   );
 
-
   return (
 
     <div>
@@ -90,12 +80,10 @@ const OfficialGrid = () => {
         leadership
       )}
 
-
       {renderSection(
         "Unsur Pengawas dan Pembantu Pimpinan",
         support
       )}
-
 
       {renderSection(
         "Unsur Pelaksana Operasional / Direktorat",
@@ -107,6 +95,5 @@ const OfficialGrid = () => {
   );
 
 };
-
 
 export default OfficialGrid;
