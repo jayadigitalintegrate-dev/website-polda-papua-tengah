@@ -25,7 +25,7 @@ import {
 } from "../../services/news.service";
 
 export default function News() {
-  const featured = getFeaturedNews();
+ const featured = getFeaturedNews()?.[0];
   const latest = getLatestNews();
 
   const [search, setSearch] = useState("");

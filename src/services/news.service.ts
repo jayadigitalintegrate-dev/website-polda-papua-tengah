@@ -1,71 +1,77 @@
 import { newsRepository } from "../repositories/newsRepository";
 
-/* ===========================================================
-   ALL NEWS
-=========================================================== */
 
 export const getNews = () =>
-  newsRepository.getAll();
+  newsRepository.getPublished();
 
-/* ===========================================================
-   FEATURED
-=========================================================== */
 
 export const getFeaturedNews = () =>
   newsRepository
-    .getAll()
-    .find((item) => item.featured);
+    .getFeatured();
 
-/* ===========================================================
-   LATEST
-=========================================================== */
 
-export const getLatestNews = () =>
+export const getLatestNews = (
+  limit = 6
+) =>
   newsRepository
-    .getAll()
-    .filter((item) => !item.featured);
+    .getPublished()
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() -
+        new Date(a.publishedAt).getTime()
+    )
+    .slice(0, limit);
 
-/* ===========================================================
-   DETAIL
-=========================================================== */
 
 export const getNewsBySlug = (
   slug: string
 ) =>
   newsRepository.getBySlug(slug);
 
-/* ===========================================================
-   RELATED
-=========================================================== */
 
 export const getRelatedNews = (
   slug: string,
   limit = 3
-) =>
-  newsRepository
-    .getAll()
-    .filter((item) => item.slug !== slug)
-    .slice(0, limit);
+) => {
 
-/* ===========================================================
-   POPULAR
-=========================================================== */
+  const current =
+    newsRepository.getBySlug(slug);
+
+  if (!current) {
+    return [];
+  }
+
+  return newsRepository
+    .getPublished()
+    .filter(
+      (item) =>
+        item.slug !== slug &&
+        item.category.id === current.category.id
+    )
+    .slice(0, limit);
+};
+
 
 export const getPopularNews = (
   limit = 5
 ) =>
-  [...newsRepository.getAll()]
-    .sort((a, b) => b.views - a.views)
+  [...newsRepository.getPublished()]
+    .sort(
+      (a, b) =>
+        b.views - a.views
+    )
     .slice(0, limit);
 
-/* ===========================================================
-   CATEGORIES
-=========================================================== */
 
 export const getCategories = () => {
-  const categories = newsRepository
-    .getAll()
-    .map((item) => item.category);
+
+  const categories =
+    newsRepository
+      .getPublished()
+      .map(
+        (item) => item.category
+      );
+
 
   return [
     {
