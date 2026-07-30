@@ -36,7 +36,7 @@ export default function PengumumanDetail() {
             Pengumuman yang Anda cari tidak tersedia atau telah dihapus.
           </p>
 
-        </div>`r`n`r`n        </Container>`r`n`r`n      </main>
+        </div>        </Container>      </main>
     );
   }
 
@@ -177,10 +177,11 @@ export default function PengumumanDetail() {
           </table>
 
 
-        </div>`r`n`r`n        </Container>`r`n`r`n      </main>
+        </div>        </Container>      </main>
 
     </>
   );
 }
+
 
 
