@@ -1,4 +1,5 @@
-﻿import type { Announcement } from "../../../types/announcement";
+import { Link } from "react-router-dom";
+import type { Announcement } from "../../../types/announcement";
 
 import "./AnnouncementCard.css";
 
@@ -12,11 +13,8 @@ export default function AnnouncementCard({
   data,
 }: AnnouncementCardProps) {
 
-
   return (
-
     <article className="announcement-card">
-
 
       <div className="announcement-card__header">
 
@@ -32,7 +30,6 @@ export default function AnnouncementCard({
         </span>
 
       </div>
-
 
 
       <h3>
@@ -52,8 +49,14 @@ export default function AnnouncementCard({
       </small>
 
 
+      <Link
+        to={`/pengumuman/${data.slug}`}
+        className="announcement-card__link"
+      >
+        Selengkapnya
+      </Link>
+
+
     </article>
-
   );
-
 }
