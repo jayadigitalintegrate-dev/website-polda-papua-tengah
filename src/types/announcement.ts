@@ -1,4 +1,4 @@
-﻿export type AnnouncementPriority =
+export type AnnouncementPriority =
   | "high"
   | "medium"
   | "low";
@@ -33,7 +33,11 @@ export interface Announcement {
 
   featured: boolean;
 
-  status: "published" | "draft";
+ status:
+  | "published"
+  | "draft"
+  | "expired"
+  | "archived";
 
   sortOrder: number;
 

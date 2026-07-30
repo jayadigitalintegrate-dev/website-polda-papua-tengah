@@ -1,10 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import {
-  Breadcrumb,
-  Container,
-  SEO,
-} from "../../components/common";
+import { Breadcrumb, SEO } from "../../components/common";
 
 import { announcementService } from "../../services/announcementService";
 
@@ -24,8 +20,6 @@ export default function PengumumanDetail() {
   if (!announcement) {
     return (
       <main className="pengumuman-detail">
-
-        <Container>
         <div className="pengumuman-detail__container">
 
           <h1>
@@ -36,7 +30,8 @@ export default function PengumumanDetail() {
             Pengumuman yang Anda cari tidak tersedia atau telah dihapus.
           </p>
 
-        </div>`r`n`r`n        </Container>`r`n`r`n      </main>
+        </div>
+      </main>
     );
   }
 
@@ -74,8 +69,6 @@ export default function PengumumanDetail() {
 
 
       <main className="pengumuman-detail">
-
-        <Container>
 
         <div className="pengumuman-detail__container">
 
@@ -177,10 +170,10 @@ export default function PengumumanDetail() {
           </table>
 
 
-        </div>`r`n`r`n        </Container>`r`n`r`n      </main>
+        </div>
+
+      </main>
 
     </>
   );
 }
-
-
