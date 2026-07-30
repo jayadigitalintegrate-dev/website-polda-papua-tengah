@@ -5,11 +5,14 @@ import HeadlineNews from "../../components/home/HeadlineNews/HeadlineNews";
 import NewsVideo from "../../components/news/NewsVideo";
 
 import MediaCenter from "../../components/home/MediaCenter";
+import Announcement from "../../components/announcement";
 
 function Home() {
   return (
     <>
       <Hero />
+
+      <Announcement />
 
       <StatisticsBar />
 

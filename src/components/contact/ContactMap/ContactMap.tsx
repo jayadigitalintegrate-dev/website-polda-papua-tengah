@@ -5,19 +5,41 @@ import "./ContactMap.css";
 
 interface ContactMapProps {
 
-  embed: string;
+  embed?: string;
+
+  latitude?: number;
+
+  longitude?: number;
+
+  showMap?: boolean;
 
 }
 
 
 export default function ContactMap({
 
-  embed
+  embed,
+
+  latitude,
+
+  longitude,
+
+  showMap = true,
 
 }: ContactMapProps) {
 
 
   const { t } = useTranslation("contact");
+
+
+  const mapUrl =
+    embed ||
+    (
+      latitude !== undefined &&
+      longitude !== undefined
+        ? `https://www.google.com/maps?q=${latitude},${longitude}&output=embed`
+        : ""
+    );
 
 
   return (
@@ -49,11 +71,11 @@ export default function ContactMap({
 
 
           {
-            embed ? (
+            showMap && mapUrl ? (
 
               <iframe
 
-                src={embed}
+                src={mapUrl}
 
                 title={t("location")}
 

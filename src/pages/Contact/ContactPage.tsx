@@ -1,4 +1,4 @@
-﻿import "./ContactPage.css";
+import "./ContactPage.css";
 
 import ContactHero from "../../components/contact/ContactHero/ContactHero";
 import ContactInfo from "../../components/contact/ContactInfo/ContactInfo";
@@ -49,7 +49,13 @@ function ContactPage() {
 
               <ContactMap
 
-                embed={contactData.mapEmbed}
+                embed={contactData.map.embed}
+
+                latitude={contactData.map.latitude}
+
+                longitude={contactData.map.longitude}
+
+                showMap={contactData.map.show}
 
               />
 

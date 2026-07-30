@@ -21,7 +21,15 @@ export interface ContactData {
 
 
   map: {
+
     embed: string;
+
+    latitude: number;
+
+    longitude: number;
+
+    show: boolean;
+
   };
 
 
