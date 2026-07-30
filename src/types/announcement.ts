@@ -17,7 +17,11 @@ export interface Announcement {
 
   description: string;
 
+  content: string;
+
   image?: string;
+
+  attachment?: string;
 
   priority: AnnouncementPriority;
 
@@ -30,4 +34,12 @@ export interface Announcement {
   featured: boolean;
 
   status: "published" | "draft";
+
+  sortOrder: number;
+
+  createdAt: string;
+
+  updatedAt: string;
 }
+
+

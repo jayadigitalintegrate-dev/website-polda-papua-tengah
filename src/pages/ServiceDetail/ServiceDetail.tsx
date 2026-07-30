@@ -1,4 +1,4 @@
-﻿import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import { Link, useParams } from "react-router-dom";
 
 import "./ServiceDetail.css";
@@ -12,11 +12,6 @@ export default function ServiceDetail() {
  const service = slug
   ? serviceRepository.getBySlug(slug)
   : undefined;
-
-  document.title = service
-    ? `${service.title} | Polda Papua Tengah`
-    : "Layanan | Polda Papua Tengah";
-
   if (!service) {
     return (
       <main className="service-detail">
@@ -34,7 +29,7 @@ export default function ServiceDetail() {
             to="/layanan"
             className="service-detail__back"
           >
-            →
+            ?
           </Link>
 
         </Container>
@@ -261,7 +256,7 @@ export default function ServiceDetail() {
             className="service-detail__back"
             aria-label="Kembali ke daftar layanan"
           >
-            →
+            ?
           </Link>
 
 
