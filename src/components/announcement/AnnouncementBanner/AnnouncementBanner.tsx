@@ -1,11 +1,20 @@
-﻿import { announcementService } from "../../../services/announcementService";
+import { Link } from "react-router-dom";
+
+import { announcementService } from "../../../services/announcementService";
 
 import "./AnnouncementBanner.css";
+
 
 export default function AnnouncementBanner() {
 
   const announcements =
-    announcementService.getFeaturedAnnouncements();
+    announcementService
+      .getFeaturedAnnouncements()
+      .sort(
+        (a, b) =>
+          a.sortOrder - b.sortOrder
+      );
+
 
   if (!announcements.length) {
     return null;
@@ -44,6 +53,14 @@ export default function AnnouncementBanner() {
           {" "}
           {announcement.publishEnd}
         </span>
+
+
+        <Link
+          to={`/pengumuman/${announcement.slug}`}
+          className="announcement-banner__link"
+        >
+          Lihat Detail ?
+        </Link>
 
 
       </div>
