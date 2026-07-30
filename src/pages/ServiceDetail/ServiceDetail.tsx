@@ -3,14 +3,14 @@ import { Link, useParams } from "react-router-dom";
 
 import "./ServiceDetail.css";
 
-import { serviceRepository } from "../../repositories/serviceRepository";
+import { serviceService } from "../../services/serviceService";
 import Container from "../../components/common/Container/Container";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
 
  const service = slug
-  ? serviceRepository.getBySlug(slug)
+  ? serviceService.getServiceBySlug(slug)
   : undefined;
   if (!service) {
     return (
@@ -197,7 +197,7 @@ export default function ServiceDetail() {
 
           <ul className="service-detail__related">
 
-            {serviceRepository.getAll()
+            {serviceService.getAllServices()
               .filter((item) => item.slug !== service.slug)
               .slice(0, 4)
               .map((item) => (
@@ -268,3 +268,6 @@ export default function ServiceDetail() {
     </main>
   );
 }
+
+
+

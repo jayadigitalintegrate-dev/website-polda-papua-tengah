@@ -1,11 +1,11 @@
 import "./ServiceGrid.css";
 
-import type { ServiceItem } from "../../../data/servicesData";
+import type { Service } from "../../../types/service";
 
 import ServiceCard from "../ServiceCard";
 
 interface ServiceGridProps {
-  services: ServiceItem[];
+  services: Service[];
 }
 
 export default function ServiceGrid({
@@ -22,3 +22,4 @@ export default function ServiceGrid({
     </section>
   );
 }
+

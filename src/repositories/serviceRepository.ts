@@ -1,20 +1,20 @@
 import { servicesData } from "../data/servicesData";
-import type { ServiceItem } from "../data/servicesData";
+import type { Service } from "../types/service";
 
 export const serviceRepository = {
-  getAll(): ServiceItem[] {
+  getAll(): Service[] {
     return [...servicesData].sort(
       (a, b) => a.sortOrder - b.sortOrder
     );
   },
 
-  getBySlug(slug: string): ServiceItem | undefined {
+  getBySlug(slug: string): Service | undefined {
     return servicesData.find(
       (item) => item.slug === slug
     );
   },
 
-  getActive(): ServiceItem[] {
+  getActive(): Service[] {
     return servicesData
       .filter((item) => item.active)
       .sort((a, b) => a.sortOrder - b.sortOrder);

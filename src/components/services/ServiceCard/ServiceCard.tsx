@@ -1,12 +1,12 @@
-﻿import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 import "./ServiceCard.css";
 
-import type { ServiceItem } from "../../../data/servicesData";
+import type { Service } from "../../../types/service";
 
 interface ServiceCardProps {
-  service: ServiceItem;
+  service: Service;
 }
 
 export default function ServiceCard({
@@ -67,3 +67,4 @@ export default function ServiceCard({
     </article>
   );
 }
+

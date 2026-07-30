@@ -16,7 +16,9 @@ export default function AnnouncementPopup() {
     .find((item: Announcement) => item.type === "popup");
 
   useEffect(() => {
-    if (!announcement) return;
+    if (!announcement) {
+      return;
+    }
 
     const today = new Date().toDateString();
 
@@ -27,9 +29,27 @@ export default function AnnouncementPopup() {
     setShow(true);
   }, [announcement]);
 
-  if (!announcement || !show) {
-    return null;
-  }
+  useEffect(() => {
+    if (!show) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShow(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [show]);
 
   const closePopup = () => {
     if (hideToday) {
@@ -42,18 +62,32 @@ export default function AnnouncementPopup() {
     setShow(false);
   };
 
+  if (!announcement || !show) {
+    return null;
+  }
+
   return (
-    <div className="announcement-popup">
-
-      <div className="announcement-popup__content">
-
+    <div
+      className="announcement-popup"
+      onClick={closePopup}
+    >
+      <div
+        className="announcement-popup__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="announcement-popup-title"
+        onClick={(event) => event.stopPropagation()}
+      >
         <img
           src={logo}
           alt="Logo Polda Papua Tengah"
           className="announcement-popup__logo"
         />
 
-        <h2 className="announcement-popup__title">
+        <h2
+          id="announcement-popup-title"
+          className="announcement-popup__title"
+        >
           Selamat Datang
         </h2>
 
@@ -62,7 +96,6 @@ export default function AnnouncementPopup() {
         </h3>
 
         <div className="announcement-popup__card">
-
           {announcement.image && (
             <img
               src={announcement.image}
@@ -71,39 +104,31 @@ export default function AnnouncementPopup() {
             />
           )}
 
-          <h4>
-            {announcement.title}
-          </h4>
+          <h4>{announcement.title}</h4>
 
-          <p>
-            {announcement.description}
-          </p>
-
+          <p>{announcement.description}</p>
         </div>
 
         <label className="announcement-popup__checkbox">
-
           <input
             type="checkbox"
             checked={hideToday}
-            onChange={(e) =>
-              setHideToday(e.target.checked)
+            onChange={(event) =>
+              setHideToday(event.target.checked)
             }
           />
 
           Jangan tampilkan lagi hari ini
-
         </label>
 
         <button
+          type="button"
           className="announcement-popup__button"
           onClick={closePopup}
         >
           Selamat Datang
         </button>
-
       </div>
-
     </div>
   );
 }
