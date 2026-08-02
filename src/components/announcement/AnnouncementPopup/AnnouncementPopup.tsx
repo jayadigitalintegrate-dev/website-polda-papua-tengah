@@ -1,33 +1,62 @@
 import { useEffect, useState } from "react";
 
-import type { Announcement } from "../../../types/announcement";
-
 import logo from "../../../assets/logo/logo.png";
-import { announcementService } from "../../../services/announcementService";
+import { fetchNews } from "../../../services/newsApi";
+
+import type { News } from "../../../types/news";
 
 import "./AnnouncementPopup.css";
 
 export default function AnnouncementPopup() {
+  const [announcement, setAnnouncement] =
+    useState<News | null>(null);
+
   const [show, setShow] = useState(false);
   const [hideToday, setHideToday] = useState(false);
 
-  const announcement = announcementService
-    .getActiveAnnouncements()
-    .find((item: Announcement) => item.type === "popup");
-
   useEffect(() => {
-    if (!announcement) {
-      return;
+    let mounted = true;
+
+    async function loadAnnouncement() {
+      try {
+        const news = await fetchNews();
+
+        const popupNews = news.find(
+          (item) =>
+            item.category.slug === "pengumuman-popup"
+        );
+
+        if (!mounted || !popupNews) {
+          return;
+        }
+
+        setAnnouncement(popupNews);
+
+        const today = new Date().toDateString();
+
+        if (
+          localStorage.getItem(
+            "announcement-cms-hide"
+          ) === today
+        ) {
+          return;
+        }
+
+        setShow(true);
+      } catch (error) {
+        console.error(
+          "Gagal mengambil pengumuman popup dari CMS:",
+          error
+        );
+      }
     }
 
-    const today = new Date().toDateString();
+    loadAnnouncement();
 
-    if (localStorage.getItem("announcement-hide") === today) {
-      return;
-    }
-
-    setShow(true);
-  }, [announcement]);
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     if (!show) {
@@ -43,18 +72,24 @@ export default function AnnouncementPopup() {
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
 
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
     };
   }, [show]);
 
   const closePopup = () => {
     if (hideToday) {
       localStorage.setItem(
-        "announcement-hide",
+        "announcement-cms-hide",
         new Date().toDateString()
       );
     }
@@ -76,7 +111,9 @@ export default function AnnouncementPopup() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="announcement-popup-title"
-        onClick={(event) => event.stopPropagation()}
+        onClick={(event) =>
+          event.stopPropagation()
+        }
       >
         <img
           src={logo}
@@ -96,9 +133,9 @@ export default function AnnouncementPopup() {
         </h3>
 
         <div className="announcement-popup__card">
-          {announcement.image && (
+          {announcement.thumbnail && (
             <img
-              src={announcement.image}
+              src={announcement.thumbnail}
               alt={announcement.title}
               className="announcement-popup__image"
             />
@@ -106,7 +143,7 @@ export default function AnnouncementPopup() {
 
           <h4>{announcement.title}</h4>
 
-          <p>{announcement.description}</p>
+          <p>{announcement.excerpt}</p>
         </div>
 
         <label className="announcement-popup__checkbox">
@@ -114,7 +151,9 @@ export default function AnnouncementPopup() {
             type="checkbox"
             checked={hideToday}
             onChange={(event) =>
-              setHideToday(event.target.checked)
+              setHideToday(
+                event.target.checked
+              )
             }
           />
 

@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 
 import "./PPID.css";
 
@@ -53,3 +53,4 @@ export default function PPIDFAQ() {
     </section>
   );
 }
+

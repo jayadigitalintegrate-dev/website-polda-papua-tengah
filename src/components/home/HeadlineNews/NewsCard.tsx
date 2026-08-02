@@ -88,3 +88,4 @@ function NewsCard({ news }: NewsCardProps) {
 
 
 export default NewsCard;
+

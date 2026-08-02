@@ -33,3 +33,71 @@
     line-height:1.8;
     color:#333;
 }
+.pengumuman-detail__image{
+    width:100%;
+    margin:28px 0;
+    border-radius:16px;
+    object-fit:cover;
+    box-shadow:0 10px 28px rgba(0,0,0,.12);
+}
+
+.pengumuman-detail__content{
+    margin:28px 0;
+    line-height:1.9;
+    color:#334155;
+}
+
+.pengumuman-detail__attachment{
+    margin:32px 0;
+    padding:22px;
+    border-radius:14px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+}
+
+.pengumuman-detail__attachment h3{
+    margin:0 0 14px;
+    color:#0f172a;
+}
+
+.pengumuman-detail__download{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#0b6b3a;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.pengumuman-detail__download:hover{
+    background:#094f2b;
+}
+
+.pengumuman-detail__meta{
+    display:grid;
+    gap:14px;
+    margin:34px 0;
+}
+
+.pengumuman-detail__meta div{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 20px;
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+}
+
+.pengumuman-detail__meta strong{
+    color:#0f172a;
+}
+
+.pengumuman-detail__meta span{
+    color:#475569;
+    font-weight:600;
+}

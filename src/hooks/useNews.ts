@@ -9,3 +9,4 @@ export function useNews() {
     featured: getFeaturedNews(),
   };
 }
+

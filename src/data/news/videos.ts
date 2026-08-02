@@ -47,3 +47,4 @@ export const newsVideos: NewsVideo[] = [
     duration: "06:15",
   },
 ];
+

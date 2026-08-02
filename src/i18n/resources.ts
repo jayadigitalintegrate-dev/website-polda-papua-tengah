@@ -43,3 +43,4 @@ export const resources = {
 
 
 export type AppLanguage = keyof typeof resources;
+

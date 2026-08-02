@@ -1,34 +1,37 @@
-import { newsData } from "../data/news/newsData";
+import {
+  newsApi,
+} from "../api/news";
+
 import type { News } from "../types/news";
 
 export const newsRepository = {
-  getAll(): News[] {
-    return [...newsData].sort(
-      (a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0)
+  async getAll(): Promise<News[]> {
+    const news = await newsApi.getAll();
+
+    return [...news].sort(
+      (a, b) =>
+        (a.sortOrder ?? 0) -
+        (b.sortOrder ?? 0)
     );
   },
 
-  getPublished(): News[] {
-    return this.getAll().filter(
-      (item) =>
-        item.status === "published" ||
-        item.published === true
-    );
+  async getPublished(): Promise<News[]> {
+    return this.getAll();
   },
 
-  getFeatured(): News[] {
-    return this.getPublished().filter(
-      (item) => item.featured
-    );
+  async getFeatured(): Promise<News[]> {
+    return newsApi.getFeatured();
   },
 
-  getBySlug(slug: string): News | undefined {
-    return this.getPublished().find(
-      (item) => item.slug === slug
-    );
+  async getBySlug(
+    slug: string
+  ): Promise<News | undefined> {
+    return newsApi.getBySlug(slug);
   },
 
-  getLatest(limit = 6): News[] {
-    return this.getPublished().slice(0, limit);
+  async getLatest(
+    limit = 6
+  ): Promise<News[]> {
+    return newsApi.getLatest(limit);
   },
 };

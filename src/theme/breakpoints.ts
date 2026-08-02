@@ -8,3 +8,4 @@ export const breakpoints = {
 } as const;
 
 export type Breakpoints = typeof breakpoints;
+

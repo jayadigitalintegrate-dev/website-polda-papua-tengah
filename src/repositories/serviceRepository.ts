@@ -1,22 +1,24 @@
-import { servicesData } from "../data/servicesData";
+import {
+  getActiveServices,
+  getAllServices,
+  getServiceBySlug,
+} from "../api/serviceApi";
 import type { Service } from "../types/service";
 
 export const serviceRepository = {
+
   getAll(): Service[] {
-    return [...servicesData].sort(
-      (a, b) => a.sortOrder - b.sortOrder
-    );
+    return getAllServices();
   },
 
-  getBySlug(slug: string): Service | undefined {
-    return servicesData.find(
-      (item) => item.slug === slug
-    );
+  getBySlug(
+    slug: string
+  ): Service | undefined {
+    return getServiceBySlug(slug);
   },
 
   getActive(): Service[] {
-    return servicesData
-      .filter((item) => item.active)
-      .sort((a, b) => a.sortOrder - b.sortOrder);
+    return getActiveServices();
   },
+
 };

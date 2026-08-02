@@ -1,4 +1,4 @@
-﻿import type { Announcement } from "../types/announcement";
+import type { Announcement } from "../types/announcement";
 
 export const announcementData: Announcement[] = [
   {
@@ -64,3 +64,4 @@ export const announcementData: Announcement[] = [
     updatedAt: "2026-01-01",
   },
 ];
+

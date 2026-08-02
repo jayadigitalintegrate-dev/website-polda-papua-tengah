@@ -1,4 +1,4 @@
-﻿import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import "./ContactInfo.css";
 
@@ -50,7 +50,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              📍
+              ??
             </span>
 
             <h3>
@@ -68,7 +68,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ☎️
+              ??
             </span>
 
             <h3>
@@ -93,7 +93,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              ✉️
+              ??
             </span>
 
             <h3>
@@ -117,7 +117,7 @@ export default function ContactInfo({
 
           <div className="contact-info__card">
             <span>
-              🌐 Papua Tengah
+              ?? Papua Tengah
             </span>
 
             <h3>
@@ -136,7 +136,7 @@ export default function ContactInfo({
           <div className="contact-info__card">
 
             <span>
-              📞
+              ??
             </span>
 
             <h3>
@@ -161,3 +161,4 @@ export default function ContactInfo({
   );
 
 }
+

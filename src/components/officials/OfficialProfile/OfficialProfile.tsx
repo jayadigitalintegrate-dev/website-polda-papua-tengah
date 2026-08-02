@@ -1,4 +1,4 @@
-﻿import "./OfficialProfile.css";
+import "./OfficialProfile.css";
 
 import type { Official } from "../../../types/official";
 
@@ -27,7 +27,7 @@ export default function OfficialProfile({
         className="official-profile-back"
         onClick={onBack}
       >
-        →
+        ?
       </button>
 
 
@@ -211,3 +211,4 @@ export default function OfficialProfile({
   );
 
 }
+

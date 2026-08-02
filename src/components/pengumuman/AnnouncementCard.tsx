@@ -1,4 +1,4 @@
-﻿import "./Announcement.css";
+import "./Announcement.css";
 
 interface AnnouncementCardProps{
 
@@ -29,7 +29,7 @@ export default function AnnouncementCard({
     <article className="announcement-card">
 
       <div className="announcement-icon">
-        📢
+        ??
       </div>
 
       <div className="announcement-content">
@@ -63,3 +63,4 @@ export default function AnnouncementCard({
   );
 
 }
+

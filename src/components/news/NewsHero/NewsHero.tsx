@@ -1,4 +1,4 @@
-﻿import "./NewsHero.css";
+import "./NewsHero.css";
 
 import { Icon } from "@iconify/react";
 import type { News } from "../../../types/news";
@@ -74,3 +74,4 @@ export default function NewsHero({
     </section>
   );
 }
+

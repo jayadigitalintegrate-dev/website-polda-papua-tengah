@@ -176,3 +176,4 @@ export interface News {
 
   seo?: NewsSEO;
 }
+

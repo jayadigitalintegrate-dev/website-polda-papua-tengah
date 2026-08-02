@@ -1,4 +1,4 @@
-﻿import {
+import {
   getAllAnnouncements,
   getFeaturedAnnouncements,
   getAnnouncementBySlug,
@@ -24,3 +24,4 @@ export const announcementRepository = {
   },
 
 };
+

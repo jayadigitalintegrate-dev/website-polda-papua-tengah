@@ -39,3 +39,4 @@ export default function PolresCard({ data }: Props) {
         </div>
     )
 }
+

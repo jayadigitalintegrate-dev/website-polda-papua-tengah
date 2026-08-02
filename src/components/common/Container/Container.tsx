@@ -1,4 +1,4 @@
-﻿import type { ReactNode } from "react";
+import type { ReactNode } from "react";
 import "./Container.css";
 
 type ContainerSize =
@@ -35,3 +35,4 @@ export default function Container({
     </div>
   );
 }
+

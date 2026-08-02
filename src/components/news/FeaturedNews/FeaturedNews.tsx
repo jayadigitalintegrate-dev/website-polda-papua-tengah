@@ -1,4 +1,4 @@
-﻿import "./style.css";
+import "./style.css";
 
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
@@ -20,7 +20,7 @@ function FeaturedNews({
       <div className="featured-news__image">
 
         <img
-          src={news.thumbnail}
+          src={news.thumbnail || undefined}
           alt={news.title}
         />
 
@@ -100,3 +100,4 @@ function FeaturedNews({
 }
 
 export default FeaturedNews;
+

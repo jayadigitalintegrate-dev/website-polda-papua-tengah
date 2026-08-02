@@ -12,3 +12,4 @@ export function getFeaturedGallery(): GalleryItem[] {
 export function getGalleryBySlug(slug: string): GalleryItem | undefined {
   return galleryData.find(item => item.slug === slug);
 }
+

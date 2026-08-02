@@ -18,3 +18,4 @@ export const galleryService = {
     return galleryRepository.getBySlug(slug);
   },
 };
+

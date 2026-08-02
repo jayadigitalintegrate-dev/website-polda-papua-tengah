@@ -1,4 +1,6 @@
-﻿import "./SearchButton.css";
+import { Icon } from "@iconify/react";
+
+import "./SearchButton.css";
 
 type SearchButtonProps = {
   onClick?: () => void;
@@ -16,7 +18,12 @@ export default function SearchButton({
       aria-label={ariaLabel}
       onClick={onClick}
     >
-      🔍
+      <Icon
+        icon="mdi:magnify"
+        width="22"
+        height="22"
+        aria-hidden="true"
+      />
     </button>
   );
 }

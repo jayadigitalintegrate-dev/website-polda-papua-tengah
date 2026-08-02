@@ -1,4 +1,4 @@
-﻿// src/data/officials.ts
+// src/data/officials.ts
 
 import kapoldaPhoto from "../assets/officials/kapolda.webp";
 import wakapoldaPhoto from "../assets/officials/wakapolda.webp";
@@ -209,6 +209,7 @@ export const officials: Official[] = [
   },
 
 ];
+
 
 
 

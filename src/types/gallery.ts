@@ -10,3 +10,4 @@ export interface GalleryItem {
   sortOrder: number;
   status: "published" | "draft";
 }
+

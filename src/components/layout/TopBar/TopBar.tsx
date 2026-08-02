@@ -1,5 +1,6 @@
 ﻿import "./TopBar.css";
 import { useMemo } from "react";
+import { Icon } from "@iconify/react";
 
 const TopBar = () => {
   const today = useMemo(() => {
@@ -13,7 +14,6 @@ const TopBar = () => {
 
   return (
     <div className="topbar">
-
       <div className="topbar-container">
 
         {/* LEFT */}
@@ -21,19 +21,37 @@ const TopBar = () => {
         <div className="topbar-left">
 
           <span className="topbar-item">
-           📅 {today}
+            <Icon
+              icon="mdi:calendar-month-outline"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            />
+            {today}
           </span>
 
           <span className="divider">|</span>
 
           <span className="topbar-item">
-         📍 Papua Tengah
+            <Icon
+              icon="mdi:map-marker-outline"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            />
+            Papua Tengah
           </span>
 
           <span className="divider">|</span>
 
           <span className="topbar-item emergency">
-            ☎️ Call Center 110
+            <Icon
+              icon="mdi:phone-outline"
+              width="18"
+              height="18"
+              aria-hidden="true"
+            />
+            Call Center 110
           </span>
 
         </div>
@@ -61,7 +79,6 @@ const TopBar = () => {
         </div>
 
       </div>
-
     </div>
   );
 };

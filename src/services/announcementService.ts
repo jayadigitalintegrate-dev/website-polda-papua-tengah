@@ -1,4 +1,4 @@
-﻿import { announcementRepository } from "../repositories/announcementRepository";
+import { announcementRepository } from "../repositories/announcementRepository";
 
 export const announcementService = {
 
@@ -19,3 +19,4 @@ export const announcementService = {
   },
 
 };
+

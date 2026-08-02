@@ -1,4 +1,4 @@
-﻿import "./Button.css";
+import "./Button.css";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -27,3 +27,4 @@ function Button({
 }
 
 export default Button;
+

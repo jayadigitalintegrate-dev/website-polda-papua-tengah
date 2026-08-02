@@ -1,4 +1,4 @@
-﻿import {
+import {
   getAllPPIDDocuments,
   getFeaturedPPIDDocuments,
   getPPIDDocumentBySlug,
@@ -42,3 +42,4 @@ export const ppidRepository = {
     return getPPIDContact();
   },
 };
+

@@ -26,3 +26,4 @@ export default function AnnouncementHero() {
     </section>
   );
 }
+

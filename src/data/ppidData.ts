@@ -176,3 +176,4 @@ export const ppidContact: PPIDContactData = {
   email: "ppid@poldapapuatengah.go.id",
   serviceHours: "Senin - Jumat 08.00 - 15.00",
 };
+

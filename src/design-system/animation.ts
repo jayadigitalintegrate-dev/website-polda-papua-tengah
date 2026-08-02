@@ -30,3 +30,4 @@ export const animation = {
 } as const;
 
 export default animation;
+

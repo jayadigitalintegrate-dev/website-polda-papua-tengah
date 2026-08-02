@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import {
   Breadcrumb,
@@ -10,40 +10,40 @@ import { announcementService } from "../../services/announcementService";
 
 import "./PengumumanDetail.css";
 
-
 export default function PengumumanDetail() {
-
   const { slug } = useParams();
-
 
   const announcement = slug
     ? announcementService.getAnnouncementBySlug(slug)
     : undefined;
 
-
   if (!announcement) {
     return (
       <main className="pengumuman-detail">
-
         <Container>
-        <div className="pengumuman-detail__container">
+          <div className="pengumuman-detail__container">
+            <h1>Pengumuman Tidak Ditemukan</h1>
 
-          <h1>
-            Pengumuman Tidak Ditemukan
-          </h1>
+            <p>
+              Pengumuman yang Anda cari tidak tersedia atau telah dihapus.
+            </p>
 
-          <p>
-            Pengumuman yang Anda cari tidak tersedia atau telah dihapus.
-          </p>
-
-        </div>        </Container>      </main>
+            <div className="pengumuman-detail__actions">
+              <Link
+                to="/pengumuman"
+                className="pengumuman-detail__back"
+              >
+                ← Kembali ke Pengumuman
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </main>
     );
   }
 
-
   return (
     <>
-
       <SEO
         title={announcement.title}
         description={announcement.description}
@@ -54,7 +54,6 @@ export default function PengumumanDetail() {
           "Pengumuman",
         ]}
       />
-
 
       <Breadcrumb
         items={[
@@ -72,113 +71,102 @@ export default function PengumumanDetail() {
         ]}
       />
 
-
       <main className="pengumuman-detail">
-
         <Container>
+          <div className="pengumuman-detail__container">
 
-        <div className="pengumuman-detail__container">
+            <span
+              className={`pengumuman-detail__badge pengumuman-detail__badge--${announcement.priority}`}
+            >
+              {announcement.priority.toUpperCase()}
+            </span>
 
+            <h1>{announcement.title}</h1>
 
-          <span className="pengumuman-detail__badge">
-            {announcement.priority.toUpperCase()}
-          </span>
-
-
-          <h1>
-            {announcement.title}
-          </h1>
-
-
-          <p className="pengumuman-detail__date">
-            Berlaku {announcement.publishStart} - {announcement.publishEnd}
-          </p>
-
-
-          <p className="pengumuman-detail__description">
-            {announcement.description}
-          </p>
-
-
-          <hr />
-
-
-          <div className="pengumuman-detail__content">
-            {announcement.content}
-          </div>
-
-
-          {announcement.image && (
-            <img
-              src={announcement.image}
-              alt={announcement.title}
-              className="pengumuman-detail__image"
-            />
-          )}
-
-
-          {announcement.attachment && (
-            <p>
-              <a
-                href={announcement.attachment}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download Lampiran
-              </a>
+            <p className="pengumuman-detail__date">
+              Berlaku {announcement.publishStart} - {announcement.publishEnd}
             </p>
-          )}
 
+            <p className="pengumuman-detail__description">
+              {announcement.description}
+            </p>
 
-          <hr />
+            <hr />
 
+            <div className="pengumuman-detail__content">
+              {announcement.content}
+            </div>
 
-          <table className="pengumuman-detail__table">
+            {announcement.image && (
+              <img
+                src={announcement.image}
+                alt={announcement.title}
+                className="pengumuman-detail__image"
+              />
+            )}
 
-            <tbody>
+            {announcement.attachment && (
+              <p>
+                <a
+                  href={announcement.attachment}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Lampiran
+                </a>
+              </p>
+            )}
 
-              <tr>
-                <th>Status</th>
-                <td>{announcement.status}</td>
-              </tr>
+            <hr />
 
+            <table className="pengumuman-detail__table">
+              <tbody>
 
-              <tr>
-                <th>Tipe</th>
-                <td>{announcement.type}</td>
-              </tr>
+                <tr>
+                  <th>Status</th>
+                  <td>{announcement.status}</td>
+                </tr>
 
+                <tr>
+                  <th>Tipe</th>
+                  <td>{announcement.type}</td>
+                </tr>
 
-              <tr>
-                <th>Priority</th>
-                <td>{announcement.priority}</td>
-              </tr>
+                <tr>
+                  <th>Prioritas</th>
+                  <td>{announcement.priority}</td>
+                </tr>
 
+                <tr>
+                  <th>Sort Order</th>
+                  <td>{announcement.sortOrder}</td>
+                </tr>
 
-              <tr>
-                <th>Sort Order</th>
-                <td>{announcement.sortOrder}</td>
-              </tr>
+                <tr>
+                  <th>Dibuat</th>
+                  <td>{announcement.createdAt}</td>
+                </tr>
 
+                <tr>
+                  <th>Diperbarui</th>
+                  <td>{announcement.updatedAt}</td>
+                </tr>
 
-              <tr>
-                <th>Created</th>
-                <td>{announcement.createdAt}</td>
-              </tr>
+              </tbody>
+            </table>
 
+            <div className="pengumuman-detail__actions">
+              <Link
+                to="/pengumuman"
+                className="pengumuman-detail__back"
+              >
+                ← Kembali ke Pengumuman
+              </Link>
+            </div>
 
-              <tr>
-                <th>Updated</th>
-                <td>{announcement.updatedAt}</td>
-              </tr>
-
-            </tbody>
-
-          </table>
-
-
-        </div>        </Container>      </main>
-
+          </div>
+        </Container>
+      </main>
     </>
   );
 }

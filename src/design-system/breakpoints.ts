@@ -15,3 +15,4 @@ export const breakpoints = {
 } as const;
 
 export default breakpoints;
+

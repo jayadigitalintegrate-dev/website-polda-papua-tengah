@@ -1,4 +1,4 @@
-﻿import "./ServiceCharter.css";
+import "./ServiceCharter.css";
 import presisiLogo from "../../../assets/logo/presisi-polri.png";
 
 export default function ServiceCharter() {
@@ -18,11 +18,11 @@ export default function ServiceCharter() {
         <div className="charter-card">
 
           <div className="charter-logo">
-  <img
-    src={presisiLogo}
-    alt="Transformasi Menuju Polri Presisi"
-  />
-</div>
+            <img
+              src={presisiLogo}
+              alt="Transformasi Menuju Polri Presisi"
+            />
+          </div>
 
           <p className="charter-text">
             Dengan ini kami menyatakan sanggup menyelenggarakan
@@ -36,17 +36,24 @@ export default function ServiceCharter() {
 
           <div className="charter-values">
 
-            <div>✔ Profesional</div>            <div>✔ Profesional</div>
+            <div>✓ Profesional</div>
+            <div>✓ Modern</div>
 
-            <div>✔ Profesional</div>            <div>✔ Profesional</div>
+            <div>✓ Terintegritas</div>
+            <div>✓ Transparan</div>
 
-            <div>✔ Profesional</div>            <div>✔ Profesional</div>
+            <div>✓ Akuntabel</div>
+            <div>✓ Humanis</div>
 
-            <div>✔ Profesional</div>            <div>✔ Profesional</div>
+            <div>✓ Responsif</div>
+            <div>✓ Presisi</div>
 
           </div>
 
-          <button className="download-btn">
+          <button
+            type="button"
+            className="download-btn"
+          >
             Download Maklumat Pelayanan
           </button>
 

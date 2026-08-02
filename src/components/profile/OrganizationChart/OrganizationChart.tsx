@@ -125,3 +125,4 @@ export default function OrganizationChart() {
     </section>
   );
 }
+

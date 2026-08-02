@@ -23,3 +23,4 @@ export const shadow = {
 } as const;
 
 export default shadow;
+

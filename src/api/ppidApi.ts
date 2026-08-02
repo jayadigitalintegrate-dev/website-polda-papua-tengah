@@ -1,4 +1,5 @@
-﻿import {
+import { API_CONFIG } from "../config/api";
+import {
   ppidDocuments,
   ppidFaq,
   ppidTimeline,
@@ -17,6 +18,11 @@ import type {
 } from "../data/ppidData";
 
 export function getAllPPIDDocuments(): PPIDDocument[] {
+
+  if (!API_CONFIG.useMock) {
+    console.warn("PPID API mode belum diimplementasikan.");
+  }
+
   return ppidDocuments;
 }
 
@@ -49,3 +55,7 @@ export function getPPIDRights(): PPIDRightsData {
 export function getPPIDContact(): PPIDContactData {
   return ppidContact;
 }
+
+
+
+

@@ -1,4 +1,4 @@
-﻿import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Breadcrumb.css";
 import Container from "../Container/Container";
 
@@ -40,3 +40,4 @@ export default function Breadcrumb({
     </section>
   );
 }
+

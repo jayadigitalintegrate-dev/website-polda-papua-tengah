@@ -1,4 +1,4 @@
-﻿import "./PPID.css";
+import "./PPID.css";
 
 import { ppidService } from "../../services/ppidService";
 
@@ -64,3 +64,4 @@ export default function PPIDRights() {
     </section>
   );
 }
+

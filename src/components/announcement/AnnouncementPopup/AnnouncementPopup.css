@@ -8,28 +8,20 @@
     z-index: 99999;
     padding: 20px;
     backdrop-filter: blur(5px);
+    overflow: hidden;
 }
 
-
-/* FRAME POPUP */
 .announcement-popup__box {
     width: min(720px, 95vw);
-
+    max-height: calc(100vh - 40px);
     background: transparent;
-
     border-radius: 22px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, .30);
-
+    box-shadow: 0 25px 70px rgba(0, 0, 0, .30);
     animation: popupShow .35s ease;
 }
 
-
 @keyframes popupShow {
-
     from {
         opacity: 0;
         transform: translateY(30px) scale(.95);
@@ -39,331 +31,201 @@
         opacity: 1;
         transform: none;
     }
-
 }
 
-
-/* GARIS IDENTITAS */
 .announcement-popup__box::before {
-
     content: "";
-
     display: block;
-
     height: 6px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #003b73,
-            #0b7b59,
-            #ffc107
-        );
-
+    background: linear-gradient(
+        90deg,
+        #003b73,
+        #0b7b59,
+        #ffc107
+    );
 }
 
-
-
-/* KONTEN GLASS */
 .announcement-popup__content {
-
-    padding: 42px;
-
-
-    background:
-        rgba(255,255,255,.88);
-
-
-    backdrop-filter:
-        blur(12px);
-
-
-    border-radius:
-        22px;
-
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.25);
-
-
+    padding: 32px;
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
     text-align: center;
 
+    max-height: calc(100vh - 46px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
-
-
-/* LOGO */
 .announcement-popup__logo {
+    width: 220px;
+    max-width: 65%;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto 14px;
+    object-fit: contain;
+}
 
-    width: 300px;
+.announcement-popup__title {
+    text-align: center;
+    font-size: 34px;
+    line-height: 1.2;
+    color: #0b3d6d;
+    font-weight: 800;
+    margin: 0;
+}
 
-    max-width: 80%;
+.announcement-popup__subtitle {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 22px;
+    color: #667085;
+    font-size: 18px;
+    font-weight: 500;
+}
 
+.announcement-popup__card {
+    background: rgba(248, 250, 252, .95);
+    border: 1px solid #dbe4ef;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.announcement-popup__card h4 {
+    font-size: 25px;
+    color: #1e293b;
+    margin: 0 0 12px;
+    line-height: 1.3;
+}
+
+.announcement-popup__card p {
+    color: #475467;
+    line-height: 1.7;
+    font-size: 16px;
+    margin: 0;
+}
+
+.announcement-popup__image {
     display: block;
 
-    margin:
-        0 auto 18px;
+    width: auto;
+    max-width: 100%;
+
+    /*
+     * Membatasi tinggi gambar agar foto portrait
+     * tidak membuat popup keluar frame.
+     */
+    max-height: 280px;
 
     object-fit: contain;
 
-}
-
-
-
-/* TITLE */
-.announcement-popup__title {
-
-    text-align: center;
-
-    font-size: 42px;
-
-    color: #0b3d6d;
-
-    font-weight: 800;
-
-    margin: 0;
-
-}
-
-
-
-/* SUBTITLE */
-.announcement-popup__subtitle {
-
-    text-align: center;
-
-    margin-top: 10px;
-
-    margin-bottom: 34px;
-
-    color: #667085;
-
-    font-size: 21px;
-
-    font-weight: 500;
-
-}
-
-
-
-/* CARD INFORMASI */
-.announcement-popup__card {
-
-    background:
-        rgba(248,250,252,.95);
-
-
-    border:
-        1px solid #dbe4ef;
-
-
-    border-radius: 18px;
-
-
-    padding: 30px;
-
-
-    margin-bottom: 28px;
-
-}
-
-
-
-.announcement-popup__card h4 {
-
-    font-size: 30px;
-
-    color: #1e293b;
-
-    margin-bottom: 18px;
-
-    line-height: 1.3;
-
-}
-
-
-
-.announcement-popup__card p {
-
-    color: #475467;
-
-    line-height: 1.9;
-
-    font-size: 17px;
-
-}
-
-
-
-/* IMAGE PENGUMUMAN */
-.announcement-popup__image {
-
-    width: 100%;
-
     border-radius: 14px;
 
-    margin-bottom: 20px;
-
+    margin: 0 auto 18px;
 }
 
-
-
-/* CHECKBOX */
 .announcement-popup__checkbox {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    gap: 12px;
-
-
-    margin-bottom: 28px;
-
-
-    font-size: 17px;
-
-
+    gap: 10px;
+    margin-bottom: 18px;
+    font-size: 15px;
     color: #344054;
-
 }
-
-
 
 .announcement-popup__checkbox input {
-
-    width: 20px;
-
-    height: 20px;
-
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
 }
 
-
-
-/* BUTTON */
 .announcement-popup__button {
-
     width: 100%;
-
-
     border: none;
-
-
     border-radius: 14px;
-
-
     background: #ffc107;
-
-
     color: #111827;
-
-
-    font-size: 20px;
-
-
+    font-size: 18px;
     font-weight: 700;
-
-
-    padding: 18px;
-
-
+    padding: 15px;
     cursor: pointer;
-
-
     transition: .25s;
-
 }
-
-
 
 .announcement-popup__button:hover {
-
     background: #ffb300;
-
-
-    transform:
-        translateY(-2px);
-
+    transform: translateY(-2px);
 }
 
+/* ==========================================================
+   MOBILE
+========================================================== */
 
-
-/* MOBILE */
-@media (max-width:768px) {
-
+@media (max-width: 768px) {
 
     .announcement-popup {
-
-        padding: 15px;
-
+        padding: 12px;
     }
 
-
+    .announcement-popup__box {
+        width: 100%;
+        max-width: 520px;
+        max-height: calc(100vh - 24px);
+    }
 
     .announcement-popup__content {
-
-        padding: 28px 20px;
-
+        padding: 22px 16px;
+        max-height: calc(100vh - 30px);
     }
-
-
 
     .announcement-popup__logo {
-
-        width: 220px;
-
+        width: 170px;
+        max-width: 60%;
+        max-height: 80px;
+        margin-bottom: 10px;
     }
-
-
 
     .announcement-popup__title {
-
-        font-size: 30px;
-
+        font-size: 26px;
     }
-
-
 
     .announcement-popup__subtitle {
-
-        font-size: 18px;
-
+        font-size: 16px;
+        margin-bottom: 16px;
     }
-
-
 
     .announcement-popup__card {
-
-        padding: 22px;
-
+        padding: 15px;
+        margin-bottom: 16px;
     }
-
-
 
     .announcement-popup__card h4 {
-
-        font-size: 24px;
-
+        font-size: 21px;
     }
-
-
 
     .announcement-popup__card p {
-
-        font-size: 15px;
-
+        font-size: 14px;
+        line-height: 1.6;
     }
 
+    .announcement-popup__image {
+        max-height: 220px;
+        max-width: 100%;
+        margin-bottom: 14px;
+    }
 
+    .announcement-popup__checkbox {
+        font-size: 13px;
+        margin-bottom: 14px;
+    }
 
     .announcement-popup__button {
-
-        font-size: 17px;
-
-        padding: 15px;
-
+        font-size: 16px;
+        padding: 13px;
     }
-
 }

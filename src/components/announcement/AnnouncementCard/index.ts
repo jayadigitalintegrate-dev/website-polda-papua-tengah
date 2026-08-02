@@ -1,1 +1,2 @@
-﻿export { default } from "./AnnouncementCard";
+export { default } from "./AnnouncementCard";
+

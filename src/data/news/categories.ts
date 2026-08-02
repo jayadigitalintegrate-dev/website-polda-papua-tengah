@@ -27,3 +27,4 @@ export const newsCategories: NewsCategory[] = [
     slug: "sosial",
   },
 ];
+

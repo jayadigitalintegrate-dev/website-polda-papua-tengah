@@ -1,4 +1,4 @@
-﻿import { announcementData } from "../data/announcementData";
+import { announcementData } from "../data/announcementData";
 import type { Announcement } from "../types/announcement";
 
 export function getAllAnnouncements(): Announcement[] {
@@ -29,3 +29,5 @@ export function getActiveAnnouncements(): Announcement[] {
       new Date(item.publishEnd) >= today
   );
 }
+
+

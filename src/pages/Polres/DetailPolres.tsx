@@ -94,3 +94,4 @@ function DetailPolres() {
 }
 
 export default DetailPolres;
+

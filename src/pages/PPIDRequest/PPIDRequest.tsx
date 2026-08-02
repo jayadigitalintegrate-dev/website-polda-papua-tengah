@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./PPIDRequest.css";
 import Container from "../../components/common/Container/Container";

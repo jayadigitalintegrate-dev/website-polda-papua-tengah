@@ -8,3 +8,4 @@ export interface NewsItem {
   slug: string;
   featured: boolean;
 }
+

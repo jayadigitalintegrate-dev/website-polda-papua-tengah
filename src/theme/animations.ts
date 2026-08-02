@@ -9,3 +9,4 @@ export const animations = {
 } as const;
 
 export type Animations = typeof animations;
+

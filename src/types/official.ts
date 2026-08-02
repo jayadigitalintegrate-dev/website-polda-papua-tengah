@@ -38,3 +38,4 @@ export interface Official {
 
   status: "active" | "inactive";
 }
+

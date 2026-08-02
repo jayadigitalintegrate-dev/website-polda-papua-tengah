@@ -1,1 +1,2 @@
-﻿export { default } from "./AnnouncementList";
+export { default } from "./AnnouncementList";
+

@@ -26,3 +26,4 @@ export { default as TagWidget } from "./TagWidget/TagWidget";
 ========================================================== */
 
 export { default as NewsPagination } from "./NewsPagination/NewsPagination";
+

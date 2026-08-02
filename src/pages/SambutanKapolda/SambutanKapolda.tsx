@@ -70,3 +70,4 @@ function SambutanKapolda() {
 }
 
 export default SambutanKapolda;
+

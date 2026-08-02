@@ -1,5 +1,6 @@
-﻿import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react";
 
 import "./LanguageSwitcher.css";
 
@@ -45,23 +46,44 @@ export default function LanguageSwitcher() {
     >
       <button
         className="language-button"
+        type="button"
+        aria-label="Pilih bahasa"
         onClick={() => setOpen(!open)}
       >
-        🌐
+        <Icon
+          icon="mdi:web"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        />
       </button>
 
       {open && (
         <div className="language-dropdown">
           <button
+            type="button"
             onClick={() => changeLanguage("id")}
           >
-            🇮🇩 Indonesia
+            <Icon
+              icon="twemoji:flag-indonesia"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            />
+            Indonesia
           </button>
 
           <button
+            type="button"
             onClick={() => changeLanguage("en")}
           >
-            🇬🇧 English
+            <Icon
+              icon="twemoji:flag-united-kingdom"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            />
+            English
           </button>
         </div>
       )}

@@ -42,3 +42,4 @@ export const typography = {
 } as const;
 
 export default typography;
+

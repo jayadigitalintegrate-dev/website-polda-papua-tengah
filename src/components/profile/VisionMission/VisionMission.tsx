@@ -1,4 +1,4 @@
-﻿import "./VisionMission.css";
+import "./VisionMission.css";
 
 const missions = [
   "Memberikan perlindungan, pengayoman dan pelayanan kepada masyarakat.",
@@ -25,7 +25,7 @@ export default function VisionMission() {
           <article className="vision-card">
 
             <div className="vision-icon">
-              🎯
+              ??
             </div>
 
             <h3>Visi</h3>
@@ -41,7 +41,7 @@ export default function VisionMission() {
           <article className="vision-card">
 
             <div className="vision-icon">
-              🚀
+              ??
             </div>
 
             <h3>Misi</h3>
@@ -64,3 +64,4 @@ export default function VisionMission() {
     </section>
   );
 }
+
