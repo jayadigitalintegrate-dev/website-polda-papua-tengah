@@ -52,7 +52,6 @@
     border-radius: 22px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
     text-align: center;
-
     max-height: calc(100vh - 46px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -111,21 +110,12 @@
 
 .announcement-popup__image {
     display: block;
-
-    width: auto;
+    width: 100%;
     max-width: 100%;
-
-    /*
-     * Membatasi tinggi gambar agar foto portrait
-     * tidak membuat popup keluar frame.
-     */
-    max-height: 280px;
-
+    max-height: 65vh;
     object-fit: contain;
-
-    border-radius: 14px;
-
     margin: 0 auto 18px;
+    border-radius: 14px;
 }
 
 .announcement-popup__checkbox {
@@ -162,12 +152,7 @@
     transform: translateY(-2px);
 }
 
-/* ==========================================================
-   MOBILE
-========================================================== */
-
 @media (max-width: 768px) {
-
     .announcement-popup {
         padding: 12px;
     }
@@ -214,9 +199,12 @@
     }
 
     .announcement-popup__image {
-        max-height: 220px;
+        width: 100%;
         max-width: 100%;
-        margin-bottom: 14px;
+        max-height: 50vh;
+        object-fit: contain;
+        margin: 0 auto 18px;
+        border-radius: 12px;
     }
 
     .announcement-popup__checkbox {

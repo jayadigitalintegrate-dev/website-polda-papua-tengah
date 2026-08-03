@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 import logo from "../../../assets/logo/logo.png";
@@ -34,11 +35,11 @@ export default function AnnouncementPopup() {
 
         const today = new Date().toDateString();
 
-        if (
-          localStorage.getItem(
-            "announcement-cms-hide"
-          ) === today
-        ) {
+        const hiddenDate = localStorage.getItem(
+          "announcement-cms-hide"
+        );
+
+        if (hiddenDate === today) {
           return;
         }
 
@@ -79,6 +80,7 @@ export default function AnnouncementPopup() {
 
     return () => {
       document.body.style.overflow = "";
+
       window.removeEventListener(
         "keydown",
         handleKeyDown
