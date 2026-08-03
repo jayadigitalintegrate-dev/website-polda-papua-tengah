@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   News,
   NewsAuthor,
   NewsCategory,
@@ -89,7 +89,7 @@ function getAuthor(): NewsAuthor {
 }
 
 /* ==========================================================
-   MAPPING CMS → NEWS REACT
+   MAPPING CMS ? NEWS REACT
 ========================================================== */
 
 function mapCmsNews(item: CmsNews): News {
@@ -177,6 +177,10 @@ function mapCmsNews(item: CmsNews): News {
    FETCH NEWS
 ========================================================== */
 
+/* ==========================================================
+   FETCH NEWS
+========================================================== */
+
 export async function fetchNews(): Promise<News[]> {
   const response = await fetch(API_URL);
 
@@ -188,10 +192,14 @@ export async function fetchNews(): Promise<News[]> {
 
   const result: {
     value: CmsNews[];
-    Count: number;
+    Count?: number;
   } = await response.json();
 
-  return result.value.map(mapCmsNews);
+  const cmsNews = Array.isArray(result.value)
+    ? result.value
+    : [];
+
+  return cmsNews.map(mapCmsNews);
 }
 
 /* ==========================================================
