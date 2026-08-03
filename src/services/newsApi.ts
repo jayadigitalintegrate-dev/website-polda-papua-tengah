@@ -186,10 +186,12 @@ export async function fetchNews(): Promise<News[]> {
     );
   }
 
-  const result: CmsNews[] =
-    await response.json();
+  const result: {
+    value: CmsNews[];
+    Count: number;
+  } = await response.json();
 
-  return result.map(mapCmsNews);
+  return result.value.map(mapCmsNews);
 }
 
 /* ==========================================================
