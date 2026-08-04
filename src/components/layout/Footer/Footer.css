@@ -1,4 +1,4 @@
-/* ==========================================================
+﻿/* ==========================================================
    MODERN DIGITAL FOOTER
    POLDA PAPUA TENGAH
 ========================================================== */
@@ -183,7 +183,13 @@
 
     margin-bottom:14px;
 
-    transition:var(--transition);
+    transform:translateX(0);
+
+    transition:
+        color .28s cubic-bezier(.22,.61,.36,1),
+        transform .32s cubic-bezier(.22,.61,.36,1);
+
+    will-change:color, transform;
 
 }
 
@@ -192,7 +198,7 @@
 
     color:#ffc107;
 
-    transform:translateX(8px);
+    transform:translateX(5px);
 
 }
 
@@ -460,9 +466,7 @@
     border-top:1px solid rgba(255,255,255,.15);
 }
 
-.footer-column a:hover{
-    transform:translateX(4px);
-}
+
 
 }
 

@@ -1,0 +1,70 @@
+.pengumuman-detail{
+    min-height:100vh;
+    background:#f6f8fb;
+    padding:48px 20px 80px;
+}
+
+.pengumuman-detail__container{
+    max-width:900px;
+    margin:0 auto;
+    background:#fff;
+    border-radius:16px;
+    padding:32px;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+.pengumuman-detail__badge{
+    display:inline-block;
+    margin-bottom:16px;
+    padding:6px 14px;
+    border-radius:999px;
+    background:#0b6b3a;
+    color:#fff;
+    font-size:.85rem;
+    font-weight:600;
+}
+
+.pengumuman-detail__date{
+    color:#666;
+    margin:16px 0;
+}
+
+.pengumuman-detail__description{
+    line-height:1.8;
+    color:#333;
+}
+
+.pengumuman-detail__badge--high{
+    background:#dc2626;
+}
+
+.pengumuman-detail__badge--medium{
+    background:#d97706;
+}
+
+.pengumuman-detail__badge--low{
+    background:#16a34a;
+}
+
+.pengumuman-detail__actions{
+    margin-top:32px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.pengumuman-detail__back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#0b6b3a;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.pengumuman-detail__back:hover{
+    background:#094f2b;
+}

@@ -22,10 +22,15 @@ export default function AnnouncementPopup() {
       try {
         const news = await fetchNews();
 
-        const popupNews = news.find(
-          (item) =>
-            item.category.slug === "pengumuman-popup"
-        );
+      const popupNews = news.find((item) => {
+
+  if (typeof item.category === "string") {
+    return item.category === "pengumuman-popup";
+  }
+
+  return item.category?.slug === "pengumuman-popup";
+
+});
 
         if (!mounted || !popupNews) {
           return;

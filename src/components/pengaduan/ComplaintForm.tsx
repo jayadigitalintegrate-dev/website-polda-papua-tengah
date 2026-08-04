@@ -1,6 +1,4 @@
-import {
-  useState
-} from "react";
+import { useState } from "react";
 
 import "./Complaint.css";
 
@@ -8,351 +6,269 @@ import ComplaintTicket from "./ComplaintTicket";
 import ComplaintSuccess from "./ComplaintSuccess";
 import ComplaintNotification from "./ComplaintNotification";
 
+interface ComplaintFormData {
+  nama: string;
+  ktp: string;
+  hp: string;
+  email: string;
+  alamat: string;
+  jenis: string;
+  isi: string;
+}
+
+interface ComplaintApiResponse {
+  message: string;
+  data: {
+    id: number;
+    tiket: string;
+    status: string;
+    tanggal: string;
+  };
+}
+
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://127.0.0.1:8000";
+
 export default function ComplaintForm() {
-
-
   const [submitted, setSubmitted] = useState(false);
 
   const [ticket, setTicket] = useState("");
 
+  const [loading, setLoading] = useState(false);
 
-  const [form, setForm] = useState({
+  const [error, setError] = useState("");
 
+  const [form, setForm] = useState<ComplaintFormData>({
     nama: "",
     ktp: "",
     hp: "",
     email: "",
     alamat: "",
     jenis: "",
-    isi: ""
-
+    isi: "",
   });
 
-
-
-  function generateTicket(){
-
-    const date = new Date();
-
-    const tahun = date.getFullYear();
-
-    const bulan = String(
-      date.getMonth() + 1
-    ).padStart(2,"0");
-
-    const hari = String(
-      date.getDate()
-    ).padStart(2,"0");
-
-
-    const random = Math.floor(
-      Math.random() * 999999
-    )
-    .toString()
-    .padStart(6,"0");
-
-
-    return `PPT-${tahun}${bulan}${hari}-${random}`;
-
-  }
-
-
-
   function handleChange(
-    e:
-    React.ChangeEvent<
+    e: React.ChangeEvent<
       HTMLInputElement |
       HTMLTextAreaElement |
       HTMLSelectElement
     >
-  ){
-
+  ) {
     setForm({
-
       ...form,
-
-      [e.target.name]:
-      e.target.value
-
+      [e.target.name]: e.target.value,
     });
 
+    if (error) {
+      setError("");
+    }
   }
 
-
-
-  function handleSubmit(
-    e: React.FormEvent
-  ){
-
+  async function handleSubmit(
+    e: React.FormEvent<HTMLFormElement>
+  ) {
     e.preventDefault();
 
+    if (loading) {
+      return;
+    }
 
-    const nomorTiket =
-      generateTicket();
+    setLoading(true);
+    setError("");
 
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/api/complaints`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
+      const result =
+        (await response.json()) as
+          | ComplaintApiResponse
+          | {
+              message?: string;
+              errors?: Record<string, string[]>;
+            };
 
-    const laporan = {
+      if (!response.ok) {
+        const errorMessage =
+          "message" in result && result.message
+            ? result.message
+            : "Pengaduan gagal dikirim. Silakan coba kembali.";
 
-      tiket:
-      nomorTiket,
+        throw new Error(errorMessage);
+      }
 
-      tanggal:
-      new Date().toISOString(),
+      const successResult =
+        result as ComplaintApiResponse;
 
-      status:
-      "Laporan Diterima",
+      setTicket(successResult.data.tiket);
 
-      ...form
+      setSubmitted(true);
+    } catch (submitError) {
+      console.error(
+        "Gagal mengirim pengaduan:",
+        submitError
+      );
 
-    };
-
-
-
-    localStorage.setItem(
-
-      "pengaduan-terakhir",
-
-      JSON.stringify(laporan)
-
-    );
-
-
-
-    setTicket(
-      nomorTiket
-    );
-
-
-    setSubmitted(true);
-
-
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : "Terjadi kesalahan saat mengirim pengaduan. Silakan coba kembali."
+      );
+    } finally {
+      setLoading(false);
+    }
   }
 
+  if (submitted) {
+    return (
+      <>
+        <ComplaintSuccess />
 
+        <ComplaintTicket
+          ticket={ticket}
+        />
 
- if(submitted){
-
-  return (
-
-    <>
-
-      <ComplaintSuccess />
-
-
-      <ComplaintTicket
-        ticket={ticket}
-      />
-
-
-      <ComplaintNotification
-
-        nama={form.nama}
-
-        alamat={form.alamat}
-
-        email={form.email}
-
-        ticket={ticket}
-
-      />
-
-
-    </>
-
-  );
-
-}
-
+        <ComplaintNotification
+          nama={form.nama}
+          alamat={form.alamat}
+          email={form.email}
+          ticket={ticket}
+        />
+      </>
+    );
+  }
 
   return (
-
     <section className="complaint-section">
-
-
       <div className="complaint-container">
-
-
         <h2>
           Form Pengaduan Masyarakat
         </h2>
-
 
         <p>
           Isi data dengan benar agar laporan
           dapat diproses oleh petugas.
         </p>
 
-
+        {error && (
+          <div
+            role="alert"
+            style={{
+              marginBottom: "20px",
+              padding: "14px 16px",
+              borderRadius: "8px",
+              background: "#fff1f1",
+              border: "1px solid #f0b7b7",
+              color: "#a11a1a",
+              lineHeight: 1.6,
+            }}
+          >
+            {error}
+          </div>
+        )}
 
         <form
-
           className="complaint-form"
-
-          onSubmit={
-            handleSubmit
-          }
-
+          onSubmit={handleSubmit}
         >
-
-
           <input
-
             name="nama"
-
             placeholder="Nama Lengkap"
-
             value={form.nama}
-
             onChange={handleChange}
-
             required
-
           />
 
-
-
           <input
-
             name="ktp"
-
             placeholder="Nomor KTP"
-
             value={form.ktp}
-
             onChange={handleChange}
-
             required
-
           />
 
-
-
           <input
-
             name="hp"
-
             placeholder="Nomor HP"
-
             value={form.hp}
-
             onChange={handleChange}
-
             required
-
           />
-
-
 
           <input
-
             name="email"
-
             type="email"
-
             placeholder="Email"
-
             value={form.email}
-
             onChange={handleChange}
-
             required
-
           />
-
-
 
           <textarea
-
             name="alamat"
-
             placeholder="Alamat"
-
             value={form.alamat}
-
             onChange={handleChange}
-
             required
-
           />
 
-
-
           <select
-
             name="jenis"
-
             value={form.jenis}
-
             onChange={handleChange}
-
             required
-
           >
-
             <option value="">
               Pilih Jenis Aduan
             </option>
 
-            <option>
+            <option value="Laporan Kamtibmas">
               Laporan Kamtibmas
             </option>
 
-            <option>
+            <option value="Informasi Layanan">
               Informasi Layanan
             </option>
 
-            <option>
+            <option value="Pengaduan Masyarakat">
               Pengaduan Masyarakat
             </option>
 
-            <option>
+            <option value="Layanan PPID">
               Layanan PPID
             </option>
-
           </select>
 
-
-
           <textarea
-
             name="isi"
-
             placeholder="Tuliskan informasi atau laporan Anda"
-
             value={form.isi}
-
             onChange={handleChange}
-
             required
-
           />
 
-
-
           <button
-
             type="submit"
-
             className="complaint-button"
-
+            disabled={loading}
           >
-
-            Kirim Laporan
-
+            {loading
+              ? "Mengirim Pengaduan..."
+              : "Kirim Laporan"}
           </button>
-
-
-
         </form>
-
-
       </div>
-
-
     </section>
-
   );
-
 }
-
