@@ -1,10 +1,12 @@
+import { Icon } from "@iconify/react";
+
 import "./VisionMission.css";
 
 const missions = [
   "Memberikan perlindungan, pengayoman dan pelayanan kepada masyarakat.",
   "Menegakkan hukum secara profesional, transparan dan berkeadilan.",
   "Meningkatkan kualitas pelayanan publik berbasis digital.",
-  "Mewujudkan Polri Presisi yang modern dan terpercaya."
+  "Mewujudkan Polri Presisi yang modern dan terpercaya.",
 ];
 
 export default function VisionMission() {
@@ -22,10 +24,20 @@ export default function VisionMission() {
 
         <div className="vision-grid">
 
+          {/* =========================
+              VISI
+          ========================== */}
+
           <article className="vision-card">
 
             <div className="vision-icon">
-              ??
+
+              <Icon
+                icon="mdi:target"
+                width={54}
+                height={54}
+              />
+
             </div>
 
             <h3>Visi</h3>
@@ -38,10 +50,20 @@ export default function VisionMission() {
 
           </article>
 
+          {/* =========================
+              MISI
+          ========================== */}
+
           <article className="vision-card">
 
             <div className="vision-icon">
-              ??
+
+              <Icon
+                icon="mdi:shield-check"
+                width={54}
+                height={54}
+              />
+
             </div>
 
             <h3>Misi</h3>
@@ -64,4 +86,3 @@ export default function VisionMission() {
     </section>
   );
 }
-
