@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 
 import "./ContactMap.css";
 
-
 interface ContactMapProps {
 
   embed?: string;
@@ -14,7 +13,6 @@ interface ContactMapProps {
   showMap?: boolean;
 
 }
-
 
 export default function ContactMap({
 
@@ -28,49 +26,52 @@ export default function ContactMap({
 
 }: ContactMapProps) {
 
-
   const { t } = useTranslation("contact");
 
+  let mapUrl = "";
 
-  const mapUrl =
-    embed ||
-    (
-      latitude !== undefined &&
-      longitude !== undefined
-        ? `https://www.google.com/maps?q=${latitude},${longitude}&output=embed`
-        : ""
-    );
+  if (embed && embed.trim() !== "") {
 
+    mapUrl = embed;
+
+  } else if (
+
+    latitude !== undefined &&
+
+    longitude !== undefined
+
+  ) {
+
+    mapUrl = `https://www.google.com/maps?q=${latitude},${longitude}&output=embed`;
+
+  }
 
   return (
 
     <section className="contact-map">
 
-
       <div className="contact-map__container">
-
 
         <div className="contact-map__header">
 
-
           <h2>
+
             {t("location")}
+
           </h2>
 
-
           <p>
-            {t("mapDescription")}
-          </p>
 
+            {t("mapDescription")}
+
+          </p>
 
         </div>
 
-
-
         <div className="contact-map__wrapper">
 
-
           {
+
             showMap && mapUrl ? (
 
               <iframe
@@ -82,6 +83,8 @@ export default function ContactMap({
                 loading="lazy"
 
                 allowFullScreen
+
+                referrerPolicy="no-referrer-when-downgrade"
 
               />
 
@@ -97,12 +100,9 @@ export default function ContactMap({
 
           }
 
-
         </div>
 
-
       </div>
-
 
     </section>
 
