@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_CONFIG } from "../../config/api";
 
 import "./Complaint.css";
 
@@ -26,9 +27,7 @@ interface ComplaintApiResponse {
   };
 }
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  "http://127.0.0.1:8000";
+
 
 export default function ComplaintForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -80,7 +79,7 @@ export default function ComplaintForm() {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/complaints`,
+        `${API_CONFIG.baseUrl}/complaints`,
         {
           method: "POST",
           headers: {
@@ -272,3 +271,6 @@ export default function ComplaintForm() {
     </section>
   );
 }
+
+
+

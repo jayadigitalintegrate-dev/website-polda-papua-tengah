@@ -1,4 +1,6 @@
-﻿import type {
+import { API_CONFIG } from "../config/api";
+
+import type {
   News,
   NewsAuthor,
   NewsCategory,
@@ -8,7 +10,7 @@
    CMS API
 ========================================================== */
 
-const API_URL = "http://127.0.0.1:8000/api/news";
+const API_URL = `${API_CONFIG.baseUrl}/news`;
 
 /* ==========================================================
    TYPE DARI CMS
@@ -46,7 +48,7 @@ function getImageUrl(
     return "";
   }
 
-  return `http://127.0.0.1:8000/storage/${image}`;
+  return `${API_CONFIG.baseUrl.replace(/\/api\/?$/, "")}/storage/${image}`;
 }
 
 function getDocumentUrl(
@@ -61,7 +63,7 @@ function getDocumentUrl(
     return undefined;
   }
 
-  return `http://127.0.0.1:8000/storage/${document}`;
+  return `${API_CONFIG.baseUrl.replace(/\/api\/?$/, "")}/storage/${document}`;
 }
 
 function getCategory(slug: string): NewsCategory {
@@ -224,3 +226,5 @@ export async function fetchNewsBySlug(
     ) ?? null
   );
 }
+
+
