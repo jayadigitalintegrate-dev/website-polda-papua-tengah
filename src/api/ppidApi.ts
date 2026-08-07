@@ -106,24 +106,37 @@ export async function getAllPPIDDocuments(): Promise<PPIDDocument[]> {
     return ppidDocuments;
   }
 
-  const response = await fetch(
-    `${API_CONFIG.baseUrl}/ppid-documents`
-  );
+  try {
+    const response = await fetch(
+      `${API_CONFIG.baseUrl}/ppid-documents`
+    );
 
-  if (!response.ok) {
-    throw new Error(
-      `Gagal mengambil dokumen PPID. HTTP ${response.status}`
+    if (!response.ok) {
+      throw new Error(
+        `Gagal mengambil dokumen PPID. HTTP ${response.status}`
+      );
+    }
+
+    const result =
+      (await response.json()) as PpidApiResponse;
+
+    if (!result.success) {
+      throw new Error("API PPID mengembalikan status gagal.");
+    }
+
+    return result.data.map(mapDocument);
+  } catch (error) {
+    console.warn(
+      "API PPID belum tersedia. Menggunakan dokumen PPID lokal.",
+      error
+    );
+
+    const { ppidDocuments } = await import("../data/ppidData");
+
+    return ppidDocuments.filter(
+      (document) => document.status === "published"
     );
   }
-
-  const result =
-    (await response.json()) as PpidApiResponse;
-
-  if (!result.success) {
-    throw new Error("API PPID mengembalikan status gagal.");
-  }
-
-  return result.data.map(mapDocument);
 }
 
 export async function getFeaturedPPIDDocuments(): Promise<PPIDDocument[]> {

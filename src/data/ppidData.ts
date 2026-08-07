@@ -7,7 +7,7 @@ export const ppidDocuments: PPIDDocument[] = [
     title: "Daftar Informasi Publik",
     description: "Daftar informasi publik Polda Papua Tengah.",
     category: "Informasi Berkala",
-    fileUrl: "#",
+    fileUrl: `${import.meta.env.BASE_URL}documents/ppid/3zVgh1jL0YEeRX4VJEQy1U7YWIHitHdTyG4XIq91.pdf`,
     fileType: "pdf",
     publishedAt: "2026-01-01",
     featured: true,
@@ -20,39 +20,13 @@ export const ppidDocuments: PPIDDocument[] = [
     title: "Standar Operasional Pelayanan Informasi",
     description: "Standar operasional pelayanan informasi publik.",
     category: "SOP",
-    fileUrl: "#",
+    fileUrl: `${import.meta.env.BASE_URL}documents/ppid/zQ1ZomtnTtqQWDVZbRRZ17tTF1N2Ux1V7NbObN8P.pdf`,
     fileType: "pdf",
     publishedAt: "2026-01-01",
     featured: true,
     sortOrder: 2,
     status: "published",
-  },
-  {
-    id: 3,
-    slug: "formulir-permohonan-informasi",
-    title: "Formulir Permohonan Informasi Publik",
-    description: "Formulir permohonan informasi publik.",
-    category: "Formulir",
-    fileUrl: "#",
-    fileType: "pdf",
-    publishedAt: "2026-01-01",
-    featured: false,
-    sortOrder: 3,
-    status: "published",
-  },
-  {
-    id: 4,
-    slug: "formulir-keberatan-informasi",
-    title: "Formulir Keberatan Informasi Publik",
-    description: "Formulir keberatan informasi publik.",
-    category: "Formulir",
-    fileUrl: "#",
-    fileType: "pdf",
-    publishedAt: "2026-01-01",
-    featured: false,
-    sortOrder: 4,
-    status: "published",
-  },
+  }
 ];
 
 export interface PPIDFaqItem {
@@ -176,4 +150,7 @@ export const ppidContact: PPIDContactData = {
   email: "ppid@poldapapuatengah.go.id",
   serviceHours: "Senin - Jumat 08.00 - 15.00",
 };
+
+
+
 
