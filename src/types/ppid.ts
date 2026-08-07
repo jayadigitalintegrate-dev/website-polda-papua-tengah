@@ -4,19 +4,30 @@ export type PPIDCategory =
   | "Informasi Setiap Saat"
   | "Regulasi"
   | "SOP"
-  | "Formulir";
+  | "Formulir"
+  | string;
 
 export interface PPIDDocument {
   id: number;
   slug: string;
   title: string;
   description: string;
+  summary?: string;
+  content?: string;
+
   category: PPIDCategory;
+
   fileUrl: string;
-  fileType: "pdf" | "doc" | "docx" | "xls" | "xlsx" | "zip";
+  fileType: "pdf" | "doc" | "docx" | "xls" | "xlsx" | "zip" | string;
+
+  documentNumber?: string;
+  documentName?: string;
+
   publishedAt: string;
+
   featured: boolean;
   sortOrder: number;
   status: "published" | "draft";
-}
 
+  viewCount?: number;
+}

@@ -1,6 +1,6 @@
 import { API_CONFIG } from "../config/api";
+
 import {
-  ppidDocuments,
   ppidFaq,
   ppidTimeline,
   ppidInfoTypes,
@@ -9,6 +9,7 @@ import {
 } from "../data/ppidData";
 
 import type { PPIDDocument } from "../types/ppid";
+
 import type {
   PPIDFaqItem,
   PPIDTimelineStep,
@@ -17,23 +18,130 @@ import type {
   PPIDContactData,
 } from "../data/ppidData";
 
-export function getAllPPIDDocuments(): PPIDDocument[] {
+interface PpidApiDocument {
+  id: number;
+  title: string;
+  slug: string;
+  summary: string | null;
+  content: string | null;
+  document_number: string | null;
+  document_name: string | null;
+  document_url: string | null;
+  publication_year: number | null;
+  status: "published" | "draft";
+  published_at: string | null;
+  sort_order: number;
+  view_count: number;
+  category: {
+    id: number;
+    name: string;
+    slug: string;
+  } | null;
+}
 
-  if (!API_CONFIG.useMock) {
-    console.warn("PPID API mode belum diimplementasikan.");
+interface PpidApiResponse {
+  success: boolean;
+  data: PpidApiDocument[];
+}
+
+function getAbsoluteUrl(path: string | null): string {
+  if (!path) {
+    return "#";
   }
 
-  return ppidDocuments;
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    return path;
+  }
+
+  const apiBaseUrl = API_CONFIG.baseUrl.replace(/\/api\/?$/, "");
+
+  return `${apiBaseUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-export function getFeaturedPPIDDocuments(): PPIDDocument[] {
-  return ppidDocuments.filter(item => item.featured);
+function mapDocument(document: PpidApiDocument): PPIDDocument {
+  return {
+    id: document.id,
+    slug: document.slug,
+    title: document.title,
+
+    description:
+      document.summary ||
+      document.content ||
+      "Dokumen informasi publik Polda Papua Tengah.",
+
+    summary: document.summary || undefined,
+    content: document.content || undefined,
+
+    category:
+      document.category?.name || "Informasi Publik",
+
+    fileUrl: getAbsoluteUrl(document.document_url),
+
+    fileType:
+      document.document_name?.split(".").pop()?.toLowerCase() || "pdf",
+
+    documentNumber:
+      document.document_number || undefined,
+
+    documentName:
+      document.document_name || undefined,
+
+    publishedAt:
+      document.published_at ||
+      `${document.publication_year || new Date().getFullYear()}-01-01`,
+
+    featured: document.sort_order === 0,
+
+    sortOrder: document.sort_order,
+
+    status: document.status,
+
+    viewCount: document.view_count,
+  };
 }
 
-export function getPPIDDocumentBySlug(
+export async function getAllPPIDDocuments(): Promise<PPIDDocument[]> {
+  if (API_CONFIG.useMock) {
+    const { ppidDocuments } = await import("../data/ppidData");
+    return ppidDocuments;
+  }
+
+  const response = await fetch(
+    `${API_CONFIG.baseUrl}/ppid-documents`
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      `Gagal mengambil dokumen PPID. HTTP ${response.status}`
+    );
+  }
+
+  const result =
+    (await response.json()) as PpidApiResponse;
+
+  if (!result.success) {
+    throw new Error("API PPID mengembalikan status gagal.");
+  }
+
+  return result.data.map(mapDocument);
+}
+
+export async function getFeaturedPPIDDocuments(): Promise<PPIDDocument[]> {
+  const documents = await getAllPPIDDocuments();
+
+  return documents.filter(
+    (document) => document.featured
+  );
+}
+
+export async function getPPIDDocumentBySlug(
   slug: string
-): PPIDDocument | undefined {
-  return ppidDocuments.find(item => item.slug === slug);
+): Promise<PPIDDocument | undefined> {
+  const documents = await getAllPPIDDocuments();
+
+  return documents.find(
+    (document) => document.slug === slug
+  );
 }
 
 export function getPPIDFaq(): PPIDFaqItem[] {
@@ -55,7 +163,3 @@ export function getPPIDRights(): PPIDRightsData {
 export function getPPIDContact(): PPIDContactData {
   return ppidContact;
 }
-
-
-
-
