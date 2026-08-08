@@ -1,4 +1,4 @@
-import type { Service } from "../types/service";
+﻿import type { Service } from "../types/service";
 
 export const servicesData: Service[] = [
   {
@@ -25,7 +25,7 @@ export const servicesData: Service[] = [
     ],
     url: "#",
     sortOrder: 1,
-    active: true,
+    active: false,
     external: false,
   },
 
@@ -51,7 +51,7 @@ export const servicesData: Service[] = [
     ],
     url: "#",
     sortOrder: 2,
-    active: true,
+    active: false,
     external: false,
   },
 
@@ -77,34 +77,26 @@ export const servicesData: Service[] = [
     ],
     url: "#",
     sortOrder: 3,
-    active: true,
+    active: false,
     external: false,
   },
 
   {
-    id: 4,
-    slug: "dumas-presisi",
-    title: "Dumas Presisi",
-    description: "Pengaduan masyarakat secara digital.",
-    content: "Layanan pengaduan masyarakat berbasis digital.",
-    category: "Pengaduan",
-    icon: "mdi:message-alert",
-    color: "orange",
-    requirements: [
-      "Identitas",
-      "Bukti pendukung",
-    ],
-    procedures: [
-      "Isi formulir.",
-      "Unggah bukti.",
-      "Kirim laporan.",
-      "Monitoring status.",
-    ],
-    url: "#",
-    sortOrder: 4,
-    active: true,
-    external: false,
-  },
+  id: 4,
+  slug: "jajaran-polres",
+  title: "Jajaran Polres",
+  description: "Informasi dan profil jajaran Kepolisian Resor di wilayah Polda Papua Tengah.",
+  content: "Informasi mengenai jajaran Polres di wilayah hukum Polda Papua Tengah.",
+  category: "Informasi Kepolisian",
+  icon: "mdi:police-station",
+  color: "orange",
+  requirements: [],
+  procedures: [],
+  url: "/polres",
+  sortOrder: 4,
+  active: true,
+  external: false,
+},
 
   {
     id: 5,
@@ -147,7 +139,7 @@ export const servicesData: Service[] = [
     ],
     url: "#",
     sortOrder: 6,
-    active: true,
+    active: false,
     external: false,
   },
 
@@ -171,9 +163,25 @@ export const servicesData: Service[] = [
     ],
     url: "#",
     sortOrder: 7,
-    active: true,
+    active: false,
     external: false,
   },
-];
 
+  {
+    id: 8,
+    slug: "cyber-polda-papua-tengah",
+    title: "Cyber Polda Papua Tengah",
+    description: "Layanan informasi dan pelayanan kepolisian di bidang keamanan siber.",
+    content: "Cyber Polda Papua Tengah merupakan layanan yang mendukung informasi dan pelayanan kepolisian di bidang keamanan siber.",
+    category: "Keamanan Siber",
+    icon: "mdi:shield-lock",
+    color: "blue",
+    requirements: [],
+    procedures: [],
+    url: "",
+    sortOrder: 8,
+    active: false,
+    external: true,
+  },
+];
 

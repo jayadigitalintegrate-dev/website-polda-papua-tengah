@@ -1,4 +1,4 @@
-import { Icon } from "@iconify/react";
+﻿import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 import "./ServiceCard.css";
@@ -57,7 +57,7 @@ export default function ServiceCard({
         </a>
       ) : (
         <Link
-          to={`/layanan/${service.slug}`}
+          to={service.url !== "#" ? service.url : `/layanan/${service.slug}`}
           className={buttonClass}
         >
           Buka Layanan
@@ -67,5 +67,4 @@ export default function ServiceCard({
     </article>
   );
 }
-
 
