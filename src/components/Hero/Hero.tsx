@@ -1,186 +1,130 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+﻿import { useEffect, useState } from "react";
+
+import { fetchHeroes, type CmsHero } from "../../services/heroApi";
 
 import "./Hero.css";
 
-import hero1 from "../../assets/hero/hero-polda-papua-tengah.webp";
-import hero2 from "../../assets/hero/hero-poldapapua-tengah2.webp";
-import hero3 from "../../assets/hero/hero-poldapapua-tengah3.webp";
-import hero4 from "../../assets/hero/hero-poldapapua-tengah4.webp";
-import hero5 from "../../assets/hero/hero-poldapapua-tengah5.webp";
-
-
-const images = [
-  hero1,
-  hero2,
-  hero3,
-  hero4,
-  hero5
-];
-
-
 export default function Hero() {
-
-  const { t } = useTranslation("home");
-
+  const [heroes, setHeroes] = useState<CmsHero[]>([]);
   const [current, setCurrent] = useState(0);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    let mounted = true;
+
+    fetchHeroes()
+      .then((data) => {
+        if (!mounted) return;
+
+        setHeroes(data);
+        setCurrent(0);
+      })
+      .catch((error) => {
+        console.error("Gagal memuat Hero dari CMS:", error);
+
+        if (mounted) {
+          setHeroes([]);
+        }
+      })
+      .finally(() => {
+        if (mounted) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (heroes.length <= 1) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setCurrent((prev) => (prev + 1) % heroes.length);
+    }, 5000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [heroes.length]);
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
+    setCurrent((prev) => (prev + 1) % heroes.length);
   };
-
 
   const prevSlide = () => {
     setCurrent((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
+      prev === 0 ? heroes.length - 1 : prev - 1
     );
   };
 
-
-  useEffect(() => {
-
-    const interval = window.setInterval(
-      nextSlide,
-      5000
+  if (loading) {
+    return (
+      <section className="hero">
+        <div className="hero-loading">
+          Memuat Hero...
+        </div>
+      </section>
     );
+  }
 
-    return () =>
-      window.clearInterval(interval);
-
-  }, []);
-
-
+  if (heroes.length === 0) {
+    return null;
+  }
 
   return (
-
     <section className="hero">
-
-
-      {images.map((image, index) => (
-
+      {heroes.map((hero, index) => (
         <img
-
-          key={index}
-
-          src={image}
-
+          key={hero.id}
+          src={hero.image_url ?? ""}
           alt={`Hero ${index + 1}`}
-
           className={`hero-image ${
             current === index ? "active" : ""
           }`}
-
         />
-
       ))}
-
-
 
       <div className="hero-overlay" />
 
-
-
-      <button
-
-        type="button"
-
-        className="hero-arrow hero-prev"
-
-        onClick={prevSlide}
-
-        aria-label={t("previousSlide")}
-
-      >
-        ‹
-      </button>
-
-
-
-      <button
-
-        type="button"
-
-        className="hero-arrow hero-next"
-
-        onClick={nextSlide}
-
-        aria-label={t("nextSlide")}
-
-      >
-        ›
-      </button>
-
-
-
-
-      <div className="hero-content">
-
-
-        <h1>
-          {t("heroTitle")}
-        </h1>
-
-
-
-        <p>
-          {t("heroDescription")}
-        </p>
-
-
-
-        <Link
-
-          to="/berita"
-
-          className="hero-button"
-
-        >
-
-          {t("more")}
-
-        </Link>
-
-
-      </div>
-
-
-
-
-
-      <div className="hero-dots">
-
-
-        {images.map((_, index) => (
+      {heroes.length > 1 && (
+        <>
+          <button
+            type="button"
+            className="hero-arrow hero-prev"
+            onClick={prevSlide}
+            aria-label="Hero sebelumnya"
+          >
+            ‹
+          </button>
 
           <button
-
-            key={index}
-
             type="button"
+            className="hero-arrow hero-next"
+            onClick={nextSlide}
+            aria-label="Hero berikutnya"
+          >
+            ›
+          </button>
 
-            className={`hero-dot ${
-              current === index ? "active" : ""
-            }`}
-
-            onClick={() => setCurrent(index)}
-
-            aria-label={`Slide ${index + 1}`}
-
-          />
-
-
-        ))}
-
-
-      </div>
-
-
-
+          <div className="hero-dots">
+            {heroes.map((hero, index) => (
+              <button
+                key={hero.id}
+                type="button"
+                className={`hero-dot ${
+                  current === index ? "active" : ""
+                }`}
+                onClick={() => setCurrent(index)}
+                aria-label={`Hero ${index + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </section>
-
   );
-
 }
-
