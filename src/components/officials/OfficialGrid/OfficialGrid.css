@@ -107,3 +107,38 @@
 .official-group:first-child .official-card {
   width: 320px;
 }
+/* ==========================================
+   SUPPORT OFFICIALS CENTER ALIGNMENT
+   Kelompok Pengawas dan Pembantu Pimpinan
+   ========================================== */
+
+.official-group:nth-child(2) .official-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.official-group:nth-child(2) .official-card {
+    width: 320px;
+    flex: 0 0 320px;
+}
+
+@media (max-width: 768px) {
+    .official-group:nth-child(2) .official-card {
+        width: min(100%, 320px);
+        flex: 0 1 320px;
+    }
+}
+
+@media (max-width: 576px) {
+    .official-group:nth-child(2) .official-grid {
+        gap: 20px;
+    }
+
+    .official-group:nth-child(2) .official-card {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+}

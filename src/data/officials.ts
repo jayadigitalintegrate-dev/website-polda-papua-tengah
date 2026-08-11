@@ -1,11 +1,6 @@
 // src/data/officials.ts
 
-import kapoldaPhoto from "../assets/officials/kapolda.webp";
-import wakapoldaPhoto from "../assets/officials/wakapolda.webp";
-import irwasdaPhoto from "../assets/officials/irwasda.webp";
-import karoOpsPhoto from "../assets/officials/karo-ops.webp";
 import placeholderPhoto from "../assets/officials/placeholder/placeholder.webp";
-
 import type { Official } from "../types/official";
 
 const defaultData = {
@@ -25,13 +20,12 @@ const defaultData = {
 };
 
 export const officials: Official[] = [
-
   {
     id: 1,
-    photo: kapoldaPhoto,
-    name_id: "Irjen Pol.Brigjen. Pol. Jeremias Rontini, S.I.K., M.Si.",
-    name_en: "Inspector General Police Petrus Patrige Rudolf Renwarin",
-    rank: "Inspektur Jenderal Polisi",
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Kapolda Papua Tengah",
     position_en: "Chief of Papua Tengah Regional Police",
     ...defaultData,
@@ -40,10 +34,10 @@ export const officials: Official[] = [
 
   {
     id: 2,
-    photo: wakapoldaPhoto,
-    name_id: "Kombes. Pol. Dr. Gustav Robby Urbinas, S.H., S.I.K., M.Pd., M.H.",
-    name_en: "Deputy Chief of Papua Tengah Regional Police",
-    rank: "Brigadir Jenderal Polisi",
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Wakapolda Papua Tengah",
     position_en: "Deputy Chief of Papua Tengah Regional Police",
     ...defaultData,
@@ -52,10 +46,10 @@ export const officials: Official[] = [
 
   {
     id: 3,
-    photo: irwasdaPhoto,
-    name_id: "Kombes. Pol. Wahyu Kuncoro, S.I.K., M.H.",
-    name_en: "Inspectorate Supervisor",
-    rank: "Komisaris Besar Polisi",
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Irwasda Polda Papua Tengah",
     position_en: "Inspectorate Supervisor",
     ...defaultData,
@@ -64,37 +58,24 @@ export const officials: Official[] = [
 
   {
     id: 4,
-    photo: karoOpsPhoto,
-    name_id: "Kombes Pol. Adnan Ratmoro, S.I.K.",
-    name_en: "Police Commissioner Adnan Ratmoro",
-    rank: "Komisaris Besar Polisi",
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Karo Ops Polda Papua Tengah",
     position_en: "Head of Operations Bureau",
     ...defaultData,
     order: 4,
   },
 
-
-  {
-    id: 7,
-    photo: placeholderPhoto,
-    name_id: "Nama Karo Log",
-    name_en: "Head of Logistics Bureau",
-    rank: "Komisaris Besar Polisi",
-    position_id: "Karo Log Polda Papua Tengah",
-    position_en: "Head of Logistics Bureau",
-    ...defaultData,
-    order: 7,
-  },
-
   {
     id: 5,
     photo: placeholderPhoto,
-    name_id: "Nama Karorena",
-    name_en: "Head of Planning Bureau",
-    rank: "Komisaris Besar Polisi",
-    position_id: "Karorena Polda Papua Tengah",
-    position_en: "Head of Planning Bureau",
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Karo Log Polda Papua Tengah",
+    position_en: "Head of Logistics Bureau",
     ...defaultData,
     order: 5,
   },
@@ -102,22 +83,33 @@ export const officials: Official[] = [
   {
     id: 6,
     photo: placeholderPhoto,
-    name_id: "Nama Karo SDM",
-    name_en: "Head of Human Resources Bureau",
-    rank: "Komisaris Besar Polisi",
-    position_id: "Karo SDM Polda Papua Tengah",
-    position_en: "Head of Human Resources Bureau",
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Karorena Polda Papua Tengah",
+    position_en: "Head of Planning Bureau",
     ...defaultData,
     order: 6,
   },
 
+  {
+    id: 7,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Karo SDM Polda Papua Tengah",
+    position_en: "Head of Human Resources Bureau",
+    ...defaultData,
+    order: 7,
+  },
 
   {
     id: 8,
     photo: placeholderPhoto,
-    name_id: "Nama Dirreskrimum",
-    name_en: "Director of General Criminal Investigation",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirreskrimum Polda Papua Tengah",
     position_en: "Director of General Criminal Investigation",
     ...defaultData,
@@ -127,9 +119,9 @@ export const officials: Official[] = [
   {
     id: 9,
     photo: placeholderPhoto,
-    name_id: "Nama Dirreskrimsus",
-    name_en: "Director of Special Criminal Investigation",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirreskrimsus Polda Papua Tengah",
     position_en: "Director of Special Criminal Investigation",
     ...defaultData,
@@ -139,9 +131,9 @@ export const officials: Official[] = [
   {
     id: 10,
     photo: placeholderPhoto,
-    name_id: "Nama Dirresnarkoba",
-    name_en: "Director of Narcotics Investigation",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirresnarkoba Polda Papua Tengah",
     position_en: "Director of Narcotics Investigation",
     ...defaultData,
@@ -151,9 +143,9 @@ export const officials: Official[] = [
   {
     id: 11,
     photo: placeholderPhoto,
-    name_id: "Nama Dirlantas",
-    name_en: "Director of Traffic",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirlantas Polda Papua Tengah",
     position_en: "Director of Traffic",
     ...defaultData,
@@ -163,9 +155,9 @@ export const officials: Official[] = [
   {
     id: 12,
     photo: placeholderPhoto,
-    name_id: "Nama Dirbinmas",
-    name_en: "Director of Community Guidance",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirbinmas Polda Papua Tengah",
     position_en: "Director of Community Guidance",
     ...defaultData,
@@ -175,10 +167,10 @@ export const officials: Official[] = [
   {
     id: 13,
     photo: placeholderPhoto,
-    name_id: "Nama Dirsamapta",
-    name_en: "Director of Samapta",
-    rank: "Komisaris Besar Polisi",
-    position_id: "Dirsmapta Polda Papua Tengah",
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Dirsamapta Polda Papua Tengah",
     position_en: "Director of Samapta",
     ...defaultData,
     order: 13,
@@ -187,9 +179,9 @@ export const officials: Official[] = [
   {
     id: 14,
     photo: placeholderPhoto,
-    name_id: "Nama Dirpamobvit",
-    name_en: "Director of Vital Object Security",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirpamobvit Polda Papua Tengah",
     position_en: "Director of Vital Object Security",
     ...defaultData,
@@ -199,17 +191,144 @@ export const officials: Official[] = [
   {
     id: 15,
     photo: placeholderPhoto,
-    name_id: "Nama Dirpolairud",
-    name_en: "Director of Water and Air Police",
-    rank: "Komisaris Besar Polisi",
+    name_id: "",
+    name_en: "",
+    rank: "",
     position_id: "Dirpolairud Polda Papua Tengah",
     position_en: "Director of Water and Air Police",
     ...defaultData,
     order: 15,
   },
 
+  {
+    id: 16,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Dirtahti Polda Papua Tengah",
+    position_en: "Director of Detention and Evidence",
+    ...defaultData,
+    order: 16,
+  },
+
+  {
+    id: 17,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Kabid Humas Polda Papua Tengah",
+    position_en: "Head of Public Relations",
+    ...defaultData,
+    order: 17,
+  },
+
+  {
+    id: 18,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Kabid Propam Polda Papua Tengah",
+    position_en: "Head of Professional and Security Division",
+    ...defaultData,
+    order: 18,
+  },
+
+  {
+    id: 19,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Kabidkum Polda Papua Tengah",
+    position_en: "Head of Legal Division",
+    ...defaultData,
+    order: 19,
+  },
+
+  {
+    id: 20,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Kabid TIK Polda Papua Tengah",
+    position_en: "Head of Information and Communication Technology Division",
+    ...defaultData,
+    order: 20,
+  },
+
+  {
+    id: 21,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Kabid Keu Polda Papua Tengah",
+    position_en: "Head of Finance Division",
+    ...defaultData,
+    order: 21,
+  },
+
+  {
+    id: 22,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Kabid Dokkes Polda Papua Tengah",
+    position_en: "Head of Medical and Health Division",
+    ...defaultData,
+    order: 22,
+  },
+
+  {
+    id: 23,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Dansat Brimob Polda Papua Tengah",
+    position_en: "Commander of Mobile Brigade Unit",
+    ...defaultData,
+    order: 23,
+  },
+
+  {
+    id: 24,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Ka SPN Polda Papua Tengah",
+    position_en: "Head of Police Training School",
+    ...defaultData,
+    order: 24,
+  },
+
+  {
+    id: 25,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Koorspripim Polda Papua Tengah",
+    position_en: "Coordinator of the Leadership Secretariat",
+    ...defaultData,
+    order: 25,
+  },
+
+  {
+    id: 26,
+    photo: placeholderPhoto,
+    name_id: "",
+    name_en: "",
+    rank: "",
+    position_id: "Ka SPKT Polda Papua Tengah",
+    position_en: "Head of Integrated Police Service Center",
+    ...defaultData,
+    order: 26,
+  },
 ];
-
-
-
-
