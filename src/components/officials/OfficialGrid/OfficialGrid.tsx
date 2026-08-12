@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./OfficialGrid.css";
 
@@ -9,23 +9,69 @@ import OfficialCard from "../OfficialCard/OfficialCard";
 import OfficialProfile from "../OfficialProfile/OfficialProfile";
 
 const OfficialGrid = () => {
+  const [officials, setOfficials] = useState<Official[]>([]);
+  const [selectedOfficial, setSelectedOfficial] =
+    useState<Official | null>(null);
 
-  const [
-    selectedOfficial,
-    setSelectedOfficial
-  ] = useState<Official | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const officials = officialsRepository.getAll();
+  useEffect(() => {
+    let mounted = true;
+
+    const loadOfficials = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const data = await officialsRepository.getAll();
+
+        if (mounted) {
+          setOfficials(data);
+        }
+      } catch (err) {
+        console.error("Gagal mengambil data pejabat:", err);
+
+        if (mounted) {
+          setError("Data pejabat belum dapat dimuat.");
+        }
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadOfficials();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="official-loading">
+        Memuat data pejabat...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="official-error">
+        {error}
+      </div>
+    );
+  }
 
   if (selectedOfficial) {
-
     return (
       <OfficialProfile
         official={selectedOfficial}
         onBack={() => setSelectedOfficial(null)}
       />
     );
-
   }
 
   const leadership = officials.filter(
@@ -44,17 +90,13 @@ const OfficialGrid = () => {
     title: string,
     data: Official[]
   ) => (
-
     <div className="official-group">
-
       <h3 className="official-group-title">
         {title}
       </h3>
 
       <section className="official-grid">
-
         {data.map((official) => (
-
           <OfficialCard
             key={official.id}
             official={official}
@@ -62,19 +104,13 @@ const OfficialGrid = () => {
               setSelectedOfficial(official)
             }
           />
-
         ))}
-
       </section>
-
     </div>
-
   );
 
   return (
-
     <div>
-
       {renderSection(
         "Unsur Pimpinan",
         leadership
@@ -89,11 +125,8 @@ const OfficialGrid = () => {
         "Unsur Pelaksana Operasional / Direktorat",
         directors
       )}
-
     </div>
-
   );
-
 };
 
 export default OfficialGrid;

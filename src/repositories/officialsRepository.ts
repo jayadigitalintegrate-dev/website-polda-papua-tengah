@@ -1,18 +1,18 @@
-import { officials } from "../data/officials";
+﻿import { officialsApi } from "../api/officials";
 import type { Official } from "../types/official";
 
 export const officialsRepository = {
-  getAll(): Official[] {
+  async getAll(): Promise<Official[]> {
+    const officials = await officialsApi.getAll();
+
     return [...officials].sort(
       (a, b) => a.order - b.order
     );
   },
 
-  getById(
+  async getById(
     id: number
-  ): Official | undefined {
-    return officials.find(
-      (item) => item.id === id
-    );
+  ): Promise<Official | undefined> {
+    return officialsApi.getById(id);
   },
 };
