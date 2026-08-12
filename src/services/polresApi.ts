@@ -31,18 +31,23 @@ const API_URL = API_CONFIG.baseUrl
     ? `${API_CONFIG.baseUrl}/police-stations`
     : "";
 
-export async function fetchPolres(): Promise<CmsPolres[]> {
-    // CMS belum dikonfigurasi.
-    // PolresList.tsx akan menggunakan data lokal.
+/**
+ * Menyimpan Promise request yang sedang berjalan.
+ *
+ * Tujuannya:
+ * React StrictMode dapat menjalankan effect dua kali
+ * pada development, tetapi CMS cukup menerima satu request.
+ */
+let polresRequest: Promise<CmsPolres[]> | null = null;
+
+async function requestPolres(): Promise<CmsPolres[]> {
     if (!API_CONFIG.baseUrl) {
         return [];
     }
 
     try {
         const response = await fetch(API_URL, {
-            signal: AbortSignal.timeout(
-                API_CONFIG.timeout
-            ),
+            signal: AbortSignal.timeout(API_CONFIG.timeout),
         });
 
         if (!response.ok) {
@@ -57,8 +62,8 @@ export async function fetchPolres(): Promise<CmsPolres[]> {
             Array.isArray(result?.value)
                 ? result.value
                 : Array.isArray(result)
-                ? result
-                : [];
+                    ? result
+                    : [];
 
         return data;
     } catch (error) {
@@ -69,4 +74,25 @@ export async function fetchPolres(): Promise<CmsPolres[]> {
 
         return [];
     }
+}
+
+export function fetchPolres(): Promise<CmsPolres[]> {
+    /**
+     * Jika request sedang berjalan, gunakan request yang sama.
+     * Tidak membuat HTTP request kedua.
+     */
+    if (polresRequest) {
+        return polresRequest;
+    }
+
+    polresRequest = requestPolres();
+
+    /**
+     * Jika request gagal/reject, izinkan percobaan berikutnya.
+     */
+    polresRequest.catch(() => {
+        polresRequest = null;
+    });
+
+    return polresRequest;
 }

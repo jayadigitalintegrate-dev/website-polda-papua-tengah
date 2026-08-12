@@ -8,40 +8,48 @@ interface Props {
 
 export default function PolresCard({ data }: Props) {
     return (
-        <div className="polres-card">
+        <article className="polres-card">
+            <div className="polres-card-media">
+                {data.chief_photo_url ? (
+                    <img
+                        src={data.chief_photo_url}
+                        alt={`Kapolres ${data.name_id}`}
+                    />
+                ) : (
+                    <div className="polres-card-placeholder">
+                        <span>Polda Papua Tengah</span>
+                    </div>
+                )}
 
-            {data.chief_photo_url ? (
-                <img
-                    src={data.chief_photo_url}
-                    alt={data.name_id}
-                />
-            ) : (
-                <div className="polres-card-placeholder">
-                    <span>Polres Papua Tengah</span>
-                </div>
-            )}
+                <span className="polres-card-badge">
+                    POLRES
+                </span>
+            </div>
 
             <div className="polres-content">
+                <div className="polres-location">
+                    {data.jurisdiction || "Papua Tengah"}
+                </div>
 
                 <h3>{data.name_id}</h3>
 
-                {data.jurisdiction && (
-                    <p>{data.jurisdiction}</p>
+                {data.chief_name && (
+                    <div className="polres-chief">
+                        <span className="polres-chief-label">
+                            {data.chief_rank || "Kapolres"}
+                        </span>
+
+                        <strong>{data.chief_name}</strong>
+                    </div>
                 )}
 
                 {data.address && (
-                    <span>{data.address}</span>
-                )}
-
-                {data.chief_name && (
-                    <div className="polres-chief">
-                        <strong>
-                            {data.chief_rank ?? "Kapolres"}
-                        </strong>
-
-                        <span>
-                            {data.chief_name}
+                    <div className="polres-address">
+                        <span className="polres-address-label">
+                            Alamat
                         </span>
+
+                        <span>{data.address}</span>
                     </div>
                 )}
 
@@ -49,11 +57,10 @@ export default function PolresCard({ data }: Props) {
                     to={`/polres/${data.id}`}
                     className="polres-button"
                 >
-                    Lihat Profil
+                    <span>Lihat Profil</span>
+                    <span aria-hidden="true">→</span>
                 </Link>
-
             </div>
-
-        </div>
+        </article>
     );
 }
