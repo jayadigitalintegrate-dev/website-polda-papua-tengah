@@ -34,8 +34,18 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Create SPA fallback
+      - name: Create GitHub Pages SPA fallback
+        shell: bash
         run: cp dist/index.html dist/404.html
+
+      - name: Verify build output
+        shell: bash
+        run: |
+          test -f dist/index.html
+          test -f dist/404.html
+          echo "Build output verified"
+          wc -c dist/index.html
+          wc -c dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -57,4 +67,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-# Deployment workflow verified
