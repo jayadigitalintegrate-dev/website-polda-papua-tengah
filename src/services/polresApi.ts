@@ -2,6 +2,7 @@
 
 export interface CmsPolres {
     id: number;
+
     name_id: string;
     name_en: string | null;
 
@@ -26,24 +27,46 @@ export interface CmsPolres {
     updated_at: string;
 }
 
-const API_URL = `${API_CONFIG.baseUrl}/police-stations`;
+const API_URL = API_CONFIG.baseUrl
+    ? `${API_CONFIG.baseUrl}/police-stations`
+    : "";
 
 export async function fetchPolres(): Promise<CmsPolres[]> {
-    const response = await fetch(API_URL);
-
-    if (!response.ok) {
-        throw new Error(
-            `Gagal mengambil data Polres dari CMS. HTTP ${response.status}`
-        );
+    // CMS belum dikonfigurasi.
+    // PolresList.tsx akan menggunakan data lokal.
+    if (!API_CONFIG.baseUrl) {
+        return [];
     }
 
-    const result = await response.json();
+    try {
+        const response = await fetch(API_URL, {
+            signal: AbortSignal.timeout(
+                API_CONFIG.timeout
+            ),
+        });
 
-    const data: CmsPolres[] = Array.isArray(result?.value)
-        ? result.value
-        : Array.isArray(result)
-            ? result
-            : [];
+        if (!response.ok) {
+            throw new Error(
+                `Gagal mengambil data Polres dari CMS. HTTP ${response.status}`
+            );
+        }
 
-    return data;
+        const result = await response.json();
+
+        const data: CmsPolres[] =
+            Array.isArray(result?.value)
+                ? result.value
+                : Array.isArray(result)
+                ? result
+                : [];
+
+        return data;
+    } catch (error) {
+        console.warn(
+            "CMS Polres tidak dapat diakses. Menggunakan data lokal.",
+            error
+        );
+
+        return [];
+    }
 }

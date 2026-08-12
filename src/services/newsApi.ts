@@ -1,35 +1,37 @@
 import { API_CONFIG } from "../config/api";
 
 import type {
-  News,
-  NewsAuthor,
-  NewsCategory,
+    News,
+    NewsAuthor,
+    NewsCategory,
 } from "../types/news";
 
 /* ==========================================================
    CMS API
 ========================================================== */
 
-const API_URL = `${API_CONFIG.baseUrl}/news`;
+const API_URL = API_CONFIG.baseUrl
+    ? `${API_CONFIG.baseUrl}/news`
+    : "";
 
 /* ==========================================================
    TYPE DARI CMS
 ========================================================== */
 
 interface CmsNews {
-  id: number;
-  title: string;
-  slug: string;
-  excerpt: string | null;
-  content: string;
-  image: string | null;
-  image_url?: string | null;
-  document?: string | null;
-  document_name?: string | null;
-  document_url?: string | null;
-  category: string;
-  published_at: string | null;
-  created_at: string;
+    id: number;
+    title: string;
+    slug: string;
+    excerpt: string | null;
+    content: string;
+    image: string | null;
+    image_url?: string | null;
+    document?: string | null;
+    document_name?: string | null;
+    document_url?: string | null;
+    category: string;
+    published_at: string | null;
+    created_at: string;
 }
 
 /* ==========================================================
@@ -37,178 +39,193 @@ interface CmsNews {
 ========================================================== */
 
 function getImageUrl(
-  image: string | null,
-  imageUrl?: string | null
+    image: string | null,
+    imageUrl?: string | null
 ): string {
-  if (imageUrl) {
-    return imageUrl;
-  }
+    if (imageUrl) {
+        return imageUrl;
+    }
 
-  if (!image) {
-    return "";
-  }
+    if (!image) {
+        return "";
+    }
 
-  return `${API_CONFIG.baseUrl.replace(/\/api\/?$/, "")}/storage/${image}`;
+    return `${API_CONFIG.baseUrl.replace(
+        /\/api\/?$/,
+        ""
+    )}/storage/${image}`;
 }
 
 function getDocumentUrl(
-  documentUrl?: string | null,
-  document?: string | null
+    documentUrl?: string | null,
+    document?: string | null
 ): string | undefined {
-  if (documentUrl) {
-    return documentUrl;
-  }
+    if (documentUrl) {
+        return documentUrl;
+    }
 
-  if (!document) {
-    return undefined;
-  }
+    if (!document) {
+        return undefined;
+    }
 
-  return `${API_CONFIG.baseUrl.replace(/\/api\/?$/, "")}/storage/${document}`;
+    return `${API_CONFIG.baseUrl.replace(
+        /\/api\/?$/,
+        ""
+    )}/storage/${document}`;
 }
 
 function getCategory(slug: string): NewsCategory {
-  const name = slug
-    .split("-")
-    .map(
-      (word) =>
-        word.charAt(0).toUpperCase() + word.slice(1)
-    )
-    .join(" ");
+    const name = slug
+        .split("-")
+        .map(
+            (word) =>
+                word.charAt(0).toUpperCase() +
+                word.slice(1)
+        )
+        .join(" ");
 
-  return {
-    id: 0,
-    name,
-    slug,
-  };
+    return {
+        id: 0,
+        name,
+        slug,
+    };
 }
 
 function getAuthor(): NewsAuthor {
-  return {
-    id: 0,
-    name: "Humas Polda Papua Tengah",
-    position: "Bidang Humas",
-  };
+    return {
+        id: 0,
+        name: "Humas Polda Papua Tengah",
+        position: "Bidang Humas",
+    };
 }
 
 /* ==========================================================
-   MAPPING CMS ? NEWS REACT
+   MAPPING CMS → NEWS REACT
 ========================================================== */
 
 function mapCmsNews(item: CmsNews): News {
-  const publishedDate =
-    item.published_at ?? item.created_at;
+    const publishedDate =
+        item.published_at ?? item.created_at;
 
-  const documentUrl = getDocumentUrl(
-    item.document_url,
-    item.document
-  );
+    const documentUrl = getDocumentUrl(
+        item.document_url,
+        item.document
+    );
 
-  return {
-    id: item.id,
+    return {
+        id: item.id,
 
-    title: item.title,
+        title: item.title,
 
-    slug: item.slug,
+        slug: item.slug,
 
-    excerpt: item.excerpt ?? "",
+        excerpt: item.excerpt ?? "",
 
-    content: item.content,
+        content: item.content,
 
-    thumbnail: getImageUrl(
-      item.image,
-      item.image_url
-    ),
+        thumbnail: getImageUrl(
+            item.image,
+            item.image_url
+        ),
 
-    publishedAt: publishedDate,
+        publishedAt: publishedDate,
 
-    updatedAt: publishedDate,
+        updatedAt: publishedDate,
 
-    status: "published",
+        status: "published",
 
-    published: true,
+        published: true,
 
-    featured: false,
+        featured: false,
 
-    breaking: false,
+        breaking: false,
 
-    pinned: false,
+        pinned: false,
 
-    allowComment: true,
+        allowComment: true,
 
-    showAuthor: true,
+        showAuthor: true,
 
-    showDate: true,
+        showDate: true,
 
-    views: 0,
+        views: 0,
 
-    type: "article",
+        type: "article",
 
-    category: getCategory(item.category),
+        category: getCategory(item.category),
 
-    author: getAuthor(),
+        author: getAuthor(),
 
-    gallery: [],
+        gallery: [],
 
-    videos: [],
+        videos: [],
 
-    attachments: documentUrl
-      ? [
-          {
-            id: item.id,
-            name:
-              item.document_name ??
-              "Dokumen",
-            file: documentUrl,
-            size: "",
-          },
-        ]
-      : [],
+        attachments: documentUrl
+            ? [
+                  {
+                      id: item.id,
+                      name:
+                          item.document_name ??
+                          "Dokumen",
+                      file: documentUrl,
+                      size: "",
+                  },
+              ]
+            : [],
 
-    tags: [],
+        tags: [],
 
-    seo: {
-      metaTitle: item.title,
+        seo: {
+            metaTitle: item.title,
 
-      metaDescription:
-        item.excerpt ?? "",
-    },
-  };
+            metaDescription:
+                item.excerpt ?? "",
+        },
+    };
 }
-
-/* ==========================================================
-   FETCH NEWS
-========================================================== */
-
-/* ==========================================================
-   FETCH NEWS
-========================================================== */
 
 /* ==========================================================
    FETCH NEWS
 ========================================================== */
 
 export async function fetchNews(): Promise<News[]> {
-  const response = await fetch(API_URL);
+    // CMS belum dikonfigurasi.
+    // Biarkan News.tsx menggunakan data lokal.
+    if (!API_CONFIG.baseUrl) {
+        return [];
+    }
 
-  if (!response.ok) {
-    throw new Error(
-      `Gagal mengambil berita dari CMS. HTTP ${response.status}`
-    );
-  }
+    try {
+        const response = await fetch(API_URL, {
+            signal: AbortSignal.timeout(
+                API_CONFIG.timeout
+            ),
+        });
 
-  const result = await response.json();
+        if (!response.ok) {
+            throw new Error(
+                `Gagal mengambil berita dari CMS. HTTP ${response.status}`
+            );
+        }
 
-  const cmsNews: CmsNews[] = Array.isArray(
-    result?.value
-  )
-    ? result.value
-    : Array.isArray(result)
-      ? result
-      : [];
+        const result = await response.json();
 
-  const mappedNews = cmsNews.map(mapCmsNews);
+        const cmsNews: CmsNews[] =
+            Array.isArray(result?.value)
+                ? result.value
+                : Array.isArray(result)
+                ? result
+                : [];
 
-  return mappedNews;
+        return cmsNews.map(mapCmsNews);
+    } catch (error) {
+        console.warn(
+            "CMS News tidak dapat diakses. Menggunakan berita lokal.",
+            error
+        );
+
+        return [];
+    }
 }
 
 /* ==========================================================
@@ -216,15 +233,13 @@ export async function fetchNews(): Promise<News[]> {
 ========================================================== */
 
 export async function fetchNewsBySlug(
-  slug: string
+    slug: string
 ): Promise<News | null> {
-  const news = await fetchNews();
+    const news = await fetchNews();
 
-  return (
-    news.find(
-      (item) => item.slug === slug
-    ) ?? null
-  );
+    return (
+        news.find(
+            (item) => item.slug === slug
+        ) ?? null
+    );
 }
-
-
