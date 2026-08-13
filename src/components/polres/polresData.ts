@@ -1,12 +1,7 @@
-import nabire from "../../assets/polres/polres-nabire.webp";
-import mimika from "../../assets/polres/polres-mimika.webp";
-import paniai from "../../assets/polres/polres-paniai.webp";
-import intanjaya from "../../assets/polres/polres-intanjaya.webp";
-import puncak from "../../assets/polres/polres-puncak.webp";
-import puncakjaya from "../../assets/polres/polres-puncakjaya.webp";
-import dogiayi from "../../assets/polres/polres-dogiayi.webp";
-import deiyai from "../../assets/polres/polres-deiyai.webp";
-
+﻿import nabire from "../../assets/polres/IxzZ08MmBu7ME2W9gz3fpj3H2SIog5mmt9vbfXBt.png";
+import mimika from "../../assets/polres/naOVbGj8eMoCLO4E2vE0953l20VFVjXrrd1BlEyi.webp";
+import paniai from "../../assets/polres/cWIA4EjWfP8ITJ8454OeH74NmrkfPqK5XdAJS3fb.png";
+import intanJaya from "../../assets/polres/7fXWrEcQ8GkSIojZliQBbmMnWxsd8BfipyugVHUD.png";
 
 export interface Polres {
     id: string;
@@ -17,80 +12,44 @@ export interface Polres {
     gambar: string;
 }
 
-
 export const polresData: Polres[] = [
-
     {
-        id: "polres-nabire",
+        id: "1",
         nama: "Polres Nabire",
-        wilayah: "Kabupaten Nabire",
-        alamat: "Nabire, Papua Tengah",
-        kapolres: "Kapolres Nabire",
-        gambar: nabire
+        wilayah: "Kabupaten Nabire, Provinsi Papua Tengah",
+        alamat:
+            "Jl. Jend. Sudirman No.1, Karang Mulia, Distrik Nabire, Kabupaten Nabire, Papua Tengah 98815",
+        kapolres: "AKBP Samuel D. Tatiratu, S.I.K., CPHR",
+        gambar: nabire,
     },
-
     {
-        id: "polres-mimika",
+        id: "2",
         nama: "Polres Mimika",
-        wilayah: "Kabupaten Mimika",
-        alamat: "Timika, Papua Tengah",
-        kapolres: "Kapolres Mimika",
-        gambar: mimika
+        wilayah: "Mimika, Papua Tengah",
+        alamat:
+            "Jl. Agimuga - Mile 32, Distrik Kuala Kencana, Kabupaten Mimika, Papua Tengah.",
+        kapolres:
+            "AKBP Alredo Agustinus Rumbiak, S.I.K., M.Tr.Mil., M.Han.",
+        gambar: mimika,
     },
-
     {
-        id: "polres-paniai",
+        id: "3",
         nama: "Polres Paniai",
-        wilayah: "Kabupaten Paniai",
-        alamat: "Enarotali, Papua Tengah",
-        kapolres: "Kapolres Paniai",
-        gambar: paniai
+        wilayah:
+            "Daerah Badauwo, Distrik Paniai Timur, Kabupaten Paniai, Provinsi Papua Tengah",
+        alamat:
+            "Daerah Badauwo, Distrik Paniai Timur, Kabupaten Paniai, Provinsi Papua Tengah (Kode Pos: 98781)",
+        kapolres:
+            "AKBP Roycke H. F. Betaubun, S.IP., S.I.K., M.Si., M.Tr.Opsla.",
+        gambar: paniai,
     },
-
     {
-        id: "polres-intan-jaya",
+        id: "4",
         nama: "Polres Intan Jaya",
-        wilayah: "Kabupaten Intan Jaya",
-        alamat: "Sugapa, Papua Tengah",
-        kapolres: "Kapolres Intan Jaya",
-        gambar: intanjaya
+        wilayah:
+            "Wilayah hukum Polres Intan Jaya mencakup seluruh wilayah administratif Kabupaten Intan Jaya, yang berada di bawah naungan Kepolisian Daerah (Polda) Papua Tengah.",
+        alamat: "",
+        kapolres: "KOMPOL Sofian Corneles Akuila Samakori",
+        gambar: intanJaya,
     },
-
-    {
-        id: "polres-puncak",
-        nama: "Polres Puncak",
-        wilayah: "Kabupaten Puncak",
-        alamat: "Ilaga, Papua Tengah",
-        kapolres: "Kapolres Puncak",
-        gambar: puncak
-    },
-
-    {
-        id: "polres-puncak-jaya",
-        nama: "Polres Puncak Jaya",
-        wilayah: "Kabupaten Puncak Jaya",
-        alamat: "Mulia, Papua Tengah",
-        kapolres: "Kapolres Puncak Jaya",
-        gambar: puncakjaya
-    },
-
-    {
-        id: "polres-dogiyai",
-        nama: "Polres Dogiyai",
-        wilayah: "Kabupaten Dogiyai",
-        alamat: "Kigamani, Papua Tengah",
-        kapolres: "Kapolres Dogiyai",
-        gambar: dogiayi
-    },
-
-    {
-        id: "polres-deiyai",
-        nama: "Polres Deiyai",
-        wilayah: "Kabupaten Deiyai",
-        alamat: "Tigi, Papua Tengah",
-        kapolres: "Kapolres Deiyai",
-        gambar: deiyai
-    }
-
 ];
-
