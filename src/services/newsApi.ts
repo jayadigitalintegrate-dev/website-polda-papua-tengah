@@ -1,4 +1,5 @@
 import { API_CONFIG } from "../config/api";
+import { newsData } from "../data/news/newsData";
 
 import type {
     News,
@@ -256,7 +257,7 @@ export async function fetchNews(): Promise<News[]> {
             error
         );
 
-        return [];
+        return newsData;
     }
 }
 
@@ -275,3 +276,4 @@ export async function fetchNewsBySlug(
         ) ?? null
     );
 }
+
