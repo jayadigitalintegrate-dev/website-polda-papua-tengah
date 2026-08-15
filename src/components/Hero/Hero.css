@@ -1,74 +1,150 @@
-﻿/* =========================================================
-   HERO SLIDER
+﻿.hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 900;
+    min-height: 420px;
+    overflow: hidden;
+    background: #0b2d57;
+    isolation: isolate;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.06);
+    transform-origin: center center;
+
+    z-index: 1;
+    pointer-events: none;
+
+    will-change: transform, opacity;
+
+    transition:
+        opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 1.2s;
+}
+
+/* =========================================================
+   KEN BURNS EFFECT
    ========================================================= */
 
-.hero {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1920 / 900;
-  min-height: 420px;
-  overflow: hidden;
-  background: #0b2d57;
-  isolation: isolate;
+@keyframes kenBurnsLeft {
+    0% {
+        transform: scale(1.06) translate3d(1.5%, 0, 0);
+    }
+
+    100% {
+        transform: scale(1.12) translate3d(-1.5%, 0, 0);
+    }
 }
 
-/* Semua gambar berada pada bidang yang sama */
-.hero-image {
-  position: absolute;
-  inset: 0;
+@keyframes kenBurnsRight {
+    0% {
+        transform: scale(1.06) translate3d(-1.5%, 0, 0);
+    }
 
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transform: scale(1.02);
-
-  transition:
-    opacity 0.8s ease,
-    transform 5s ease,
-    visibility 0s linear 0.8s;
-
-  z-index: 1;
-
-  pointer-events: none;
+    100% {
+        transform: scale(1.12) translate3d(1.5%, 0, 0);
+    }
 }
 
-/* HANYA slide aktif yang terlihat */
+@keyframes kenBurnsUp {
+    0% {
+        transform: scale(1.06) translate3d(0, 1.5%, 0);
+    }
+
+    100% {
+        transform: scale(1.12) translate3d(0, -1.5%, 0);
+    }
+}
+
+@keyframes kenBurnsDown {
+    0% {
+        transform: scale(1.06) translate3d(0, -1.5%, 0);
+    }
+
+    100% {
+        transform: scale(1.12) translate3d(0, 1.5%, 0);
+    }
+}
+
+@keyframes kenBurnsDiagonal {
+    0% {
+        transform: scale(1.06) translate3d(1%, 1%, 0);
+    }
+
+    100% {
+        transform: scale(1.12) translate3d(-1%, -1%, 0);
+    }
+}
+
+/* =========================================================
+   ACTIVE SLIDE
+   ========================================================= */
+
 .hero-image.active {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
 
-  transform: scale(1);
+    animation-duration: 6s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 
-  z-index: 2;
-
-  transition:
-    opacity 0.8s ease,
-    transform 5s ease,
-    visibility 0s linear 0s;
+    transition:
+        opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0s;
 }
 
-/* Overlay tipis */
+/* Variasi gerakan setiap slide */
+.hero-image.active:nth-of-type(1) {
+    animation-name: kenBurnsLeft;
+}
+
+.hero-image.active:nth-of-type(2) {
+    animation-name: kenBurnsRight;
+}
+
+.hero-image.active:nth-of-type(3) {
+    animation-name: kenBurnsUp;
+}
+
+.hero-image.active:nth-of-type(4) {
+    animation-name: kenBurnsDown;
+}
+
+.hero-image.active:nth-of-type(5) {
+    animation-name: kenBurnsDiagonal;
+}
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
 .hero-overlay {
-  position: absolute;
-  inset: 0;
+    position: absolute;
+    inset: 0;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.08),
-    rgba(0, 0, 0, 0.03)
-  );
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.03)
+    );
 
-  z-index: 3;
-
-  pointer-events: none;
+    z-index: 3;
+    pointer-events: none;
 }
 
 /* =========================================================
@@ -76,57 +152,55 @@
    ========================================================= */
 
 .hero-arrow {
-  position: absolute;
-  top: 50%;
+    position: absolute;
+    top: 50%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  width: 52px;
-  height: 52px;
+    width: 52px;
+    height: 52px;
 
-  transform: translateY(-50%);
+    transform: translateY(-50%);
 
-  border: 0;
-  border-radius: 50%;
+    border: 0;
+    border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
 
-  color: #ffffff;
+    font-size: 34px;
+    line-height: 1;
 
-  font-size: 34px;
-  line-height: 1;
+    cursor: pointer;
+    z-index: 10;
 
-  cursor: pointer;
+    backdrop-filter: blur(8px);
 
-  z-index: 10;
-
-  backdrop-filter: blur(8px);
-
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
 .hero-arrow:hover {
-  background: rgba(255, 193, 7, 0.9);
-  color: #0b2d57;
+    background: rgba(255, 193, 7, 0.9);
+    color: #0b2d57;
 
-  transform: translateY(-50%) scale(1.05);
+    transform: translateY(-50%) scale(1.05);
 }
 
 .hero-arrow:focus-visible {
-  outline: 3px solid #ffc107;
-  outline-offset: 3px;
+    outline: 3px solid #ffc107;
+    outline-offset: 3px;
 }
 
 .hero-prev {
-  left: 24px;
+    left: 24px;
 }
 
 .hero-next {
-  right: 24px;
+    right: 24px;
 }
 
 /* =========================================================
@@ -134,53 +208,52 @@
    ========================================================= */
 
 .hero-dots {
-  position: absolute;
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
 
-  left: 50%;
-  bottom: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    gap: 9px;
 
-  gap: 9px;
+    transform: translateX(-50%);
 
-  transform: translateX(-50%);
-
-  z-index: 10;
+    z-index: 10;
 }
 
 .hero-dot {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 
-  padding: 0;
+    padding: 0;
 
-  border: 0;
-  border-radius: 50%;
+    border: 0;
+    border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.55);
 
-  cursor: pointer;
+    cursor: pointer;
 
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
 }
 
 .hero-dot:hover {
-  background: #ffffff;
-  transform: scale(1.15);
+    background: #ffffff;
+    transform: scale(1.15);
 }
 
 .hero-dot.active {
-  background: #ffc107;
-  transform: scale(1.35);
+    background: #ffc107;
+    transform: scale(1.35);
 }
 
 .hero-dot:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 3px;
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
 }
 
 /* =========================================================
@@ -188,23 +261,23 @@
    ========================================================= */
 
 @media (max-width: 1024px) {
-  .hero {
-    min-height: 320px;
-  }
+    .hero {
+        min-height: 320px;
+    }
 
-  .hero-arrow {
-    width: 46px;
-    height: 46px;
-    font-size: 30px;
-  }
+    .hero-arrow {
+        width: 46px;
+        height: 46px;
+        font-size: 30px;
+    }
 
-  .hero-prev {
-    left: 16px;
-  }
+    .hero-prev {
+        left: 16px;
+    }
 
-  .hero-next {
-    right: 16px;
-  }
+    .hero-next {
+        right: 16px;
+    }
 }
 
 /* =========================================================
@@ -212,40 +285,39 @@
    ========================================================= */
 
 @media (max-width: 768px) {
-  .hero {
-    aspect-ratio: 16 / 10;
-    min-height: 220px;
-    max-height: 420px;
-  }
+    .hero {
+        aspect-ratio: 16 / 10;
+        min-height: 220px;
+        max-height: 420px;
+    }
 
-  .hero-image {
-    object-position: center;
-  }
+    .hero-image {
+        object-position: center;
+    }
 
-  .hero-arrow {
-    width: 40px;
-    height: 40px;
+    .hero-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
 
-    font-size: 25px;
-  }
+    .hero-prev {
+        left: 10px;
+    }
 
-  .hero-prev {
-    left: 10px;
-  }
+    .hero-next {
+        right: 10px;
+    }
 
-  .hero-next {
-    right: 10px;
-  }
+    .hero-dots {
+        bottom: 14px;
+        gap: 7px;
+    }
 
-  .hero-dots {
-    bottom: 14px;
-    gap: 7px;
-  }
-
-  .hero-dot {
-    width: 8px;
-    height: 8px;
-  }
+    .hero-dot {
+        width: 8px;
+        height: 8px;
+    }
 }
 
 /* =========================================================
@@ -253,10 +325,11 @@
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-image,
-  .hero-image.active,
-  .hero-arrow,
-  .hero-dot {
-    transition: none;
-  }
+    .hero-image,
+    .hero-image.active,
+    .hero-arrow,
+    .hero-dot {
+        animation: none !important;
+        transition: none !important;
+    }
 }
