@@ -44,16 +44,12 @@ const localHeroes: CmsHero[] = [
 ];
 
 export default function Hero() {
-  // Hero lokal langsung tampil agar GitHub Pages tidak kosong
-  // ketika CMS belum tersedia.
   const [heroes, setHeroes] = useState<CmsHero[]>(localHeroes);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     let mounted = true;
 
-    // Coba ambil Hero dari CMS di background.
-    // Jika gagal, Hero lokal tetap digunakan.
     fetchHeroes()
       .then((data) => {
         if (!mounted) return;
@@ -64,8 +60,8 @@ export default function Hero() {
         }
       })
       .catch((error) => {
-        console.error(
-          "Gagal memuat Hero dari CMS. Menggunakan Hero lokal:",
+        console.warn(
+          "CMS Hero tidak dapat diakses. Menggunakan Hero lokal.",
           error
         );
       });
@@ -76,9 +72,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    if (heroes.length <= 1) {
-      return;
-    }
+    if (heroes.length <= 1) return;
 
     const interval = window.setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroes.length);
@@ -99,20 +93,27 @@ export default function Hero() {
     );
   };
 
+  if (heroes.length === 0) {
+    return null;
+  }
+
+  const activeHero = heroes[current];
+
   return (
     <section className="hero">
-      {heroes.map((hero, index) => (
-        <img
-          key={hero.id}
-          src={hero.image_url ?? ""}
-          alt={`Hero ${index + 1}`}
-          className={`hero-image ${
-            current === index ? "active" : ""
-          }`}
-        />
-      ))}
+      <img
+        key={activeHero.id}
+        src={activeHero.image_url ?? activeHero.image ?? ""}
+        alt="Polda Papua Tengah"
+        className="hero-image active"
+        draggable={false}
+        fetchPriority="high"
+      />
 
-      <div className="hero-overlay" />
+      <div
+        className="hero-overlay"
+        aria-hidden="true"
+      />
 
       {heroes.length > 1 && (
         <>
@@ -134,7 +135,10 @@ export default function Hero() {
             ›
           </button>
 
-          <div className="hero-dots">
+          <div
+            className="hero-dots"
+            aria-label="Navigasi Hero"
+          >
             {heroes.map((hero, index) => (
               <button
                 key={hero.id}
@@ -143,7 +147,10 @@ export default function Hero() {
                   current === index ? "active" : ""
                 }`}
                 onClick={() => setCurrent(index)}
-                aria-label={`Hero ${index + 1}`}
+                aria-label={`Tampilkan Hero ${index + 1}`}
+                aria-current={
+                  current === index ? "true" : undefined
+                }
               />
             ))}
           </div>

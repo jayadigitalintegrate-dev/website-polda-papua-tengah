@@ -20,17 +20,33 @@ const API_URL = API_CONFIG.baseUrl
 
 interface CmsNews {
     id: number;
+
     title: string;
+
     slug: string;
+
     excerpt: string | null;
+
     content: string;
+
     image: string | null;
+
     image_url?: string | null;
+
     document?: string | null;
+
     document_name?: string | null;
+
     document_url?: string | null;
+
     category: string;
+
+    featured?: boolean | number;
+
+    sort_order?: number;
+
     published_at: string | null;
+
     created_at: string;
 }
 
@@ -136,7 +152,22 @@ function mapCmsNews(item: CmsNews): News {
 
         published: true,
 
-        featured: false,
+        /*
+         * Nilai ini sekarang berasal dari CMS.
+         * Sebelumnya selalu false sehingga
+         * Featured dari CMS tidak pernah terbaca React.
+         */
+        featured:
+            item.featured === true ||
+            item.featured === 1,
+
+        /*
+         * Urutan berita berasal dari CMS.
+         */
+        sortOrder:
+            typeof item.sort_order === "number"
+                ? item.sort_order
+                : 0,
 
         breaking: false,
 
@@ -164,10 +195,13 @@ function mapCmsNews(item: CmsNews): News {
             ? [
                   {
                       id: item.id,
+
                       name:
                           item.document_name ??
                           "Dokumen",
+
                       file: documentUrl,
+
                       size: "",
                   },
               ]
@@ -189,8 +223,6 @@ function mapCmsNews(item: CmsNews): News {
 ========================================================== */
 
 export async function fetchNews(): Promise<News[]> {
-    // CMS belum dikonfigurasi.
-    // Biarkan News.tsx menggunakan data lokal.
     if (!API_CONFIG.baseUrl) {
         return [];
     }

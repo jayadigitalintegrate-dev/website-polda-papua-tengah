@@ -10,9 +10,7 @@ function Home() {
         <>
             <Hero />
 
-            <Hero />
-
-        <StatisticsBar />
+            <StatisticsBar />
 
             <QuickAccess />
 
@@ -26,5 +24,3 @@ function Home() {
 }
 
 export default Home;
-
-

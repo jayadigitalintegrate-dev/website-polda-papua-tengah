@@ -2,291 +2,140 @@
    FEATURED NEWS
    MODERN DIGITAL HERO CARD
 ========================================================== */
-
-
 .home-featured-news{
-
     display:grid;
-
     grid-template-columns:58% 42%;
-
     background:#ffffff;
-
     border-radius:28px;
-
     overflow:hidden;
-
     box-shadow:
     0 20px 55px rgba(15,23,42,.12);
-
     transition:.35s ease;
-
 }
-
-
 .home-featured-news:hover{
-
     transform:translateY(-8px);
-
     box-shadow:
     0 30px 70px rgba(15,23,42,.18);
-
 }
-
-
-
 /* ==========================================================
    IMAGE
 ========================================================== */
-
-
 .home-featured-news__image{
-
     position:relative;
-
     height:540px;
-
     overflow:hidden;
-
 }
-
-
 .home-featured-news__image::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:
     linear-gradient(
         180deg,
         transparent 55%,
         rgba(0,0,0,.35)
     );
-
 }
-
-
 .home-featured-news__image img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     transition:.6s ease;
-
 }
-
-
 .home-featured-news:hover
 .home-featured-news__image img{
-
     transform:scale(1.06);
-
 }
-
-
-
 /* ==========================================================
    CATEGORY
 ========================================================== */
-
-
 .home-featured-news__category{
-
     position:absolute;
-
     z-index:2;
-
     top:24px;
-
     left:24px;
-
-
     padding:8px 18px;
-
     border-radius:999px;
-
-
     background:#ffc107;
-
     color:#08284d;
-
-
     font-size:.82rem;
-
     font-weight:800;
-
 }
-
-
-
 /* ==========================================================
    CONTENT
 ========================================================== */
-
-
 .home-featured-news__content{
-
     display:flex;
-
     flex-direction:column;
-
     justify-content:center;
-
     padding:50px;
-
 }
-
-
-
 .home-featured-news__meta{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:12px;
-
-
     color:#64748b;
-
     font-size:.9rem;
-
     margin-bottom:20px;
-
 }
-
-
-
 .home-featured-news__content h2{
-
     margin:0 0 20px;
-
-
     color:#0B2C56;
-
-
     font-size:2.2rem;
-
     line-height:1.35;
-
     font-weight:800;
-
 }
-
-
-
 .home-featured-news__content p{
-
     color:#64748b;
-
     line-height:1.9;
-
     margin-bottom:32px;
-
 }
-
-
-
 /* ==========================================================
    BUTTON
 ========================================================== */
-
-
 .home-featured-news__button{
-
     width:max-content;
-
-
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
-
     padding:15px 30px;
-
-
     border-radius:999px;
-
-
     background:#0B2C56;
-
     color:#ffffff;
-
-
     font-weight:700;
-
     text-decoration:none;
-
-
     transition:.3s ease;
-
 }
-
-
-
 .home-featured-news__button:hover{
-
     background:#ffc107;
-
     color:#0B2C56;
-
 }
-
-
-
 /* ==========================================================
    RESPONSIVE
 ========================================================== */
-
-
 @media(max-width:1100px){
-
     .home-featured-news{
-
         grid-template-columns:1fr;
-
     }
-
-
     .home-featured-news__image{
-
         height:380px;
-
     }
-
 }
-
-
-
 @media(max-width:768px){
-
-
     .home-featured-news__image{
-
         height:280px;
-
     }
-
-
     .home-featured-news__content{
-
         padding:28px;
-
     }
-
-
     .home-featured-news__content h2{
-
         font-size:1.6rem;
-
     }
-
+}
+/* ==========================================================
+   IMAGE FALLBACK / PLACEHOLDER
+   ========================================================== */
+.home-featured-news__placeholder {
+    position: absolute;
+    inset: 0;
 }

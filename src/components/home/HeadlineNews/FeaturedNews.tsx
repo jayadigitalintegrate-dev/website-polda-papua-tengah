@@ -5,115 +5,81 @@ import { useTranslation } from "react-i18next";
 
 import type { News } from "../../../types/news";
 
-
 interface FeaturedNewsProps {
-  news: News;
+    news: News;
 }
-
 
 export default function FeaturedNews({
-  news,
+    news,
 }: FeaturedNewsProps) {
+    const { t } = useTranslation("home");
 
+    return (
+        <article className="home-featured-news">
 
-  const { t } = useTranslation("home");
+            <div className="home-featured-news__image">
 
+                {news.thumbnail ? (
+                    <img
+                        src={news.thumbnail}
+                        alt={news.title}
+                    />
+                ) : (
+                    <div
+                        className="home-featured-news__placeholder"
+                        aria-label="Gambar berita belum tersedia"
+                    >
+                        <span>POLDA PAPUA TENGAH</span>
+                        <strong>Informasi & Berita Resmi</strong>
+                    </div>
+                )}
 
-  return (
+                <span className="home-featured-news__category">
+                    {news.category.name}
+                </span>
 
-    <article className="home-featured-news">
+            </div>
 
+            <div className="home-featured-news__content">
 
-      <div className="home-featured-news__image">
+                <div className="home-featured-news__meta">
 
+                    <span>
+                        {news.author.name}
+                    </span>
 
-        <img
-          src={news.thumbnail || undefined}
-          alt={news.title}
-        />
+                    <span>•</span>
 
+                    <span>
+                        {news.publishedAt}
+                    </span>
 
-        <span className="home-featured-news__category">
+                    <span>•</span>
 
-          {news.category.name}
+                    <span>
+                        {news.views.toLocaleString()}{" "}
+                        {t("headlineNews.views")}
+                    </span>
 
-        </span>
+                </div>
 
+                <h2>
+                    {news.title}
+                </h2>
 
-      </div>
+                <p>
+                    {news.excerpt}
+                </p>
 
+                <Link
+                    to={`/berita/${news.slug}`}
+                    className="home-featured-news__button"
+                >
+                    {t("headlineNews.readMore")} &gt;
+                </Link>
 
+            </div>
 
-
-      <div className="home-featured-news__content">
-
-
-        <div className="home-featured-news__meta">
-
-
-          <span>
-            {news.author.name}
-          </span>
-
-
-          <span>
-            •
-          </span>
-
-
-          <span>
-            {news.publishedAt}
-          </span>
-
-
-          <span>
-            •
-          </span>
-
-
-          <span>
-            {news.views.toLocaleString()} {t("headlineNews.views")}
-          </span>
-
-
-        </div>
-
-
-
-
-        <h2>
-          {news.title}
-        </h2>
-
-
-
-        <p>
-          {news.excerpt}
-        </p>
-
-
-
-
-        <Link
-
-          to={`/berita/${news.slug}`}
-
-          className="home-featured-news__button"
-
-        >
-
-          {t("headlineNews.readMore")} ?
-
-        </Link>
-
-
-
-      </div>
-
-
-    </article>
-
-  );
-
+        </article>
+    );
 }
-

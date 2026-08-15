@@ -6,114 +6,66 @@ import { useTranslation } from "react-i18next";
 
 import "./NewsCard.css";
 
-
 interface NewsCardProps {
-  news: News;
+    news: News;
 }
-
 
 function NewsCard({ news }: NewsCardProps) {
+    const { t } = useTranslation("home");
 
+    return (
+        <article className="home-news-card">
+            <Link
+                to={`/berita/${news.slug}`}
+                className="home-news-card__link"
+            >
+                <div className="home-news-card__thumb">
+                    {news.thumbnail ? (
+                        <img
+                            src={news.thumbnail}
+                            alt={news.title}
+                        />
+                    ) : (
+                        <div
+                            className="home-news-card__placeholder"
+                            aria-label="Gambar berita belum tersedia"
+                        >
+                            <span>POLDA PAPUA TENGAH</span>
+                            <strong>
+                                Informasi &amp; Berita Resmi
+                            </strong>
+                        </div>
+                    )}
 
-  const { t } = useTranslation("home");
+                    <span className="home-news-card__category">
+                        {news.category.name}
+                    </span>
+                </div>
 
+                <div className="home-news-card__info">
+                    <div className="home-news-card__meta">
+                        <small>
+                            {news.publishedAt}
+                        </small>
+                    </div>
 
-  return (
+                    <h4>
+                        {news.title}
+                    </h4>
 
-    <article className="home-news-card">
+                    <p className="home-news-card__excerpt">
+                        {news.excerpt}
+                    </p>
 
-
-      <Link
-
-        to={`/berita/${news.slug}`}
-
-        className="home-news-card__link"
-
-      >
-
-
-        <div className="home-news-card__thumb">
-
-
-          <img
-
-            src={news.thumbnail}
-
-            alt={news.title}
-
-          />
-
-
-
-          <span className="home-news-card__category">
-
-            {news.category.name}
-
-          </span>
-
-
-        </div>
-
-
-
-
-        <div className="home-news-card__info">
-
-
-          <div className="home-news-card__meta">
-
-            <small>
-              {news.publishedAt}
-            </small>
-
-          </div>
-
-
-
-
-          <h4>
-
-            {news.title}
-
-          </h4>
-
-
-
-
-          <p className="home-news-card__excerpt">
-
-            {news.excerpt}
-
-          </p>
-
-
-
-
-          <div className="home-news-card__footer">
-
-
-            <span className="home-news-card__readmore">
-
-              {t("headlineNews.readMore")} &gt;
-
-            </span>
-
-
-          </div>
-
-
-        </div>
-
-
-      </Link>
-
-
-    </article>
-
-  );
-
+                    <div className="home-news-card__footer">
+                        <span className="home-news-card__readmore">
+                            {t("headlineNews.readMore")} &gt;
+                        </span>
+                    </div>
+                </div>
+            </Link>
+        </article>
+    );
 }
 
-
 export default NewsCard;
-
