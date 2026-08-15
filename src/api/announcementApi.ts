@@ -130,6 +130,29 @@ interface CmsAnnouncement {
 /**
  * URL dasar API CMS.
  */
+function getActiveLocalPopups(): Announcement[] {
+    const now = new Date();
+
+    return announcementData
+        .filter((item) => {
+            if (item.status !== "published") {
+                return false;
+            }
+
+            if (item.type !== "popup") {
+                return false;
+            }
+
+            const start = new Date(item.publishStart);
+            const end = new Date(item.publishEnd);
+
+            return start <= now && end >= now;
+        })
+        .sort(
+            (a, b) =>
+                a.sortOrder - b.sortOrder
+        );
+}
 const ANNOUNCEMENT_API_URL =
     API_CONFIG.baseUrl
         ? `${API_CONFIG.baseUrl}/announcements`
@@ -234,7 +257,7 @@ export async function getActivePopupAnnouncements(): Promise<
     Announcement[]
 > {
     if (!ANNOUNCEMENT_API_URL) {
-        return [];
+        return getActiveLocalPopups();
     }
 
     try {
