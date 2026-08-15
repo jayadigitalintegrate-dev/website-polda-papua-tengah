@@ -1,12 +1,13 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { fetchHeroes, type CmsHero } from "../../services/heroApi";
 
-import hero1 from "../../assets/hero/hero-polda-papua-tengah.webp";
-import hero2 from "../../assets/hero/hero-poldapapua-tengah2.webp";
-import hero3 from "../../assets/hero/hero-poldapapua-tengah3.webp";
-import hero4 from "../../assets/hero/hero-poldapapua-tengah4.webp";
-import hero5 from "../../assets/hero/hero-poldapapua-tengah5.webp";
+import hero1 from "../../assets/hero/hero-cms-2.webp";
+import hero2 from "../../assets/hero/hero-cms-3.webp";
+import hero3 from "../../assets/hero/hero-cms-4.webp";
+import hero4 from "../../assets/hero/hero-cms-5.webp";
+import hero5 from "../../assets/hero/hero-cms-6.webp";
+import hero6 from "../../assets/hero/hero-cms-7.webp";
 
 import "./Hero.css";
 
@@ -41,6 +42,12 @@ const localHeroes: CmsHero[] = [
         image_url: hero5,
         sort_order: 5,
     },
+{
+    id: 6,
+    image: hero6,
+    image_url: hero6,
+    sort_order: 6,
+},
 ];
 
 type SlideDirection = "next" | "prev";
