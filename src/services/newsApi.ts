@@ -225,7 +225,7 @@ function mapCmsNews(item: CmsNews): News {
 
 export async function fetchNews(): Promise<News[]> {
     if (!API_CONFIG.baseUrl) {
-        return [];
+        return newsData;
     }
 
     try {
