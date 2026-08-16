@@ -298,3 +298,8 @@
 
 
 }
+
+/* Logo visual enlargement */
+.solid-logo img {
+    transform: scale(1.45);
+}

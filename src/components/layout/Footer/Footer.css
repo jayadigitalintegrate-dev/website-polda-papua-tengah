@@ -515,3 +515,9 @@
 }
 
 }
+
+/* Logo visual enlargement */
+.footer-logo {
+    transform: scale(1.8);
+}
+

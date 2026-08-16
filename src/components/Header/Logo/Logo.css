@@ -38,3 +38,8 @@
     font-size:.78rem;
     letter-spacing:.08em;
 }
+/* Logo visual enlargement */
+.header-logo img {
+    transform: scale(1.45);
+}
+
