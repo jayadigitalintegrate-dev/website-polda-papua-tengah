@@ -18,18 +18,18 @@ export default function ServiceDetail() {
         <Container>
 
           <h1>
-            Layanan Tidak Ditemukan
+            Fitur ini akan segera hadir saat ini dalam tahap pengembangan
           </h1>
 
           <p>
-            Data layanan yang Anda cari tidak tersedia.
+            Fitur ini akan segera hadir saat ini dalam tahap pengembangan
           </p>
 
           <Link
             to="/layanan"
             className="service-detail__back"
           >
-            ?
+            Kembali ke Layanan
           </Link>
 
         </Container>
@@ -256,7 +256,7 @@ export default function ServiceDetail() {
             className="service-detail__back"
             aria-label="Kembali ke daftar layanan"
           >
-            ?
+            Kembali ke Layanan
           </Link>
 
 

@@ -59,11 +59,11 @@ export default function Services() {
           ) : (
             <div className="services-page__empty">
               <h3>
-                Layanan tidak ditemukan
+                Fitur ini akan segera hadir saat ini dalam tahap pengembangan
               </h3>
 
               <p>
-                Coba gunakan kata kunci lain.
+                Silakan kembali lagi nanti untuk melihat layanan yang tersedia.
               </p>
             </div>
           )}
