@@ -1,6 +1,8 @@
 // src/data/officials.ts
 
 import placeholderPhoto from "../assets/officials/placeholder/placeholder.webp";
+import kapoldaPhoto from "../assets/officials/kapolda-jermias-rontini.jpg";
+import wakapoldaPhoto from "../assets/officials/wakapolda-gustav-robbby-urbinas.jpg";
 import type { Official } from "../types/official";
 
 const defaultData = {
@@ -22,10 +24,10 @@ const defaultData = {
 export const officials: Official[] = [
   {
     id: 1,
-    photo: placeholderPhoto,
-    name_id: "",
-    name_en: "",
-    rank: "",
+    photo: kapoldaPhoto,
+    name_id: "Brigjen. Pol. Jermias Rontini, S.I.K., M.Si.",
+    name_en: "Brig. Gen. Pol. Jermias Rontini, S.I.K., M.Si.",
+    rank: "Brigjen. Pol.",
     position_id: "Kapolda Papua Tengah",
     position_en: "Chief of Papua Tengah Regional Police",
     ...defaultData,
@@ -34,10 +36,10 @@ export const officials: Official[] = [
 
   {
     id: 2,
-    photo: placeholderPhoto,
-    name_id: "",
-    name_en: "",
-    rank: "",
+    photo: wakapoldaPhoto,
+    name_id: "Kombes. Pol. Dr. Gustav Robby Urbinas, S.H., S.I.K., M.Pd., M.H.",
+    name_en: "Kombes. Pol. Dr. Gustav Robby Urbinas, S.H., S.I.K., M.Pd., M.H.",
+    rank: "Kombes. Pol.",
     position_id: "Wakapolda Papua Tengah",
     position_en: "Deputy Chief of Papua Tengah Regional Police",
     ...defaultData,
