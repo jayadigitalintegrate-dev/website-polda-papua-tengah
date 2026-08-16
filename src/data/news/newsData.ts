@@ -4,11 +4,56 @@ import berita3 from "../../assets/berita/berita-4.webp";
 import berita4 from "../../assets/berita/berita-4.webp";
 import berita5 from "../../assets/berita/berita-5.webp";
 import berita6 from "../../assets/berita/berita-6.webp";
+import berita17Agustus from "../../assets/berita/17-agustus-2026.jpg";
 
 import type { News } from "../../types/news";
 import { newsCategories } from "./categories";
 
 export const newsData: News[] = [
+  {
+    id: 16,
+    title: "17 AGUSTUS 2026",
+    slug: "17-agustus-2026",
+    excerpt:
+      "Warga diimbau untuk merayakan kemerdekaan secara tertib dan penuh rasa syukur demi memperkuat persatuan bangsa.",
+    content: `
+Perayaan Hari Ulang Tahun (HUT) ke-81 Kemerdekaan Republik Indonesia pada Senin, 17 Agustus 2026, mengusung tema "Indonesia Berdaulat, Adil, dan Makmur".
+
+Puncak acara dipusatkan melalui Upacara Detik-Detik Proklamasi di Istana Merdeka, Jakarta, serta dimeriahkan dengan berbagai pesta rakyat, lomba tradisional, dan hiburan di berbagai daerah.
+`,
+    thumbnail: berita17Agustus,
+    publishedAt: "2026-08-15T08:51:39.000000Z",
+    updatedAt: "2026-08-15T08:51:39.000000Z",
+    views: 0,
+    featured: true,
+    published: true,
+    breaking: false,
+    pinned: true,
+    sortOrder: 1,
+    type: "article",
+    category: newsCategories[1],
+    author: {
+      id: 1,
+      name: "Humas Polda Papua Tengah",
+      photo: "/images/avatar/admin.png",
+      position: "Administrator",
+    },
+    gallery: [],
+    videos: [],
+    attachments: [],
+    tags: ["17 Agustus", "HUT RI", "Kemerdekaan", "Indonesia"],
+    seo: {
+      metaTitle: "17 AGUSTUS 2026",
+      metaDescription:
+        "Peringatan HUT ke-81 Kemerdekaan Republik Indonesia dengan tema Indonesia Berdaulat, Adil, dan Makmur.",
+      keywords: [
+        "17 Agustus 2026",
+        "HUT RI",
+        "Kemerdekaan Indonesia",
+      ],
+    },
+  },
+
   {
     id: 1,
 
