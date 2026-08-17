@@ -115,6 +115,21 @@ export default function OrganizationChart() {
             <div className="org-card">
               <h3>Dit Polairud</h3>
             </div>
+        <div className="org-card">
+          <h3>Dansat Brimob</h3>
+        </div>
+
+        <div className="org-card">
+          <h3>Ka SPN</h3>
+        </div>
+
+        <div className="org-card">
+          <h3>Koorspripim</h3>
+        </div>
+
+        <div className="org-card">
+          <h3>Ka SPKT</h3>
+        </div>
 
           </div>
 
