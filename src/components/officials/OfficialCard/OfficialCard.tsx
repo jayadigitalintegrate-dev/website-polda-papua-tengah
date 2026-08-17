@@ -39,11 +39,13 @@ const OfficialCard = ({
 
       <div className="official-card-image">
 
-        <img
-          src={official.photo}
-          alt={official.name_id}
-          loading="lazy"
-        />
+        {official.photo ? (
+          <img
+            src={official.photo}
+            alt={official.name_id}
+            loading="lazy"
+          />
+        ) : null}
 
       </div>
 
