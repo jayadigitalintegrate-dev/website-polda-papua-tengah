@@ -23,12 +23,14 @@ export default function OfficialProfile({
     <section className="official-profile">
 
 
-      <button
-        className="official-profile-back"
-        onClick={onBack}
-      >
-        ?
-      </button>
+     <button
+  type="button"
+  className="official-profile-back"
+  onClick={onBack}
+  aria-label="Kembali ke daftar pejabat"
+>
+  {"\u2190"} Kembali
+</button>
 
 
 
