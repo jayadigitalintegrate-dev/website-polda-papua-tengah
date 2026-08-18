@@ -31,6 +31,18 @@ const OfficialCard = ({
 
   };
 
+  /*
+   * Posisi pejabat yang belum memiliki data CMS tidak boleh
+   * menggunakan foto placeholder atau foto pejabat lain.
+   *
+   * Jika nama belum tersedia atau foto masih placeholder,
+   * tampilkan frame kosong dengan informasi "Data Belum Terinput".
+   */
+  const hasOfficialData =
+    Boolean(official.name_id?.trim()) &&
+    Boolean(official.photo) &&
+    !official.photo.includes("/placeholder/");
+
 
   return (
 
@@ -39,13 +51,17 @@ const OfficialCard = ({
 
       <div className="official-card-image">
 
-        {official.photo ? (
+        {hasOfficialData ? (
           <img
             src={official.photo}
             alt={official.name_id}
             loading="lazy"
           />
-        ) : null}
+        ) : (
+          <div className="official-card-empty">
+            <span>Data Belum Terinput</span>
+          </div>
+        )}
 
       </div>
 
@@ -105,4 +121,3 @@ const OfficialCard = ({
 
 
 export default OfficialCard;
-
