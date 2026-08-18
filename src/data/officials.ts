@@ -3,6 +3,8 @@
 import placeholderPhoto from "../assets/officials/placeholder/placeholder.webp";
 import kapoldaPhoto from "../assets/officials/kapolda-jermias-rontini.jpg";
 import wakapoldaPhoto from "../assets/officials/wakapolda-gustav-robbby-urbinas.jpg";
+import irwasdaPhoto from "../assets/officials/irwasda.webp";
+import kabidHumasPhoto from "../assets/officials/kabid-humas-made-suartika.jpg";
 import type { Official } from "../types/official";
 
 const defaultData = {
@@ -46,12 +48,12 @@ export const officials: Official[] = [
     order: 2,
   },
 
-  {
+    {
     id: 3,
-    photo: placeholderPhoto,
-    name_id: "",
-    name_en: "",
-    rank: "",
+    photo: irwasdaPhoto,
+    name_id: "Kombes. Pol. Dr. Wahyu Kuncoro, S.I.K., M.H.",
+    name_en: "Kombes. Pol. Dr. Wahyu Kuncoro, S.I.K., M.H.",
+    rank: "Kombes Pol",
     position_id: "Irwasda Polda Papua Tengah",
     position_en: "Inspectorate Supervisor",
     ...defaultData,
@@ -214,12 +216,12 @@ export const officials: Official[] = [
     order: 16,
   },
 
-  {
+    {
     id: 17,
-    photo: placeholderPhoto,
-    name_id: "",
-    name_en: "",
-    rank: "",
+    photo: kabidHumasPhoto,
+    name_id: "AKBP I Made Suartika, S.I.P.",
+    name_en: "AKBP I Made Suartika, S.I.P.",
+    rank: "AKBP",
     position_id: "Kabid Humas Polda Papua Tengah",
     position_en: "Head of Public Relations",
     ...defaultData,
