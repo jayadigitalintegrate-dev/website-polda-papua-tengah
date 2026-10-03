@@ -34,6 +34,8 @@ interface CmsNews {
 
     image_url?: string | null;
 
+    youtube_url?: string | null;
+
     document?: string | null;
 
     document_name?: string | null;
@@ -91,6 +93,41 @@ function getDocumentUrl(
     )}/storage/${document}`;
 }
 
+function getYouTubeId(url?: string | null): string | undefined {
+    if (!url) {
+        return undefined;
+    }
+
+    try {
+        const parsed = new URL(url);
+        const host = parsed.hostname.toLowerCase();
+
+        if (host === "youtu.be" || host === "www.youtu.be") {
+            return parsed.pathname.split("/").filter(Boolean)[0];
+        }
+
+        if (
+            host === "youtube.com" ||
+            host === "www.youtube.com" ||
+            host === "m.youtube.com"
+        ) {
+            if (parsed.pathname === "/watch") {
+                return parsed.searchParams.get("v") ?? undefined;
+            }
+
+            const parts = parsed.pathname.split("/").filter(Boolean);
+
+            if (parts[0] === "shorts" || parts[0] === "embed") {
+                return parts[1] ?? undefined;
+            }
+        }
+    } catch {
+        return undefined;
+    }
+
+    return undefined;
+}
+
 function getCategory(slug: string): NewsCategory {
     const name = slug
         .split("-")
@@ -117,7 +154,7 @@ function getAuthor(): NewsAuthor {
 }
 
 /* ==========================================================
-   MAPPING CMS → NEWS REACT
+   MAPPING CMS Ã¢â€ â€™ NEWS REACT
 ========================================================== */
 
 function mapCmsNews(item: CmsNews): News {
@@ -181,16 +218,30 @@ function mapCmsNews(item: CmsNews): News {
         showDate: true,
 
         views: 0,
-
-        type: "article",
-
         category: getCategory(item.category),
+
+        type: item.category === "video" ? "video" : "article",
 
         author: getAuthor(),
 
         gallery: [],
 
-        videos: [],
+        videos: (() => {
+            const youtubeId = getYouTubeId(item.youtube_url);
+
+            if (!youtubeId) {
+                return [];
+            }
+
+            return [
+                {
+                    id: item.id,
+                    title: item.title,
+                    provider: "youtube" as const,
+                    youtubeId,
+                },
+            ];
+        })(),
 
         attachments: documentUrl
             ? [
