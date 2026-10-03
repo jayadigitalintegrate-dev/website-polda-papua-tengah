@@ -154,7 +154,7 @@ function getAuthor(): NewsAuthor {
 }
 
 /* ==========================================================
-   MAPPING CMS Ã¢â€ â€™ NEWS REACT
+   MAPPING CMS TO NEWS REACT
 ========================================================== */
 
 function mapCmsNews(item: CmsNews): News {
@@ -327,4 +327,3 @@ export async function fetchNewsBySlug(
         ) ?? null
     );
 }
-
