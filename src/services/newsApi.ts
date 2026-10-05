@@ -132,6 +132,17 @@ function getYouTubeId(url?: string | null): string | undefined {
     return undefined;
 }
 
+/*
+ * Fallback thumbnail untuk berita video tanpa gambar sampul di CMS.
+ */
+function getYouTubeThumbnailUrl(url?: string | null): string {
+    const youtubeId = getYouTubeId(url);
+
+    return youtubeId
+        ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+        : "";
+}
+
 function getCategory(slug: string): NewsCategory {
     const name = slug
         .split("-")
@@ -181,10 +192,12 @@ function mapCmsNews(item: CmsNews): News {
 
         content: item.content,
 
-        thumbnail: getImageUrl(
-            item.image,
-            item.image_url
-        ),
+        thumbnail:
+            getImageUrl(
+                item.image,
+                item.image_url
+            ) ||
+            getYouTubeThumbnailUrl(item.youtube_url),
 
         publishedAt: publishedDate,
 
