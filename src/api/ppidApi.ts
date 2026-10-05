@@ -106,6 +106,18 @@ export async function getAllPPIDDocuments(): Promise<PPIDDocument[]> {
     return ppidDocuments;
   }
 
+  /*
+   * CMS tidak dikonfigurasi (mis. GitHub Pages): langsung gunakan
+   * dokumen lokal, tanpa request yang pasti gagal.
+   */
+  if (!API_CONFIG.baseUrl) {
+    const { ppidDocuments } = await import("../data/ppidData");
+
+    return ppidDocuments.filter(
+      (document) => document.status === "published"
+    );
+  }
+
   try {
     const response = await fetch(
       `${API_CONFIG.baseUrl}/ppid-documents`
