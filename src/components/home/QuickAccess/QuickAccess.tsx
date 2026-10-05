@@ -1,6 +1,7 @@
 import "./QuickAccess.css";
 
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import SectionTitle from "../../common/SectionTitle/SectionTitle";
 import QuickAccessCard from "./QuickAccessCard";
@@ -49,9 +50,9 @@ function QuickAccess() {
 
       <div className="quick-action">
 
-        <a
+        <Link
 
-          href="/layanan"
+          to="/layanan"
 
           className="quick-button"
 
@@ -59,7 +60,7 @@ function QuickAccess() {
 
           {t("quickAccess.button")}
 
-        </a>
+        </Link>
 
 
       </div>

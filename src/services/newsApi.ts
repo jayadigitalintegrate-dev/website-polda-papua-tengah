@@ -1,5 +1,9 @@
 import { API_CONFIG } from "../config/api";
 import { newsData } from "../data/news/newsData";
+import {
+    fetchHomepageSnapshot,
+    resolveHomepageMediaUrl,
+} from "./homepageSnapshot";
 
 import type {
     News,
@@ -62,10 +66,10 @@ function getImageUrl(
     imageUrl?: string | null
 ): string {
     if (imageUrl) {
-        return imageUrl;
+        return resolveHomepageMediaUrl(imageUrl) ?? "";
     }
 
-    if (!image) {
+    if (!image || !API_CONFIG.baseUrl) {
         return "";
     }
 
@@ -276,7 +280,18 @@ function mapCmsNews(item: CmsNews): News {
 
 export async function fetchNews(): Promise<News[]> {
     if (!API_CONFIG.baseUrl) {
-        return newsData;
+        try {
+            const snapshot = await fetchHomepageSnapshot();
+            return snapshot.news.map((item) =>
+                mapCmsNews(item as unknown as CmsNews)
+            );
+        } catch (error) {
+            console.warn(
+                "Snapshot CMS homepage tidak tersedia. Menggunakan berita lokal.",
+                error
+            );
+            return newsData;
+        }
     }
 
     try {

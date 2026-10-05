@@ -1,7 +1,11 @@
-﻿import { announcementData } from "../data/announcementData";
+import { announcementData } from "../data/announcementData";
 import type { Announcement } from "../types/announcement";
 
 import { API_CONFIG } from "../config/api";
+import {
+    fetchHomepageSnapshot,
+    resolveHomepageMediaUrl,
+} from "../services/homepageSnapshot";
 
 /**
  * ==========================================================
@@ -166,10 +170,10 @@ function getMediaUrl(
     path: string | null | undefined
 ): string {
     if (url) {
-        return url;
+        return resolveHomepageMediaUrl(url) ?? "";
     }
 
-    if (!path) {
+    if (!path || !API_CONFIG.baseUrl) {
         return "";
     }
 
@@ -256,73 +260,70 @@ function mapCmsAnnouncement(
 export async function getActivePopupAnnouncements(): Promise<
     Announcement[]
 > {
+    let items: CmsAnnouncement[];
+
     if (!ANNOUNCEMENT_API_URL) {
-        return getActiveLocalPopups();
-    }
-
-    try {
-        const response = await fetch(
-            ANNOUNCEMENT_API_URL,
-            {
-                signal: AbortSignal.timeout(
-                    API_CONFIG.timeout
-                ),
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error(
-                `Gagal mengambil pengumuman popup dari CMS. HTTP ${response.status}`
+        try {
+            const snapshot = await fetchHomepageSnapshot();
+            items = snapshot.announcements as unknown as CmsAnnouncement[];
+        } catch (error) {
+            console.warn(
+                "Snapshot CMS homepage tidak tersedia. Menggunakan pengumuman lokal.",
+                error
             );
+            return getActiveLocalPopups();
         }
+    } else {
+        try {
+            const response = await fetch(
+                ANNOUNCEMENT_API_URL,
+                {
+                    signal: AbortSignal.timeout(
+                        API_CONFIG.timeout
+                    ),
+                }
+            );
 
-        const result =
-            await response.json();
+            if (!response.ok) {
+                throw new Error(
+                    "Gagal mengambil pengumuman popup dari CMS. HTTP " + response.status
+                );
+            }
 
-        const items: CmsAnnouncement[] =
-            Array.isArray(result?.value)
+            const result = await response.json();
+
+            items = Array.isArray(result?.value)
                 ? result.value
                 : Array.isArray(result)
                 ? result
                 : [];
-
-        return items
-            .map(mapCmsAnnouncement)
-            .filter(
-                (item) =>
-                    item.status ===
-                        "published" &&
-                    item.type === "popup"
-            )
-            .filter((item) => {
-                const now = new Date();
-
-                const start = new Date(
-                    item.publishStart
-                );
-
-                const end = new Date(
-                    item.publishEnd
-                );
-
-                return (
-                    start <= now &&
-                    end >= now
-                );
-            })
-            .sort(
-                (a, b) =>
-                    Number(b.featured) -
-                        Number(a.featured) ||
-                    a.sortOrder -
-                        b.sortOrder
+        } catch (error) {
+            console.warn(
+                "CMS Announcement Popup tidak dapat diakses.",
+                error
             );
-    } catch (error) {
-        console.warn(
-            "CMS Announcement Popup tidak dapat diakses.",
-            error
-        );
-
-        return [];
+            return [];
+        }
     }
+
+    const now = new Date();
+
+    return items
+        .map(mapCmsAnnouncement)
+        .filter(
+            (item) =>
+                item.status === "published" &&
+                item.type === "popup"
+        )
+        .filter((item) => {
+            const start = new Date(item.publishStart);
+            const end = new Date(item.publishEnd);
+
+            return start <= now && end >= now;
+        })
+        .sort(
+            (a, b) =>
+                Number(b.featured) - Number(a.featured) ||
+                a.sortOrder - b.sortOrder
+        );
 }

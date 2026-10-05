@@ -1,4 +1,8 @@
 import { API_CONFIG } from "../config/api";
+import {
+    fetchHomepageSnapshot,
+    resolveHomepageMediaUrl,
+} from "./homepageSnapshot";
 
 const API_URL = API_CONFIG.baseUrl
     ? `${API_CONFIG.baseUrl}/heroes`
@@ -16,10 +20,10 @@ function getImageUrl(
     imageUrl?: string | null
 ): string {
     if (imageUrl) {
-        return imageUrl;
+        return resolveHomepageMediaUrl(imageUrl) ?? "";
     }
 
-    if (!image) {
+    if (!image || !API_CONFIG.baseUrl) {
         return "";
     }
 
@@ -30,48 +34,46 @@ function getImageUrl(
 }
 
 export async function fetchHeroes(): Promise<CmsHero[]> {
-    // Production GitHub Pages saat VPS CMS belum tersedia.
-    // Kembalikan array kosong agar Hero.tsx menggunakan
-    // localHeroes sebagai fallback.
+    let heroes: CmsHero[];
+
     if (!API_CONFIG.baseUrl) {
-        return [];
-    }
-
-    try {
-        const response = await fetch(API_URL, {
-            signal: AbortSignal.timeout(API_CONFIG.timeout),
-        });
-
-        if (!response.ok) {
-            throw new Error(
-                `Gagal mengambil Hero dari CMS. HTTP ${response.status}`
+        try {
+            const snapshot = await fetchHomepageSnapshot();
+            heroes = snapshot.heroes as unknown as CmsHero[];
+        } catch (error) {
+            console.warn(
+                "Snapshot CMS homepage tidak tersedia. Menggunakan Hero lokal.",
+                error
             );
+            return [];
         }
+    } else {
+        try {
+            const response = await fetch(API_URL, {
+                signal: AbortSignal.timeout(API_CONFIG.timeout),
+            });
 
-        const result = await response.json();
+            if (!response.ok) {
+                throw new Error(
+                    "Gagal mengambil Hero dari CMS. HTTP " + response.status
+                );
+            }
 
-        const heroes: CmsHero[] = Array.isArray(result)
-            ? result
-            : [];
-
-        return heroes
-            .map((hero) => ({
-                ...hero,
-                image_url: getImageUrl(
-                    hero.image,
-                    hero.image_url
-                ),
-            }))
-            .sort(
-                (a, b) =>
-                    a.sort_order - b.sort_order
+            const result = await response.json();
+            heroes = Array.isArray(result) ? result : [];
+        } catch (error) {
+            console.warn(
+                "CMS Hero tidak dapat diakses. Menggunakan Hero lokal.",
+                error
             );
-    } catch (error) {
-        console.warn(
-            "CMS Hero tidak dapat diakses. Menggunakan Hero lokal.",
-            error
-        );
-
-        return [];
+            return [];
+        }
     }
+
+    return heroes
+        .map((hero) => ({
+            ...hero,
+            image_url: getImageUrl(hero.image, hero.image_url),
+        }))
+        .sort((a, b) => a.sort_order - b.sort_order);
 }
