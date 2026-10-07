@@ -20,6 +20,11 @@ export default function GalleryGrid({
           title={item.title}
           category={item.category}
           date={item.date}
+          photoCount={
+            item.isCollection
+              ? item.images.length
+              : undefined
+          }
           onClick={() => onSelect(item)}
         />
       ))}

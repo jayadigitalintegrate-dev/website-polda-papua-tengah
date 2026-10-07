@@ -1,21 +1,23 @@
-import type { GalleryItem } from "../types/gallery";
+import type { GalleryData, GalleryItem } from "../types/gallery";
 import { galleryRepository } from "../repositories/galleryRepository";
 
 export const galleryService = {
-  getAll(): GalleryItem[] {
-    return galleryRepository.getAll();
+  /** Satu fetch: kategori + seluruh item Galeri. */
+  getGallery(): Promise<GalleryData> {
+    return galleryRepository.getGallery();
   },
 
-  getFeatured(): GalleryItem[] {
-    return galleryRepository.getFeatured();
-  },
+  /** Filter lokal berdasarkan gallery_category_id (null = Semua). */
+  filterByCategory(
+    items: GalleryItem[],
+    categoryId: number | null
+  ): GalleryItem[] {
+    if (categoryId === null) {
+      return items;
+    }
 
-  getByCategory(category: string): GalleryItem[] {
-    return galleryRepository.getByCategory(category);
-  },
-
-  getBySlug(slug: string): GalleryItem | undefined {
-    return galleryRepository.getBySlug(slug);
+    return items.filter(
+      (item) => item.categoryId === categoryId
+    );
   },
 };
-

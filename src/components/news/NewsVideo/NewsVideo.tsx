@@ -90,7 +90,8 @@ export default function NewsVideo() {
           <iframe
             src={`https://www.youtube.com/embed/${youtubeVideo.youtubeId}`}
             title={activeVideo.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           />
 

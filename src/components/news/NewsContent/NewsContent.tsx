@@ -11,6 +11,12 @@ interface NewsContentProps {
 export default function NewsContent({
   news,
 }: NewsContentProps) {
+  // Pecah per baris kosong/baris baru agar paragraf dari CMS tetap terpisah.
+  const paragraphs = (news.content ?? "")
+    .split(/\r?\n+/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
   return (
     <article className="news-content">
 
@@ -63,36 +69,18 @@ export default function NewsContent({
           ARTICLE
       ============================================ */}
 
-      <div className="news-content__body">
+      {/* Isi berita berasal sepenuhnya dari CMS. */}
+      {paragraphs.length > 0 && (
 
-        <p>{news.content}</p>
+        <div className="news-content__body">
 
-        <p>
-          Polda Papua Tengah terus berkomitmen memberikan
-          pelayanan terbaik kepada masyarakat melalui
-          peningkatan profesionalisme personel serta
-          pelaksanaan tugas kepolisian yang Presisi.
-        </p>
+          {paragraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
 
-        <p>
-          Kegiatan ini merupakan bagian dari upaya menjaga
-          situasi keamanan dan ketertiban masyarakat agar
-          tetap aman, nyaman, dan kondusif di seluruh wilayah
-          hukum Polda Papua Tengah.
-        </p>
+        </div>
 
-      </div>
-
-      {/* ===========================================
-          QUOTE
-      ============================================ */}
-
-      <blockquote className="news-content__quote">
-
-        "Polri Presisi hadir untuk memberikan rasa aman,
-        pelayanan terbaik, dan kepercayaan masyarakat."
-
-      </blockquote>
+      )}
 
       {/* ===========================================
           GALLERY
@@ -149,6 +137,8 @@ export default function NewsContent({
               <iframe
                 src={`https://www.youtube.com/embed/${video.youtubeId}`}
                 title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               />
 

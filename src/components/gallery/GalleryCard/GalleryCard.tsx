@@ -5,6 +5,8 @@ interface GalleryCardProps {
   title: string;
   category: string;
   date: string;
+  /** Jumlah foto bila item adalah koleksi Galeri Dokumentasi. */
+  photoCount?: number;
   onClick: () => void;
 }
 
@@ -14,6 +16,7 @@ export default function GalleryCard({
   title,
   category,
   date,
+  photoCount,
   onClick,
 }: GalleryCardProps) {
 
@@ -30,6 +33,12 @@ export default function GalleryCard({
           src={image}
           alt={title}
         />
+
+        {photoCount !== undefined && (
+          <span className="gallery-card__count">
+            {photoCount} Foto
+          </span>
+        )}
 
       </div>
 

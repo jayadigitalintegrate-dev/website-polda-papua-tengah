@@ -121,7 +121,11 @@ function getYouTubeId(url?: string | null): string | undefined {
 
             const parts = parsed.pathname.split("/").filter(Boolean);
 
-            if (parts[0] === "shorts" || parts[0] === "embed") {
+            if (
+                parts[0] === "shorts" ||
+                parts[0] === "embed" ||
+                parts[0] === "live"
+            ) {
                 return parts[1] ?? undefined;
             }
         }
@@ -291,7 +295,24 @@ function mapCmsNews(item: CmsNews): News {
    FETCH NEWS
 ========================================================== */
 
-export async function fetchNews(): Promise<News[]> {
+/*
+ * Deduplikasi request yang sedang berjalan: pemanggilan fetchNews()
+ * bersamaan berbagi satu Promise. Bukan cache — referensi dibersihkan
+ * setelah request selesai/gagal.
+ */
+let inFlightNews: Promise<News[]> | null = null;
+
+export function fetchNews(): Promise<News[]> {
+    if (!inFlightNews) {
+        inFlightNews = loadNews().finally(() => {
+            inFlightNews = null;
+        });
+    }
+
+    return inFlightNews;
+}
+
+async function loadNews(): Promise<News[]> {
     if (!API_CONFIG.baseUrl) {
         try {
             const snapshot = await fetchHomepageSnapshot();

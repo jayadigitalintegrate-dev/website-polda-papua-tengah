@@ -146,6 +146,25 @@ export default function GalleryLightbox({
           <span>{item.category}</span>
 
           <p>{item.date}</p>
+
+          {/* Media Center: deskripsi + isi berita dari CMS (teks biasa, di-escape React) */}
+          {item.kind === "media_center" && (
+            <div className="gallery-lightbox__editorial">
+              {item.description && (
+                <p className="gallery-lightbox__description">
+                  {item.description}
+                </p>
+              )}
+
+              {item.content
+                .split(/\r?\n+/)
+                .map((paragraph) => paragraph.trim())
+                .filter(Boolean)
+                .map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

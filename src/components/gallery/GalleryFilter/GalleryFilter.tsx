@@ -1,40 +1,35 @@
 import "./GalleryFilter.css";
 
+import type { GalleryCategory } from "../../../types/gallery";
+
 
 interface GalleryFilterProps {
 
-  selectedCategory:string;
+  categories: GalleryCategory[];
+
+  /** null = Semua */
+  selectedCategoryId: number | null;
 
   onSelectCategory:
-  (category:string)=>void;
+  (categoryId: number | null) => void;
 
 }
 
 
-const categories = [
-
-  "Semua",
-
-  "Kegiatan Pimpinan",
-
-  "Pelayanan Publik",
-
-  "Operasional",
-
-  "Sosial",
-
-  "Event",
-
-];
-
-
 export default function GalleryFilter({
 
-  selectedCategory,
+  categories,
+
+  selectedCategoryId,
 
   onSelectCategory,
 
-}:GalleryFilterProps){
+}: GalleryFilterProps){
+
+  const options = [
+    { id: null, name: "Semua" },
+    ...categories,
+  ];
 
 
   return (
@@ -43,19 +38,19 @@ export default function GalleryFilter({
 
       {
 
-        categories.map((item)=>(
+        options.map((item)=>(
 
           <button
 
-            key={item}
+            key={item.id ?? "semua"}
 
             onClick={()=>
-              onSelectCategory(item)
+              onSelectCategory(item.id)
             }
 
             className={
 
-              selectedCategory === item
+              selectedCategoryId === item.id
 
               ?
 
@@ -69,7 +64,7 @@ export default function GalleryFilter({
 
           >
 
-            {item}
+            {item.name}
 
           </button>
 
@@ -83,4 +78,3 @@ export default function GalleryFilter({
   );
 
 }
-
