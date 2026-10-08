@@ -353,11 +353,22 @@ async function loadNews(): Promise<News[]> {
         return cmsNews.map(mapCmsNews);
     } catch (error) {
         console.warn(
-            "CMS News tidak dapat diakses. Menggunakan berita lokal.",
+            "CMS News tidak dapat diakses. Mencoba snapshot homepage.",
             error
         );
 
-        return newsData;
+        try {
+            const snapshot = await fetchHomepageSnapshot();
+            return snapshot.news.map((item) =>
+                mapCmsNews(item as unknown as CmsNews)
+            );
+        } catch (snapshotError) {
+            console.warn(
+                "Snapshot CMS homepage tidak tersedia. Menggunakan berita lokal.",
+                snapshotError
+            );
+            return newsData;
+        }
     }
 }
 

@@ -38,5 +38,5 @@ export interface GalleryCategory {
 export interface GalleryData {
   categories: GalleryCategory[];
   items: GalleryItem[];
-  source: "cms" | "fallback";
+  source: "cms" | "snapshot" | "fallback";
 }

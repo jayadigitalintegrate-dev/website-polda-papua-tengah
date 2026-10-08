@@ -19,6 +19,11 @@ const menuItems = [
   {
     label: "Profil",
     path: "/profil",
+    end: true,
+  },
+  {
+    label: "Jajaran Polres",
+    path: "/profil/polres",
   },
   {
     label: "Pejabat",

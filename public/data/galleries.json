@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "exported_at": "2026-10-08T09:18:39.965Z",
+  "categories": [
+    {
+      "id": 1,
+      "name": "Kegiatan Pimpinan",
+      "slug": "kegiatan-pimpinan",
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "Pelayanan Publik",
+      "slug": "pelayanan-publik",
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "name": "Operasional",
+      "slug": "operasional",
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "name": "Sosial",
+      "slug": "sosial",
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "name": "Event",
+      "slug": "event",
+      "sort_order": 5
+    },
+    {
+      "id": 6,
+      "name": "Galeri Dokumentasi",
+      "slug": "galeri-dokumentasi",
+      "sort_order": 6
+    },
+    {
+      "id": 7,
+      "name": "Media Center",
+      "slug": "media-center",
+      "sort_order": 7
+    }
+  ],
+  "data": [
+    {
+      "id": 11,
+      "title": "Polda Papua Tengah tingkatkan pelayanan publik kawal pembangunan",
+      "slug": "polda-papua-tengah-tingkatkan-pelayanan-publik-kawal-pembangunan",
+      "description": "Nabire (ANTARA) - Kepolisian Daerah Papua Tengah berkomitmen meningkatkan kualitas pelayanan publik sekaligus memperkuat sinergi dengan pemerintah daerah untuk mengawal pembangunan agar berjalan aman, tertib, dan memberikan manfaat bagi masyarakat.\r\n\r\nKapolda Papua Tengah Brigjen Pol. Jeremias Rontini di Nabire, Rabu, mengatakan HUT ke-80 Bhayangkara menjadi komitmen moral bagi seluruh personel untuk menghadirkan pelayanan, perlindungan, pengayoman, dan penegakan hukum yang semakin dirasakan manfaatnya oleh masyarakat.\r\n\r\n\"Kehadiran Polri harus benar-benar dirasakan manfaatnya oleh masyarakat, menjadi solusi atas setiap persoalan, serta menjadi mitra yang humanis, profesional, dan terpercaya,\" katanya.\r\n\r\nIa menjelaskan, Polda Papua Tengah terus melakukan pembenahan melalui peningkatan kualitas pelayanan publik, penguatan profesionalisme sumber daya manusia, pemanfaatan teknologi dalam pelayanan kepolisian, serta membangun budaya kerja yang berintegritas dan bebas dari penyimpangan.\r\n\r\nMenurut dia, meningkatnya kepercayaan masyarakat terhadap Polri harus dijadikan motivasi bagi seluruh personel untuk terus menjaga integritas dan meningkatkan kualitas pelayanan kepada masyarakat.\r\n\r\nRontini  mengapresiasi pemerintah daerah, TNI, Forkopimda, tokoh adat, tokoh agama, tokoh masyarakat, dunia usaha, media massa, dan seluruh elemen masyarakat yang selama ini bersinergi menjaga keamanan dan ketertiban di Papua Tengah.\r\n\r\nMenurut dia, kolaborasi tersebut akan terus diperkuat untuk mendukung berbagai program pembangunan yang dijalankan Pemerintah Provinsi Papua Tengah.\r\n\r\n\"Polri siap mengawal setiap program pembangunan agar berjalan aman, tertib, transparan, dan memberikan manfaat sebesar-besarnya bagi kesejahteraan masyarakat Papua Tengah,\" ujarnya.\r\n\r\nIa juga mengingatkan seluruh personel Polda Papua Tengah agar terus menjaga kehormatan institusi, meningkatkan disiplin, loyalitas, dan profesionalisme, serta mengedepankan pendekatan humanis dalam menjalankan tugas sebagai pelindung, pengayom, dan pelayan masyarakat.\r\n\r\nMenurut Kapolda, momentum HUT ke-80 Bhayangkara menjadi dorongan bagi seluruh anggota Polri untuk semakin dekat dengan masyarakat, memperkuat semangat pengabdian, serta menjaga persatuan dan kesatuan di Papua Tengah.\r\n\r\nSementara itu, Gubernur Papua Tengah Meki Nawipa mengatakan stabilitas keamanan merupakan prasyarat utama bagi penyelenggaraan pemerintahan, pelayanan publik, pelaksanaan pembangunan, serta peningkatan kesejahteraan masyarakat di Papua Tengah.\r\n\r\nKarena itu, sinergi antara pemerintah daerah, Polri, TNI, pemerintah kabupaten, tokoh agama, tokoh adat, tokoh masyarakat, dan seluruh komponen masyarakat harus terus diperkuat.\r\n\r\nPemprov Papua Tengah mengapresiasi dedikasi jajaran Polda Papua Tengah dalam menjaga keamanan dan ketertiban daerah.\r\n\r\nIa berharap momentum Hari Bhayangkara semakin memperkuat semangat seluruh anggota Polri untuk memberikan pelayanan yang cepat, adil, dan sesuai kebutuhan masyarakat.\r\n\r\nPemerintah provinsi juga berkomitmen terus membangun kerja sama dengan Polda Papua Tengah dan seluruh unsur Forkopimda guna mendukung penyelenggaraan pemerintahan, menjaga stabilitas daerah, menyelesaikan persoalan sosial, serta mempercepat pembangunan di seluruh wilayah Papua Tengah.",
+      "content": null,
+      "image": "gallery/EOO4rKexyoLkar8RTedkSU7ZztptaUOgRSvP1C4j.jpg",
+      "image_url": "cms-media/dfa2691b85b7798c0ea2df70f7711715b53ab48ca87f45206cec0bdd94828193.jpg",
+      "gallery_category_id": 2,
+      "category_id": 2,
+      "category": {
+        "id": 2,
+        "name": "Pelayanan Publik",
+        "slug": "pelayanan-publik"
+      },
+      "taken_at": "2026-10-07",
+      "date": "2026-10-07",
+      "featured": true,
+      "sort_order": 1,
+      "status": "published",
+      "created_at": "2026-10-06T23:56:27.000000Z",
+      "type": "single",
+      "is_collection": false,
+      "images_count": 0,
+      "images": []
+    },
+    {
+      "id": 28,
+      "title": "SELAMAT DILANTIKNYA KAPOLRI REPUBLIK INDONESIA",
+      "slug": "selamat-dilantiknya-kapolri-republik-indonesia",
+      "description": "Presiden Prabowo Subianto resmi melantik Jenderal Polisi Suyudi Ario Seto sebagai Kepala Kepolisian Negara Republik Indonesia (Kapolri) yang baru. Pelantikan tersebut dilaksanakan di Istana Negara, Jakarta, pada Kamis, 1 Oktober 2026, berdasarkan Keputusan Presiden (Keppres).",
+      "content": "Detail Pelantikan dan Pejabat Terkait\n• Kapolri Baru: Jenderal Pol. Suyudi Ario Seto (menggantikan Jenderal Pol. Listyo Sigit Prabowo).\n• Wakapolri Baru: Komjen Pol. Wahyu Hadiningrat (dilantik bersamaan dengan Kapolri).\n• Latar Belakang Suyudi Ario Seto: Mantan Kepala Badan Narkotika Nasional (BNN) serta lulusan Akademi Kepolisian (Akpol) angkatan 1994 yang berpengalaman di bidang reserse dan kriminal.",
+      "image": "gallery/media-center/v7nmSXCdMNRISxSbcIcIYhHmijTbTRoZ9eC5IvHr.png",
+      "image_url": "cms-media/1c863b98a60cd51645e298e1cec3f76a2344b9bb5d35ac29789f2dbca98999b4.png",
+      "gallery_category_id": 7,
+      "category_id": 7,
+      "category": {
+        "id": 7,
+        "name": "Media Center",
+        "slug": "media-center"
+      },
+      "taken_at": "2026-10-07",
+      "date": "2026-10-07",
+      "featured": false,
+      "sort_order": 1,
+      "status": "published",
+      "created_at": "2026-10-07T02:54:27.000000Z",
+      "type": "media_center",
+      "is_collection": true,
+      "images_count": 1,
+      "images": [
+        {
+          "id": 35,
+          "image": "gallery/media-center/v7nmSXCdMNRISxSbcIcIYhHmijTbTRoZ9eC5IvHr.png",
+          "image_url": "cms-media/1c863b98a60cd51645e298e1cec3f76a2344b9bb5d35ac29789f2dbca98999b4.png",
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bakti Sosial HUT Bhayangkara ke-80 (Juni 2026)",
+      "slug": "bakti-sosial-hut-bhayangkara-ke-80-juni-2026",
+      "description": "TIMIKA, (taparemimika.com)  – Dalam rangka menyambut Hari Ulang Tahun (HUT) Bhayangkara ke-80 Tahun 2026, Polda Papua Tengah menggelar berbagai aksi sosial dan kemanusiaan sebagai bentuk nyata pengabdian Polri kepada masyarakat. Kegiatan tersebut meliputi bantuan sosial, bakti religi, bedah rumah, gerakan peduli lingkungan hingga penyediaan fasilitas air bersih bagi warga yang membutuhkan.\r\n\r\nProgram yang mengusung semangat, “80 Tahun Mengabdi untuk Masyarakat” ini tidak hanya menjadi rangkaian peringatan hari jadi Polri, tetapi juga wujud kehadiran negara melalui institusi kepolisian di tengah masyarakat, khususnya bagi kelompok rentan dan masyarakat yang membutuhkan perhatian.\r\n\r\nKoordinator Seksi Bakti Sosial Kombes Pol. S. Kunto Hartono, menjelaskan bahwa kegiatan sosial tersebut dirancang agar tepat sasaran dan memberikan manfaat langsung bagi masyarakat.\r\n\r\n“Momentum HUT Bhayangkara ke-80 bukan sekadar perayaan, tetapi menjadi kesempatan bagi Polri untuk semakin dekat dan hadir membantu masyarakat. Kami ingin menunjukkan bahwa Polri tidak hanya menjalankan tugas menjaga keamanan, tetapi juga memiliki kepedulian sosial yang kuat,” ungkap Kunto yang juga menjabat Direktur Lalu Lintas Polda Papua Tengah, Kamis (18/6/2026).\r\n\r\nSalah satu kegiatan utama adalah penyaluran bantuan sosial paket sembako kepada 250 penerima yang terdiri dari pengemudi angkutan umum, sopir truk, ojek pangkalan, kurir, buruh harian, penghuni panti sosial, panti asuhan, panti jompo, serta masyarakat di kawasan padat penduduk dan pesisir. Program ini bertujuan memperkuat semangat gotong royong serta meringankan beban ekonomi masyarakat.\r\n\r\nSelain itu, Polda Papua Tengah juga melaksanakan bakti religi melalui kegiatan pembersihan dan perbaikan, di tempat-tempat ibadah. Sasaran kegiatan meliputi satu gereja, satu masjid, satu pura, dan satu vihara sebagai simbol penghormatan terhadap nilai-nilai toleransi dan kerukunan antarumat beragama.\r\n\r\nDi bidang kesejahteraan masyarakat, Polda Papua Tengah menyiapkan program bedah rumah tidak layak huni serta mengalami kesulitan ekonomi. Program ini menjadi bentuk kepedulian terhadap harkat dan martabat masyarakat agar dapat menikmati hunian yang lebih layak dan aman.\r\n\r\nKepedulian terhadap lingkungan juga diwujudkan melalui Gerakan Indonesia Asri, yang meliputi aksi kebersihan lingkungan, pengelolaan dan pemilahan sampah, serta penanaman pohon. Kegiatan ini menjadi bagian dari komitmen Polri dalam menjaga kelestarian lingkungan sebagai warisan bagi generasi mendatang.\r\n\r\nSementara itu, untuk membantu masyarakat yang mengalami kesulitan mendapatkan akses air bersih, Polda Papua Tengah akan membangun dan menyiapkan fasilitas air bersih di dua lokasi prioritas. Program tersebut mencakup pembangunan sumur bor, pengelolaan mata air, penyediaan pipa, tandon, pompa air, hingga distribusi air bersih kepada masyarakat di daerah yang rawan kekeringan.\r\n\r\nMelalui rangkaian aksi sosial ini, Polda Papua Tengah berharap semangat HUT Bhayangkara ke-80 tidak hanya dirasakan sebagai perayaan institusi, tetapi juga menjadi momentum mempererat hubungan antara Polri dan masyarakat.\r\n\r\n“Polri untuk Masyarakat bukan hanya slogan. Melalui kegiatan sosial ini kami ingin hadir, membantu, dan memberikan manfaat nyata bagi masyarakat Papua Tengah,” tegasnya.\r\n\r\nKunto mengatakan, Kapolda Papua Tengah Brigjen Pol. Jermias Rontini berpesan agar seluruh rangkaian kegiatan HUT Bhayangkara ke-80 menjadi momentum bagi setiap anggota Polri untuk berbagi kasih dan menebarkan manfaat kepada masyarakat.\r\n\r\n“Bapak Kapolda selalu menekankan bahwa kehadiran polisi harus dapat dirasakan langsung oleh masyarakat. Melalui kegiatan bakti sosial ini, anggota Polri diajak untuk berbagi kasih, membantu warga yang membutuhkan, serta mempererat hubungan kekeluargaan dengan masyarakat. Inilah wujud nyata bahwa Polri hadir tidak hanya sebagai penjaga keamanan, tetapi juga sebagai sahabat dan pelayan masyarakat,” kata Kunto. (tm1)",
+      "content": null,
+      "image": "gallery/Vk9WnO5wHPsw80JWMvHx3OsoUtpyd09Nnn3Gepnm.png",
+      "image_url": "cms-media/6e126a98095b23eb7ee8bd2411a826efdbb0ef4a911e8105f0020933c4e73125.png",
+      "gallery_category_id": 4,
+      "category_id": 4,
+      "category": {
+        "id": 4,
+        "name": "Sosial",
+        "slug": "sosial"
+      },
+      "taken_at": "2026-06-18",
+      "date": "2026-06-18",
+      "featured": false,
+      "sort_order": 1,
+      "status": "published",
+      "created_at": "2026-10-06T10:37:03.000000Z",
+      "type": "single",
+      "is_collection": false,
+      "images_count": 0,
+      "images": []
+    },
+    {
+      "id": 12,
+      "title": "Polda Papua Tengah percepat operasional dapur SPPG 3T di Topo, Nabire",
+      "slug": "polda-papua-tengah-percepat-operasional-dapur-sppg-3t-di-topo-nabire",
+      "description": "Polda Papua Tengah percepat operasional dapur SPPG 3T di Topo, Nabire",
+      "content": null,
+      "image": "gallery/DtrpiLgXVikoLUlvDAeDHBzmp0dzmt2UmFOd317l.jpg",
+      "image_url": "cms-media/672512bb37ae6394de2e6d781b09622a1b1b48d88857fa2c8dfc04e71cf6aff9.jpg",
+      "gallery_category_id": 3,
+      "category_id": 3,
+      "category": {
+        "id": 3,
+        "name": "Operasional",
+        "slug": "operasional"
+      },
+      "taken_at": "2026-10-07",
+      "date": "2026-10-07",
+      "featured": false,
+      "sort_order": 3,
+      "status": "published",
+      "created_at": "2026-10-06T23:58:33.000000Z",
+      "type": "single",
+      "is_collection": false,
+      "images_count": 0,
+      "images": []
+    },
+    {
+      "id": 13,
+      "title": "Polda Papua Tengah Akan Gelar Lomba Balap Perahu, Total Hadiah Rp50 Juta,",
+      "slug": "polda-papua-tengah-akan-gelar-lomba-balap-perahu-total-hadiah-rp50-juta",
+      "description": "Polda Papua Tengah Akan Gelar Lomba Balap Perahu, Total Hadiah Rp50 Juta,",
+      "content": null,
+      "image": "gallery/5UaQTR1GU6JyL10CQfudLwNsv5GA8dlpequ6ixVX.webp",
+      "image_url": "cms-media/548b788e479299550948812532c227917eacabc93a28c65a30599fe32f5c90fd.webp",
+      "gallery_category_id": 5,
+      "category_id": 5,
+      "category": {
+        "id": 5,
+        "name": "Event",
+        "slug": "event"
+      },
+      "taken_at": "2026-10-07",
+      "date": "2026-10-07",
+      "featured": false,
+      "sort_order": 4,
+      "status": "published",
+      "created_at": "2026-10-07T00:01:06.000000Z",
+      "type": "single",
+      "is_collection": false,
+      "images_count": 0,
+      "images": []
+    },
+    {
+      "id": 21,
+      "title": "SERBA SERBI KEGIATAN",
+      "slug": "serba-serbi-kegiatan",
+      "description": "SERBA SERBI KEGIATAN",
+      "content": null,
+      "image": "gallery/dokumentasi/QgoSzzlQqTUi4U5NO52xBLD4EtqX1wfLatcsjvQy.webp",
+      "image_url": "cms-media/548b788e479299550948812532c227917eacabc93a28c65a30599fe32f5c90fd.webp",
+      "gallery_category_id": 6,
+      "category_id": 6,
+      "category": {
+        "id": 6,
+        "name": "Galeri Dokumentasi",
+        "slug": "galeri-dokumentasi"
+      },
+      "taken_at": "2026-10-07",
+      "date": "2026-10-07",
+      "featured": false,
+      "sort_order": 5,
+      "status": "published",
+      "created_at": "2026-10-07T01:25:04.000000Z",
+      "type": "documentation",
+      "is_collection": true,
+      "images_count": 5,
+      "images": [
+        {
+          "id": 20,
+          "image": "gallery/dokumentasi/QgoSzzlQqTUi4U5NO52xBLD4EtqX1wfLatcsjvQy.webp",
+          "image_url": "cms-media/548b788e479299550948812532c227917eacabc93a28c65a30599fe32f5c90fd.webp",
+          "sort_order": 1
+        },
+        {
+          "id": 21,
+          "image": "gallery/dokumentasi/SVLLuRaJkplphGYfd1Udf2sBRmN0f5t7VWCshNvm.jpg",
+          "image_url": "cms-media/672512bb37ae6394de2e6d781b09622a1b1b48d88857fa2c8dfc04e71cf6aff9.jpg",
+          "sort_order": 2
+        },
+        {
+          "id": 22,
+          "image": "gallery/dokumentasi/8m8FPn35u6192uSIrRwNBQIVZexPNbGra4WNlJIy.jpg",
+          "image_url": "cms-media/dfa2691b85b7798c0ea2df70f7711715b53ab48ca87f45206cec0bdd94828193.jpg",
+          "sort_order": 3
+        },
+        {
+          "id": 23,
+          "image": "gallery/dokumentasi/ow4OcSsLvIYXpAqn0arJnguGBiaJzvJruHW0Ctar.jpg",
+          "image_url": "cms-media/4cc11140db2f0f82d8b4714ea017f68d48481f26735d1e25915e9e7e0fc0dd2f.jpg",
+          "sort_order": 4
+        },
+        {
+          "id": 24,
+          "image": "gallery/dokumentasi/qfQwkfGGZLp3AsTo8nLE22s0Dfoq8Gk9vZlAjb7t.jpg",
+          "image_url": "cms-media/6db68b18a82323fc00b96d4b56397cdb4d5ba3ee73b2693b83bf30883c6f4435.jpg",
+          "sort_order": 5
+        }
+      ]
+    }
+  ]
+}

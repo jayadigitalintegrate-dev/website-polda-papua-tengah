@@ -10,6 +10,8 @@ import type {
   GalleryKind,
 } from "../types/gallery";
 
+import { resolveHomepageMediaUrl } from "../services/homepageSnapshot";
+
 /* ==========================================================
    CMS API
 ========================================================== */
@@ -71,7 +73,7 @@ function getImageUrl(item: {
   image_url?: string | null;
 }): string {
   if (item.image_url) {
-    return item.image_url;
+    return resolveHomepageMediaUrl(item.image_url) ?? "";
   }
 
   if (!item.image) {
@@ -155,6 +157,65 @@ function toKind(item: CmsGalleryItem): GalleryKind {
   return item.is_collection ? "documentation" : "single";
 }
 
+function mapGalleryResponse(
+  result: CmsGalleryResponse,
+  source: "cms" | "snapshot"
+): GalleryData {
+  if (
+    !Array.isArray(result?.categories) ||
+    !Array.isArray(result?.data)
+  ) {
+    throw new Error("Format response Galeri tidak valid.");
+  }
+
+  const categories: GalleryCategory[] =
+    result.categories.map((category) => ({
+      id: category.id,
+      name: category.name,
+      slug: category.slug,
+    }));
+
+  const categoriesById = new Map(
+    categories.map((category) => [
+      category.id,
+      category,
+    ])
+  );
+
+  return {
+    categories,
+    items: result.data.map((item) =>
+      mapCmsGallery(item, categoriesById)
+    ),
+    source,
+  };
+}
+
+async function loadGallerySnapshot(): Promise<GalleryData> {
+  const response = await fetch(
+    import.meta.env.BASE_URL + "data/galleries.json",
+    {
+      cache: "no-cache",
+      signal: AbortSignal.timeout(API_CONFIG.timeout),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      "Gagal mengambil snapshot Galeri. HTTP " +
+        response.status
+    );
+  }
+
+  const result =
+    (await response.json()) as CmsGalleryResponse;
+
+  return mapGalleryResponse(
+    result,
+    "snapshot"
+  );
+}
+
 function getFallbackGallery(): GalleryData {
   return {
     categories: galleryCategoriesFallback,
@@ -186,7 +247,16 @@ export function fetchGallery(): Promise<GalleryData> {
 
 async function loadGallery(): Promise<GalleryData> {
   if (!API_URL) {
-    return getFallbackGallery();
+    try {
+      return await loadGallerySnapshot();
+    } catch (error) {
+      console.warn(
+        "Snapshot Galeri tidak tersedia. Menggunakan Galeri lokal.",
+        error
+      );
+
+      return getFallbackGallery();
+    }
   }
 
   try {
@@ -203,42 +273,27 @@ async function loadGallery(): Promise<GalleryData> {
     }
 
     const result =
-      (await response.json()) as Partial<CmsGalleryResponse>;
+      (await response.json()) as CmsGalleryResponse;
 
-    if (
-      !Array.isArray(result?.categories) ||
-      !Array.isArray(result?.data)
-    ) {
-      throw new Error("Format response Galeri CMS tidak valid.");
-    }
-
-    const categories: GalleryCategory[] =
-      result.categories.map((category) => ({
-        id: category.id,
-        name: category.name,
-        slug: category.slug,
-      }));
-
-    const categoriesById = new Map(
-      categories.map((category) => [
-        category.id,
-        category,
-      ])
+    return mapGalleryResponse(
+      result,
+      "cms"
     );
-
-    return {
-      categories,
-      items: result.data.map((item) =>
-        mapCmsGallery(item, categoriesById)
-      ),
-      source: "cms",
-    };
   } catch (error) {
     console.warn(
-      "CMS Galeri tidak dapat diakses. Menggunakan Galeri lokal.",
+      "CMS Galeri tidak dapat diakses. Mencoba snapshot Galeri.",
       error
     );
 
-    return getFallbackGallery();
+    try {
+      return await loadGallerySnapshot();
+    } catch (snapshotError) {
+      console.warn(
+        "Snapshot Galeri tidak tersedia. Menggunakan Galeri lokal.",
+        snapshotError
+      );
+
+      return getFallbackGallery();
+    }
   }
 }

@@ -299,10 +299,20 @@ export async function getActivePopupAnnouncements(): Promise<
                 : [];
         } catch (error) {
             console.warn(
-                "CMS Announcement Popup tidak dapat diakses.",
+                "CMS Announcement Popup tidak dapat diakses. Mencoba snapshot homepage.",
                 error
             );
-            return [];
+
+            try {
+                const snapshot = await fetchHomepageSnapshot();
+                items = snapshot.announcements as unknown as CmsAnnouncement[];
+            } catch (snapshotError) {
+                console.warn(
+                    "Snapshot CMS homepage tidak tersedia. Menggunakan pengumuman lokal.",
+                    snapshotError
+                );
+                return getActiveLocalPopups();
+            }
         }
     }
 
