@@ -6,6 +6,7 @@ import "./PPIDRequest.css";
 
 import Container from "../../components/common/Container/Container";
 import { apiPost } from "../../api/client";
+import { API_CONFIG } from "../../config/api";
 
 interface PPIDRequestApiResponse {
   message: string;
@@ -69,12 +70,20 @@ function PPIDRequest() {
       return;
     }
 
+    if (!API_CONFIG.baseUrl) {
+      setError(
+        "Mohon maaf, layanan permohonan informasi publik secara daring belum tersedia saat ini. Silakan menghubungi PPID Polda Papua Tengah melalui kontak resmi atau datang langsung ke kantor layanan."
+      );
+
+      return;
+    }
+
     setLoading(true);
     setError("");
 
     try {
       const result = await apiPost<PPIDRequestApiResponse>(
-        "/api/ppid-requests",
+        "/ppid-requests",
         form
       );
 

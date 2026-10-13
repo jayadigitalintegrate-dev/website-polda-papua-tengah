@@ -1,20 +1,15 @@
-import {
-  useState
-} from "react";
+import { Link } from "react-router-dom";
 
 import "./CekPengaduan.css";
+import "../../components/cekPengaduan/Tracking.css";
 
-import TrackingForm from "../../components/cekPengaduan/TrackingForm";
-import TrackingResult from "../../components/cekPengaduan/TrackingResult";
+const linkStyle = {
+  color: "#0b3d6d",
+  textDecoration: "underline",
+};
 
 
 export default function CekPengaduan(){
-
-  const [
-    ticket,
-    setTicket
-  ] = useState("");
-
 
   return (
 
@@ -37,9 +32,8 @@ export default function CekPengaduan(){
 
 
           <p>
-            Masukkan nomor tiket laporan
-            untuk mengetahui perkembangan
-            penanganan pengaduan.
+            Pelacakan status laporan secara daring
+            belum tersedia saat ini.
           </p>
 
 
@@ -49,28 +43,63 @@ export default function CekPengaduan(){
 
 
 
-      <TrackingForm
+      <section className="tracking-result">
 
-        onSearch={
-          setTicket
-        }
+        <div className="tracking-card">
 
-      />
+          <h2>
+            Layanan Belum Tersedia
+          </h2>
 
+          <div className="tracking-item">
 
+            <p>
+              Mohon maaf, layanan pelacakan status
+              pengaduan secara daring belum dapat
+              digunakan. Kami belum dapat menampilkan
+              perkembangan laporan Anda melalui
+              halaman ini.
+            </p>
 
-      {
-        ticket && (
+          </div>
 
-          <TrackingResult
+          <div className="tracking-item">
 
-            ticket={ticket}
+            <p>
+              Untuk mengetahui perkembangan laporan,
+              silakan menghubungi Polda Papua Tengah
+              melalui{" "}
+              <Link
+                to="/kontak"
+                style={linkStyle}
+              >
+                kontak resmi
+              </Link>
+              {" "}dengan menyebutkan nomor tiket
+              laporan Anda.
+            </p>
 
-          />
+          </div>
 
-        )
+          <div className="tracking-item">
 
-      }
+            <p>
+              Belum menyampaikan laporan? Silakan
+              mengisi{" "}
+              <Link
+                to="/pengaduan"
+                style={linkStyle}
+              >
+                formulir pengaduan
+              </Link>
+              .
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
 
 
     </main>
@@ -78,4 +107,3 @@ export default function CekPengaduan(){
   );
 
 }
-

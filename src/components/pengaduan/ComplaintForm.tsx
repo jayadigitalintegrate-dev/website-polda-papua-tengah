@@ -74,6 +74,14 @@ export default function ComplaintForm() {
       return;
     }
 
+    if (!API_CONFIG.baseUrl) {
+      setError(
+        "Mohon maaf, layanan pengaduan secara daring belum tersedia saat ini. Silakan menghubungi Polda Papua Tengah melalui kontak resmi atau datang langsung ke kantor polisi terdekat. Untuk keadaan darurat, hubungi 110."
+      );
+
+      return;
+    }
+
     setLoading(true);
     setError("");
 
