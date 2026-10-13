@@ -134,29 +134,6 @@ interface CmsAnnouncement {
 /**
  * URL dasar API CMS.
  */
-function getActiveLocalPopups(): Announcement[] {
-    const now = new Date();
-
-    return announcementData
-        .filter((item) => {
-            if (item.status !== "published") {
-                return false;
-            }
-
-            if (item.type !== "popup") {
-                return false;
-            }
-
-            const start = new Date(item.publishStart);
-            const end = new Date(item.publishEnd);
-
-            return start <= now && end >= now;
-        })
-        .sort(
-            (a, b) =>
-                a.sortOrder - b.sortOrder
-        );
-}
 const ANNOUNCEMENT_API_URL =
     API_CONFIG.baseUrl
         ? `${API_CONFIG.baseUrl}/announcements`
@@ -255,24 +232,53 @@ function mapCmsAnnouncement(
  */
 
 /**
+ * Sumber data popup yang benar-benar dipakai.
+ *
+ * "unavailable" berarti API dan snapshot sama-sama gagal:
+ * tidak ada popup yang ditampilkan, dan tidak ada data contoh
+ * yang dipakai sebagai pengganti.
+ */
+export type PopupSource =
+    | "api"
+    | "snapshot"
+    | "unavailable";
+
+/**
+ * Alasan API tidak dipakai.
+ */
+export type PopupFallbackReason =
+    | "not-configured"
+    | "api-error";
+
+export interface PopupAnnouncementResult {
+    announcements: Announcement[];
+
+    source: PopupSource;
+
+    fallback: PopupFallbackReason | null;
+
+    snapshotAt: string | null;
+}
+
+/**
  * Mengambil popup aktif langsung dari CMS Laravel.
+ *
+ * Respons API 200 bersifat final, termasuk array kosong.
+ * Snapshot hanya dipakai bila API tidak dikonfigurasi atau gagal.
  */
 export async function getActivePopupAnnouncements(): Promise<
-    Announcement[]
+    PopupAnnouncementResult
 > {
-    let items: CmsAnnouncement[];
+    let items: CmsAnnouncement[] = [];
+
+    let source: PopupSource = "api";
+
+    let fallback: PopupFallbackReason | null = null;
+
+    let snapshotAt: string | null = null;
 
     if (!ANNOUNCEMENT_API_URL) {
-        try {
-            const snapshot = await fetchHomepageSnapshot();
-            items = snapshot.announcements as unknown as CmsAnnouncement[];
-        } catch (error) {
-            console.warn(
-                "Snapshot CMS homepage tidak tersedia. Menggunakan pengumuman lokal.",
-                error
-            );
-            return getActiveLocalPopups();
-        }
+        fallback = "not-configured";
     } else {
         try {
             const response = await fetch(
@@ -303,22 +309,40 @@ export async function getActivePopupAnnouncements(): Promise<
                 error
             );
 
-            try {
-                const snapshot = await fetchHomepageSnapshot();
-                items = snapshot.announcements as unknown as CmsAnnouncement[];
-            } catch (snapshotError) {
-                console.warn(
-                    "Snapshot CMS homepage tidak tersedia. Menggunakan pengumuman lokal.",
-                    snapshotError
-                );
-                return getActiveLocalPopups();
-            }
+            fallback = "api-error";
+        }
+    }
+
+    if (fallback) {
+        try {
+            const snapshot = await fetchHomepageSnapshot();
+
+            items = snapshot.announcements as unknown as CmsAnnouncement[];
+
+            source = "snapshot";
+
+            snapshotAt =
+                typeof snapshot.exported_at === "string"
+                    ? snapshot.exported_at
+                    : null;
+        } catch (snapshotError) {
+            console.warn(
+                "Snapshot CMS homepage tidak tersedia. Popup tidak ditampilkan.",
+                snapshotError
+            );
+
+            return {
+                announcements: [],
+                source: "unavailable",
+                fallback,
+                snapshotAt: null,
+            };
         }
     }
 
     const now = new Date();
 
-    return items
+    const announcements = items
         .map(mapCmsAnnouncement)
         .filter(
             (item) =>
@@ -336,4 +360,11 @@ export async function getActivePopupAnnouncements(): Promise<
                 Number(b.featured) - Number(a.featured) ||
                 a.sortOrder - b.sortOrder
         );
+
+    return {
+        announcements,
+        source,
+        fallback,
+        snapshotAt,
+    };
 }

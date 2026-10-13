@@ -4,9 +4,73 @@ import {
     getActivePopupAnnouncements,
 } from "../../../api/announcementApi";
 
+import type {
+    PopupAnnouncementResult,
+} from "../../../api/announcementApi";
+
 import type { Announcement } from "../../../types/announcement";
 
 import "./AnnouncementPopup.css";
+
+const HIDE_STORAGE_KEY =
+    "announcement-cms-hide";
+
+/**
+ * Nilai "jangan tampilkan lagi hari ini" terikat pada ID pengumuman,
+ * sehingga pengumuman baru di hari yang sama tetap tampil.
+ */
+function getHideValue(id: number): string {
+    return `${id}:${new Date().toDateString()}`;
+}
+
+function isHiddenToday(id: number): boolean {
+    try {
+        return (
+            localStorage.getItem(HIDE_STORAGE_KEY) ===
+            getHideValue(id)
+        );
+    } catch {
+        return false;
+    }
+}
+
+function rememberHiddenToday(id: number): void {
+    try {
+        localStorage.setItem(
+            HIDE_STORAGE_KEY,
+            getHideValue(id)
+        );
+    } catch {
+        // Penyimpanan browser tidak tersedia; popup tetap dapat ditutup.
+    }
+}
+
+/**
+ * Menandai sumber data popup pada elemen <html> agar kegagalan
+ * API atau snapshot usang dapat dipantau tanpa membuka konsol.
+ */
+function reportPopupSource(
+    result: Pick<
+        PopupAnnouncementResult,
+        "source" | "fallback" | "snapshotAt"
+    >
+): void {
+    const { dataset } = document.documentElement;
+
+    dataset.cmsPopupSource = result.source;
+
+    if (result.fallback) {
+        dataset.cmsPopupFallback = result.fallback;
+    } else {
+        delete dataset.cmsPopupFallback;
+    }
+
+    if (result.snapshotAt) {
+        dataset.cmsSnapshotAt = result.snapshotAt;
+    } else {
+        delete dataset.cmsSnapshotAt;
+    }
+}
 
 export default function AnnouncementPopup() {
     const [announcement, setAnnouncement] =
@@ -23,29 +87,25 @@ export default function AnnouncementPopup() {
 
         async function loadAnnouncement() {
             try {
-                const announcements =
+                const result =
                     await getActivePopupAnnouncements();
 
-                const popup =
-                    announcements[0];
-
-                if (!mounted || !popup) {
+                if (!mounted) {
                     return;
                 }
 
-                const today =
-                    new Date().toDateString();
+                reportPopupSource(result);
 
-                const hiddenDate =
-                    localStorage.getItem(
-                        "announcement-cms-hide"
-                    );
+                const popup =
+                    result.announcements[0];
+
+                if (!popup) {
+                    return;
+                }
 
                 setAnnouncement(popup);
 
-                if (
-                    hiddenDate === today
-                ) {
+                if (isHiddenToday(popup.id)) {
                     return;
                 }
 
@@ -55,6 +115,14 @@ export default function AnnouncementPopup() {
                     "Gagal mengambil pengumuman popup dari CMS:",
                     error
                 );
+
+                if (mounted) {
+                    reportPopupSource({
+                        source: "unavailable",
+                        fallback: null,
+                        snapshotAt: null,
+                    });
+                }
             }
         }
 
@@ -101,11 +169,8 @@ export default function AnnouncementPopup() {
     }, [show]);
 
     const closePopup = () => {
-        if (hideToday) {
-            localStorage.setItem(
-                "announcement-cms-hide",
-                new Date().toDateString()
-            );
+        if (hideToday && announcement) {
+            rememberHiddenToday(announcement.id);
         }
 
         setShow(false);

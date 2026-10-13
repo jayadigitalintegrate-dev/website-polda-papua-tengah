@@ -1,4 +1,5 @@
 export interface HomepageSnapshot {
+    exported_at?: string;
     news: Record<string, unknown>[];
     heroes: Record<string, unknown>[];
     announcements: Record<string, unknown>[];
