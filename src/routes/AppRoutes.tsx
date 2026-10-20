@@ -26,6 +26,7 @@ import SambutanKapolda from "../pages/SambutanKapolda/SambutanKapolda";
 
 import Pengaduan from "../pages/Pengaduan/Pengaduan";
 import CekPengaduan from "../pages/CekPengaduan/CekPengaduan";
+import KritikSaran from "../pages/KritikSaran/KritikSaran";
 
 import Download from "../pages/Download/Download";
 
@@ -131,6 +132,11 @@ function AppRoutes() {
           <Route
             path="/cek-pengaduan"
             element={<CekPengaduan />}
+          />
+
+          <Route
+            path="/kritik-saran"
+            element={<KritikSaran />}
           />
 
           <Route

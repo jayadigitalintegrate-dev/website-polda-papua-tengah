@@ -65,6 +65,7 @@ function FooterTop() {
 
         {/* Jika memang menuju halaman Pengaduan */}
         <Link to="/pengaduan">Pengaduan</Link>
+        <Link to="/kritik-saran">Kritik &amp; Saran</Link>
 
         {/* Perbaikan route PPID */}
         <Link to="/ppid">PPID</Link>
