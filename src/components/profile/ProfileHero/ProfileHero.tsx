@@ -1,6 +1,6 @@
 import "./ProfileHero.css";
 
-import heroImage from "../../../assets/hero/hero-polda-papua-tengah.png";
+import heroImage from "../../../assets/hero/hero-polda-papua-tengah.webp";
 
 export default function ProfileHero() {
   return (

@@ -2,54 +2,18 @@ import { useEffect, useState } from "react";
 
 import { fetchHeroes, type CmsHero } from "../../services/heroApi";
 
-import hero1 from "../../assets/hero/hero-cms-2.webp";
-import hero2 from "../../assets/hero/hero-cms-3.webp";
-import hero3 from "../../assets/hero/hero-cms-4.webp";
-import hero4 from "../../assets/hero/hero-cms-5.webp";
-import hero5 from "../../assets/hero/hero-cms-6.webp";
-import hero6 from "../../assets/hero/hero-cms-7.webp";
-
+import hero1 from "../../assets/hero/Papua Tengah Police Leadership Banner.png";
+import hero2 from "../../assets/hero/Polda Papua Tengah Hero Banner Kapolda.png";
+import hero3 from "../../assets/hero/Polda Papua Tengah Hero Banner wakapolda.png";
+import hero4 from "../../assets/hero/hero-cms-7.webp";
 import "./Hero.css";
 
 const localHeroes: CmsHero[] = [
-    {
-        id: 1,
-        image: hero1,
-        image_url: hero1,
-        sort_order: 1,
-    },
-    {
-        id: 2,
-        image: hero2,
-        image_url: hero2,
-        sort_order: 2,
-    },
-    {
-        id: 3,
-        image: hero3,
-        image_url: hero3,
-        sort_order: 3,
-    },
-    {
-        id: 4,
-        image: hero4,
-        image_url: hero4,
-        sort_order: 4,
-    },
-    {
-        id: 5,
-        image: hero5,
-        image_url: hero5,
-        sort_order: 5,
-    },
-{
-    id: 6,
-    image: hero6,
-    image_url: hero6,
-    sort_order: 6,
-},
+    { id: 1, image: hero1, image_url: hero1, sort_order: 1 },
+    { id: 2, image: hero2, image_url: hero2, sort_order: 2 },
+    { id: 3, image: hero3, image_url: hero3, sort_order: 3 },
+    { id: 4, image: hero4, image_url: hero4, sort_order: 4 },
 ];
-
 type SlideDirection = "next" | "prev";
 
 export default function Hero() {
@@ -171,7 +135,7 @@ export default function Hero() {
                         onClick={goToPrevious}
                         aria-label="Hero sebelumnya"
                     >
-                        ‹
+                        â€¹
                     </button>
 
                     <button
@@ -180,7 +144,7 @@ export default function Hero() {
                         onClick={goToNext}
                         aria-label="Hero berikutnya"
                     >
-                        ›
+                        â€º
                     </button>
 
                     <div
