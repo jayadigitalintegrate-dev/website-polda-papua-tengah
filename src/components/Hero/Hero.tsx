@@ -135,7 +135,7 @@ export default function Hero() {
                         onClick={goToPrevious}
                         aria-label="Hero sebelumnya"
                     >
-                        â€¹
+                        <span aria-hidden="true" className="hero-chevron hero-chevron-left" />
                     </button>
 
                     <button
@@ -144,7 +144,7 @@ export default function Hero() {
                         onClick={goToNext}
                         aria-label="Hero berikutnya"
                     >
-                        â€º
+                        <span aria-hidden="true" className="hero-chevron hero-chevron-right" />
                     </button>
 
                     <div

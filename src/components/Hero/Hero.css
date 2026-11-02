@@ -1,4 +1,4 @@
-﻿.hero {
+.hero {
     position: relative;
     width: 100%;
     aspect-ratio: 1920 / 900;
@@ -331,5 +331,67 @@
     .hero-dot {
         animation: none !important;
         transition: none !important;
+    }
+}
+
+/* HERO IMAGE FIT - NO CROPPING OR ZOOM */
+.hero-image {
+    object-fit: contain;
+    object-position: center center;
+    transform: none;
+}
+
+.hero-image.active {
+    animation: none;
+    transform: none;
+}
+
+/* NAVIGATION CHEVRONS - CSS ONLY */
+.hero-chevron {
+    display: block;
+    width: 13px;
+    height: 13px;
+    border-top: 3px solid currentColor;
+    border-right: 3px solid currentColor;
+}
+
+.hero-chevron-left {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.hero-chevron-right {
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
+
+/* HERO FULL FRAME - PRESERVE TOP CONTENT */
+.hero {
+    aspect-ratio: 2 / 1;
+    min-height: 0;
+    max-height: none;
+    background: #0b2d57;
+}
+
+.hero-image {
+    object-fit: cover;
+    object-position: center top;
+    transform: none;
+}
+
+.hero-image.active {
+    animation: none;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        aspect-ratio: 2 / 1;
+        min-height: 0;
+        max-height: none;
+    }
+
+    .hero-image {
+        object-position: center top;
     }
 }
