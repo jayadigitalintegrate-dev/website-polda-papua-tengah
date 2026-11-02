@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "exported_at": "2026-11-02T13:35:16.261Z",
+  "exported_at": "2026-11-02T14:30:34.381Z",
   "news": [
     {
       "id": 8,
@@ -147,7 +147,38 @@
       "created_at": "2026-10-06T03:39:37.000000Z"
     }
   ],
-  "heroes": [],
+  "heroes": [
+    {
+      "id": 2,
+      "image": "heroes/Vh17i0E0N4gEsmzACVxBoyBNdDJReUU07xx7OMqd.png",
+      "image_url": "cms-media/e0ca7bede6754ff591e24d70fa8edead1643fabfbf4195517db91adca9d5094d.png",
+      "sort_order": 1
+    },
+    {
+      "id": 4,
+      "image": "heroes/a7tBYGX5l4W1v6ep5NbqoX1PY5xVSfSMfSzzuPvv.png",
+      "image_url": "cms-media/184c944db0c95268bbb8bb2f60f9cb5146c1dcf8bb5339a0ed7ff7c77b086914.png",
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "image": "heroes/uJnTYUZuzrwufnJNHaTDOLdfxuQ5C8OiMu85PeZU.png",
+      "image_url": "cms-media/826586fb28ffdb0ad9293ee174001ec91a535e2b72764d2dc6c25411db6194dd.png",
+      "sort_order": 3
+    },
+    {
+      "id": 1,
+      "image": "heroes/yfCyNIzHfOipkkdGVPTBxtxGJOxofgQYKMdQJGyB.png",
+      "image_url": "cms-media/9a92ed54d4a375fe28bb2fbad186b07d1ef419785c7aa31e238a8bdb98600611.png",
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "image": "heroes/UpoZDZHunyv73DZsbTlMfdaqOluFYJhIVb47IAr3.png",
+      "image_url": "cms-media/2bf40877a37e48c36a647784f928cecdd33f78bed11de24900e6650d598129ee.png",
+      "sort_order": 5
+    }
+  ],
   "announcements": [
     {
       "id": 2,
