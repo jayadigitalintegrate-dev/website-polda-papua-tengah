@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "exported_at": "2026-10-14T00:15:30.985Z",
+  "exported_at": "2026-11-02T13:35:16.261Z",
   "news": [
     {
       "id": 8,
@@ -151,24 +151,24 @@
   "announcements": [
     {
       "id": 2,
-      "title": "SELAMAT PELANTIKAN KAPOLRI BARU",
-      "slug": "selamat-pelantikan-kapolri-baru",
+      "title": "POLISI BERSAMA MASYRAKAT",
+      "slug": "polisi-bersama-masyrakat",
       "description": "POLDA PAPUA TENGAH",
       "content": null,
-      "image": "announcements/4dJHbQGKZWFRgu4huu3Jx0DZI9gJOdYMYdzi8s28.png",
-      "image_url": "cms-media/1c863b98a60cd51645e298e1cec3f76a2344b9bb5d35ac29789f2dbca98999b4.png",
+      "image": "announcements/ODGiFmZ98BnAOBnNEWeLEVfvLjiNaSLzZyQ03wAy.png",
+      "image_url": "cms-media/184c944db0c95268bbb8bb2f60f9cb5146c1dcf8bb5339a0ed7ff7c77b086914.png",
       "attachment": null,
       "attachment_name": null,
       "attachment_url": null,
       "priority": "high",
       "type": "popup",
-      "publish_start": "2026-10-13T21:57:00.000000Z",
-      "publish_end": "2026-10-30T21:57:00.000000Z",
+      "publish_start": "2026-11-01T21:57:00.000000Z",
+      "publish_end": "2026-12-15T21:57:00.000000Z",
       "featured": false,
       "status": "published",
       "sort_order": 1,
       "created_at": "2026-10-13T21:57:34.000000Z",
-      "updated_at": "2026-10-13T23:32:59.000000Z"
+      "updated_at": "2026-11-02T13:23:49.000000Z"
     }
   ]
 }
