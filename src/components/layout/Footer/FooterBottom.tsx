@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import presisi from "../../../assets/logo/presisi.png";
 
 function FooterBottom() {
   return (
@@ -14,16 +13,6 @@ function FooterBottom() {
         Seluruh hak cipta dilindungi.
       </p>
 
-      {/* Logo Presisi */}
-
-      <div className="footer-presisi">
-
-        <img
-          src={presisi}
-          alt="Presisi Polri"
-        />
-
-      </div>
 
       {/* Link */}
 
