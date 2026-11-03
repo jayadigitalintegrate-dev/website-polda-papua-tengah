@@ -150,7 +150,7 @@ export default function SolidHeader() {
 
 
             <span>
-             Integritas • Modern • Presisi
+             Integritas • Modern • Mengayomi
             </span>
 
           </div>
