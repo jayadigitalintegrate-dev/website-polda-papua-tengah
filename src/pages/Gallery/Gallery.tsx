@@ -40,17 +40,54 @@ export default function Gallery() {
 
   useEffect(() => {
     let mounted = true;
+    let busy = false;
 
-    galleryService.getGallery().then((gallery) => {
-      if (!mounted) return;
+    async function refreshGallery() {
+      if (busy || document.visibilityState === "hidden") return;
 
-      setCategories(gallery.categories);
-      setItems(gallery.items);
-      setLoading(false);
-    });
+      busy = true;
+
+      try {
+        const gallery = await galleryService.getGallery();
+
+        if (!mounted) return;
+
+        setCategories(gallery.categories);
+        setItems(gallery.items);
+      } catch (error) {
+        console.error("Gagal memperbarui galeri CMS:", error);
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
+
+        busy = false;
+      }
+    }
+
+    const refreshVisible = () => {
+      if (document.visibilityState === "visible") {
+        void refreshGallery();
+      }
+    };
+
+    void refreshGallery();
+
+    const timer = window.setInterval(refreshVisible, 30000);
+
+    document.addEventListener(
+      "visibilitychange",
+      refreshVisible
+    );
 
     return () => {
       mounted = false;
+      window.clearInterval(timer);
+
+      document.removeEventListener(
+        "visibilitychange",
+        refreshVisible
+      );
     };
   }, []);
 

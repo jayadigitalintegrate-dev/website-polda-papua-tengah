@@ -1,4 +1,4 @@
-﻿import "./News.css";
+import "./News.css";
 
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
@@ -34,21 +34,25 @@ export default function News() {
 
   useEffect(() => {
     let mounted = true;
+    let busy = false;
+    let initialized = false;
 
     async function loadNews() {
-      try {
-        setLoading(true);
-        setError("");
+      if (busy || document.visibilityState === "hidden") return;
 
+      busy = true;
+
+      try {
         const data = await fetchNews();
 
         if (mounted) {
           setNews(data);
+          setError("");
         }
       } catch (err) {
-        console.error("Gagal mengambil berita CMS:", err);
+        console.error("Gagal memperbarui berita CMS:", err);
 
-        if (mounted) {
+        if (mounted && !initialized) {
           setError(
             "Berita dari CMS belum dapat dimuat. Pastikan server CMS Laravel sedang berjalan."
           );
@@ -57,13 +61,27 @@ export default function News() {
         if (mounted) {
           setLoading(false);
         }
+
+        initialized = true;
+        busy = false;
       }
     }
 
-    loadNews();
+    const refreshVisible = () => {
+      if (document.visibilityState === "visible") {
+        void loadNews();
+      }
+    };
+
+    void loadNews();
+
+    const timer = window.setInterval(refreshVisible, 30000);
+    document.addEventListener("visibilitychange", refreshVisible);
 
     return () => {
       mounted = false;
+      window.clearInterval(timer);
+      document.removeEventListener("visibilitychange", refreshVisible);
     };
   }, []);
 

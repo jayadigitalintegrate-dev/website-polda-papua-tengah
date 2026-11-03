@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
     getActivePopupAnnouncements,
@@ -26,8 +26,10 @@ function getHideValue(id: number): string {
 function isHiddenToday(id: number): boolean {
     try {
         return (
+            localStorage.getItem(`${HIDE_STORAGE_KEY}:${id}`) ===
+                getHideValue(id) ||
             localStorage.getItem(HIDE_STORAGE_KEY) ===
-            getHideValue(id)
+                getHideValue(id)
         );
     } catch {
         return false;
@@ -37,7 +39,7 @@ function isHiddenToday(id: number): boolean {
 function rememberHiddenToday(id: number): void {
     try {
         localStorage.setItem(
-            HIDE_STORAGE_KEY,
+            `${HIDE_STORAGE_KEY}:${id}`,
             getHideValue(id)
         );
     } catch {
@@ -73,8 +75,13 @@ function reportPopupSource(
 }
 
 export default function AnnouncementPopup() {
-    const [announcement, setAnnouncement] =
-        useState<Announcement | null>(null);
+    const [announcements, setAnnouncements] =
+        useState<Announcement[]>([]);
+
+    const [activeIndex, setActiveIndex] =
+        useState(0);
+
+    const announcement = announcements[activeIndex] ?? null;
 
     const [show, setShow] =
         useState(false);
@@ -82,56 +89,110 @@ export default function AnnouncementPopup() {
     const [hideToday, setHideToday] =
         useState(false);
 
+    const closedRef = useRef(false);
+    const hadApiSuccessRef = useRef(false);
+
     useEffect(() => {
         let mounted = true;
+        let busy = false;
 
-        async function loadAnnouncement() {
+        async function refreshAnnouncements() {
+            if (busy || document.visibilityState === "hidden") {
+                return;
+            }
+
+            busy = true;
+
             try {
                 const result =
                     await getActivePopupAnnouncements();
 
-                if (!mounted) {
-                    return;
-                }
+                if (!mounted) return;
 
                 reportPopupSource(result);
 
-                const popup =
-                    result.announcements[0];
+                if (result.source === "unavailable") return;
 
-                if (!popup) {
+                // Jangan timpa data API terbaru dengan snapshot lama
+                // ketika koneksi CMS mengalami gangguan sementara.
+                if (
+                    hadApiSuccessRef.current &&
+                    result.source !== "api"
+                ) {
                     return;
                 }
 
-                setAnnouncement(popup);
-
-                if (isHiddenToday(popup.id)) {
-                    return;
+                if (result.source === "api") {
+                    hadApiSuccessRef.current = true;
                 }
 
-                setShow(true);
-            } catch (error) {
-                console.error(
-                    "Gagal mengambil pengumuman popup dari CMS:",
-                    error
+                const visiblePopups = result.announcements.filter(
+                    (popup) => !isHiddenToday(popup.id)
                 );
 
-                if (mounted) {
-                    reportPopupSource({
-                        source: "unavailable",
-                        fallback: null,
-                        snapshotAt: null,
-                    });
+                setAnnouncements(visiblePopups);
+                setActiveIndex((index) =>
+                    visiblePopups.length === 0
+                        ? 0
+                        : Math.min(index, visiblePopups.length - 1)
+                );
+
+                if (visiblePopups.length === 0) {
+                    setShow(false);
+                } else if (!closedRef.current) {
+                    setShow(true);
                 }
+            } catch (error) {
+                console.error(
+                    "Gagal memperbarui popup CMS:",
+                    error
+                );
+            } finally {
+                busy = false;
             }
         }
 
-        loadAnnouncement();
+        const refreshVisible = () => {
+            if (document.visibilityState === "visible") {
+                void refreshAnnouncements();
+            }
+        };
+
+        void refreshAnnouncements();
+
+        const timer = window.setInterval(
+            refreshVisible,
+            30000
+        );
+
+        document.addEventListener(
+            "visibilitychange",
+            refreshVisible
+        );
 
         return () => {
             mounted = false;
+            window.clearInterval(timer);
+            document.removeEventListener(
+                "visibilitychange",
+                refreshVisible
+            );
         };
     }, []);
+
+    useEffect(() => {
+        if (!show || announcements.length < 2) {
+            return;
+        }
+
+        const timer = window.setInterval(() => {
+            setActiveIndex((current) =>
+                (current + 1) % announcements.length
+            );
+        }, 5000);
+
+        return () => window.clearInterval(timer);
+    }, [show, announcements.length]);
 
     useEffect(() => {
         if (!show) {
@@ -148,6 +209,7 @@ export default function AnnouncementPopup() {
             event: KeyboardEvent
         ) => {
             if (event.key === "Escape") {
+                closedRef.current = true;
                 setShow(false);
             }
         };
@@ -169,10 +231,13 @@ export default function AnnouncementPopup() {
     }, [show]);
 
     const closePopup = () => {
-        if (hideToday && announcement) {
-            rememberHiddenToday(announcement.id);
+        if (hideToday) {
+            announcements.forEach((popup) => {
+                rememberHiddenToday(popup.id);
+            });
         }
 
+        closedRef.current = true;
         setShow(false);
     };
 

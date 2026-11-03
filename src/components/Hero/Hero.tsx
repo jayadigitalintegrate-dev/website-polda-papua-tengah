@@ -24,27 +24,59 @@ export default function Hero() {
 
     useEffect(() => {
         let mounted = true;
+        let busy = false;
 
-        fetchHeroes()
-            .then((data) => {
-                if (!mounted) return;
+        async function refreshHeroes() {
+            if (busy || document.visibilityState === "hidden") return;
 
-                if (data.length > 0) {
-                    setHeroes(data);
-                    setCurrent(0);
-                }
-            })
-            .catch((error) => {
-                console.warn(
-                    "CMS Hero tidak dapat diakses. Menggunakan Hero lokal.",
-                    error
-                );
-            });
+            busy = true;
+
+            try {
+                const data = await fetchHeroes();
+
+                if (!mounted || data.length === 0) return;
+
+                setHeroes((previous) => {
+                    const same =
+                        previous.length === data.length &&
+                        previous.every((hero, index) =>
+                            hero.id === data[index].id &&
+                            hero.image_url === data[index].image_url &&
+                            hero.sort_order === data[index].sort_order
+                        );
+
+                    return same ? previous : data;
+                });
+            } catch (error) {
+                console.warn("Gagal memperbarui Hero CMS:", error);
+            } finally {
+                busy = false;
+            }
+        }
+
+        const refreshVisible = () => {
+            if (document.visibilityState === "visible") {
+                void refreshHeroes();
+            }
+        };
+
+        void refreshHeroes();
+
+        const timer = window.setInterval(refreshVisible, 30000);
+        document.addEventListener("visibilitychange", refreshVisible);
 
         return () => {
             mounted = false;
+            window.clearInterval(timer);
+            document.removeEventListener("visibilitychange", refreshVisible);
         };
     }, []);
+
+    useEffect(() => {
+        setCurrent((previous) =>
+            previous >= heroes.length ? 0 : previous
+        );
+    }, [heroes.length]);
 
     const goToNext = () => {
         if (heroes.length <= 1) return;
