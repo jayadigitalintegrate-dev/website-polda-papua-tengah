@@ -1,5 +1,5 @@
 import "./ServiceCharter.css";
-import presisiLogo from "../../../assets/logo/presisi-polri.png";
+import presisiLogo from "../../../assets/logo/tagline-baru.png";
 
 export default function ServiceCharter() {
   return (
@@ -46,7 +46,7 @@ export default function ServiceCharter() {
             <div>✓ Humanis</div>
 
             <div>✓ Responsif</div>
-            <div>✓ Presisi</div>
+            <div>✓ Mengayomi</div>
 
           </div>
 
