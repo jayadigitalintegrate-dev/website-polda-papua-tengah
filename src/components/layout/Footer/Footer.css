@@ -579,3 +579,50 @@
         padding-right:16px;
     }
 }
+/* PK-WEB-MOBILE-FOOTER-CENTER */
+/* Hanya mengatur footer pada tampilan HP */
+@media (max-width: 768px) {
+
+    .footer-brand-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .footer-brand-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-brand-title h3 {
+        text-align: center;
+        margin: 0;
+    }
+
+    .footer-logo {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+    }
+
+    .footer-contact svg {
+        margin-top: 0;
+        flex-shrink: 0;
+    }
+
+    .footer-contact span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+}
