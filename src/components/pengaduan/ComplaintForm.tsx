@@ -1,11 +1,12 @@
+/* PK-WEB-COMPLAINT-SUCCESS-001 */
 import { useState } from "react";
 import { API_CONFIG } from "../../config/api";
 
 import "./Complaint.css";
 
-import ComplaintTicket from "./ComplaintTicket";
+
 import ComplaintSuccess from "./ComplaintSuccess";
-import ComplaintNotification from "./ComplaintNotification";
+
 
 interface ComplaintFormData {
   nama: string;
@@ -118,6 +119,15 @@ export default function ComplaintForm() {
       const successResult =
         result as ComplaintApiResponse;
 
+      if (
+        typeof successResult.data?.tiket !== "string" ||
+        !successResult.data.tiket.trim()
+      ) {
+        throw new Error(
+          "Laporan belum dapat dikonfirmasi karena nomor tiket tidak tersedia."
+        );
+      }
+
       setTicket(successResult.data.tiket);
 
       setSubmitted(true);
@@ -137,36 +147,13 @@ export default function ComplaintForm() {
     }
   }
 
-  if (submitted) {
-    return (
-      <>
-        <ComplaintSuccess />
-
-        <ComplaintTicket
-          ticket={ticket}
-        />
-
-        <ComplaintNotification
-          nama={form.nama}
-          alamat={form.alamat}
-          email={form.email}
-          ticket={ticket}
-        />
-      </>
-    );
-  }
-
   return (
     <section className="complaint-section">
       <div className="complaint-container">
-        <h2>
-          Form Pengaduan Masyarakat
-        </h2>
-
-        <p>
-          Isi data dengan benar agar laporan
-          dapat diproses oleh petugas.
-        </p>
+        <div className="complaint-form-heading">
+          <h2>Form Pengaduan Masyarakat</h2>
+          <p>Isi data dengan benar agar laporan dapat diproses oleh petugas.</p>
+        </div>
 
         {error && (
           <div
@@ -275,6 +262,26 @@ export default function ComplaintForm() {
               : "Kirim Laporan"}
           </button>
         </form>
+        {/* PK-WEB-COMPLAINT-POPUP-INLINE-002 */}
+        {submitted && (
+        <ComplaintSuccess
+          ticket={ticket}
+          onClose={() => {
+            setSubmitted(false);
+            setTicket("");
+            setError("");
+            setForm({
+              nama: "",
+              ktp: "",
+              hp: "",
+              email: "",
+              alamat: "",
+              jenis: "",
+              isi: "",
+            });
+          }}
+        />
+        )}
       </div>
     </section>
   );
