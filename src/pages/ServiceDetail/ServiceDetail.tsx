@@ -1,3 +1,5 @@
+import { useState } from "react";
+import CallCenterDialog from "../../components/services/CallCenterDialog";
 import { Icon } from "@iconify/react";
 import { Link, useParams } from "react-router-dom";
 
@@ -8,6 +10,7 @@ import Container from "../../components/common/Container/Container";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
+  const [callCenterOpen, setCallCenterOpen] = useState(false);
 
  const service = slug
   ? serviceService.getServiceBySlug(slug)
@@ -128,7 +131,7 @@ export default function ServiceDetail() {
 
   <tr>
     <th>Status</th>
-    <td>{service.active ? "Aktif" : "Tidak Aktif"}</td>
+    <td>{service.active ? "Tersedia" : "Segera Hadir"}</td>
   </tr>
 
   <tr>
@@ -221,7 +224,12 @@ export default function ServiceDetail() {
         <div className="service-detail__actions">
 
 
-          {service.active && service.url !== "#" && (
+          {service.action === "call-center" && (
+            <button type="button" className="service-detail__back" aria-haspopup="dialog"
+              onClick={() => setCallCenterOpen(true)}>Buka Layanan</button>
+          )}
+          {callCenterOpen && <CallCenterDialog onClose={() => setCallCenterOpen(false)} />}
+          {service.active && !!service.url && service.url !== "#" && (
 
             service.external ? (
 

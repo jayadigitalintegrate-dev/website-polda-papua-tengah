@@ -1,3 +1,5 @@
+export type ServiceGroup = "spkt" | "intel" | "lantas" | "siber" | "humas" | "ops" | "public";
+
 export interface Service {
   id: number;
   slug: string;
@@ -6,6 +8,8 @@ export interface Service {
   description: string;
   content: string;
 
+  group: ServiceGroup;
+  action?: "call-center";
   category: string;
   icon: string;
   color: string;

@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import "./Services.css";
+import { serviceGroups } from "../../data/servicesData";
+import CallCenterDialog from "../../components/services/CallCenterDialog";
 
 import { serviceRepository } from "../../repositories/serviceRepository";
 
@@ -13,16 +15,18 @@ import Container from "../../components/common/Container/Container";
 
 export default function Services() {
   const [keyword, setKeyword] = useState("");
+  const [callCenterOpen, setCallCenterOpen] = useState(false);
 
   const services = serviceRepository.getAll();
 
   const filteredServices = services.filter((service) => {
-    const search = keyword.toLowerCase();
+    const search = keyword.trim().toLowerCase();
 
     return (
       service.title.toLowerCase().includes(search) ||
       service.description.toLowerCase().includes(search) ||
-      service.category.toLowerCase().includes(search)
+      service.category.toLowerCase().includes(search) ||
+      (serviceGroups.find((group) => group.id === service.group)?.title.toLowerCase().includes(search) ?? false)
     );
   });
 
@@ -55,20 +59,24 @@ export default function Services() {
           />
 
           {filteredServices.length > 0 ? (
-            <ServiceGrid services={filteredServices} />
+            <ServiceGrid
+              services={filteredServices}
+              onCallCenter={() => setCallCenterOpen(true)}
+            />
           ) : (
             <div className="services-page__empty">
               <h3>
-                Fitur ini akan segera hadir saat ini dalam tahap pengembangan
+                Tidak ada layanan yang sesuai pencarian.
               </h3>
 
               <p>
-                Silakan kembali lagi nanti untuk melihat layanan yang tersedia.
+                Coba kata kunci atau nama Satker lainnya.
               </p>
             </div>
           )}
         </Container>
       </section>
+      {callCenterOpen && <CallCenterDialog onClose={() => setCallCenterOpen(false)} />}
     </main>
   );
 }

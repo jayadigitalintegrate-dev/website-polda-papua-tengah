@@ -6,10 +6,12 @@ import ServiceCard from "../ServiceCard";
 
 interface ServiceGridProps {
   services: Service[];
+  onCallCenter?: () => void;
 }
 
 export default function ServiceGrid({
   services,
+  onCallCenter,
 }: ServiceGridProps) {
   return (
     <section className="service-grid">
@@ -17,6 +19,7 @@ export default function ServiceGrid({
         <ServiceCard
           key={service.id}
           service={service}
+          onCallCenter={onCallCenter}
         />
       ))}
     </section>
