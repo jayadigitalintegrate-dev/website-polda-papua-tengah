@@ -1,13 +1,52 @@
-﻿import type { Service } from "../types/service";
+import type { Service, ServiceGroup } from "../types/service";
+
+export const serviceGroups: { id: ServiceGroup; title: string; description: string }[] = [
+  {
+    "id": "spkt",
+    "title": "SPKT",
+    "description": "Pelayanan laporan kepolisian, termasuk laporan kehilangan melalui SPKT Online."
+  },
+  {
+    "id": "intel",
+    "title": "INTEL / INTELKAM",
+    "description": "Informasi layanan SKCK dan perizinan kegiatan masyarakat."
+  },
+  {
+    "id": "lantas",
+    "title": "LANTAS",
+    "description": "Layanan administrasi pengemudi dan kendaraan bermotor."
+  },
+  {
+    "id": "siber",
+    "title": "SIBER",
+    "description": "Informasi keamanan siber dan rencana layanan aduan siber."
+  },
+  {
+    "id": "humas",
+    "title": "HUMAS",
+    "description": "Berita dan himbauan kepolisian untuk masyarakat."
+  },
+  {
+    "id": "ops",
+    "title": "OPS",
+    "description": "Rencana informasi pelaksanaan operasi kepolisian."
+  },
+  {
+    "id": "public",
+    "title": "Layanan Publik Lainnya",
+    "description": "Profil jajaran Polres dan informasi Call Center 110."
+  }
+];
 
 export const servicesData: Service[] = [
   {
     id: 1,
+    group: "spkt",
     slug: "spkt-online",
     title: "SPKT Online",
-    description: "Pelayanan laporan kepolisian secara elektronik.",
+    description: "Rencana pelayanan laporan kepolisian, termasuk laporan kehilangan barang.",
     content:
-      "SPKT Online merupakan layanan untuk membantu masyarakat dalam memperoleh pelayanan kepolisian secara cepat, transparan, dan profesional.",
+      "SPKT Online direncanakan mencakup laporan kepolisian dan laporan kehilangan barang.",
     category: "Pelayanan",
     icon: "mdi:shield-check",
     color: "blue",
@@ -23,7 +62,7 @@ export const servicesData: Service[] = [
       "Laporan diproses.",
       "Pemohon menerima bukti laporan.",
     ],
-    url: "#",
+    url: "",
     sortOrder: 1,
     active: false,
     external: false,
@@ -31,6 +70,7 @@ export const servicesData: Service[] = [
 
   {
     id: 2,
+    group: "intel",
     slug: "skck-online",
     title: "SKCK Online",
     description: "Pengajuan Surat Keterangan Catatan Kepolisian.",
@@ -49,7 +89,7 @@ export const servicesData: Service[] = [
       "Verifikasi.",
       "SKCK diterbitkan.",
     ],
-    url: "#",
+    url: "",
     sortOrder: 2,
     active: false,
     external: false,
@@ -57,10 +97,11 @@ export const servicesData: Service[] = [
 
   {
     id: 3,
+    group: "lantas",
     slug: "sim-nasional-presisi",
-    title: "SIM Nasional Presisi",
+    title: "SIM Nasional",
     description: "Pelayanan pembuatan dan perpanjangan SIM.",
-    content: "Pelayanan SIM Nasional Presisi.",
+    content: "Pelayanan SIM Nasional.",
     category: "Lalu Lintas",
     icon: "mdi:card-account-details",
     color: "green",
@@ -75,7 +116,7 @@ export const servicesData: Service[] = [
       "Pembayaran.",
       "Penerbitan SIM.",
     ],
-    url: "#",
+    url: "",
     sortOrder: 3,
     active: false,
     external: false,
@@ -83,6 +124,7 @@ export const servicesData: Service[] = [
 
   {
   id: 4,
+    group: "public",
   slug: "jajaran-polres",
   title: "Jajaran Polres",
   description: "Informasi dan profil jajaran Kepolisian Resor di wilayah Polda Papua Tengah.",
@@ -100,6 +142,7 @@ export const servicesData: Service[] = [
 
   {
     id: 5,
+    group: "public",
     slug: "call-center-110",
     title: "Call Center 110",
     description: "Layanan darurat Kepolisian Republik Indonesia.",
@@ -113,7 +156,8 @@ export const servicesData: Service[] = [
       "Sampaikan lokasi.",
       "Ikuti arahan petugas.",
     ],
-    url: "tel:110",
+    url: "",
+    action: "call-center",
     sortOrder: 5,
     active: true,
     external: false,
@@ -121,6 +165,7 @@ export const servicesData: Service[] = [
 
   {
     id: 6,
+    group: "intel",
     slug: "perizinan-keramaian",
     title: "Perizinan Keramaian",
     description: "Pengajuan izin kegiatan masyarakat.",
@@ -137,7 +182,7 @@ export const servicesData: Service[] = [
       "Verifikasi.",
       "Persetujuan.",
     ],
-    url: "#",
+    url: "",
     sortOrder: 6,
     active: false,
     external: false,
@@ -145,23 +190,17 @@ export const servicesData: Service[] = [
 
   {
     id: 7,
-    slug: "laporan-kehilangan",
-    title: "Laporan Kehilangan",
-    description: "Pembuatan surat kehilangan barang.",
-    content: "Pelayanan surat kehilangan.",
-    category: "Pelayanan",
-    icon: "mdi:file-search",
+    group: "ops",
+    slug: "informasi-pelaksanaan-operasi",
+    title: "Informasi Pelaksanaan Operasi",
+    description: "Rencana informasi pelaksanaan operasi kepolisian.",
+    content: "Informasi pelaksanaan operasi kepolisian akan tersedia setelah layanan resmi siap.",
+    category: "Operasi Kepolisian",
+    icon: "mdi:shield-check",
     color: "gold",
-    requirements: [
-      "KTP",
-      "Data barang yang hilang",
-    ],
-    procedures: [
-      "Registrasi.",
-      "Verifikasi.",
-      "Penerbitan surat.",
-    ],
-    url: "#",
+    requirements: [],
+    procedures: [],
+    url: "",
     sortOrder: 7,
     active: false,
     external: false,
@@ -169,10 +208,11 @@ export const servicesData: Service[] = [
 
   {
     id: 8,
+    group: "siber",
     slug: "cyber-polda-papua-tengah",
     title: "Cyber Polda Papua Tengah",
-    description: "Layanan informasi dan pelayanan kepolisian di bidang keamanan siber.",
-    content: "Cyber Polda Papua Tengah merupakan layanan yang mendukung informasi dan pelayanan kepolisian di bidang keamanan siber.",
+    description: "Rencana layanan keamanan siber, termasuk Aduan Siber.",
+    content: "Cyber Polda Papua Tengah direncanakan mencakup informasi keamanan siber dan Aduan Siber.",
     category: "Keamanan Siber",
     icon: "mdi:shield-lock",
     color: "blue",
@@ -183,5 +223,26 @@ export const servicesData: Service[] = [
     active: false,
     external: true,
   },
-];
 
+  {
+    id: 9, group: "lantas", slug: "stnk-bpkb", title: "STNK/BPKB",
+    description: "Rencana layanan administrasi STNK dan BPKB.",
+    content: "Layanan STNK/BPKB belum tersedia melalui gateway ini.",
+    category: "Lalu Lintas", icon: "mdi:file-document", color: "green",
+    requirements: [], procedures: [], url: "", sortOrder: 9, active: false, external: false,
+  },
+  {
+    id: 10, group: "lantas", slug: "samsat", title: "Samsat",
+    description: "Rencana akses layanan Samsat.",
+    content: "Layanan Samsat belum tersedia melalui gateway ini.",
+    category: "Lalu Lintas", icon: "mdi:car", color: "green",
+    requirements: [], procedures: [], url: "", sortOrder: 10, active: false, external: false,
+  },
+  {
+    id: 11, group: "humas", slug: "berita-dan-himbauan", title: "Berita dan Himbauan",
+    description: "Baca berita dan himbauan pada website Polda Papua Tengah.",
+    content: "Informasi publik melalui halaman Berita yang sudah tersedia.",
+    category: "Informasi Publik", icon: "mdi:newspaper", color: "blue",
+    requirements: [], procedures: [], url: "/berita", sortOrder: 11, active: true, external: false,
+  },
+];

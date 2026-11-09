@@ -1,4 +1,4 @@
-﻿import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
 import "./ServiceCard.css";
@@ -7,10 +7,12 @@ import type { Service } from "../../../types/service";
 
 interface ServiceCardProps {
   service: Service;
+  onCallCenter?: () => void;
 }
 
 export default function ServiceCard({
   service,
+  onCallCenter,
 }: ServiceCardProps) {
 
   const buttonClass = `service-card__button ${
@@ -42,10 +44,14 @@ export default function ServiceCard({
 
       </div>
 
-      {!service.active ? (
-        <span className={buttonClass}>
+      {!service.active || (service.action !== "call-center" && !service.url) ? (
+        <button type="button" className={buttonClass} disabled>
           Segera Hadir
-        </span>
+        </button>
+      ) : service.action === "call-center" ? (
+        <button type="button" className={buttonClass} onClick={onCallCenter} disabled={!onCallCenter} aria-haspopup="dialog">
+          Buka Layanan
+        </button>
       ) : service.external ? (
         <a
           href={service.url}
@@ -57,7 +63,7 @@ export default function ServiceCard({
         </a>
       ) : (
         <Link
-          to={service.url !== "#" ? service.url : `/layanan/${service.slug}`}
+          to={service.url}
           className={buttonClass}
         >
           Buka Layanan
