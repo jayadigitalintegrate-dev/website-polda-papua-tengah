@@ -211,6 +211,17 @@ export default function AnnouncementPopup() {
             if (event.key === "Escape") {
                 closedRef.current = true;
                 setShow(false);
+            } else if (
+                announcements.length > 1 &&
+                !event.defaultPrevented &&
+                !event.altKey && !event.ctrlKey && !event.metaKey &&
+                (event.key === "ArrowLeft" || event.key === "ArrowRight")
+            ) {
+                event.preventDefault();
+                const direction = event.key === "ArrowLeft" ? -1 : 1;
+                setActiveIndex((current) =>
+                    (current + direction + announcements.length) % announcements.length
+                );
             }
         };
 
@@ -228,7 +239,7 @@ export default function AnnouncementPopup() {
                 handleKeyDown
             );
         };
-    }, [show]);
+    }, [show, announcements.length]);
 
     const closePopup = () => {
         if (hideToday) {
@@ -287,6 +298,40 @@ export default function AnnouncementPopup() {
                         {announcement.description}
                     </p>
                 </div>
+
+                {announcements.length > 1 && (
+                    <nav className="announcement-popup__navigation" aria-label="Navigasi pengumuman">
+                        <button
+                            type="button"
+                            className="announcement-popup__nav-button"
+                            aria-label="Pengumuman sebelumnya"
+                            onClick={() => setActiveIndex((current) =>
+                                (current - 1 + announcements.length) % announcements.length
+                            )}
+                        >
+                            <span aria-hidden="true">&#8249;</span>
+                        </button>
+                        <span
+                            className="announcement-popup__position"
+                            role="status"
+                            aria-live="polite"
+                            aria-atomic="true"
+                            aria-label={`Pengumuman ${activeIndex + 1} dari ${announcements.length}`}
+                        >
+                            {activeIndex + 1} / {announcements.length}
+                        </span>
+                        <button
+                            type="button"
+                            className="announcement-popup__nav-button"
+                            aria-label="Pengumuman berikutnya"
+                            onClick={() => setActiveIndex((current) =>
+                                (current + 1) % announcements.length
+                            )}
+                        >
+                            <span aria-hidden="true">&#8250;</span>
+                        </button>
+                    </nav>
+                )}
 
                 <label className="announcement-popup__checkbox">
                     <input
