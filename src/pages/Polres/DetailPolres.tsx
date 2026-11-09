@@ -6,45 +6,6 @@ import {
   type CmsPolres,
 } from "../../services/polresApi";
 import "../../components/polres/Polres.css";
-import { polresData } from "../../components/polres/polresData";
-
-function getLocalPolres(): CmsPolres[] {
-  return polresData.map((item, index) => ({
-    id: index + 1,
-
-    name_id: item.nama,
-    name_en: null,
-
-    chief_name: item.kapolres,
-    chief_rank: "Kapolres",
-    chief_nrp: null,
-
-    chief_photo: null,
-    chief_photo_url: item.gambar,
-
-    jurisdiction: item.wilayah,
-    address: item.alamat,
-
-    phone: null,
-    email: null,
-    website: null,
-    description: null,
-
-    sort_order: index + 1,
-    status: "active",
-
-    created_at: "",
-    updated_at: "",
-  }));
-}
-
-
-
-
-
-
-
-
 export default function DetailPolres() {
   const { slug } = useParams();
 
@@ -59,26 +20,19 @@ export default function DetailPolres() {
       try {
         setLoading(true);
         setError(null);
+        setPolres(null);
 
         const data = await fetchPolres();
 
-        const source = data.length > 0
-          ? data
-          : getLocalPolres();
-
-        const found = source.find(
+        const found = data.find(
           (item) => String(item.id) === slug
         );
         if (mounted) {
           setPolres(found ?? null);
         }
-      } catch (err) {
+      } catch {
         if (mounted) {
-          setError(
-            err instanceof Error
-              ? err.message
-              : "Gagal mengambil data Polres."
-          );
+          setError("Data Polres belum dapat dimuat. Silakan coba lagi nanti.");
         }
       } finally {
         if (mounted) {
