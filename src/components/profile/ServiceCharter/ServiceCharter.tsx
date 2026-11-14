@@ -1,5 +1,5 @@
 import "./ServiceCharter.css";
-import presisiLogo from "../../../assets/logo/presisi-polri.png";
+import taglineLogo from "../../../assets/logo/tagline-baru.png";
 
 export default function ServiceCharter() {
   return (
@@ -19,8 +19,8 @@ export default function ServiceCharter() {
 
           <div className="charter-logo">
             <img
-              src={presisiLogo}
-              alt="Transformasi Menuju Polri Presisi"
+              src={taglineLogo}
+              alt="Polisi Bersama Masyarakat"
             />
           </div>
 
@@ -46,7 +46,7 @@ export default function ServiceCharter() {
             <div>✓ Humanis</div>
 
             <div>✓ Responsif</div>
-            <div>✓ Presisi</div>
+            <div>✓ Mengayomi</div>
 
           </div>
 

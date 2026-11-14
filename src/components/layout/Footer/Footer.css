@@ -579,3 +579,17 @@
         padding-right:16px;
     }
 }
+
+/* FOOTER TWO-COLUMN FIX - NO PRESISI LOGO */
+@media (min-width: 769px) {
+    .footer-bottom {
+        grid-template-columns: minmax(0, 1fr) auto;
+        justify-items: stretch;
+        box-sizing: border-box;
+    }
+
+    .footer-bottom-links {
+        justify-content: flex-end;
+        justify-self: end;
+    }
+}

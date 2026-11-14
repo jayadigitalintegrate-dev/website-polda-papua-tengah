@@ -133,3 +133,24 @@ font-size:16px;
 }
 
 }
+
+/* KAPOLDA PROFILE NAME */
+.kapolda-profile-name {
+    margin: 14px 0 0;
+    padding: 0 8px;
+    color: #0b3d6d;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* OFFICIAL PROFILE PHOTO - FULL FRAME */
+.welcome-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 20px;
+}

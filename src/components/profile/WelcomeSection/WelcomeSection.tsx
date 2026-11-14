@@ -1,6 +1,6 @@
 import "./WelcomeSection.css";
 import { Link } from "react-router-dom";
-import kapoldaImage from "../../../assets/kapolda/kapolda.webp";
+import kapoldaImage from "../../../assets/kapolda/kapolda-profil-resmi.webp";
 
 export default function WelcomeSection() {
   return (
@@ -10,7 +10,7 @@ export default function WelcomeSection() {
         <div className="welcome-image">
           <img
             src={kapoldaImage}
-            alt="Kapolda Papua Tengah"
+            alt="Brigjen. Pol. Jeremias Rontini, S.I.K., M.Si."
           />
         </div>
 
