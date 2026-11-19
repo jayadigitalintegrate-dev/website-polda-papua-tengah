@@ -134,6 +134,7 @@ export interface News {
   ========================== */
 
   views: number;
+  likes?: number;
 
 
   /* ==========================

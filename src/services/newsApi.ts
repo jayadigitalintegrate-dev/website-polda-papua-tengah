@@ -52,6 +52,9 @@ interface CmsNews {
 
     sort_order?: number;
 
+    views?: number;
+    likes?: number;
+
     published_at: string | null;
 
     created_at: string;
@@ -238,7 +241,10 @@ function mapCmsNews(item: CmsNews): News {
 
         showDate: true,
 
-        views: 0,
+        views: typeof item.views === "number" && Number.isFinite(item.views) && item.views >= 0
+            ? item.views : 0,
+        likes: typeof item.likes === "number" && Number.isFinite(item.likes) && item.likes >= 0
+            ? item.likes : 0,
         category: getCategory(item.category),
 
         type: item.category === "video" ? "video" : "article",

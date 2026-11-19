@@ -62,6 +62,24 @@
 
 }
 
+.article-toolbar__like{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid #b8c7d9;
+    border-radius:10px;
+    padding:7px 12px;
+    background:#f8fbff;
+    color:#005BAC;
+    font-size:.9rem;
+    font-weight:600;
+    cursor:pointer;
+}
+.article-toolbar__like svg{ font-size:19px; }
+.article-toolbar__like--active{ color:#b42345; border-color:#e6a4b5; background:#fff4f6; }
+.article-toolbar__like:disabled{ cursor:not-allowed; opacity:.6; }
+.article-toolbar__like:focus-visible{ outline:3px solid #005BAC; outline-offset:2px; }
+
 /* ==========================================================
    SHARE
 ========================================================== */

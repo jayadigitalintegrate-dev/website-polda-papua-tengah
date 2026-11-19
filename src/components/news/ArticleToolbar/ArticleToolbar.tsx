@@ -6,10 +6,16 @@ import type { News } from "../../../types/news";
 
 interface ArticleToolbarProps {
   news: News;
+  views: number;
+  likes: number;
+  liked: boolean;
+  likeEnabled: boolean;
+  likePending: boolean;
+  onLike: () => void;
 }
 
 export default function ArticleToolbar({
-  news,
+  news, views, likes, liked, likeEnabled, likePending, onLike,
 }: ArticleToolbarProps) {
   const shareUrl = window.location.href;
 
@@ -33,8 +39,20 @@ export default function ArticleToolbar({
 
         <span>
           <Icon icon="mdi:eye-outline" />
-          {news.views.toLocaleString()} Views
+          {likeEnabled ? views.toLocaleString("id-ID") : "—"} Views
         </span>
+
+        <button
+          type="button"
+          className={`article-toolbar__like ${liked ? "article-toolbar__like--active" : ""}`}
+          disabled={!likeEnabled || likePending}
+          aria-pressed={liked}
+          title={likeEnabled ? "Sukai atau batalkan suka berita ini" : "Like belum tersedia tanpa koneksi CMS"}
+          onClick={onLike}
+        >
+          <Icon icon={liked ? "mdi:heart" : "mdi:heart-outline"} />
+          {likeEnabled ? likes.toLocaleString("id-ID") : "—"} Like
+        </button>
 
         <span>
           <Icon icon="mdi:calendar-month-outline" />
