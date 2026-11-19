@@ -23,12 +23,20 @@ import {
 
 import type { News } from "../../types/news";
 import { getNewsBySlug } from "../../services/news.service";
+import {
+  isNewsEngagementConfigured,
+  recordNewsView,
+  updateNewsLike,
+} from "../../services/newsEngagement";
+import type { NewsEngagement } from "../../services/newsEngagement";
 
 export default function NewsDetail() {
   const { slug } = useParams();
 
   const [news, setNews] = useState<News | null>(null);
   const [loading, setLoading] = useState(true);
+  const [engagement, setEngagement] = useState<NewsEngagement | null>(null);
+  const [likePending, setLikePending] = useState(false);
 
   useEffect(() => {
     if (!slug) {
@@ -66,6 +74,48 @@ export default function NewsDetail() {
       mounted = false;
     };
   }, [slug]);
+
+  useEffect(() => {
+    if (!slug || !news || news.slug !== slug || !isNewsEngagementConfigured()) {
+      setEngagement(null);
+      return;
+    }
+
+    let active = true;
+    setEngagement(null);
+
+    void recordNewsView(slug)
+      .then((stats) => {
+        if (!active) return;
+        setEngagement(stats);
+        setNews((current) => current?.slug === slug
+          ? { ...current, views: stats.views, likes: stats.likes }
+          : current);
+      })
+      .catch((error) => {
+        console.warn("Statistik berita tidak tersedia:", error);
+        if (active) setEngagement(null);
+      });
+
+    return () => { active = false; };
+  }, [slug, news?.id]);
+
+  async function handleLike() {
+    if (!news || !engagement || likePending) return;
+
+    setLikePending(true);
+    try {
+      const stats = await updateNewsLike(news.slug, !engagement.liked);
+      setEngagement(stats);
+      setNews((current) => current?.slug === news.slug
+        ? { ...current, views: stats.views, likes: stats.likes }
+        : current);
+    } catch (error) {
+      console.warn("Gagal menyimpan Like berita:", error);
+    } finally {
+      setLikePending(false);
+    }
+  }
 
   if (!slug) {
     return <Navigate to="/berita" replace />;
@@ -120,7 +170,15 @@ export default function NewsDetail() {
       <Container>
         <NewsHero news={news} />
 
-        <ArticleToolbar news={news} />
+        <ArticleToolbar
+          news={news}
+          views={engagement?.views ?? news.views}
+          likes={engagement?.likes ?? news.likes ?? 0}
+          liked={engagement?.liked ?? false}
+          likeEnabled={engagement !== null}
+          likePending={likePending}
+          onLike={handleLike}
+        />
 
         <section className="news-detail">
           <NewsLayout
